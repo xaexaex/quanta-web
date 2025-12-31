@@ -18,17 +18,29 @@ export default function Footer() {
             <div>
               <h4 className="font-bold mb-8 text-lg">Ecosystem</h4>
               <ul className="space-y-6 text-gray-500">
-                <li><Link href="#" className="hover:text-[#00E599] transition-colors">Explorer</Link></li>
-                <li><Link href="#" className="hover:text-[#00E599] transition-colors">Mining Pool</Link></li>
-                <li><Link href="#" className="hover:text-[#00E599] transition-colors">Wallet</Link></li>
+                <li className="flex items-center gap-2">
+                  <Link href="#" className="hover:text-[#00E599] transition-colors">Explorer</Link>
+                  <span className="text-xs bg-gray-200 text-gray-600 px-2 py-1 rounded-full font-semibold">Soon</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Link href="#" className="hover:text-[#00E599] transition-colors">Mining Pool</Link>
+                  <span className="text-xs bg-gray-200 text-gray-600 px-2 py-1 rounded-full font-semibold">Soon</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <Link href="#" className="hover:text-[#00E599] transition-colors">Wallet</Link>
+                  <span className="text-xs bg-gray-200 text-gray-600 px-2 py-1 rounded-full font-semibold">Soon</span>
+                </li>
               </ul>
             </div>
             <div>
               <h4 className="font-bold mb-8 text-lg">Developers</h4>
               <ul className="space-y-6 text-gray-500">
-                <li><Link href="https://github.com/xaexaex/quanta" className="hover:text-[#00E599] transition-colors">GitHub</Link></li>
-                <li><Link href="#" className="hover:text-[#00E599] transition-colors">Documentation</Link></li>
-                <li><Link href="#" className="hover:text-[#00E599] transition-colors">Whitepaper</Link></li>
+                <li><Link href="https://github.com/xaexaex/quanta" target="_blank" className="hover:text-[#00E599] transition-colors">GitHub</Link></li>
+                <li><Link href="/docs" className="hover:text-[#00E599] transition-colors">Documentation</Link></li>
+                <li className="flex items-center gap-2">
+                  <Link href="#" className="hover:text-[#00E599] transition-colors">Whitepaper</Link>
+                  <span className="text-xs bg-gray-200 text-gray-600 px-2 py-1 rounded-full font-semibold">Soon</span>
+                </li>
               </ul>
             </div>
             <div>
@@ -45,8 +57,8 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center pt-10 border-t border-gray-100 text-sm text-gray-500">
           <p>&copy; {new Date().getFullYear()} Quanta Chain. All rights reserved.</p>
           <div className="flex gap-8 mt-6 md:mt-0">
-            <Link href="#" className="hover:text-black transition-colors">Privacy Policy</Link>
-            <Link href="#" className="hover:text-black transition-colors">Terms of Service</Link>
+            <Link href="/privacy" className="hover:text-black transition-colors">Privacy Policy</Link>
+            <Link href="/terms" className="hover:text-black transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

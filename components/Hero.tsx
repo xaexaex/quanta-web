@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 
 export default function Hero() {
@@ -28,10 +30,14 @@ export default function Hero() {
             Start Mining
           </Link>
           <Link 
-            href="#tech"
+            href="#roadmap"
+            onClick={(e) => {
+              e.preventDefault();
+              document.getElementById('roadmap')?.scrollIntoView({ behavior: 'smooth' });
+            }}
             className="px-10 py-5 text-xl font-bold text-black bg-gray-100 border border-gray-200 rounded-full hover:bg-gray-200 transition-all"
           >
-            View Architecture
+            View Roadmap
           </Link>
         </div>
 

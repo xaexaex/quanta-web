@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { GitFork } from "lucide-react";
 
 export default function Navbar() {
   return (
@@ -8,20 +9,16 @@ export default function Navbar() {
           Quanta<span className="text-[#00E599]">.</span>
         </Link>
         
-        <div className="hidden md:flex items-center gap-10 text-sm font-medium text-gray-500 hover:text-black transition-colors">
-          <Link href="#features" className="hover:text-[#00E599] transition-colors">Features</Link>
-          <Link href="#tech" className="hover:text-[#00E599] transition-colors">Technology</Link>
-          <Link href="#roadmap" className="hover:text-[#00E599] transition-colors">Roadmap</Link>
-          <Link href="https://github.com/xaexaex/quanta" target="_blank" className="hover:text-[#00E599] transition-colors">GitHub</Link>
+        <div className="flex items-center gap-4">
+          <Link 
+            href="https://github.com/xaexaex/quanta"
+            target="_blank"
+            className="inline-flex items-center justify-center gap-2 px-8 py-3 text-sm font-bold text-black bg-[#00E599] rounded-full hover:bg-[#00E599]/90 transition-all hover:scale-105"
+          >
+            Start Contributing
+            <GitFork className="w-4 h-4" />
+          </Link>
         </div>
-
-        <Link 
-          href="https://github.com/xaexaex/quanta"
-          target="_blank"
-          className="hidden md:inline-flex items-center justify-center px-8 py-3 text-sm font-bold text-black bg-[#00E599] rounded-full hover:bg-[#00E599]/90 transition-all hover:scale-105"
-        >
-          Start Building
-        </Link>
       </div>
     </nav>
   );
