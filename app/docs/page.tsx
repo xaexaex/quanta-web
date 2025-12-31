@@ -90,25 +90,25 @@ cargo test`} />
           </section>
 
           {/* Quick Start */}
-          <section id="quickstart" className="scroll-mt-24">
-            <h2 className="text-4xl font-bold mb-6 flex items-center gap-4">
-              <Terminal className="w-10 h-10 text-[#00E599]" />
+          <section id="quickstart" className="scroll-mt-20 md:scroll-mt-24">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-6 flex items-center gap-2 md:gap-4">
+              <Terminal className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-[#00E599]" />
               Quick Start
             </h2>
-            <div className="space-y-6">
-              <div className="bg-[#00E599]/10 border-2 border-[#00E599] p-6 rounded-2xl">
-                <h3 className="font-bold text-xl mb-4">1. Create a Wallet</h3>
+            <div className="space-y-4 md:space-y-6">
+              <div className="bg-[#00E599]/10 border-2 border-[#00E599] p-4 sm:p-5 md:p-6 rounded-xl md:rounded-2xl">
+                <h3 className="font-bold text-base sm:text-lg md:text-xl mb-3 md:mb-4">1. Create a Wallet</h3>
                 <CodeBlock id="wallet" code={`./target/release/quanta new-wallet --file miner.qua
 # Enter a strong password when prompted`} />
               </div>
 
-              <div className="bg-white border-2 border-gray-200 p-6 rounded-2xl">
-                <h3 className="font-bold text-xl mb-4">2. Start a Node</h3>
+              <div className="bg-white border-2 border-gray-200 p-4 sm:p-5 md:p-6 rounded-xl md:rounded-2xl">
+                <h3 className="font-bold text-base sm:text-lg md:text-xl mb-3 md:mb-4">2. Start a Node</h3>
                 <CodeBlock id="start" code={`./target/release/quanta start --port 3000 --db ./node_data`} />
               </div>
 
-              <div className="bg-white border-2 border-gray-200 p-6 rounded-2xl">
-                <h3 className="font-bold text-xl mb-4">3. Mine Blocks</h3>
+              <div className="bg-white border-2 border-gray-200 p-4 sm:p-5 md:p-6 rounded-xl md:rounded-2xl">
+                <h3 className="font-bold text-base sm:text-lg md:text-xl mb-3 md:mb-4">3. Mine Blocks</h3>
                 <CodeBlock id="mine" code={`# Mine a single block
 ./target/release/quanta mine --wallet miner.qua
 
@@ -121,15 +121,15 @@ curl -X POST http://localhost:3000/api/mine/start \\
           </section>
 
           {/* Wallet Operations */}
-          <section id="wallet-ops" className="scroll-mt-24">
-            <h2 className="text-4xl font-bold mb-6 flex items-center gap-4">
-              <Shield className="w-10 h-10 text-[#00E599]" />
+          <section id="wallet-ops" className="scroll-mt-20 md:scroll-mt-24">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-6 flex items-center gap-2 md:gap-4">
+              <Shield className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-[#00E599]" />
               Wallet Operations
             </h2>
-            <div className="space-y-6">
-              <div className="bg-white border-2 border-gray-200 p-6 rounded-2xl">
-                <h3 className="font-bold text-xl mb-4">HD Wallets (BIP39)</h3>
-                <p className="text-gray-600 mb-4">Create HD wallets with 24-word mnemonic phrases:</p>
+            <div className="space-y-4 md:space-y-6">
+              <div className="bg-white border-2 border-gray-200 p-4 sm:p-5 md:p-6 rounded-xl md:rounded-2xl">
+                <h3 className="font-bold text-base sm:text-lg md:text-xl mb-3 md:mb-4">HD Wallets (BIP39)</h3>
+                <p className="text-sm sm:text-base text-gray-600 mb-3 md:mb-4">Create HD wallets with 24-word mnemonic phrases:</p>
                 <CodeBlock id="hdwallet" code={`# Create HD wallet with 3 accounts
 ./target/release/quanta new-hd-wallet --file hd.json --accounts 3
 
@@ -137,8 +137,8 @@ curl -X POST http://localhost:3000/api/mine/start \\
 ./target/release/quanta hd-wallet --file hd.json`} />
               </div>
 
-              <div className="bg-white border-4 border-black p-10 rounded-[2rem]">
-                <h3 className="font-bold text-3xl mb-8 text-black">Check Balance</h3>
+              <div className="bg-white border-2 border-gray-200 p-4 sm:p-5 md:p-6 rounded-xl md:rounded-2xl">
+                <h3 className="font-bold text-base sm:text-lg md:text-xl mb-3 md:mb-4">Check Balance</h3>
                 <CodeBlock id="balance" code={`# CLI
 ./target/release/quanta wallet --file miner.qua
 
@@ -159,22 +159,22 @@ curl -X POST http://localhost:3000/api/balance \\
           </section>
 
           {/* API Reference */}
-          <section id="api" className="scroll-mt-24">
-            <h2 className="text-4xl font-bold mb-6 flex items-center gap-4">
-              <Code2 className="w-10 h-10 text-[#00E599]" />
+          <section id="api" className="scroll-mt-20 md:scroll-mt-24">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-6 flex items-center gap-2 md:gap-4">
+              <Code2 className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-[#00E599]" />
               API Reference
             </h2>
-            <div className="space-y-4">
-              <p className="text-xl text-black mb-6">
+            <div className="space-y-3 md:space-y-4">
+              <p className="text-base sm:text-lg md:text-xl text-black mb-4 md:mb-6">
                 Quanta provides a REST API on port 3000 (configurable).
               </p>
 
-              <div className="bg-white border-2 border-gray-200 rounded-2xl overflow-hidden">
-                <div className="bg-black text-white p-4 font-mono">
+              <div className="bg-white border-2 border-gray-200 rounded-xl md:rounded-2xl overflow-hidden">
+                <div className="bg-black text-white p-3 sm:p-4 font-mono text-xs sm:text-sm">
                   GET /health
                 </div>
-                <div className="p-6">
-                  <p className="text-gray-600 mb-4">Health check and node status</p>
+                <div className="p-4 sm:p-5 md:p-6">
+                  <p className="text-sm sm:text-base text-gray-600 mb-3 md:mb-4">Health check and node status</p>
                   <CodeBlock id="health" code={`curl http://localhost:3000/health`} />
                 </div>
               </div>
@@ -240,14 +240,14 @@ curl -X POST http://localhost:3000/api/balance \\
           </section>
 
           {/* Configuration */}
-          <section id="config" className="scroll-mt-24">
-            <h2 className="text-4xl font-bold mb-6 flex items-center gap-4">
-              <Zap className="w-10 h-10 text-[#00E599]" />
+          <section id="config" className="scroll-mt-20 md:scroll-mt-24">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-6 flex items-center gap-2 md:gap-4">
+              <Zap className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-[#00E599]" />
               Configuration
             </h2>
-            <div className="space-y-6">
-              <p className="text-xl text-black">
-                Create a <code className="bg-gray-100 px-2 py-1 rounded">quanta.toml</code> file for node configuration:
+            <div className="space-y-4 md:space-y-6">
+              <p className="text-base sm:text-lg md:text-xl text-black">
+                Create a <code className="bg-gray-100 px-2 py-1 rounded text-sm">quanta.toml</code> file for node configuration:
               </p>
               <CodeBlock id="config-toml" code={`[node]
 api_port = 3000
@@ -282,18 +282,18 @@ port = 9090`} />
           </section>
 
           {/* P2P Networking */}
-          <section id="p2p" className="scroll-mt-24">
-            <h2 className="text-4xl font-bold mb-6 flex items-center gap-4">
-              <Terminal className="w-10 h-10 text-[#00E599]" />
+          <section id="p2p" className="scroll-mt-20 md:scroll-mt-24">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-6 flex items-center gap-2 md:gap-4">
+              <Terminal className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-[#00E599]" />
               P2P Networking
             </h2>
-            <div className="space-y-6">
-              <p className="text-xl text-black mb-4">
+            <div className="space-y-4 md:space-y-6">
+              <p className="text-base sm:text-lg md:text-xl text-black mb-3 md:mb-4">
                 Connect multiple nodes to form a network:
               </p>
               
-              <div className="bg-white border-2 border-gray-200 p-6 rounded-2xl">
-                <h3 className="font-bold text-xl mb-4">Node 1 (Bootstrap)</h3>
+              <div className="bg-white border-2 border-gray-200 p-4 sm:p-5 md:p-6 rounded-xl md:rounded-2xl">
+                <h3 className="font-bold text-base sm:text-lg md:text-xl mb-3 md:mb-4">Node 1 (Bootstrap)</h3>
                 <CodeBlock id="node1" code={`./target/release/quanta start \\
   --network-port 8333 \\
   --port 3000 \\
@@ -318,15 +318,15 @@ port = 9090`} />
           </section>
 
           {/* Technical Specs */}
-          <section id="specs" className="scroll-mt-24">
-            <h2 className="text-4xl font-bold mb-6 flex items-center gap-4">
-              <Book className="w-10 h-10 text-[#00E599]" />
+          <section id="specs" className="scroll-mt-20 md:scroll-mt-24">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-6 flex items-center gap-2 md:gap-4">
+              <Book className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-[#00E599]" />
               Technical Specifications
             </h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              <div className="bg-black p-6 rounded-2xl">
-                <h3 className="font-bold text-xl mb-4 text-[#00E599]">Cryptography</h3>
-                <ul className="space-y-2 text-white">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+              <div className="bg-black p-4 sm:p-5 md:p-6 rounded-xl md:rounded-2xl">
+                <h3 className="font-bold text-base sm:text-lg md:text-xl mb-3 md:mb-4 text-[#00E599]">Cryptography</h3>
+                <ul className="space-y-2 text-white text-sm sm:text-base">
                   <li><strong>Signatures:</strong> Falcon-512 (NIST PQC)</li>
                   <li><strong>Encryption:</strong> Kyber-1024 + ChaCha20-Poly1305</li>
                   <li><strong>Hashing:</strong> SHA3-256 (Double)</li>
@@ -368,21 +368,21 @@ port = 9090`} />
           </section>
 
           {/* Quantum Resistance */}
-          <section id="quantum" className="scroll-mt-24">
-            <h2 className="text-4xl font-bold mb-6 flex items-center gap-4">
-              <Shield className="w-10 h-10 text-[#00E599]" />
+          <section id="quantum" className="scroll-mt-20 md:scroll-mt-24">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-6 flex items-center gap-2 md:gap-4">
+              <Shield className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-[#00E599]" />
               Quantum Resistance
             </h2>
-            <div className="bg-black text-white rounded-2xl p-8 md:p-12">
-              <h3 className="text-3xl font-bold mb-6">Why Quantum-Resistant?</h3>
-              <p className="text-xl text-gray-300 mb-8">
+            <div className="bg-black text-white rounded-xl md:rounded-2xl p-6 sm:p-8 md:p-12">
+              <h3 className="text-2xl sm:text-2xl md:text-3xl font-bold mb-4 md:mb-6">Why Quantum-Resistant?</h3>
+              <p className="text-base sm:text-lg md:text-xl text-gray-300 mb-6 md:mb-8">
                 Traditional blockchains like Bitcoin use ECDSA signatures, which are vulnerable to quantum computers using Shor's algorithm. Quanta uses NIST-standardized post-quantum cryptography.
               </p>
               
-              <div className="grid md:grid-cols-2 gap-6 mb-8">
-                <div className="bg-white/10 p-6 rounded-xl">
-                  <h4 className="font-bold text-2xl mb-4 text-[#00E599]">Traditional (ECDSA)</h4>
-                  <ul className="space-y-2 text-gray-300">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6 md:mb-8">
+                <div className="bg-white/10 p-4 sm:p-5 md:p-6 rounded-lg md:rounded-xl">
+                  <h4 className="font-bold text-lg sm:text-xl md:text-2xl mb-3 md:mb-4 text-[#00E599]">Traditional (ECDSA)</h4>
+                  <ul className="space-y-2 text-gray-300 text-sm sm:text-base">
                     <li>Public Key: 33 bytes</li>
                     <li>Signature: 65 bytes</li>
                     <li>Quantum Safe: NO</li>
@@ -414,15 +414,15 @@ port = 9090`} />
           </section>
 
           {/* Security Best Practices */}
-          <section id="security" className="scroll-mt-24">
-            <h2 className="text-4xl font-bold mb-6 flex items-center gap-4">
-              <Shield className="w-10 h-10 text-[#00E599]" />
+          <section id="security" className="scroll-mt-20 md:scroll-mt-24">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-6 flex items-center gap-2 md:gap-4">
+              <Shield className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-[#00E599]" />
               Security Best Practices
             </h2>
-            <div className="space-y-6">
-              <div className="bg-black border-2 border-[#00E599] p-6 rounded-2xl">
-                <h3 className="font-bold text-xl mb-4 text-[#00E599]">Important Warnings</h3>
-                <ul className="space-y-2 text-white">
+            <div className="space-y-4 md:space-y-6">
+              <div className="bg-black border-2 border-[#00E599] p-4 sm:p-5 md:p-6 rounded-xl md:rounded-2xl">
+                <h3 className="font-bold text-base sm:text-lg md:text-xl mb-3 md:mb-4 text-[#00E599]">Important Warnings</h3>
+                <ul className="space-y-2 text-white text-sm sm:text-base">
                   <li>Quanta is for research/educational purposes</li>
                   <li>NOT audited for production use</li>
                   <li>Do not use for real financial transactions</li>
@@ -430,10 +430,10 @@ port = 9090`} />
                 </ul>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-6">
-                <div className="bg-white border-2 border-gray-200 p-6 rounded-2xl">
-                  <h3 className="font-bold text-xl mb-4">Wallet Security</h3>
-                  <ul className="space-y-2 text-gray-600">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                <div className="bg-white border-2 border-gray-200 p-4 sm:p-5 md:p-6 rounded-xl md:rounded-2xl">
+                  <h3 className="font-bold text-base sm:text-lg md:text-xl mb-3 md:mb-4">Wallet Security</h3>
+                  <ul className="space-y-2 text-gray-600 text-sm sm:text-base">
                     <li>Use strong passwords (20+ characters)</li>
                     <li>Store backups offline</li>
                     <li>Never commit wallet files to version control</li>
@@ -455,27 +455,27 @@ port = 9090`} />
           </section>
 
           {/* Contributing */}
-          <section id="contributing" className="scroll-mt-24">
-            <h2 className="text-4xl font-bold mb-6">Contributing</h2>
-            <div className="bg-[#00E599] rounded-2xl p-8 md:p-12 text-center">
-              <h3 className="text-3xl font-bold text-black mb-6">
+          <section id="contributing" className="scroll-mt-20 md:scroll-mt-24">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-6">Contributing</h2>
+            <div className="bg-[#00E599] rounded-xl md:rounded-2xl p-6 sm:p-8 md:p-12 text-center">
+              <h3 className="text-2xl sm:text-2xl md:text-3xl font-bold text-black mb-4 md:mb-6">
                 Help Build the Future
               </h3>
-              <p className="text-lg text-black/80 mb-8 max-w-2xl mx-auto">
+              <p className="text-sm sm:text-base md:text-lg text-black/80 mb-6 md:mb-8 max-w-2xl mx-auto">
                 Quanta is open source and actively seeking contributors. Whether you're interested in cryptography, blockchain, or Rust development, we'd love your help!
               </p>
-              <div className="flex flex-col md:flex-row gap-4 justify-center">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
                 <a 
                   href="https://github.com/xaexaex/quanta"
                   target="_blank"
-                  className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-[#00E599] bg-black rounded-full hover:bg-gray-900 transition-all hover:scale-105"
+                  className="inline-flex items-center justify-center px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg md:text-xl font-bold text-[#00E599] bg-black rounded-full hover:bg-gray-900 transition-all hover:scale-105"
                 >
                   View on GitHub
                 </a>
                 <a 
                   href="https://github.com/xaexaex/quanta/issues"
                   target="_blank"
-                  className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-black bg-white rounded-full hover:bg-gray-100 transition-all hover:scale-105"
+                  className="inline-flex items-center justify-center px-8 sm:px-10 py-4 sm:py-5 text-base sm:text-lg md:text-xl font-bold text-black bg-white rounded-full hover:bg-gray-100 transition-all hover:scale-105"
                 >
                   Report Issues
                 </a>
