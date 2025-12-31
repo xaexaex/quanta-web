@@ -7,30 +7,30 @@ export default function TermsOfService() {
     <main className="min-h-screen bg-white text-black">
       <Navbar />
       
-      <div className="pt-40 pb-32">
+      <div className="pt-24 md:pt-40 pb-16 md:pb-32">
         {/* Header Section */}
-        <div className="mb-16 bg-black rounded-[3rem] p-16 md:p-20 mx-4 md:mx-8 relative overflow-hidden">
+        <div className="mb-8 md:mb-16 bg-black rounded-[2rem] md:rounded-[3rem] p-8 md:p-16 lg:p-20 mx-4 md:mx-8 relative overflow-hidden">
           <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] bg-[#00E599]/10 rounded-full blur-[120px]" />
           
           <div className="relative z-10">
-            <Link href="/" className="inline-flex items-center text-gray-400 hover:text-white mb-8 transition-colors">
-              ← Back to Home
+            <Link href="/" className="inline-flex items-center text-sm md:text-base text-gray-400 hover:text-white mb-4 md:mb-8 transition-colors">
+              Back to Home
             </Link>
-            <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white tracking-tight mb-4 md:mb-6">
               Terms of <span className="text-gray-400">Service.</span>
             </h1>
-            <p className="text-xl text-gray-400">
+            <p className="text-base md:text-xl text-gray-400">
               Last updated: December 31, 2025
             </p>
           </div>
         </div>
 
         {/* Content */}
-        <div className="container mx-auto px-6 md:px-8 max-w-4xl">
-          <div className="prose prose-lg max-w-none">
-            <section className="mb-12">
-              <h2 className="text-3xl font-bold mb-6 text-black">1. Acceptance of Terms</h2>
-              <p className="text-gray-600 leading-relaxed mb-4">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-4xl">
+          <div className="prose prose-sm sm:prose-base md:prose-lg max-w-none">
+            <section className="mb-8 md:mb-12">
+              <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-black">1. Acceptance of Terms</h2>
+              <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-4">
                 By accessing and using the Quanta Chain website (quantachain.org) and related services (collectively, the "Services"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use our Services.
               </p>
               <p className="text-gray-600 leading-relaxed">

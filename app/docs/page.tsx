@@ -37,39 +37,39 @@ export default function Documentation() {
     <main className="min-h-screen bg-white text-black">
       <Navbar />
       
-      <div className="pt-40 pb-32">
+      <div className="pt-24 md:pt-40 pb-16 md:pb-32">
         {/* Header Section */}
-        <div className="mb-16 bg-black rounded-[3rem] p-16 md:p-20 mx-4 md:mx-8 relative overflow-hidden">
+        <div className="mb-8 md:mb-16 bg-black rounded-[2rem] md:rounded-[3rem] p-8 md:p-16 lg:p-20 mx-4 md:mx-8 relative overflow-hidden">
           <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] bg-[#00E599]/10 rounded-full blur-[120px]" />
           
           <div className="relative z-10">
-            <Link href="/" className="inline-flex items-center text-gray-400 hover:text-white mb-8 transition-colors">
+            <Link href="/" className="inline-flex items-center text-sm md:text-base text-gray-400 hover:text-white mb-4 md:mb-8 transition-colors">
               Back to Home
             </Link>
-            <h1 className="text-5xl md:text-7xl font-bold text-white tracking-tight mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white tracking-tight mb-4 md:mb-6">
               Documentation<span className="text-gray-400">.</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-400 leading-relaxed max-w-3xl">
+            <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 leading-relaxed max-w-3xl">
               Complete guide to Quanta - the quantum-resistant blockchain built with Rust, Falcon-512, and Kyber-1024.
             </p>
           </div>
         </div>
 
         {/* Content */}
-        <div className="container mx-auto px-6 md:px-8 max-w-5xl space-y-16">
+        <div className="container mx-auto px-4 sm:px-6 md:px-8 max-w-5xl space-y-8 md:space-y-16">
           
           {/* Installation */}
-          <section id="installation" className="scroll-mt-24">
-            <h2 className="text-4xl font-bold mb-6 flex items-center gap-4">
-              <Rocket className="w-10 h-10 text-[#00E599]" />
+          <section id="installation" className="scroll-mt-20 md:scroll-mt-24">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-6 flex items-center gap-2 md:gap-4">
+              <Rocket className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 text-[#00E599]" />
               Installation
             </h2>
-            <div className="space-y-6">
-              <p className="text-xl text-black">
+            <div className="space-y-4 md:space-y-6">
+              <p className="text-base sm:text-lg md:text-xl text-black">
                 Quanta requires Rust 1.70+ to build from source.
               </p>
-              <div className="bg-black p-6 rounded-2xl">
-                <h3 className="font-bold text-xl mb-4 text-[#00E599]">System Requirements</h3>
+              <div className="bg-black p-4 sm:p-5 md:p-6 rounded-xl md:rounded-2xl">
+                <h3 className="font-bold text-lg sm:text-xl mb-3 md:mb-4 text-[#00E599]">System Requirements</h3>
                 <ul className="space-y-2 text-white">
                   <li>Rust 1.70 or higher</li>
                   <li>4GB RAM minimum</li>

@@ -15,15 +15,15 @@ export default function Home() {
       <FAQ />
       
       {/* Call to Action Section */}
-      <section className="py-40 relative overflow-hidden bg-black mx-4 md:mx-8 rounded-[3rem] text-white">
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-[#00E599]/10 rounded-full blur-[150px] -z-10" />
+      <section className="py-16 sm:py-24 md:py-40 relative overflow-hidden bg-black mx-4 md:mx-8 rounded-[2rem] md:rounded-[3rem] text-white">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[800px] md:w-[1000px] h-[600px] sm:h-[800px] md:h-[1000px] bg-[#00E599]/10 rounded-full blur-[150px] -z-10" />
         
-        <div className="container mx-auto px-6 text-center">
-          <h2 className="text-6xl md:text-8xl font-bold mb-10 tracking-tighter">
+        <div className="container mx-auto px-4 sm:px-6 text-center">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-6 sm:mb-8 md:mb-10 tracking-tighter">
             Ready to go <br />
             <span className="text-[#00E599]">Quantum?</span>
           </h2>
-          <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-16 leading-relaxed">
+          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 max-w-3xl mx-auto mb-8 sm:mb-12 md:mb-16 leading-relaxed">
             Join the network of the future. Start mining, building, or transacting on the most secure chain ever built.
           </p>
           <a 
