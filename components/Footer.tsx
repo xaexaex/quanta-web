@@ -43,11 +43,12 @@ export default function Footer() {
               </ul>
             </div>
             <div>
-              <h4 className="font-bold mb-8 text-lg">Community</h4>
+              <h4 className="font-bold mb-8 text-lg">Company</h4>
               <ul className="space-y-6 text-gray-500">
-                <li><Link href="#" className="hover:text-[#00E599] transition-colors">Discord</Link></li>
-                <li><Link href="#" className="hover:text-[#00E599] transition-colors">Twitter</Link></li>
-                <li><Link href="#" className="hover:text-[#00E599] transition-colors">Telegram</Link></li>
+                <li><Link href="/about" className="hover:text-[#00E599] transition-colors">About</Link></li>
+                <li><Link href="/blog" className="hover:text-[#00E599] transition-colors">Blog</Link></li>
+                <li><Link href="/community" className="hover:text-[#00E599] transition-colors">Community</Link></li>
+                <li><Link href="/press" className="hover:text-[#00E599] transition-colors">Press Kit</Link></li>
               </ul>
             </div>
           </div>

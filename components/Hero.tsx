@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Star, GitFork, Users } from "lucide-react";
 
 export default function Hero() {
   return (
@@ -16,10 +17,38 @@ export default function Hero() {
           Resistant Chain
         </h1>
 
-        <p className="text-lg sm:text-xl md:text-3xl text-gray-500 max-w-4xl mx-auto mb-12 text-balance leading-relaxed font-light">
+        <p className="text-lg sm:text-xl md:text-3xl text-gray-500 max-w-4xl mx-auto mb-8 text-balance leading-relaxed font-light">
           Built in Rust. Secured by Falcon-512 & Kyber-1024. <br className="hidden md:block" />
           Quanta is the fortress for the post-quantum era.
         </p>
+
+        {/* GitHub Stats */}
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
+          <a 
+            href="https://github.com/xaexaex/quanta" 
+            target="_blank"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-full text-sm font-semibold transition-all"
+          >
+            <Star className="w-4 h-4" />
+            <span>Star on GitHub</span>
+          </a>
+          <a 
+            href="https://github.com/xaexaex/quanta/fork" 
+            target="_blank"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-full text-sm font-semibold transition-all"
+          >
+            <GitFork className="w-4 h-4" />
+            <span>Fork</span>
+          </a>
+          <a 
+            href="https://github.com/xaexaex/quanta/graphs/contributors" 
+            target="_blank"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-full text-sm font-semibold transition-all"
+          >
+            <Users className="w-4 h-4" />
+            <span>Contributors</span>
+          </a>
+        </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
           <Link 
