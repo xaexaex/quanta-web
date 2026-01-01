@@ -96,16 +96,16 @@ export default function Roadmap() {
     <section id="roadmap" className="py-32 relative bg-white">
       <div className="px-6">
         {/* Heading Section */}
-        <div className="mb-24 bg-black rounded-[3rem] p-16 md:p-20 mx-4 md:mx-8 relative overflow-hidden">
+        <div className="mb-16 sm:mb-24 bg-black rounded-[2rem] sm:rounded-[3rem] p-8 sm:p-16 md:p-20 mx-2 sm:mx-4 md:mx-8 relative overflow-hidden">
           <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] bg-[#00E599]/10 rounded-full blur-[120px]" />
           
           <div className="relative z-10">
             <div className="max-w-4xl">
-              <h2 className="text-5xl md:text-7xl font-bold mb-8 text-white tracking-tight">
+              <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 sm:mb-8 text-white tracking-tight">
                 Development <br />
                 <span className="text-gray-400">Roadmap.</span>
               </h2>
-              <p className="text-xl md:text-2xl text-gray-400 leading-relaxed">
+              <p className="text-lg sm:text-xl md:text-2xl text-gray-400 leading-relaxed">
                 Our journey to building the most secure blockchain for the quantum era. Join us and contribute to the future.
               </p>
             </div>
