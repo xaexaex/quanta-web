@@ -70,25 +70,66 @@ export default function AboutPage() {
 
           {/* The Team */}
           <div className="mb-24">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">The Team</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">Core Developing Team</h2>
             <p className="text-center text-gray-600 text-lg mb-12 max-w-2xl mx-auto">
-              We're currently a small, focused team working to build Quanta. Join us in securing the blockchain future.
+              Meet the team building Quanta - securing the blockchain future against quantum threats.
             </p>
             
-            {/* Placeholder for team members - can be filled in later */}
-            <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-              <div className="text-center">
-                <div className="w-32 h-32 bg-gradient-to-br from-[#00E599]/20 to-[#00E599]/5 rounded-full mx-auto mb-6 flex items-center justify-center">
-                  <span className="text-5xl font-bold text-[#00E599]">Q</span>
+            <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+              {/* Founder */}
+              <div className="border-2 border-gray-100 rounded-2xl p-8 hover:border-[#00E599] transition-all text-center">
+                <div className="w-24 h-24 bg-gradient-to-br from-[#00E599] to-[#00E599]/50 rounded-full mx-auto mb-6 flex items-center justify-center">
+                  <span className="text-4xl font-bold text-white">XD</span>
                 </div>
-                <h3 className="text-xl font-bold mb-2">Core Team</h3>
-                <p className="text-gray-600 mb-4">Building the protocol</p>
+                <h3 className="text-xl font-bold mb-2">XD</h3>
+                <p className="text-[#00E599] font-semibold mb-4">Founder</p>
+                <p className="text-gray-600 text-sm mb-6">Leading the vision for quantum-resistant blockchain infrastructure</p>
                 <div className="flex justify-center gap-3">
-                  <a href="https://github.com/xaexaex/quanta" target="_blank" className="text-gray-400 hover:text-[#00E599] transition-colors">
+                  <a href="https://github.com/XD637" target="_blank" className="text-gray-400 hover:text-[#00E599] transition-colors">
                     <Github className="w-5 h-5" />
                   </a>
                 </div>
               </div>
+
+              {/* Main Developer */}
+              <div className="border-2 border-gray-100 rounded-2xl p-8 hover:border-[#00E599] transition-all text-center">
+                <div className="w-24 h-24 bg-gradient-to-br from-gray-800 to-gray-600 rounded-full mx-auto mb-6 flex items-center justify-center">
+                  <Code className="w-10 h-10 text-white" />
+                </div>
+                <h3 className="text-xl font-bold mb-2">Main Developer</h3>
+                <p className="text-[#00E599] font-semibold mb-4">Core Protocol Engineer</p>
+                <p className="text-gray-600 text-sm mb-6">Building the quantum-resistant blockchain protocol in Rust</p>
+                <div className="flex justify-center gap-3">
+                  <a href="https://github.com/xaexaex" target="_blank" className="text-gray-400 hover:text-[#00E599] transition-colors">
+                    <Github className="w-5 h-5" />
+                  </a>
+                  <a href="https://x.com/Idcidkidgfa" target="_blank" className="text-gray-400 hover:text-[#00E599] transition-colors">
+                    <Twitter className="w-5 h-5" />
+                  </a>
+                </div>
+              </div>
+
+              {/* Community Manager */}
+              <div className="border-2 border-gray-100 rounded-2xl p-8 hover:border-[#00E599] transition-all text-center">
+                <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-blue-400 rounded-full mx-auto mb-6 flex items-center justify-center">
+                  <span className="text-3xl">💬</span>
+                </div>
+                <h3 className="text-xl font-bold mb-2">flexipsy</h3>
+                <p className="text-[#00E599] font-semibold mb-4">Community Manager</p>
+                <p className="text-gray-600 text-sm mb-6">Growing and supporting the Quanta community</p>
+                <div className="flex justify-center gap-3">
+                  <a href="https://x.com/flexispy30" target="_blank" className="text-gray-400 hover:text-[#00E599] transition-colors">
+                    <Twitter className="w-5 h-5" />
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            {/* Additional Contributors Note */}
+            <div className="text-center mt-12">
+              <p className="text-gray-600 text-sm">
+                + Anonymous contributors helping build the future
+              </p>
             </div>
           </div>
 
