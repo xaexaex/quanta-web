@@ -6,37 +6,37 @@ export default function Features() {
       title: "Falcon-512 Signatures",
       description: "Replacing traditional ECDSA with NIST-standardized Falcon-512 for quantum-resistant transaction signing.",
       icon: <ShieldCheck className="w-12 h-12 text-[#00E599]" />,
-      comingSoon: true
+      status: "live"
     },
     {
       title: "Kyber-1024 Encryption",
       description: "Utilizing Kyber-1024 for secure wallet encryption and communication, ensuring your assets stay safe.",
       icon: <Lock className="w-12 h-12 text-[#00E599]" />,
-      comingSoon: true
+      status: "live"
     },
     {
       title: "Built in Rust",
       description: "Engineered 100% in Rust for unparalleled memory safety, performance, and reliability.",
       icon: <Code2 className="w-12 h-12 text-[#00E599]" />,
-      comingSoon: true
+      status: "live"
     },
     {
       title: "Proof of Work",
       description: "A robust PoW consensus mechanism with dynamic difficulty adjustment for fair and secure mining.",
       icon: <Pickaxe className="w-12 h-12 text-[#00E599]" />,
-      comingSoon: true
+      status: "live"
     },
     {
       title: "Account Model",
       description: "Familiar Ethereum-style account model (not UTXO) making it easier for developers to adapt.",
       icon: <User className="w-12 h-12 text-[#00E599]" />,
-      comingSoon: true
+      status: "live"
     },
     {
       title: "Sled Database",
       description: "High-performance embedded database for efficient state management and storage.",
       icon: <Database className="w-12 h-12 text-[#00E599]" />,
-      comingSoon: true
+      status: "live"
     }
   ];
 
@@ -81,9 +81,15 @@ export default function Features() {
               key={index}
               className="p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-[2rem] bg-white hover:bg-gray-50 transition-all duration-300 group shadow-lg hover:shadow-2xl hover:-translate-y-1 relative"
             >
-              {feature.comingSoon && (
+              {feature.status === "coming-soon" && (
                 <div className="absolute top-4 right-4 sm:top-6 sm:right-6 bg-black text-white text-[10px] sm:text-xs font-bold px-3 py-1.5 sm:px-4 sm:py-2 rounded-full uppercase tracking-wider">
                   Coming Soon
+                </div>
+              )}
+              {feature.status === "live" && (
+                <div className="absolute top-4 right-4 sm:top-6 sm:right-6 bg-[#00E599] text-black text-[10px] sm:text-xs font-bold px-3 py-1.5 sm:px-4 sm:py-2 rounded-full uppercase tracking-wider flex items-center gap-1.5">
+                  <div className="w-1.5 h-1.5 bg-black rounded-full animate-pulse" />
+                  Live
                 </div>
               )}
               <div className="mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 w-fit p-3 sm:p-4 bg-[#00E599]/10 rounded-xl sm:rounded-2xl">
