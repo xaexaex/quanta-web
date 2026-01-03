@@ -2,7 +2,8 @@ import { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import EmailCapture from "@/components/EmailCapture";
-import { Linkedin, Twitter, Github, Shield, Code, Zap } from "lucide-react";
+import TeamMember from "@/components/TeamMember";
+import { Shield, Code, Zap, Github } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About",
@@ -76,53 +77,35 @@ export default function AboutPage() {
             </p>
             
             <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-              {/* Founder */}
-              <div className="border-2 border-gray-100 rounded-2xl p-8 hover:border-[#00E599] transition-all text-center">
-                <div className="w-24 h-24 bg-gradient-to-br from-[#00E599] to-[#00E599]/50 rounded-full mx-auto mb-6 flex items-center justify-center">
-                  <span className="text-4xl font-bold text-white">XD</span>
-                </div>
-                <h3 className="text-xl font-bold mb-2">XD</h3>
-                <p className="text-[#00E599] font-semibold mb-4">Founder</p>
-                <p className="text-gray-600 text-sm mb-6">Leading the vision for quantum-resistant blockchain infrastructure</p>
-                <div className="flex justify-center gap-3">
-                  <a href="https://github.com/XD637" target="_blank" className="text-gray-400 hover:text-[#00E599] transition-colors">
-                    <Github className="w-5 h-5" />
-                  </a>
-                </div>
-              </div>
+              <TeamMember
+                name="XD"
+                role="Founder"
+                description="Leading the vision for quantum-resistant blockchain infrastructure"
+                imageSrc="/team/founder.jpg"
+                fallbackText="XD"
+                fallbackGradient="bg-gradient-to-br from-[#00E599] to-[#00E599]/50"
+                githubUrl="https://github.com/XD637"
+              />
 
-              {/* Main Developer */}
-              <div className="border-2 border-gray-100 rounded-2xl p-8 hover:border-[#00E599] transition-all text-center">
-                <div className="w-24 h-24 bg-gradient-to-br from-gray-800 to-gray-600 rounded-full mx-auto mb-6 flex items-center justify-center">
-                  <Code className="w-10 h-10 text-white" />
-                </div>
-                <h3 className="text-xl font-bold mb-2">Main Developer</h3>
-                <p className="text-[#00E599] font-semibold mb-4">Core Protocol Engineer</p>
-                <p className="text-gray-600 text-sm mb-6">Building the quantum-resistant blockchain protocol in Rust</p>
-                <div className="flex justify-center gap-3">
-                  <a href="https://github.com/xaexaex" target="_blank" className="text-gray-400 hover:text-[#00E599] transition-colors">
-                    <Github className="w-5 h-5" />
-                  </a>
-                  <a href="https://x.com/Idcidkidgfa" target="_blank" className="text-gray-400 hover:text-[#00E599] transition-colors">
-                    <Twitter className="w-5 h-5" />
-                  </a>
-                </div>
-              </div>
+              <TeamMember
+                name="Main Developer"
+                role="Core Protocol Engineer"
+                description="Building the quantum-resistant blockchain protocol in Rust"
+                imageSrc="/team/xae.jpg"
+                fallbackIcon="code"
+                fallbackGradient="bg-gradient-to-br from-gray-800 to-gray-600"
+                githubUrl="https://github.com/xaexaex"
+                twitterUrl="https://x.com/Idcidkidgfa"
+              />
 
-              {/* Community Manager */}
-              <div className="border-2 border-gray-100 rounded-2xl p-8 hover:border-[#00E599] transition-all text-center">
-                <div className="w-24 h-24 bg-gradient-to-br from-blue-500 to-blue-400 rounded-full mx-auto mb-6 flex items-center justify-center">
-                  <span className="text-3xl">💬</span>
-                </div>
-                <h3 className="text-xl font-bold mb-2">flexipsy</h3>
-                <p className="text-[#00E599] font-semibold mb-4">Community Manager</p>
-                <p className="text-gray-600 text-sm mb-6">Growing and supporting the Quanta community</p>
-                <div className="flex justify-center gap-3">
-                  <a href="https://x.com/flexispy30" target="_blank" className="text-gray-400 hover:text-[#00E599] transition-colors">
-                    <Twitter className="w-5 h-5" />
-                  </a>
-                </div>
-              </div>
+              <TeamMember
+                name="flexipsy"
+                role="Community Manager"
+                description="Growing and supporting the Quanta community"
+                imageSrc="/team/flexispy.jpg"
+                fallbackGradient="bg-gradient-to-br from-blue-500 to-blue-400"
+                twitterUrl="https://x.com/flexispy30"
+              />
             </div>
 
             {/* Additional Contributors Note */}
