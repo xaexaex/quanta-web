@@ -6,7 +6,7 @@ import TeamMember from "@/components/TeamMember";
 import { Shield, Code, Zap, Github } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "Core Team",
   description: "Learn about Quanta Chain, our mission to build quantum-resistant blockchain infrastructure, and why post-quantum cryptography matters now.",
 };
 
@@ -20,7 +20,7 @@ export default function AboutPage() {
           {/* Hero */}
           <div className="text-center mb-20">
             <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tighter mb-6">
-              Building the <span className="text-[#00E599]">Future</span>
+              Meet the <span className="text-[#00E599]">Core Team</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               We're a team of cryptographers, blockchain engineers, and security researchers dedicated to protecting digital assets in the quantum era.
@@ -110,9 +110,12 @@ export default function AboutPage() {
 
             {/* Additional Contributors Note */}
             <div className="text-center mt-12">
-              <p className="text-gray-600 text-sm">
-                + Anonymous contributors helping build the future
-              </p>
+              <div className="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#00E599]/10 to-[#00E599]/5 border border-[#00E599]/20 rounded-full">
+                <div className="w-2 h-2 bg-[#00E599] rounded-full" />
+                <p className="text-gray-700 font-semibold text-sm">
+                  + Anonymous contributors helping build the future
+                </p>
+              </div>
             </div>
           </div>
 
