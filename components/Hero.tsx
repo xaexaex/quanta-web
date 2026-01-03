@@ -74,11 +74,10 @@ export default function Hero() {
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
           <Link 
-            href="https://github.com/xaexaex/quanta"
-            target="_blank"
+            href="/docs"
             className="w-full sm:w-auto px-8 sm:px-10 py-4 sm:py-5 text-lg sm:text-xl font-bold text-black bg-[#00E599] rounded-full hover:bg-[#00E599]/90 transition-all hover:scale-105 active:scale-95 shadow-[0_0_20px_rgba(0,229,153,0.3)] text-center"
           >
-            Start Mining
+            Start Node
           </Link>
           <Link 
             href="#roadmap"
