@@ -38,7 +38,7 @@ export default function CommunityPage() {
           <div className="mb-24">
             <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Connect With Us</h2>
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="border-2 border-gray-100 rounded-3xl p-8 hover:border-[#00E599] transition-all">
+              <a href="https://discord.gg/7KmMBrrJEz" target="_blank" className="border-2 border-gray-100 rounded-3xl p-8 hover:border-[#00E599] transition-all block">
                 <div className="w-14 h-14 bg-[#00E599]/10 rounded-2xl flex items-center justify-center mb-6">
                   <MessagesSquare className="w-7 h-7 text-[#00E599]" />
                 </div>
@@ -46,29 +46,25 @@ export default function CommunityPage() {
                 <p className="text-gray-600 mb-6">
                   Join our community hub for real-time discussions, support, and updates.
                 </p>
-                <div className="flex items-center gap-3">
-                  <span className="text-sm bg-amber-100 text-amber-700 px-3 py-1 rounded-full font-semibold">
-                    Coming Q1 2026
-                  </span>
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#00E599] text-white rounded-full font-semibold hover:bg-[#00E599]/90 transition-all">
+                  Join Now →
                 </div>
-              </div>
+              </a>
 
-              <div className="border-2 border-gray-100 rounded-3xl p-8 hover:border-[#00E599] transition-all">
+              <a href="https://x.com/quantachain" target="_blank" className="border-2 border-gray-100 rounded-3xl p-8 hover:border-[#00E599] transition-all block">
                 <div className="w-14 h-14 bg-[#00E599]/10 rounded-2xl flex items-center justify-center mb-6">
                   <Twitter className="w-7 h-7 text-[#00E599]" />
                 </div>
-                <h3 className="text-2xl font-bold mb-3">Twitter</h3>
+                <h3 className="text-2xl font-bold mb-3">X (Twitter)</h3>
                 <p className="text-gray-600 mb-6">
                   Follow us for project updates, technical insights, and ecosystem news.
                 </p>
-                <div className="flex items-center gap-3">
-                  <span className="text-sm bg-amber-100 text-amber-700 px-3 py-1 rounded-full font-semibold">
-                    Coming Q1 2026
-                  </span>
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#00E599] text-white rounded-full font-semibold hover:bg-[#00E599]/90 transition-all">
+                  Follow Now →
                 </div>
-              </div>
+              </a>
 
-              <div className="border-2 border-gray-100 rounded-3xl p-8 hover:border-[#00E599] transition-all">
+              <a href="https://t.me/quantanetwork" target="_blank" className="border-2 border-gray-100 rounded-3xl p-8 hover:border-[#00E599] transition-all block">
                 <div className="w-14 h-14 bg-[#00E599]/10 rounded-2xl flex items-center justify-center mb-6">
                   <Send className="w-7 h-7 text-[#00E599]" />
                 </div>
@@ -76,12 +72,10 @@ export default function CommunityPage() {
                 <p className="text-gray-600 mb-6">
                   Fast-paced community chat for traders, developers, and enthusiasts.
                 </p>
-                <div className="flex items-center gap-3">
-                  <span className="text-sm bg-amber-100 text-amber-700 px-3 py-1 rounded-full font-semibold">
-                    Coming Q1 2026
-                  </span>
+                <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#00E599] text-white rounded-full font-semibold hover:bg-[#00E599]/90 transition-all">
+                  Join Chat →
                 </div>
-              </div>
+              </a>
             </div>
           </div>
 

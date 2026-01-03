@@ -22,7 +22,7 @@ export default function Hero() {
           Quanta is the fortress for the post-quantum era.
         </p>
 
-        {/* GitHub Stats */}
+        {/* GitHub Stats & Social Links */}
         <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
           <a 
             href="https://github.com/xaexaex/quanta" 
@@ -47,6 +47,28 @@ export default function Hero() {
           >
             <Users className="w-4 h-4" />
             <span>Contributors</span>
+          </a>
+          <span className="text-gray-300">|</span>
+          <a 
+            href="https://discord.gg/7KmMBrrJEz" 
+            target="_blank"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-full text-sm font-semibold transition-all"
+          >
+            <span>Discord</span>
+          </a>
+          <a 
+            href="https://x.com/quantachain" 
+            target="_blank"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-full text-sm font-semibold transition-all"
+          >
+            <span>X</span>
+          </a>
+          <a 
+            href="https://t.me/quantanetwork" 
+            target="_blank"
+            className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-full text-sm font-semibold transition-all"
+          >
+            <span>Telegram</span>
           </a>
         </div>
 

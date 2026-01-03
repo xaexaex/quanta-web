@@ -57,6 +57,11 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center pt-10 border-t border-gray-100 text-sm text-gray-500">
           <p>&copy; {new Date().getFullYear()} Quanta Chain. All rights reserved.</p>
           <div className="flex gap-8 mt-6 md:mt-0">
+            <Link href="https://discord.gg/7KmMBrrJEz" target="_blank" className="hover:text-[#00E599] transition-colors">Discord</Link>
+            <Link href="https://x.com/quantachain" target="_blank" className="hover:text-[#00E599] transition-colors">X</Link>
+            <Link href="https://t.me/quantanetwork" target="_blank" className="hover:text-[#00E599] transition-colors">Telegram</Link>
+          </div>
+          <div className="flex gap-8 mt-6 md:mt-0">
             <Link href="/privacy" className="hover:text-black transition-colors">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-black transition-colors">Terms of Service</Link>
           </div>
