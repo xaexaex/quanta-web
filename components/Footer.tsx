@@ -38,7 +38,7 @@ export default function Footer() {
                 <li><Link href="https://github.com/xaexaex/quanta" target="_blank" className="hover:text-[#00E599] transition-colors">GitHub</Link></li>
                 <li><Link href="/docs" className="hover:text-[#00E599] transition-colors">Documentation</Link></li>
                 <li>
-                  <Link href="https://www.notion.so/Whitepaper-2daa050e9c2e80b09b47f6860ef4c379" target="_blank" className="hover:text-[#00E599] transition-colors">Whitepaper</Link>
+                  <Link href="/docs/WHITEPAPER.docx" className="hover:text-[#00E599] transition-colors">Whitepaper</Link>
                 </li>
               </ul>
             </div>
