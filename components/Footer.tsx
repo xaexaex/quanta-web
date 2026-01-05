@@ -14,7 +14,7 @@ export default function Footer() {
             </p>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-16">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-16">
             <div>
               <h4 className="font-bold mb-8 text-lg">Ecosystem</h4>
               <ul className="space-y-6 text-gray-500">
@@ -49,6 +49,17 @@ export default function Footer() {
                 <li><Link href="/blog" className="hover:text-[#00E599] transition-colors">Blog</Link></li>
                 <li><Link href="/community" className="hover:text-[#00E599] transition-colors">Community</Link></li>
                 <li><Link href="/press" className="hover:text-[#00E599] transition-colors">Press Kit</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="font-bold mb-8 text-lg">Contact</h4>
+              <ul className="space-y-6 text-gray-500">
+                <li>
+                  <a href="mailto:contact@quantachain.org" className="hover:text-[#00E599] transition-colors">Partnerships</a>
+                </li>
+                <li>
+                  <a href="mailto:info@quantachain.org" className="hover:text-[#00E599] transition-colors">General Inquiries</a>
+                </li>
               </ul>
             </div>
           </div>

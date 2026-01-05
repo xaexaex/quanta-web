@@ -21,22 +21,30 @@ export default function EmailCapture({
     e.preventDefault();
     setStatus("loading");
 
-    // TODO: Replace with actual API endpoint
     try {
-      // Simulated API call - replace with your email service (ConvertKit, Mailchimp, etc.)
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // For now, just log to console
-      console.log("Email signup:", email);
-      
-      setStatus("success");
-      setMessage("Thanks! We'll be in touch soon.");
-      setEmail("");
-      
-      setTimeout(() => {
-        setStatus("idle");
-        setMessage("");
-      }, 5000);
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setStatus("success");
+        setMessage(data.message || "Thanks! We'll be in touch soon.");
+        setEmail("");
+        
+        setTimeout(() => {
+          setStatus("idle");
+          setMessage("");
+        }, 5000);
+      } else {
+        setStatus("error");
+        setMessage(data.error || "Something went wrong. Please try again.");
+      }
     } catch (error) {
       setStatus("error");
       setMessage("Something went wrong. Please try again.");

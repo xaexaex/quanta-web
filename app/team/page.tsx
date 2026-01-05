@@ -184,6 +184,24 @@ export default function AboutPage() {
               <Github className="w-5 h-5" />
               View Open Issues
             </a>
+            
+            {/* Contact Information */}
+            <div className="mt-12 grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+              <div className="bg-gray-50 rounded-xl p-6 text-left">
+                <h4 className="font-bold text-lg mb-2">Partnerships & Sponsorships</h4>
+                <p className="text-gray-600 text-sm mb-3">Interested in collaborating or sponsoring?</p>
+                <a href="mailto:contact@quantachain.org" className="text-[#00E599] hover:underline font-semibold">
+                  contact@quantachain.org
+                </a>
+              </div>
+              <div className="bg-gray-50 rounded-xl p-6 text-left">
+                <h4 className="font-bold text-lg mb-2">General Inquiries</h4>
+                <p className="text-gray-600 text-sm mb-3">Questions about Quanta Chain?</p>
+                <a href="mailto:info@quantachain.org" className="text-[#00E599] hover:underline font-semibold">
+                  info@quantachain.org
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
