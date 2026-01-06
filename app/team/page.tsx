@@ -23,57 +23,15 @@ export default function AboutPage() {
               Meet the <span className="text-[#00E599]">Core Team</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              We're a team of cryptographers, blockchain engineers, and security researchers dedicated to protecting digital assets in the quantum era.
+              Building production-ready quantum-resistant blockchain infrastructure with NIST-standardized post-quantum cryptography for long-term security.
             </p>
-          </div>
-
-          {/* Mission */}
-          <div className="max-w-5xl mx-auto mb-24">
-            <div className="bg-gradient-to-br from-black to-gray-900 text-white rounded-3xl p-12 md:p-16 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-96 h-96 bg-[#00E599]/10 rounded-full blur-[120px]" />
-              <div className="relative z-10">
-                <h2 className="text-3xl md:text-5xl font-bold mb-6">Our Mission</h2>
-                <p className="text-xl md:text-2xl text-gray-300 leading-relaxed mb-8">
-                  To build the world's first production-ready, quantum-resistant blockchain that provides enterprise-grade security for the post-quantum world.
-                </p>
-                <div className="grid md:grid-cols-3 gap-6 mt-12">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#00E599]/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Shield className="w-6 h-6 text-[#00E599]" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-lg mb-2">Security First</h3>
-                      <p className="text-gray-400 text-sm">Built with NIST-standardized post-quantum cryptography</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#00E599]/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Code className="w-6 h-6 text-[#00E599]" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-lg mb-2">Open Source</h3>
-                      <p className="text-gray-400 text-sm">Fully transparent and community-auditable code</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-[#00E599]/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                      <Zap className="w-6 h-6 text-[#00E599]" />
-                    </div>
-                    <div>
-                      <h3 className="font-bold text-lg mb-2">Performance</h3>
-                      <p className="text-gray-400 text-sm">Rust-based implementation for speed and safety</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* The Team */}
           <div className="mb-24">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">Core Developing Team</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">Core Development Team</h2>
             <p className="text-center text-gray-600 text-lg mb-12 max-w-2xl mx-auto">
-              Meet the team building Quanta - securing the blockchain future against quantum threats.
+              Building QUANTA to secure blockchain infrastructure against quantum threats for decades to come.
             </p>
             
             <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
@@ -124,16 +82,16 @@ export default function AboutPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-8">Why Quantum Resistance Matters</h2>
             <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
               <p>
-                Quantum computers are no longer science fiction. IBM, Google, and other tech giants are making rapid progress in quantum computing capabilities. While this is exciting for scientific advancement, it poses an existential threat to current blockchain technology.
+                Quantum computers are advancing rapidly. IBM, Google, and other tech giants are making significant progress. Conservative estimates suggest quantum computers capable of breaking current blockchain cryptography (ECDSA/EdDSA) could exist within 10-15 years.
               </p>
               <p>
-                Traditional cryptographic algorithms like ECDSA and RSA, which secure billions of dollars in cryptocurrency today, will become vulnerable to quantum attacks within the next decade. This isn't a matter of "if" but "when."
+                Traditional cryptographic algorithms like ECDSA and RSA, which secure billions of dollars in cryptocurrency today, will become vulnerable to Shor's algorithm running on sufficiently powerful quantum computers. This isn't speculation - it's a matter of when, not if.
               </p>
               <p className="font-semibold text-black">
-                Quanta is built from the ground up to be quantum-resistant, using NIST-standardized post-quantum cryptographic algorithms including Falcon-512 for signatures and Kyber-1024 for key encapsulation.
+                QUANTA is built from the ground up with NIST-standardized post-quantum cryptography: Falcon-512 signatures (NIST Level 1) and Kyber-1024 encryption (NIST Level 5, 256-bit quantum security). No known polynomial-time quantum attacks exist against these lattice-based algorithms.
               </p>
               <p>
-                We're not waiting for quantum computers to break existing chains. We're building the secure foundation now, so when the quantum era arrives, your assets remain protected.
+                We're not waiting for quantum computers to break existing chains. We're building secure infrastructure now, protecting against harvest now, decrypt later attacks through 2045 and beyond.
               </p>
             </div>
           </div>
@@ -144,19 +102,19 @@ export default function AboutPage() {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="border-2 border-gray-100 rounded-2xl p-6 hover:border-[#00E599] transition-all">
                 <h3 className="font-bold text-xl mb-2">Language</h3>
-                <p className="text-gray-600">Rust for memory safety and performance</p>
+                <p className="text-gray-600">Rust 2021 for memory safety and performance</p>
               </div>
               <div className="border-2 border-gray-100 rounded-2xl p-6 hover:border-[#00E599] transition-all">
                 <h3 className="font-bold text-xl mb-2">Signatures</h3>
-                <p className="text-gray-600">Falcon-512 (NIST standard)</p>
+                <p className="text-gray-600">Falcon-512 (NIST Level 1, lattice-based)</p>
               </div>
               <div className="border-2 border-gray-100 rounded-2xl p-6 hover:border-[#00E599] transition-all">
-                <h3 className="font-bold text-xl mb-2">Key Exchange</h3>
-                <p className="text-gray-600">Kyber-1024 encryption</p>
+                <h3 className="font-bold text-xl mb-2">Encryption</h3>
+                <p className="text-gray-600">Kyber-1024 (NIST Level 5, 256-bit quantum security)</p>
               </div>
               <div className="border-2 border-gray-100 rounded-2xl p-6 hover:border-[#00E599] transition-all">
                 <h3 className="font-bold text-xl mb-2">Consensus</h3>
-                <p className="text-gray-600">Proof-of-Work (SHA-256)</p>
+                <p className="text-gray-600">Adaptive PoW with 10s block time</p>
               </div>
             </div>
           </div>

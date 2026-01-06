@@ -10,7 +10,7 @@ export default function Footer() {
               Quanta<span className="text-[#00E599]">.</span>
             </Link>
             <p className="text-gray-500 max-w-sm text-lg leading-relaxed">
-              The quantum-resistant blockchain for the next generation of secure decentralized applications.
+              Quantum-resistant blockchain built with NIST-standardized post-quantum cryptography for the next era of secure decentralized applications.
             </p>
           </div>
           

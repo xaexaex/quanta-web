@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Features from "@/components/Features";
+import Tokenomics from "@/components/Tokenomics";
 import Roadmap from "@/components/Roadmap";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
@@ -11,6 +12,7 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Features />
+      <Tokenomics />
       <Roadmap />
       <FAQ />
       
@@ -20,18 +22,18 @@ export default function Home() {
         
         <div className="container mx-auto px-4 sm:px-6 text-center">
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-6 sm:mb-8 md:mb-10 tracking-tighter">
-            Ready to go <br />
-            <span className="text-[#00E599]">Quantum?</span>
+            Build on Quantum-Resistant <br />
+            <span className="text-[#00E599]">Infrastructure</span>
           </h2>
           <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-400 max-w-3xl mx-auto mb-8 sm:mb-12 md:mb-16 leading-relaxed">
-            Join the network of the future. Start mining, building, or transacting on the most secure chain ever built.
+            Join developers worldwide securing the future. Start mining, building applications, or contributing to the ecosystem today.
           </p>
           <a 
             href="https://github.com/quantachain/quanta"
             target="_blank"
             className="inline-flex items-center justify-center px-12 py-6 text-2xl font-bold text-black bg-[#00E599] rounded-full hover:bg-[#00E599]/90 transition-all hover:scale-105 shadow-[0_0_30px_rgba(0,229,153,0.4)]"
           >
-            Get the Code
+            Get Started
           </a>
         </div>
       </section>

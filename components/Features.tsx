@@ -4,37 +4,37 @@ export default function Features() {
   const features = [
     {
       title: "Falcon-512 Signatures",
-      description: "Replacing traditional ECDSA with NIST-standardized Falcon-512 for quantum-resistant transaction signing.",
+      description: "NIST Level 1 lattice-based signatures. 897-byte public keys, 666-byte signatures. Quantum-resistant with no known polynomial-time attacks.",
       icon: <ShieldCheck className="w-12 h-12 text-[#00E599]" />,
       status: "live"
     },
     {
       title: "Kyber-1024 Encryption",
-      description: "Utilizing Kyber-1024 for secure wallet encryption and communication, ensuring your assets stay safe.",
+      description: "NIST Level 5 security providing 256-bit quantum resistance. Protects against harvest now, decrypt later attacks through 2045+.",
       icon: <Lock className="w-12 h-12 text-[#00E599]" />,
       status: "live"
     },
     {
-      title: "Built in Rust",
-      description: "Engineered 100% in Rust for unparalleled memory safety, performance, and reliability.",
+      title: "Adaptive Block Rewards",
+      description: "100 QUA initial reward declining 15% annually to 5 QUA floor. Ensures perpetual mining incentive unlike Bitcoin's finite emission.",
       icon: <Code2 className="w-12 h-12 text-[#00E599]" />,
       status: "live"
     },
     {
-      title: "Proof of Work",
-      description: "A robust PoW consensus mechanism with dynamic difficulty adjustment for fair and secure mining.",
+      title: "10-Second Block Time",
+      description: "Fast finality with dynamic difficulty adjustment every 10 blocks. SHA3-256 hashing provides quantum-resistant proof-of-work.",
       icon: <Pickaxe className="w-12 h-12 text-[#00E599]" />,
       status: "live"
     },
     {
-      title: "Account Model",
-      description: "Familiar Ethereum-style account model (not UTXO) making it easier for developers to adapt.",
+      title: "70% Fee Burning",
+      description: "Transaction fees are burned creating deflationary pressure. 20% funds treasury, 10% rewards miners for sustainable economics.",
       icon: <User className="w-12 h-12 text-[#00E599]" />,
       status: "live"
     },
     {
-      title: "Sled Database",
-      description: "High-performance embedded database for efficient state management and storage.",
+      title: "Fair Launch Distribution",
+      description: "Zero pre-mine, zero ICO. 100% distributed through mining with 50% reward lock for 6 months to prevent dump pressure.",
       icon: <Database className="w-12 h-12 text-[#00E599]" />,
       status: "live"
     }
@@ -50,26 +50,26 @@ export default function Features() {
           <div className="relative z-10">
             <div className="max-w-4xl">
               <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 sm:mb-8 text-white tracking-tight">
-                Engineered for <br />
-                <span className="text-gray-400">the Future.</span>
+                Built for <br />
+                <span className="text-gray-400">Quantum Security.</span>
               </h2>
               <p className="text-lg sm:text-xl md:text-2xl text-gray-400 leading-relaxed">
-                Quanta combines state-of-the-art cryptography with a robust architecture to deliver a blockchain that lasts.
+                QUANTA combines NIST-standardized post-quantum cryptography with sustainable economic design to deliver a blockchain secure for decades.
               </p>
             </div>
             
             <div className="flex flex-wrap gap-3 sm:gap-4 mt-8 sm:mt-12">
               <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl sm:rounded-2xl px-4 sm:px-8 py-3 sm:py-5 flex items-center gap-2 sm:gap-4">
-                <div className="text-[#00E599] text-2xl sm:text-4xl font-bold">512</div>
-                <div className="text-gray-400 text-xs sm:text-sm uppercase tracking-widest">Falcon Bits</div>
+                <div className="text-[#00E599] text-2xl sm:text-4xl font-bold">1.5B</div>
+                <div className="text-gray-400 text-xs sm:text-sm uppercase tracking-widest">Max Supply</div>
               </div>
               <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl sm:rounded-2xl px-4 sm:px-8 py-3 sm:py-5 flex items-center gap-2 sm:gap-4">
-                <div className="text-[#00E599] text-2xl sm:text-4xl font-bold">1024</div>
-                <div className="text-gray-400 text-xs sm:text-sm uppercase tracking-widest">Kyber Bits</div>
+                <div className="text-[#00E599] text-2xl sm:text-4xl font-bold">10s</div>
+                <div className="text-gray-400 text-xs sm:text-sm uppercase tracking-widest">Block Time</div>
               </div>
               <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl sm:rounded-2xl px-4 sm:px-8 py-3 sm:py-5 flex items-center gap-2 sm:gap-4">
-                <div className="text-[#00E599] text-2xl sm:text-4xl font-bold">NIST</div>
-                <div className="text-gray-400 text-xs sm:text-sm uppercase tracking-widest">Standardized</div>
+                <div className="text-[#00E599] text-2xl sm:text-4xl font-bold">70%</div>
+                <div className="text-gray-400 text-xs sm:text-sm uppercase tracking-widest">Fee Burn</div>
               </div>
             </div>
           </div>

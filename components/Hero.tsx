@@ -15,18 +15,19 @@ export default function Hero() {
 
         <h1 className="text-5xl sm:text-7xl md:text-9xl font-bold tracking-tighter mb-8 text-balance leading-[1.1] text-black">
           <span className="relative inline-block">
-            <span className="relative z-10">The</span>
+            <span className="relative z-10">Quantum-Resistant</span>
             <span className="absolute inset-0 bg-[#00E599]/20 blur-xl" />
-          </span> <span className="bg-gradient-to-r from-[#00E599] to-[#00cc88] bg-clip-text text-transparent">#1 Quantum</span> <br />
-          Proof <span className="relative inline-block">
-            <span className="relative z-10">Blockchain</span>
+          </span> <br />
+          <span className="bg-gradient-to-r from-[#00E599] to-[#00cc88] bg-clip-text text-transparent">Blockchain</span> for the <br />
+          <span className="relative inline-block">
+            <span className="relative z-10">Next Era</span>
             <span className="absolute inset-0 bg-[#00E599]/20 blur-xl" />
           </span>
         </h1>
 
         <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-12 text-balance leading-relaxed">
-          Built in <span className="font-semibold text-gray-900">Rust</span>. Secured by <span className="font-semibold text-gray-900">Falcon-512</span> & <span className="font-semibold text-gray-900">Kyber-1024</span>. <br className="hidden md:block" />
-          Quanta is the <span className="font-semibold text-[#00E599]">fortress</span> for the post-quantum era.
+          NIST-standardized <span className="font-semibold text-gray-900">Falcon-512</span> signatures and <span className="font-semibold text-gray-900">Kyber-1024</span> encryption. <br className="hidden md:block" />
+          Fair launch with <span className="font-semibold text-[#00E599]">adaptive tokenomics</span> and perpetual mining incentives.
         </p>
 
         {/* GitHub Stats & Social Links */}

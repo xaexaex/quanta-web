@@ -4,62 +4,50 @@ export default function Roadmap() {
   const roadmapPhases = [
     {
       phase: "Phase 1",
-      title: "Foundation",
-      status: "Completed",
+      title: "Foundation (Q1 2026)",
+      status: "In Progress",
       items: [
-        { task: "Core blockchain architecture", completed: true },
-        { task: "Falcon-512 signature integration", completed: true },
-        { task: "Kyber-1024 encryption implementation", completed: true },
-        { task: "Basic PoW consensus mechanism", completed: true },
-        { task: "Sled database integration", completed: true }
+        { task: "Testnet launch", completed: false },
+        { task: "Core functionality validation", completed: false },
+        { task: "Community building", completed: false },
+        { task: "Security audits", completed: false },
+        { task: "Documentation completion", completed: false }
       ]
     },
     {
       phase: "Phase 2",
-      title: "Network & Mining",
-      status: "Completed",
+      title: "Mainnet (Q2 2026)",
+      status: "upcoming",
       items: [
-        { task: "P2P network implementation", completed: true },
-        { task: "Mining node software", completed: true },
-        { task: "Dynamic difficulty adjustment", completed: true },
-        { task: "Transaction mempool", completed: true },
-        { task: "Block propagation system", completed: true }
+        { task: "Mainnet genesis", completed: false },
+        { task: "Exchange integrations", completed: false },
+        { task: "Block explorer deployment", completed: false },
+        { task: "Light wallet release", completed: false },
+        { task: "Mining pool infrastructure", completed: false }
       ]
     },
     {
       phase: "Phase 3",
-      title: "Wallet & Tools",
-      status: "In Progress",
+      title: "Expansion (Q3-Q4 2026)",
+      status: "upcoming",
       items: [
-        { task: "CLI wallet development", completed: false },
-        { task: "Desktop wallet application", completed: false },
-        { task: "Block explorer", completed: false },
-        { task: "API & RPC interface", completed: false },
-        { task: "Developer documentation", completed: false }
+        { task: "Smart contract layer (post-quantum VM)", completed: false },
+        { task: "Light client protocol (SPV)", completed: false },
+        { task: "Hardware wallet support (Ledger/Trezor)", completed: false },
+        { task: "Mobile wallets (iOS/Android)", completed: false },
+        { task: "Developer SDK and tooling", completed: false }
       ]
     },
     {
       phase: "Phase 4",
-      title: "Testnet & Security",
+      title: "Ecosystem (2027+)",
       status: "upcoming",
       items: [
-        { task: "Public testnet launch", completed: false },
-        { task: "Security audits", completed: false },
-        { task: "Performance optimization", completed: false },
-        { task: "Bug bounty program", completed: false },
-        { task: "Community testing", completed: false }
-      ]
-    },
-    {
-      phase: "Phase 5",
-      title: "Mainnet",
-      status: "upcoming",
-      items: [
-        { task: "Mainnet preparation", completed: false },
-        { task: "Genesis block creation", completed: false },
-        { task: "Network launch", completed: false },
-        { task: "Exchange integrations", completed: false },
-        { task: "Ecosystem growth", completed: false }
+        { task: "Developer grants program", completed: false },
+        { task: "DApp ecosystem growth", completed: false },
+        { task: "Cross-chain bridges", completed: false },
+        { task: "Layer 2 solutions", completed: false },
+        { task: "On-chain governance", completed: false }
       ]
     }
   ];
@@ -102,11 +90,11 @@ export default function Roadmap() {
           <div className="relative z-10">
             <div className="max-w-4xl">
               <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 sm:mb-8 text-white tracking-tight">
-                Development <br />
-                <span className="text-gray-400">Roadmap.</span>
+                Path to <br />
+                <span className="text-gray-400">Quantum Security.</span>
               </h2>
               <p className="text-lg sm:text-xl md:text-2xl text-gray-400 leading-relaxed">
-                Our journey to building the most secure blockchain for the quantum era. Join us and contribute to the future.
+                Building the most secure blockchain for the post-quantum era. From testnet to ecosystem growth, transparency at every step.
               </p>
             </div>
           </div>
@@ -161,10 +149,10 @@ export default function Roadmap() {
         {/* Call to Contribute */}
         <div className="mt-16 bg-[#00E599] rounded-[2rem] p-12 md:p-16 mx-4 md:mx-8 text-center">
           <h3 className="text-3xl md:text-5xl font-bold text-black mb-6">
-            Help Us Build the Future
+            Contribute to the Future
           </h3>
           <p className="text-lg md:text-xl text-black/80 mb-8 max-w-2xl mx-auto">
-            Quanta is in active development and we need your support. Contribute code, ideas, or join our community.
+            QUANTA is open source and community-driven. Join developers worldwide building quantum-resistant infrastructure.
           </p>
           <a 
             href="https://github.com/quantachain/quanta"

@@ -8,28 +8,28 @@ export default function FAQ() {
 
   const faqs = [
     {
-      question: "What makes Quanta quantum-resistant?",
-      answer: "Quanta uses NIST-standardized post-quantum cryptography algorithms: Falcon-512 for digital signatures and Kyber-1024 for encryption. These algorithms are designed to withstand attacks from both classical and quantum computers."
+      question: "Why is QUANTA quantum-resistant?",
+      answer: "QUANTA uses NIST-standardized post-quantum cryptography: Falcon-512 for digital signatures (NIST Level 1, lattice-based) and Kyber-1024 for encryption (NIST Level 5). These algorithms are designed to withstand attacks from both classical and quantum computers, with no known polynomial-time quantum attacks."
     },
     {
-      question: "How does Quanta compare to other blockchains?",
-      answer: "Unlike traditional blockchains that use vulnerable ECDSA signatures, Quanta is built from the ground up with quantum resistance. It's written in Rust for maximum performance and security, with a Proof of Work consensus mechanism."
+      question: "What is the quantum threat timeline?",
+      answer: "Conservative estimates suggest quantum computers capable of breaking current blockchain cryptography (ECDSA/EdDSA) could exist within 10-15 years. QUANTA protects against harvest now, decrypt later attacks by implementing quantum-resistant encryption today, providing security through 2045 and beyond."
     },
     {
-      question: "What is the block time?",
-      answer: "Quanta has an approximate block time of ~10 seconds with dynamic difficulty adjustment to maintain consistent block production."
+      question: "What are the tokenomics?",
+      answer: "Fair launch with zero pre-mine and zero ICO. Initial block reward of 100 QUA declining 15% annually to a 5 QUA floor, ensuring perpetual mining incentives. 70% of transaction fees are burned for deflationary pressure, 20% funds development treasury, and 10% goes to miners. Asymptotic maximum supply of approximately 1.5 billion QUA."
     },
     {
-      question: "Can I mine Quanta?",
-      answer: "Yes! Quanta uses a Proof of Work consensus mechanism. You can start mining by downloading the code from our GitHub repository and running a node."
+      question: "How does the anti-dump mechanism work?",
+      answer: "50% of mining rewards are locked for 6 months (157,680 blocks) to prevent immediate sell pressure and align miner incentives with long-term network health. This creates stability during the critical launch period while maintaining operational liquidity for miners."
     },
     {
-      question: "Is Quanta compatible with Ethereum tools?",
-      answer: "Quanta uses an account-based model similar to Ethereum (not UTXO), making it easier for developers familiar with Ethereum to adapt. However, it's a completely independent blockchain with its own unique architecture."
+      question: "What makes QUANTA different from other quantum-resistant projects?",
+      answer: "QUANTA is purpose-built, not retrofitted. It combines production-ready post-quantum cryptography with sustainable tokenomics and modern security practices. Built entirely in Rust with adaptive proof-of-work, 10-second block times, and comprehensive operational tooling including Prometheus metrics and JSON-RPC control."
     },
     {
-      question: "Why Rust?",
-      answer: "Rust provides memory safety without garbage collection, excellent performance, and prevents entire classes of bugs at compile time. This makes it ideal for building secure, high-performance blockchain infrastructure."
+      question: "What are the technical specifications?",
+      answer: "10-second block time with dynamic difficulty adjustment every 10 blocks. SHA3-256 quantum-resistant hashing. Account-based model with nonce-based replay protection. Maximum 2,000 transactions per block with 1MB block size limit. Persistent storage using Sled database with atomic transaction guarantees."
     }
   ];
 

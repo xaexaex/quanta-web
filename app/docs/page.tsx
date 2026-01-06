@@ -57,7 +57,7 @@ export default function Documentation() {
               Documentation<span className="text-[#00E599]">.</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Complete guide to Quanta - the quantum-resistant blockchain built with Rust, Falcon-512, and Kyber-1024.
+              Complete guide to QUANTA - quantum-resistant blockchain with NIST-standardized post-quantum cryptography and adaptive tokenomics.
             </p>
           </div>
 
@@ -77,9 +77,9 @@ export default function Documentation() {
               <div className="border-2 border-gray-100 p-8 rounded-2xl">
                 <h3 className="font-bold text-xl mb-4">System Requirements</h3>
                 <ul className="space-y-2 text-gray-600">
-                  <li>• Rust 1.70 or higher</li>
-                  <li>• 4GB RAM minimum</li>
-                  <li>• 10GB disk space</li>
+                  <li>• Rust 2021 edition or higher</li>
+                  <li>• 4GB RAM minimum (8GB recommended)</li>
+                  <li>• 20GB disk space for blockchain data</li>
                   <li>• Linux, macOS, or Windows</li>
                 </ul>
               </div>
@@ -104,24 +104,30 @@ cargo test`} />
             <div className="space-y-6">
               <div className="border-2 border-gray-100 p-8 rounded-2xl">
                 <h3 className="font-bold text-xl mb-4">1. Create a Wallet</h3>
-                <CodeBlock id="wallet" code={`./target/release/quanta new-wallet --file miner.qua
-# Enter a strong password when prompted`} />
+                <CodeBlock id="wallet" code={`./target/release/quanta new_wallet --file miner.qua
+# Enter a strong password when prompted
+# Wallet uses Falcon-512 quantum-resistant signatures`} />
               </div>
 
               <div className="border-2 border-gray-100 p-8 rounded-2xl">
                 <h3 className="font-bold text-xl mb-4">2. Start a Node</h3>
-                <CodeBlock id="start" code={`./target/release/quanta start --port 3000 --db ./node_data`} />
+                <CodeBlock id="start" code={`# Start node as daemon
+./target/release/quanta start --detach --port 3000 --network-port 8333 --rpc-port 7782 --db ./node_data
+
+# Check node status
+./target/release/quanta status --rpc-port 7782`} />
               </div>
 
               <div className="border-2 border-gray-100 p-8 rounded-2xl">
-                <h3 className="font-bold text-xl mb-4">3. Mine Blocks</h3>
-                <CodeBlock id="mine" code={`# Mine a single block
-./target/release/quanta mine --wallet miner.qua
+                <h3 className="font-bold text-xl mb-4">3. Start Mining</h3>
+                <CodeBlock id="mine" code={`# Start mining via RPC
+./target/release/quanta start_mining YOUR_ADDRESS --rpc-port 7782
 
-# Or use the API for continuous mining
-curl -X POST http://localhost:3000/api/mine/start \\
-  -H "Content-Type: application/json" \\
-  -d '{"miner_address": "YOUR_ADDRESS"}'`} />
+# Check mining status
+./target/release/quanta mining_status --rpc-port 7782
+
+# Stop mining
+./target/release/quanta stop_mining --rpc-port 7782`} />
               </div>
             </div>
           </section>
@@ -136,11 +142,13 @@ curl -X POST http://localhost:3000/api/mine/start \\
               <div className="border-2 border-gray-100 p-8 rounded-2xl">
                 <h3 className="font-bold text-xl mb-4">HD Wallets (BIP39)</h3>
                 <p className="text-gray-600 mb-4">Create HD wallets with 24-word mnemonic phrases:</p>
-                <CodeBlock id="hdwallet" code={`# Create HD wallet with 3 accounts
-./target/release/quanta new-hd-wallet --file hd.json --accounts 3
+                <CodeBlock id="hdwallet" code={`# Create HD wallet
+./target/release/quanta new_hd_wallet --file hd.json
 
 # View HD wallet info
-./target/release/quanta hd-wallet --file hd.json`} />
+./target/release/quanta hd_wallet --file hd.json
+
+# Multiple accounts from one seed with deterministic derivation`} />
               </div>
 
               <div className="border-2 border-gray-100 p-8 rounded-2xl">
@@ -197,8 +205,8 @@ curl -X POST http://localhost:3000/api/balance \\
   "chain_length": 142,
   "total_transactions": 89,
   "current_difficulty": 4,
-  "mining_reward": 50000000,
-  "total_supply": 7100000000,
+  "mining_reward": 100000000,
+  "total_supply": 14200000000,
   "pending_transactions": 3
 }`} />
                 </div>
@@ -244,6 +252,72 @@ curl -X POST http://localhost:3000/api/balance \\
             </div>
           </section>
 
+          {/* JSON-RPC Daemon Control */}
+          <section id="rpc" className="scroll-mt-24">
+            <h2 className="text-4xl md:text-5xl font-bold mb-8 flex items-center gap-4">
+              <Terminal className="w-10 h-10 text-[#00E599]" />
+              JSON-RPC Daemon Control
+            </h2>
+            <div className="space-y-6">
+              <p className="text-xl text-gray-600 mb-6">
+                The RPC server (default port 7782) provides daemon control via JSON-RPC 2.0. All CLI commands communicate with the daemon through this interface.
+              </p>
+
+              <div className="bg-[#00E599]/10 border-2 border-[#00E599] p-8 rounded-2xl">
+                <h3 className="font-bold text-xl mb-4">Available RPC Methods</h3>
+                <div className="grid md:grid-cols-2 gap-4 text-sm">
+                  <div>
+                    <code className="bg-black text-[#00E599] px-2 py-1 rounded">node_status</code>
+                    <p className="text-gray-700 mt-1">Get node status and uptime</p>
+                  </div>
+                  <div>
+                    <code className="bg-black text-[#00E599] px-2 py-1 rounded">mining_status</code>
+                    <p className="text-gray-700 mt-1">Get mining state and statistics</p>
+                  </div>
+                  <div>
+                    <code className="bg-black text-[#00E599] px-2 py-1 rounded">start_mining</code>
+                    <p className="text-gray-700 mt-1">Start mining to address</p>
+                  </div>
+                  <div>
+                    <code className="bg-black text-[#00E599] px-2 py-1 rounded">stop_mining</code>
+                    <p className="text-gray-700 mt-1">Stop mining</p>
+                  </div>
+                  <div>
+                    <code className="bg-black text-[#00E599] px-2 py-1 rounded">get_block</code>
+                    <p className="text-gray-700 mt-1">Get block by height</p>
+                  </div>
+                  <div>
+                    <code className="bg-black text-[#00E599] px-2 py-1 rounded">get_balance</code>
+                    <p className="text-gray-700 mt-1">Get address balance</p>
+                  </div>
+                  <div>
+                    <code className="bg-black text-[#00E599] px-2 py-1 rounded">get_peers</code>
+                    <p className="text-gray-700 mt-1">List connected peers</p>
+                  </div>
+                  <div>
+                    <code className="bg-black text-[#00E599] px-2 py-1 rounded">shutdown</code>
+                    <p className="text-gray-700 mt-1">Gracefully stop daemon</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="border-2 border-gray-100 p-8 rounded-2xl">
+                <h3 className="font-bold text-xl mb-4">CLI Commands (via RPC)</h3>
+                <CodeBlock id="rpc-commands" code={`# Node management
+./quanta status --rpc-port 7782
+./quanta stop --rpc-port 7782
+./quanta print_height --rpc-port 7782
+./quanta peers --rpc-port 7782
+./quanta get_block 100 --rpc-port 7782
+
+# Mining control
+./quanta mining_status --rpc-port 7782
+./quanta start_mining YOUR_ADDRESS --rpc-port 7782
+./quanta stop_mining --rpc-port 7782`} />
+              </div>
+            </div>
+          </section>
+
           {/* Configuration */}
           <section id="config" className="scroll-mt-24">
             <h2 className="text-4xl md:text-5xl font-bold mb-8 flex items-center gap-4">
@@ -257,26 +331,42 @@ curl -X POST http://localhost:3000/api/balance \\
               <CodeBlock language="toml" id="config-toml" code={`[node]
 api_port = 3000
 network_port = 8333
+rpc_port = 7782
 db_path = "./quanta_data"
 no_network = false
 
 [network]
 max_peers = 125
-bootstrap_nodes = ["127.0.0.1:8333"]
+bootstrap_nodes = []
 
 [consensus]
 max_block_transactions = 2000
-max_block_size_bytes = 1048576
+max_block_size_bytes = 1_048_576
 min_transaction_fee_microunits = 100
 transaction_expiry_blocks = 8640
 coinbase_maturity = 100
 
 [security]
 max_mempool_size = 5000
+transaction_expiry_seconds = 86400
+enable_rate_limiting = true
+rate_limit_per_minute = 60
+enable_peer_banning = true
+require_tls = false
 
 [mining]
-initial_reward_microunits = 50000000
-halving_interval = 210
+year_1_reward_microunits = 100_000_000
+annual_reduction_percent = 15
+min_reward_microunits = 5_000_000
+blocks_per_year = 3_153_600
+early_adopter_bonus_blocks = 100_000
+early_adopter_multiplier = 1.5
+bootstrap_phase_blocks = 315_360
+mining_reward_lock_percent = 50
+mining_reward_lock_blocks = 157_680
+fee_burn_percent = 70
+fee_treasury_percent = 20
+fee_validator_percent = 10
 target_block_time = 10
 difficulty_adjustment_interval = 10
 
@@ -299,18 +389,20 @@ port = 9090`} />
               
               <div className="border-2 border-gray-100 p-8 rounded-2xl">
                 <h3 className="font-bold text-xl mb-4">Node 1 (Bootstrap)</h3>
-                <CodeBlock id="node1" code={`./target/release/quanta start \\
+                <CodeBlock id="node1" code={`./target/release/quanta start --detach \\
   --network-port 8333 \\
   --port 3000 \\
-  --db ./node1`} />
+  --rpc-port 7782 \\
+  --db ./node1_data`} />
               </div>
 
               <div className="border-2 border-gray-100 p-8 rounded-2xl">
                 <h3 className="font-bold text-xl mb-4">Node 2 (Connect to Bootstrap)</h3>
-                <CodeBlock id="node2" code={`./target/release/quanta start \\
+                <CodeBlock id="node2" code={`./target/release/quanta start --detach \\
   --network-port 8334 \\
   --port 3001 \\
-  --db ./node2 \\
+  --rpc-port 7783 \\
+  --db ./node2_data \\
   --bootstrap 127.0.0.1:8333`} />
               </div>
 
@@ -332,20 +424,20 @@ port = 9090`} />
               <div className="border-2 border-gray-100 p-8 rounded-2xl">
                 <h3 className="font-bold text-xl mb-4 text-[#00E599]">Cryptography</h3>
                 <ul className="space-y-2 text-gray-600">
-                  <li><strong>Signatures:</strong> Falcon-512 (NIST PQC)</li>
-                  <li><strong>Encryption:</strong> Kyber-1024 + ChaCha20-Poly1305</li>
-                  <li><strong>Hashing:</strong> SHA3-256 (Double)</li>
-                  <li><strong>Key Derivation:</strong> Argon2</li>
+                  <li><strong>Signatures:</strong> Falcon-512 (NIST Level 1, 897-byte pubkey)</li>
+                  <li><strong>Encryption:</strong> Kyber-1024 (NIST Level 5, 256-bit quantum security)</li>
+                  <li><strong>Hashing:</strong> SHA3-256 (Keccak, quantum-resistant)</li>
+                  <li><strong>Key Derivation:</strong> Argon2id (memory-hard)</li>
                 </ul>
               </div>
 
               <div className="border-2 border-gray-100 p-8 rounded-2xl">
                 <h3 className="font-bold text-xl mb-4 text-[#00E599]">Consensus</h3>
                 <ul className="space-y-2 text-gray-600">
-                  <li><strong>Algorithm:</strong> Proof of Work</li>
-                  <li><strong>Block Time:</strong> ~10 seconds</li>
-                  <li><strong>Initial Reward:</strong> 50 QUA</li>
-                  <li><strong>Halving:</strong> Every 210 blocks</li>
+                  <li><strong>Algorithm:</strong> Adaptive Proof of Work</li>
+                  <li><strong>Block Time:</strong> 10 seconds</li>
+                  <li><strong>Initial Reward:</strong> 100 QUA (15% annual reduction)</li>
+                  <li><strong>Reward Floor:</strong> 5 QUA (perpetual incentive)</li>
                   <li><strong>Difficulty Adjustment:</strong> Every 10 blocks</li>
                 </ul>
               </div>
@@ -353,10 +445,10 @@ port = 9090`} />
               <div className="border-2 border-gray-100 p-8 rounded-2xl">
                 <h3 className="font-bold text-xl mb-4 text-[#00E599]">Block Limits</h3>
                 <ul className="space-y-2 text-gray-600">
-                  <li><strong>Max Size:</strong> 1 MB</li>
+                  <li><strong>Max Size:</strong> 1 MB (1,048,576 bytes)</li>
                   <li><strong>Max Transactions:</strong> 2,000 per block</li>
-                  <li><strong>Min Fee:</strong> 0.0001 QUA</li>
-                  <li><strong>Coinbase Maturity:</strong> 100 blocks</li>
+                  <li><strong>Min Fee:</strong> 100 microunits (0.0001 QUA)</li>
+                  <li><strong>Transaction Expiry:</strong> 24 hours</li>
                 </ul>
               </div>
 
@@ -381,7 +473,7 @@ port = 9090`} />
             <div className="border-2 border-gray-100 rounded-2xl p-12">
               <h3 className="text-3xl font-bold mb-6">Why Quantum-Resistant?</h3>
               <p className="text-xl text-gray-600 mb-8">
-                Traditional blockchains like Bitcoin use ECDSA signatures, which are vulnerable to quantum computers using Shor's algorithm. Quanta uses NIST-standardized post-quantum cryptography.
+                Current blockchain systems rely on elliptic curve cryptography (ECDSA/EdDSA) vulnerable to Shor's algorithm. Conservative estimates suggest quantum computers capable of breaking these could exist within 10-15 years. QUANTA uses NIST-standardized post-quantum cryptography to provide security for decades.
               </p>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
@@ -396,12 +488,12 @@ port = 9090`} />
                 </div>
 
                 <div className="bg-[#00E599]/10 p-6 rounded-xl border-2 border-[#00E599]">
-                  <h4 className="font-bold text-xl mb-4 text-[#00E599]">Quanta (Falcon-512)</h4>
+                  <h4 className="font-bold text-xl mb-4 text-[#00E599]">QUANTA (Falcon-512)</h4>
                   <ul className="space-y-2 text-gray-900">
                     <li>Public Key: 897 bytes</li>
-                    <li>Signature: 666 bytes</li>
-                    <li>Quantum Safe: YES</li>
-                    <li>NIST Standard: PQC Round 3</li>
+                    <li>Signature: ~666 bytes (variable)</li>
+                    <li>Quantum Safe: YES (lattice-based)</li>
+                    <li>NIST Standard: Level 1 (2024)</li>
                   </ul>
                 </div>
               </div>
@@ -426,12 +518,12 @@ port = 9090`} />
             </h2>
             <div className="space-y-6">
               <div className="bg-[#00E599]/10 border-2 border-[#00E599] p-8 rounded-2xl">
-                <h3 className="font-bold text-xl mb-4 text-[#00E599]">Important Warnings</h3>
+                <h3 className="font-bold text-xl mb-4 text-[#00E599]">Important Notice</h3>
                 <ul className="space-y-2 text-gray-900">
-                  <li>Quanta is for research/educational purposes</li>
-                  <li>NOT audited for production use</li>
-                  <li>Do not use for real financial transactions</li>
-                  <li>Demo passwords are PUBLIC and INSECURE</li>
+                  <li>QUANTA is currently in testnet phase (Q1 2026)</li>
+                  <li>Security audits scheduled before mainnet launch</li>
+                  <li>Use strong passwords for wallet encryption</li>
+                  <li>Store wallet backups and HD mnemonics securely offline</li>
                 </ul>
               </div>
 

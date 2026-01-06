@@ -22,15 +22,15 @@ export default function CommunityPage() {
               Join the <span className="text-[#00E599]">Community</span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Be part of building the quantum-resistant future. Connect with developers, miners, and blockchain enthusiasts.
+              Join the movement building quantum-resistant infrastructure. Connect with developers, miners, researchers, and blockchain enthusiasts securing the future.
             </p>
           </div>
 
           {/* Email Capture */}
           <div className="max-w-3xl mx-auto mb-24">
             <EmailCapture 
-              title="Get Launch Updates"
-              description="Be the first to know when we launch Discord, Twitter, and the testnet. Get exclusive early access and rewards."
+              title="Get Testnet Launch Updates"
+              description="Be notified when QUANTA testnet launches in Q1 2026. Get early access to mining, exclusive community benefits, and development updates."
             />
           </div>
 
@@ -44,7 +44,7 @@ export default function CommunityPage() {
                 </div>
                 <h3 className="text-2xl font-bold mb-3">Discord</h3>
                 <p className="text-gray-600 mb-6">
-                  Join our community hub for real-time discussions, support, and updates.
+                  Join our community hub for technical discussions, mining support, development updates, and direct access to the core team.
                 </p>
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#00E599] text-white rounded-full font-semibold hover:bg-[#00E599]/90 transition-all">
                   Join Now →
@@ -57,7 +57,7 @@ export default function CommunityPage() {
                 </div>
                 <h3 className="text-2xl font-bold mb-3">X (Twitter)</h3>
                 <p className="text-gray-600 mb-6">
-                  Follow us for project updates, technical insights, and ecosystem news.
+                  Follow for testnet announcements, technical deep-dives into post-quantum cryptography, ecosystem news, and roadmap updates.
                 </p>
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#00E599] text-white rounded-full font-semibold hover:bg-[#00E599]/90 transition-all">
                   Follow Now →
@@ -70,7 +70,7 @@ export default function CommunityPage() {
                 </div>
                 <h3 className="text-2xl font-bold mb-3">Telegram</h3>
                 <p className="text-gray-600 mb-6">
-                  Fast-paced community chat for traders, developers, and enthusiasts.
+                  Fast-paced community chat for real-time discussions, quick support, trading insights, and connecting with miners worldwide.
                 </p>
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#00E599] text-white rounded-full font-semibold hover:bg-[#00E599]/90 transition-all">
                   Join Chat →
@@ -88,7 +88,7 @@ export default function CommunityPage() {
                 <h2 className="text-3xl md:text-4xl font-bold">Open Source</h2>
               </div>
               <p className="text-xl text-gray-300 mb-8 max-w-2xl">
-                Quanta is fully open source. Contribute code, report issues, or review our implementation on GitHub.
+                QUANTA is fully open source. Contribute to the codebase, report issues, review cryptographic implementation, or help improve documentation on GitHub.
               </p>
               <a 
                 href="https://github.com/quantachain/quanta" 
@@ -111,7 +111,7 @@ export default function CommunityPage() {
               </div>
               <div className="border-l-4 border-[#00E599] pl-6">
                 <h3 className="font-bold text-xl mb-2 text-black">Stay On Topic</h3>
-                <p>Keep discussions relevant to Quanta, quantum computing, blockchain technology, and cryptography.</p>
+                <p>Keep discussions relevant to QUANTA, post-quantum cryptography, blockchain technology, mining, and tokenomics.</p>
               </div>
               <div className="border-l-4 border-[#00E599] pl-6">
                 <h3 className="font-bold text-xl mb-2 text-black">No Financial Advice</h3>
