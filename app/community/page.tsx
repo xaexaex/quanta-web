@@ -91,7 +91,7 @@ export default function CommunityPage() {
                 Quanta is fully open source. Contribute code, report issues, or review our implementation on GitHub.
               </p>
               <a 
-                href="https://github.com/xaexaex/quanta" 
+                href="https://github.com/quantachain/quanta" 
                 target="_blank"
                 className="inline-flex items-center gap-3 px-8 py-4 bg-[#00E599] text-black font-bold rounded-full hover:bg-[#00E599]/90 transition-all hover:scale-105"
               >

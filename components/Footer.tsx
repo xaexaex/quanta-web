@@ -35,7 +35,7 @@ export default function Footer() {
             <div>
               <h4 className="font-bold mb-8 text-lg">Developers</h4>
               <ul className="space-y-6 text-gray-500">
-                <li><Link href="https://github.com/xaexaex/quanta" target="_blank" className="hover:text-[#00E599] transition-colors">GitHub</Link></li>
+                <li><Link href="https://github.com/quantachain/quanta" target="_blank" className="hover:text-[#00E599] transition-colors">GitHub</Link></li>
                 <li><Link href="/docs" className="hover:text-[#00E599] transition-colors">Documentation</Link></li>
                 <li>
                   <Link href="/docs/WHITEPAPER.docx" className="hover:text-[#00E599] transition-colors">Whitepaper</Link>

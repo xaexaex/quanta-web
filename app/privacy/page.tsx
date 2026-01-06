@@ -139,7 +139,7 @@ export default function PrivacyPolicy() {
                 If you have any questions about this Privacy Policy, please contact us:
               </p>
               <ul className="list-none text-gray-600 space-y-2">
-                <li>• Via GitHub: <a href="https://github.com/xaexaex/quanta" target="_blank" className="text-[#00E599] hover:underline">github.com/xaexaex/quanta</a></li>
+                <li>• Via GitHub: <a href="https://github.com/quantachain/quanta" target="_blank" className="text-[#00E599] hover:underline">github.com/xaexaex/quanta</a></li>
                 <li>• Via our community channels listed on our website</li>
               </ul>
             </section>

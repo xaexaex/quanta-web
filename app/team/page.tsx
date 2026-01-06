@@ -177,7 +177,7 @@ export default function AboutPage() {
               We welcome contributors, researchers, and security auditors. Check out our GitHub or reach out via email.
             </p>
             <a 
-              href="https://github.com/xaexaex/quanta/issues" 
+              href="https://github.com/quantachain/quanta/issues" 
               target="_blank"
               className="inline-flex items-center gap-2 px-8 py-4 bg-black text-white font-bold rounded-full hover:bg-gray-800 transition-all"
             >

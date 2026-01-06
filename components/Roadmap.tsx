@@ -167,7 +167,7 @@ export default function Roadmap() {
             Quanta is in active development and we need your support. Contribute code, ideas, or join our community.
           </p>
           <a 
-            href="https://github.com/xaexaex/quanta"
+            href="https://github.com/quantachain/quanta"
             target="_blank"
             className="inline-flex items-center justify-center gap-3 px-10 py-5 text-xl font-bold text-[#00E599] bg-black rounded-full hover:bg-gray-900 transition-all hover:scale-105"
           >

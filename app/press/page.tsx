@@ -51,7 +51,7 @@ export default function PressKitPage() {
               </div>
               <div>
                 <h3 className="font-bold mb-2 text-gray-900">GitHub</h3>
-                <a href="https://github.com/xaexaex/quanta" target="_blank" className="text-[#00E599] hover:underline">
+                <a href="https://github.com/quantachain/quanta" target="_blank" className="text-[#00E599] hover:underline">
                   github.com/xaexaex/quanta
                 </a>
               </div>
@@ -218,7 +218,7 @@ export default function PressKitPage() {
                 For interviews, comments, or additional information, please reach out via GitHub or check back soon for our press contact details.
               </p>
               <a 
-                href="https://github.com/xaexaex/quanta" 
+                href="https://github.com/quantachain/quanta" 
                 target="_blank"
                 className="inline-flex items-center gap-3 px-8 py-4 bg-[#00E599] text-black font-bold rounded-full hover:bg-[#00E599]/90 transition-all"
               >

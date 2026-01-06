@@ -32,7 +32,7 @@ export default function Navbar() {
           {/* Right Side Actions */}
           <div className="flex items-center gap-3 sm:gap-4 flex-shrink-0">
             <Link 
-              href="https://github.com/xaexaex/quanta"
+              href="https://github.com/quantachain/quanta"
               target="_blank"
               className="inline-flex items-center justify-center p-2.5 md:p-3 text-gray-700 hover:text-[#00E599] transition-colors hover:bg-gray-50 rounded-full"
             >

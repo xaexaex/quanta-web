@@ -32,7 +32,7 @@ export default function Hero() {
         {/* GitHub Stats & Social Links */}
         <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
           <a 
-            href="https://github.com/xaexaex/quanta" 
+            href="https://github.com/quantachain/quanta" 
             target="_blank"
             className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-full text-sm font-semibold transition-all"
           >
@@ -40,7 +40,7 @@ export default function Hero() {
             <span>Star on GitHub</span>
           </a>
           <a 
-            href="https://github.com/xaexaex/quanta/fork" 
+            href="https://github.com/quantachain/quanta/fork" 
             target="_blank"
             className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-full text-sm font-semibold transition-all"
           >
@@ -48,7 +48,7 @@ export default function Hero() {
             <span>Fork</span>
           </a>
           <a 
-            href="https://github.com/xaexaex/quanta/graphs/contributors" 
+            href="https://github.com/quantachain/quanta/graphs/contributors" 
             target="_blank"
             className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-full text-sm font-semibold transition-all"
           >

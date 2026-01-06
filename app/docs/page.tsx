@@ -84,7 +84,7 @@ export default function Documentation() {
                 </ul>
               </div>
               <CodeBlock id="install" code={`# Clone the repository
-git clone https://github.com/xaexaex/quanta.git
+git clone https://github.com/quantachain/quanta.git
 cd quanta
 
 # Build with release optimizations
@@ -471,14 +471,14 @@ port = 9090`} />
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a 
-                  href="https://github.com/xaexaex/quanta"
+                  href="https://github.com/quantachain/quanta"
                   target="_blank"
                   className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-black rounded-full hover:bg-gray-900 transition-all hover:scale-105"
                 >
                   View on GitHub
                 </a>
                 <a 
-                  href="https://github.com/xaexaex/quanta/issues"
+                  href="https://github.com/quantachain/quanta/issues"
                   target="_blank"
                   className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-black bg-white border-2 border-gray-200 rounded-full hover:bg-gray-50 transition-all hover:scale-105"
                 >

@@ -27,7 +27,7 @@ export default function Home() {
             Join the network of the future. Start mining, building, or transacting on the most secure chain ever built.
           </p>
           <a 
-            href="https://github.com/xaexaex/quanta"
+            href="https://github.com/quantachain/quanta"
             target="_blank"
             className="inline-flex items-center justify-center px-12 py-6 text-2xl font-bold text-black bg-[#00E599] rounded-full hover:bg-[#00E599]/90 transition-all hover:scale-105 shadow-[0_0_30px_rgba(0,229,153,0.4)]"
           >
