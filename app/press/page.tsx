@@ -208,6 +208,56 @@ export default function PressKitPage() {
             </div>
           </div>
 
+          {/* Development Status & Timeline */}
+          <div className="max-w-4xl mx-auto mb-24">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8">Current Status & Timeline</h2>
+            <div className="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-100 rounded-3xl p-10">
+              <div className="space-y-6">
+                <div className="flex items-start gap-4">
+                  <div className="w-3 h-3 bg-[#00E599] rounded-full mt-2 flex-shrink-0"></div>
+                  <div>
+                    <h3 className="font-bold text-lg mb-1">Current Phase: Testnet Preparation (35% Complete)</h3>
+                    <p className="text-gray-600">Core protocol development complete. Internal testing underway. Target: Q1 2026</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-3 h-3 bg-gray-300 rounded-full mt-2 flex-shrink-0"></div>
+                  <div>
+                    <h3 className="font-bold text-lg mb-1">Next: Public Testnet Launch</h3>
+                    <p className="text-gray-600">Public testnet with block explorer, external audits, bug bounty program. Target: Q2 2026</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-4">
+                  <div className="w-3 h-3 bg-gray-300 rounded-full mt-2 flex-shrink-0"></div>
+                  <div>
+                    <h3 className="font-bold text-lg mb-1">Future: Mainnet Launch</h3>
+                    <p className="text-gray-600">Production mainnet with full ecosystem tools (wallet, explorer, mining pools). Target: Q1 2027</p>
+                  </div>
+                </div>
+              </div>
+              <div className="mt-8 pt-6 border-t border-gray-200">
+                <p className="text-sm text-gray-600 italic">
+                  Note: All dates are estimates and subject to security audit results. We prioritize security over speed.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* Media Coverage */}
+          <div className="max-w-4xl mx-auto mb-24">
+            <h2 className="text-3xl md:text-4xl font-bold mb-8">Media Coverage</h2>
+            <div className="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-100 rounded-3xl p-10 text-center">
+              <p className="text-gray-600 text-lg mb-6">
+                We're an early-stage project building in public. As we reach key milestones (testnet launch, audits, mainnet), 
+                we'll update this section with media coverage and press releases.
+              </p>
+              <div className="inline-flex items-center gap-2 px-6 py-3 bg-white border-2 border-gray-200 rounded-full">
+                <div className="w-2 h-2 bg-[#00E599] rounded-full animate-pulse"></div>
+                <span className="text-sm font-semibold text-gray-700">Coverage coming as we launch testnet</span>
+              </div>
+            </div>
+          </div>
+
           {/* Media Contact */}
           <div className="max-w-3xl mx-auto bg-black text-white rounded-3xl p-12 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-96 h-96 bg-[#00E599]/10 rounded-full blur-[100px]" />

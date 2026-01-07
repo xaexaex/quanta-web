@@ -9,27 +9,27 @@ export default function FAQ() {
   const faqs = [
     {
       question: "Why is QUANTA quantum-resistant?",
-      answer: "QUANTA uses NIST-standardized post-quantum cryptography: Falcon-512 for digital signatures (NIST Level 1, lattice-based) and Kyber-1024 for encryption (NIST Level 5). These algorithms are designed to withstand attacks from both classical and quantum computers, with no known polynomial-time quantum attacks."
+      answer: "QUANTA uses NIST-standardized post-quantum cryptography: Falcon-512 for digital signatures (NIST Level 1) and Kyber-1024 for encryption (NIST Level 5). These algorithms are designed to withstand attacks from both classical and quantum computers."
     },
     {
-      question: "What is the quantum threat timeline?",
-      answer: "Conservative estimates suggest quantum computers capable of breaking current blockchain cryptography (ECDSA/EdDSA) could exist within 10-15 years. QUANTA protects against harvest now, decrypt later attacks by implementing quantum-resistant encryption today, providing security through 2045 and beyond."
+      question: "When will mainnet launch?",
+      answer: "Mainnet is targeted for Q1 2027. We're currently in Phase 1 (Testnet Preparation, Q1 2026), followed by Public Testnet (Q2 2026), Security Hardening (Q3 2026), and Mainnet Preparation (Q4 2026). We prioritize security over speed."
+    },
+    {
+      question: "How can I contribute?",
+      answer: "Visit our GitHub at github.com/quantachain/quanta to contribute code, report issues, or review PRs. Join Discord (discord.gg/7KmMBrrJEz) for community discussions. Once testnet launches in Q2 2026, you can run a node and participate in testing."
+    },
+    {
+      question: "How can I support the project?",
+      answer: "Star us on GitHub, join our community channels, and spread the word. For partnerships or sponsorships, reach out via email: contact@quantachain.org. We're self-funded and building for the long term."
+    },
+    {
+      question: "What about security audits?",
+      answer: "External security audits are scheduled for Q2 2026 during the public testnet phase. We'll publish all audit reports publicly. A bug bounty program will launch alongside the testnet."
     },
     {
       question: "What are the tokenomics?",
-      answer: "Fair launch with zero pre-mine and zero ICO. Initial block reward of 100 QUA declining 15% annually to a 5 QUA floor, ensuring perpetual mining incentives. 70% of transaction fees are burned for deflationary pressure, 20% funds development treasury, and 10% goes to miners. Asymptotic maximum supply of approximately 1.5 billion QUA."
-    },
-    {
-      question: "How does the anti-dump mechanism work?",
-      answer: "50% of mining rewards are locked for 6 months (157,680 blocks) to prevent immediate sell pressure and align miner incentives with long-term network health. This creates stability during the critical launch period while maintaining operational liquidity for miners."
-    },
-    {
-      question: "What makes QUANTA different from other quantum-resistant projects?",
-      answer: "QUANTA is purpose-built, not retrofitted. It combines production-ready post-quantum cryptography with sustainable tokenomics and modern security practices. Built entirely in Rust with adaptive proof-of-work, 10-second block times, and comprehensive operational tooling including Prometheus metrics and JSON-RPC control."
-    },
-    {
-      question: "What are the technical specifications?",
-      answer: "10-second block time with dynamic difficulty adjustment every 10 blocks. SHA3-256 quantum-resistant hashing. Account-based model with nonce-based replay protection. Maximum 2,000 transactions per block with 1MB block size limit. Persistent storage using Sled database with atomic transaction guarantees."
+      answer: "Fair launch with zero pre-mine and zero ICO. Initial block reward of 100 QUA declining 15% annually to a 5 QUA floor. 70% of transaction fees are burned, 20% funds treasury, and 10% goes to miners. Maximum supply ~1.5 billion QUA."
     }
   ];
 

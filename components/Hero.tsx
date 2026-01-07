@@ -13,90 +13,28 @@ export default function Hero() {
 
       <div className="container mx-auto px-6 text-center z-10">
 
-        <h1 className="text-5xl sm:text-7xl md:text-9xl font-bold tracking-tighter mb-8 text-balance leading-[1.1] text-black">
-          <span className="relative inline-block">
-            <span className="relative z-10">Quantum-Resistant</span>
-            <span className="absolute inset-0 bg-[#00E599]/20 blur-xl" />
-          </span> <br />
-          <span className="bg-gradient-to-r from-[#00E599] to-[#00cc88] bg-clip-text text-transparent">Blockchain</span> for the <br />
-          <span className="relative inline-block">
-            <span className="relative z-10">Next Era</span>
-            <span className="absolute inset-0 bg-[#00E599]/20 blur-xl" />
-          </span>
+        <h1 className="text-5xl sm:text-7xl md:text-9xl font-bold tracking-tighter mb-8 text-black">
+          Quantum-Proof <br />
+          <span className="text-[#00E599]">Blockchain</span>
         </h1>
 
-        <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto mb-12 text-balance leading-relaxed">
-          NIST-standardized <span className="font-semibold text-gray-900">Falcon-512</span> signatures and <span className="font-semibold text-gray-900">Kyber-1024</span> encryption. <br className="hidden md:block" />
-          Fair launch with <span className="font-semibold text-[#00E599]">adaptive tokenomics</span> and perpetual mining incentives.
+        <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed">
+          <span className="font-semibold text-gray-900">Protect your digital assets for decades.</span> Built with NIST-standardized post-quantum cryptography—secure against future quantum computers.
         </p>
-
-        {/* GitHub Stats & Social Links */}
-        <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
-          <a 
-            href="https://github.com/quantachain/quanta" 
-            target="_blank"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-full text-sm font-semibold transition-all"
-          >
-            <Star className="w-4 h-4" />
-            <span>Star on GitHub</span>
-          </a>
-          <a 
-            href="https://github.com/quantachain/quanta/fork" 
-            target="_blank"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-full text-sm font-semibold transition-all"
-          >
-            <GitFork className="w-4 h-4" />
-            <span>Fork</span>
-          </a>
-          <a 
-            href="https://github.com/quantachain/quanta/graphs/contributors" 
-            target="_blank"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-full text-sm font-semibold transition-all"
-          >
-            <Users className="w-4 h-4" />
-            <span>Contributors</span>
-          </a>
-          <span className="text-gray-300">|</span>
-          <a 
-            href="https://discord.gg/7KmMBrrJEz" 
-            target="_blank"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-full text-sm font-semibold transition-all"
-          >
-            <span>Discord</span>
-          </a>
-          <a 
-            href="https://x.com/quantachain" 
-            target="_blank"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-full text-sm font-semibold transition-all"
-          >
-            <span>X</span>
-          </a>
-          <a 
-            href="https://t.me/quantanetwork" 
-            target="_blank"
-            className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 hover:bg-gray-200 rounded-full text-sm font-semibold transition-all"
-          >
-            <span>Telegram</span>
-          </a>
-        </div>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
           <Link 
             href="/docs"
-            className="group relative w-full sm:w-auto px-8 sm:px-12 py-4 sm:py-6 text-lg sm:text-xl font-bold text-black bg-gradient-to-r from-[#00E599] to-[#00cc88] rounded-full hover:shadow-[0_0_40px_rgba(0,229,153,0.4)] transition-all hover:scale-105 active:scale-95 text-center overflow-hidden"
+            className="group relative w-full sm:w-auto px-8 sm:px-10 py-4 text-lg font-bold text-black bg-[#00E599] rounded-full hover:shadow-[0_0_40px_rgba(0,229,153,0.4)] transition-all hover:scale-105 active:scale-95 text-center"
           >
-            <span className="relative z-10">Start Node</span>
-            <div className="absolute inset-0 bg-gradient-to-r from-[#00cc88] to-[#00E599] opacity-0 group-hover:opacity-100 transition-opacity" />
+            Get Started
           </Link>
           <Link 
-            href="#roadmap"
-            onClick={(e) => {
-              e.preventDefault();
-              document.getElementById('roadmap')?.scrollIntoView({ behavior: 'smooth' });
-            }}
-            className="w-full sm:w-auto px-8 sm:px-12 py-4 sm:py-6 text-lg sm:text-xl font-bold text-gray-700 bg-white border-2 border-gray-200 rounded-full hover:border-[#00E599] hover:text-black transition-all hover:shadow-lg text-center"
+            href="https://github.com/quantachain/quanta"
+            target="_blank"
+            className="w-full sm:w-auto px-8 sm:px-10 py-4 text-lg font-bold text-gray-700 bg-white border-2 border-gray-200 rounded-full hover:border-[#00E599] hover:text-black transition-all hover:shadow-lg text-center"
           >
-            View Roadmap
+            View on GitHub
           </Link>
         </div>
 

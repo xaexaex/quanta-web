@@ -160,55 +160,54 @@ export default function Tokenomics() {
         </div>
 
         {/* Supply Schedule Table */}
-        <div className="bg-black rounded-[2rem] p-8 sm:p-12 mx-2 sm:mx-4 md:mx-8">
-          <h3 className="text-3xl sm:text-4xl font-bold text-white mb-8">Supply Schedule</h3>
-          <div className="overflow-x-auto">
-            <table className="w-full text-left">
-              <thead>
-                <tr className="border-b border-white/10">
-                  <th className="py-4 px-4 text-gray-400 font-semibold text-sm">Year</th>
-                  <th className="py-4 px-4 text-gray-400 font-semibold text-sm">Block Reward</th>
-                  <th className="py-4 px-4 text-gray-400 font-semibold text-sm">Annual Emission</th>
-                  <th className="py-4 px-4 text-gray-400 font-semibold text-sm">Cumulative Supply</th>
-                </tr>
-              </thead>
-              <tbody className="text-white">
-                <tr className="border-b border-white/5">
-                  <td className="py-4 px-4 font-bold">1</td>
-                  <td className="py-4 px-4">100 QUA</td>
-                  <td className="py-4 px-4">315.4M QUA</td>
-                  <td className="py-4 px-4 text-[#00E599]">315.4M QUA</td>
-                </tr>
-                <tr className="border-b border-white/5">
-                  <td className="py-4 px-4 font-bold">2</td>
-                  <td className="py-4 px-4">85 QUA</td>
-                  <td className="py-4 px-4">268.1M QUA</td>
-                  <td className="py-4 px-4 text-[#00E599]">583.4M QUA</td>
-                </tr>
-                <tr className="border-b border-white/5">
-                  <td className="py-4 px-4 font-bold">5</td>
-                  <td className="py-4 px-4">52.2 QUA</td>
-                  <td className="py-4 px-4">164.6M QUA</td>
-                  <td className="py-4 px-4 text-[#00E599]">1.17B QUA</td>
-                </tr>
-                <tr className="border-b border-white/5">
-                  <td className="py-4 px-4 font-bold">10</td>
-                  <td className="py-4 px-4">19.7 QUA</td>
-                  <td className="py-4 px-4">62.1M QUA</td>
-                  <td className="py-4 px-4 text-[#00E599]">1.42B QUA</td>
-                </tr>
-                <tr>
-                  <td className="py-4 px-4 font-bold">20+</td>
-                  <td className="py-4 px-4">5 QUA (floor)</td>
-                  <td className="py-4 px-4">15.8M QUA</td>
-                  <td className="py-4 px-4 text-[#00E599]">~1.5B QUA</td>
-                </tr>
-              </tbody>
-            </table>
+        <div className="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-100 rounded-[2rem] p-8 sm:p-12 mx-2 sm:mx-4 md:mx-8">
+          <h3 className="text-3xl sm:text-4xl font-bold text-black mb-2">Supply Schedule</h3>
+          <p className="text-gray-600 mb-8">15% annual reduction from 100 QUA to 5 QUA floor</p>
+          
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
+            <div className="bg-white border-2 border-gray-200 rounded-xl p-6 text-center hover:border-[#00E599] transition-all">
+              <div className="text-sm text-gray-500 mb-2">Year 1</div>
+              <div className="text-3xl font-bold text-black mb-1">100</div>
+              <div className="text-xs text-gray-500 mb-3">QUA/block</div>
+              <div className="text-sm font-semibold text-[#00E599]">315M Total</div>
+            </div>
+            
+            <div className="bg-white border-2 border-gray-200 rounded-xl p-6 text-center hover:border-[#00E599] transition-all">
+              <div className="text-sm text-gray-500 mb-2">Year 2</div>
+              <div className="text-3xl font-bold text-black mb-1">85</div>
+              <div className="text-xs text-gray-500 mb-3">QUA/block</div>
+              <div className="text-sm font-semibold text-[#00E599]">583M Total</div>
+            </div>
+            
+            <div className="bg-white border-2 border-gray-200 rounded-xl p-6 text-center hover:border-[#00E599] transition-all">
+              <div className="text-sm text-gray-500 mb-2">Year 5</div>
+              <div className="text-3xl font-bold text-black mb-1">52</div>
+              <div className="text-xs text-gray-500 mb-3">QUA/block</div>
+              <div className="text-sm font-semibold text-[#00E599]">1.17B Total</div>
+            </div>
+            
+            <div className="bg-white border-2 border-gray-200 rounded-xl p-6 text-center hover:border-[#00E599] transition-all">
+              <div className="text-sm text-gray-500 mb-2">Year 10</div>
+              <div className="text-3xl font-bold text-black mb-1">20</div>
+              <div className="text-xs text-gray-500 mb-3">QUA/block</div>
+              <div className="text-sm font-semibold text-[#00E599]">1.42B Total</div>
+            </div>
+            
+            <div className="bg-white border-2 border-[#00E599] rounded-xl p-6 text-center">
+              <div className="text-sm text-gray-500 mb-2">Year 20+</div>
+              <div className="text-3xl font-bold text-black mb-1">5</div>
+              <div className="text-xs text-gray-500 mb-3">QUA/block</div>
+              <div className="text-sm font-semibold text-[#00E599]">~1.5B Total</div>
+            </div>
           </div>
-          <p className="text-gray-400 text-sm mt-6">
-            Block time: 10 seconds. Approximately 3.15M blocks per year.
-          </p>
+          
+          <div className="bg-white rounded-xl p-6 border border-gray-200">
+            <div className="flex items-center justify-between text-sm">
+              <span className="text-gray-600">Block time: 10 seconds</span>
+              <span className="text-gray-600">~3.15M blocks/year</span>
+              <span className="font-semibold text-black">Perpetual 5 QUA floor ensures long-term security</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>

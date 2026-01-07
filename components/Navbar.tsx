@@ -18,6 +18,9 @@ export default function Navbar() {
           
           {/* Desktop Navigation - Centered */}
           <div className="hidden lg:flex items-center gap-12 absolute left-1/2 -translate-x-1/2">
+            <Link href="/roadmap" className="text-sm font-semibold text-gray-700 hover:text-[#00E599] transition-colors">
+              Roadmap
+            </Link>
             <Link href="/team" className="text-sm font-semibold text-gray-700 hover:text-[#00E599] transition-colors">
               Core Team
             </Link>
@@ -62,6 +65,13 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <div className="lg:hidden border-t border-gray-100 bg-white">
           <div className="container mx-auto px-6 py-6 flex flex-col gap-4">
+            <Link 
+              href="/roadmap" 
+              className="text-lg font-semibold text-gray-700 hover:text-[#00E599] transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Roadmap
+            </Link>
             <Link 
               href="/team" 
               className="text-lg font-semibold text-gray-700 hover:text-[#00E599] transition-colors"

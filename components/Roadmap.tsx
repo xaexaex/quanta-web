@@ -6,9 +6,11 @@ export default function Roadmap() {
       phase: "Phase 1",
       title: "Testnet Preparation (Q1 2026)",
       status: "In Progress",
+      progress: 35,
+      targetDate: "March 2026",
       items: [
         { task: "Testnet node development and deployment", completed: true },
-        { task: "Internal testing and validation", completed: false },
+        { task: "Internal testing and validation", completed: true },
         { task: "Private testnet launch for community", completed: false },
         { task: "Extensive internal security testing", completed: false },
         { task: "Network monitoring and health check systems", completed: false },
@@ -19,6 +21,7 @@ export default function Roadmap() {
       phase: "Phase 2",
       title: "Public Testnet Launch (Q2 2026)",
       status: "upcoming",
+      targetDate: "June 2026",
       sections: [
         {
           title: "Launch & Operations",
@@ -50,6 +53,7 @@ export default function Roadmap() {
       phase: "Phase 3",
       title: "Security Hardening (Q3 2026)",
       status: "upcoming",
+      targetDate: "September 2026",
       items: [
         { task: "Address all testnet findings and vulnerabilities", completed: false },
         { task: "Comprehensive security audits and penetration testing", completed: false },
@@ -63,6 +67,7 @@ export default function Roadmap() {
       phase: "Phase 4",
       title: "Mainnet Preparation (Q4 2026)",
       status: "upcoming",
+      targetDate: "December 2026",
       items: [
         { task: "Code freeze and final audit", completed: false },
         { task: "Genesis block configuration and launch parameters", completed: false },
@@ -76,6 +81,7 @@ export default function Roadmap() {
       phase: "Phase 5",
       title: "Mainnet Launch (Q1 2027)",
       status: "upcoming",
+      targetDate: "March 2027",
       sections: [
         {
           title: "Genesis Event",
@@ -174,9 +180,30 @@ export default function Roadmap() {
                   <h3 className="text-3xl md:text-4xl font-bold text-black">
                     {phase.title}
                   </h3>
+                  {phase.targetDate && (
+                    <div className="text-sm text-gray-600 font-semibold mt-2">
+                      Target: {phase.targetDate}
+                    </div>
+                  )}
                 </div>
                 {getStatusBadge(phase.status)}
               </div>
+
+              {/* Progress Bar */}
+              {phase.progress !== undefined && (
+                <div className="mb-8">
+                  <div className="flex items-center justify-between mb-2">
+                    <span className="text-sm font-bold text-gray-700">Phase Progress</span>
+                    <span className="text-sm font-bold text-[#00E599]">{phase.progress}%</span>
+                  </div>
+                  <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
+                    <div 
+                      className="h-full bg-gradient-to-r from-[#00E599] to-[#00cc88] transition-all duration-500 rounded-full"
+                      style={{ width: `${phase.progress}%` }}
+                    />
+                  </div>
+                </div>
+              )}
 
               {/* Render sections if they exist */}
               {phase.sections && (
