@@ -4,20 +4,20 @@ export default function Roadmap() {
   const roadmapPhases = [
     {
       phase: "Phase 1",
-      title: "Testnet Preparation (Q2 2026)",
+      title: "Testnet Preparation (Q1 2026)",
       status: "In Progress",
       items: [
-        { task: "Complete test coverage and protocol validation", completed: false },
-        { task: "Internal security audit and code review", completed: false },
-        { task: "Bootstrap node infrastructure deployment", completed: false },
-        { task: "Comprehensive documentation and API reference", completed: false },
+        { task: "Testnet node development and deployment", completed: true },
+        { task: "Internal testing and validation", completed: false },
+        { task: "Private testnet launch for community", completed: false },
+        { task: "Extensive internal security testing", completed: false },
         { task: "Network monitoring and health check systems", completed: false },
         { task: "Community onboarding materials and guides", completed: false }
       ]
     },
     {
       phase: "Phase 2",
-      title: "Testnet Launch (Q3 2026)",
+      title: "Public Testnet Launch (Q2 2026)",
       status: "upcoming",
       sections: [
         {
@@ -30,9 +30,9 @@ export default function Roadmap() {
           ]
         },
         {
-          title: "Security & Hardening",
+          title: "Security Audits",
           items: [
-            { task: "Community-driven security review and vulnerability testing", completed: false },
+            { task: "External security audits and vulnerability assessments", completed: false },
             { task: "Bug bounty program with progressive rewards", completed: false },
             { task: "Network resilience testing under various conditions", completed: false },
             { task: "Protocol refinement based on real-world data", completed: false }
@@ -48,21 +48,32 @@ export default function Roadmap() {
     },
     {
       phase: "Phase 3",
-      title: "Mainnet Preparation (Q4 2026)",
+      title: "Security Hardening (Q3 2026)",
       status: "upcoming",
       items: [
-        { task: "Address all testnet findings and finalize protocol", completed: false },
-        { task: "Code freeze and final security review", completed: false },
-        { task: "Genesis block configuration and launch parameters", completed: false },
-        { task: "Production bootstrap node deployment across regions", completed: false },
-        { task: "Desktop wallet release for all major platforms", completed: false },
-        { task: "Block explorer deployment and transaction indexing", completed: false },
-        { task: "Exchange partnership discussions and integration support", completed: false },
+        { task: "Address all testnet findings and vulnerabilities", completed: false },
+        { task: "Comprehensive security audits and penetration testing", completed: false },
+        { task: "Code optimization and protocol finalization", completed: false },
+        { task: "Final security review and vulnerability patches", completed: false },
+        { task: "Documentation updates and security best practices", completed: false },
         { task: "Emergency response procedures and incident management", completed: false }
       ]
     },
     {
       phase: "Phase 4",
+      title: "Mainnet Preparation (Q4 2026)",
+      status: "upcoming",
+      items: [
+        { task: "Code freeze and final audit", completed: false },
+        { task: "Genesis block configuration and launch parameters", completed: false },
+        { task: "Production bootstrap node deployment across regions", completed: false },
+        { task: "Desktop wallet release for all major platforms", completed: false },
+        { task: "Block explorer deployment and transaction indexing", completed: false },
+        { task: "Exchange partnership discussions and integration support", completed: false }
+      ]
+    },
+    {
+      phase: "Phase 5",
       title: "Mainnet Launch (Q1 2027)",
       status: "upcoming",
       sections: [
