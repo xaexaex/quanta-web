@@ -167,34 +167,6 @@ export default function Roadmap() {
                 {getStatusBadge(phase.status)}
               </div>
 
-              {/* Render quarters if they exist */}
-              {phase.quarters && (
-                <div className="space-y-8">
-                  {phase.quarters.map((quarter, qIndex) => (
-                    <div key={qIndex}>
-                      <h4 className="text-xl font-bold text-gray-900 mb-4">{quarter.title}</h4>
-                      <div className="space-y-4">
-                        {quarter.items.map((item, itemIndex) => (
-                          <div 
-                            key={itemIndex}
-                            className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
-                          >
-                            {item.completed ? (
-                              <CheckCircle2 className="w-6 h-6 text-[#00E599] flex-shrink-0" />
-                            ) : (
-                              <Circle className="w-6 h-6 text-gray-300 flex-shrink-0" />
-                            )}
-                            <span className={`text-lg ${item.completed ? 'text-gray-900 font-medium' : 'text-gray-600'}`}>
-                              {item.task}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-
               {/* Render sections if they exist */}
               {phase.sections && (
                 <div className="space-y-8">
