@@ -4,155 +4,92 @@ export default function Roadmap() {
   const roadmapPhases = [
     {
       phase: "Phase 1",
-      title: "Testnet (Q2-Q3 2026)",
-      status: "upcoming",
-      quarters: [
-        {
-          title: "Q2 2026",
-          items: [
-            { task: "Public testnet launch with coordinated bootstrap nodes", completed: false },
-            { task: "Core functionality validation", completed: false },
-            { task: "Stress testing with simulated high-volume transactions", completed: false },
-            { task: "Community onboarding and documentation refinement", completed: false }
-          ]
-        },
-        {
-          title: "Q3 2026",
-          items: [
-            { task: "External security audits (minimum 3 independent firms)", completed: false },
-            { task: "Public bug bounty program ($100,000+ rewards pool)", completed: false },
-            { task: "Performance optimization based on testnet data", completed: false },
-            { task: "Network resilience testing", completed: false }
-          ]
-        }
-      ],
-      successCriteria: [
-        "1,000+ testnet nodes across 50+ countries",
-        "1 million+ test transactions processed",
-        "Zero critical vulnerabilities in final audit",
-        "99.9%+ uptime for testnet bootstrap nodes"
+      title: "Testnet Preparation (Q2 2026)",
+      status: "In Progress",
+      items: [
+        { task: "Complete test coverage and protocol validation", completed: false },
+        { task: "Internal security audit and code review", completed: false },
+        { task: "Bootstrap node infrastructure deployment", completed: false },
+        { task: "Comprehensive documentation and API reference", completed: false },
+        { task: "Network monitoring and health check systems", completed: false },
+        { task: "Community onboarding materials and guides", completed: false }
       ]
     },
     {
       phase: "Phase 2",
-      title: "Mainnet Preparation (Q4 2026)",
+      title: "Testnet Launch (Q3 2026)",
       status: "upcoming",
-      items: [
-        { task: "Comprehensive remediation of all testnet findings", completed: false },
-        { task: "Final security audit and formal code freeze", completed: false },
-        { task: "Genesis block configuration and fair launch planning", completed: false },
-        { task: "Bootstrap node deployment (10+ nodes, 5+ regions)", completed: false },
-        { task: "Exchange partnership agreements (targeting 3-5 Tier 1)", completed: false },
-        { task: "Third-party wallet provider integrations", completed: false },
-        { task: "Emergency response procedures and incident playbooks", completed: false },
-        { task: "Network monitoring infrastructure (Prometheus/Grafana)", completed: false }
+      sections: [
+        {
+          title: "Launch & Operations",
+          items: [
+            { task: "Public testnet launch with geographically distributed bootstrap nodes", completed: false },
+            { task: "Real-world stress testing and network validation", completed: false },
+            { task: "Active community engagement and developer onboarding", completed: false },
+            { task: "Performance monitoring and optimization", completed: false }
+          ]
+        },
+        {
+          title: "Security & Hardening",
+          items: [
+            { task: "Community-driven security review and vulnerability testing", completed: false },
+            { task: "Bug bounty program with progressive rewards", completed: false },
+            { task: "Network resilience testing under various conditions", completed: false },
+            { task: "Protocol refinement based on real-world data", completed: false }
+          ]
+        }
+      ],
+      successCriteria: [
+        "30+ active testnet nodes from diverse regions",
+        "10,000+ transactions validated successfully",
+        "Zero critical vulnerabilities in production code",
+        "30+ days of continuous stable operation"
       ]
     },
     {
       phase: "Phase 3",
+      title: "Mainnet Preparation (Q4 2026)",
+      status: "upcoming",
+      items: [
+        { task: "Address all testnet findings and finalize protocol", completed: false },
+        { task: "Code freeze and final security review", completed: false },
+        { task: "Genesis block configuration and launch parameters", completed: false },
+        { task: "Production bootstrap node deployment across regions", completed: false },
+        { task: "Desktop wallet release for all major platforms", completed: false },
+        { task: "Block explorer deployment and transaction indexing", completed: false },
+        { task: "Exchange partnership discussions and integration support", completed: false },
+        { task: "Emergency response procedures and incident management", completed: false }
+      ]
+    },
+    {
+      phase: "Phase 4",
       title: "Mainnet Launch (Q1 2027)",
       status: "upcoming",
       sections: [
         {
           title: "Genesis Event",
           items: [
-            { task: "Coordinated mainnet launch with transparent genesis parameters", completed: false },
-            { task: "Initial bootstrap nodes operational across regions", completed: false },
-            { task: "Official block explorer deployment (open-source)", completed: false },
-            { task: "Desktop wallet releases (Windows, macOS, Linux)", completed: false }
+            { task: "Mainnet genesis with transparent, auditable parameters", completed: false },
+            { task: "Multi-region bootstrap node activation", completed: false },
+            { task: "Full-featured block explorer and analytics dashboard", completed: false },
+            { task: "Production wallet release with comprehensive security", completed: false }
           ]
         },
         {
-          title: "First 30 Days",
+          title: "Post-Launch (First 30 Days)",
           items: [
-            { task: "24/7 network monitoring and incident response", completed: false },
-            { task: "Daily status reports to community", completed: false },
-            { task: "Rapid response to any network issues", completed: false },
-            { task: "Exchange listing activations (post-stabilization)", completed: false }
+            { task: "Continuous network monitoring and health tracking", completed: false },
+            { task: "Daily community updates and transparency reports", completed: false },
+            { task: "Rapid incident response and network optimization", completed: false },
+            { task: "Exchange integration and listing coordination", completed: false }
           ]
         }
       ],
       successCriteria: [
-        "500+ mainnet nodes in first week",
-        "99.5%+ network uptime",
-        "Average block time within 10-15 seconds",
-        "No consensus failures or chain splits"
-      ]
-    },
-    {
-      phase: "Phase 4",
-      title: "Expansion (Q2-Q4 2027)",
-      status: "upcoming",
-      quarters: [
-        {
-          title: "Q2 2027",
-          items: [
-            { task: "Light client protocol (SPV) specification and implementation", completed: false },
-            { task: "Signature aggregation research and prototyping", completed: false },
-            { task: "Mobile wallet SDK development", completed: false }
-          ]
-        },
-        {
-          title: "Q3 2027",
-          items: [
-            { task: "Mobile wallet releases (iOS App Store, Google Play)", completed: false },
-            { task: "Hardware wallet integrations (Ledger, Trezor)", completed: false },
-            { task: "Pruning mode optimization (target: 100 GB storage)", completed: false }
-          ]
-        },
-        {
-          title: "Q4 2027",
-          items: [
-            { task: "Developer documentation and API reference", completed: false },
-            { task: "Third-party integration toolkit", completed: false },
-            { task: "First developer grants awarded", completed: false },
-            { task: "Signature compression (target: 50% reduction)", completed: false }
-          ]
-        }
-      ]
-    },
-    {
-      phase: "Phase 5",
-      title: "Ecosystem (2028+)",
-      status: "upcoming",
-      sections: [
-        {
-          title: "Smart Contract Layer",
-          items: [
-            { task: "Post-quantum VM design specification (Q1-Q2 2028)", completed: false },
-            { task: "VM prototype and testnet deployment (Q3-Q4 2028)", completed: false },
-            { task: "Mainnet smart contract activation (Q1 2029)", completed: false }
-          ]
-        },
-        {
-          title: "Advanced Features",
-          items: [
-            { task: "Privacy enhancements (confidential transactions research)", completed: false },
-            { task: "Cross-chain bridges (quantum-resistant relay protocols)", completed: false },
-            { task: "Layer 2 solutions (rollups, state channels)", completed: false },
-            { task: "Interoperability standards", completed: false }
-          ]
-        },
-        {
-          title: "Ecosystem Growth",
-          items: [
-            { task: "Developer grants program ($1M+ annual budget)", completed: false },
-            { task: "DApp incubator program", completed: false },
-            { task: "Educational initiatives and workshops", completed: false },
-            { task: "Enterprise adoption partnerships", completed: false }
-          ]
-        }
-      ]
-    },
-    {
-      phase: "Phase 6",
-      title: "Long-Term Research (2029+)",
-      status: "upcoming",
-      items: [
-        { task: "Post-quantum zero-knowledge proofs", completed: false },
-        { task: "Quantum random number generation integration", completed: false },
-        { task: "Proof-of-stake research (quantum-resistant consensus)", completed: false },
-        { task: "Cryptographic agility framework (algorithm migration paths)", completed: false }
+        "25+ independent mainnet nodes within first month",
+        "95%+ network uptime and stability",
+        "Block time consistency within 10-15 seconds",
+        "Zero consensus failures or chain reorganizations"
       ]
     }
   ];
