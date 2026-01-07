@@ -4,50 +4,155 @@ export default function Roadmap() {
   const roadmapPhases = [
     {
       phase: "Phase 1",
-      title: "Foundation (Q1 2026)",
-      status: "In Progress",
-      items: [
-        { task: "Testnet launch", completed: false },
-        { task: "Core functionality validation", completed: false },
-        { task: "Community building", completed: false },
-        { task: "Security audits", completed: false },
-        { task: "Documentation completion", completed: false }
+      title: "Testnet (Q2-Q3 2026)",
+      status: "upcoming",
+      quarters: [
+        {
+          title: "Q2 2026",
+          items: [
+            { task: "Public testnet launch with coordinated bootstrap nodes", completed: false },
+            { task: "Core functionality validation", completed: false },
+            { task: "Stress testing with simulated high-volume transactions", completed: false },
+            { task: "Community onboarding and documentation refinement", completed: false }
+          ]
+        },
+        {
+          title: "Q3 2026",
+          items: [
+            { task: "External security audits (minimum 3 independent firms)", completed: false },
+            { task: "Public bug bounty program ($100,000+ rewards pool)", completed: false },
+            { task: "Performance optimization based on testnet data", completed: false },
+            { task: "Network resilience testing", completed: false }
+          ]
+        }
+      ],
+      successCriteria: [
+        "1,000+ testnet nodes across 50+ countries",
+        "1 million+ test transactions processed",
+        "Zero critical vulnerabilities in final audit",
+        "99.9%+ uptime for testnet bootstrap nodes"
       ]
     },
     {
       phase: "Phase 2",
-      title: "Mainnet (Q2 2026)",
+      title: "Mainnet Preparation (Q4 2026)",
       status: "upcoming",
       items: [
-        { task: "Mainnet genesis", completed: false },
-        { task: "Exchange integrations", completed: false },
-        { task: "Block explorer deployment", completed: false },
-        { task: "Light wallet release", completed: false },
-        { task: "Mining pool infrastructure", completed: false }
+        { task: "Comprehensive remediation of all testnet findings", completed: false },
+        { task: "Final security audit and formal code freeze", completed: false },
+        { task: "Genesis block configuration and fair launch planning", completed: false },
+        { task: "Bootstrap node deployment (10+ nodes, 5+ regions)", completed: false },
+        { task: "Exchange partnership agreements (targeting 3-5 Tier 1)", completed: false },
+        { task: "Third-party wallet provider integrations", completed: false },
+        { task: "Emergency response procedures and incident playbooks", completed: false },
+        { task: "Network monitoring infrastructure (Prometheus/Grafana)", completed: false }
       ]
     },
     {
       phase: "Phase 3",
-      title: "Expansion (Q3-Q4 2026)",
+      title: "Mainnet Launch (Q1 2027)",
       status: "upcoming",
-      items: [
-        { task: "Smart contract layer (post-quantum VM)", completed: false },
-        { task: "Light client protocol (SPV)", completed: false },
-        { task: "Hardware wallet support (Ledger/Trezor)", completed: false },
-        { task: "Mobile wallets (iOS/Android)", completed: false },
-        { task: "Developer SDK and tooling", completed: false }
+      sections: [
+        {
+          title: "Genesis Event",
+          items: [
+            { task: "Coordinated mainnet launch with transparent genesis parameters", completed: false },
+            { task: "Initial bootstrap nodes operational across regions", completed: false },
+            { task: "Official block explorer deployment (open-source)", completed: false },
+            { task: "Desktop wallet releases (Windows, macOS, Linux)", completed: false }
+          ]
+        },
+        {
+          title: "First 30 Days",
+          items: [
+            { task: "24/7 network monitoring and incident response", completed: false },
+            { task: "Daily status reports to community", completed: false },
+            { task: "Rapid response to any network issues", completed: false },
+            { task: "Exchange listing activations (post-stabilization)", completed: false }
+          ]
+        }
+      ],
+      successCriteria: [
+        "500+ mainnet nodes in first week",
+        "99.5%+ network uptime",
+        "Average block time within 10-15 seconds",
+        "No consensus failures or chain splits"
       ]
     },
     {
       phase: "Phase 4",
-      title: "Ecosystem (2027+)",
+      title: "Expansion (Q2-Q4 2027)",
+      status: "upcoming",
+      quarters: [
+        {
+          title: "Q2 2027",
+          items: [
+            { task: "Light client protocol (SPV) specification and implementation", completed: false },
+            { task: "Signature aggregation research and prototyping", completed: false },
+            { task: "Mobile wallet SDK development", completed: false }
+          ]
+        },
+        {
+          title: "Q3 2027",
+          items: [
+            { task: "Mobile wallet releases (iOS App Store, Google Play)", completed: false },
+            { task: "Hardware wallet integrations (Ledger, Trezor)", completed: false },
+            { task: "Pruning mode optimization (target: 100 GB storage)", completed: false }
+          ]
+        },
+        {
+          title: "Q4 2027",
+          items: [
+            { task: "Developer documentation and API reference", completed: false },
+            { task: "Third-party integration toolkit", completed: false },
+            { task: "First developer grants awarded", completed: false },
+            { task: "Signature compression (target: 50% reduction)", completed: false }
+          ]
+        }
+      ]
+    },
+    {
+      phase: "Phase 5",
+      title: "Ecosystem (2028+)",
+      status: "upcoming",
+      sections: [
+        {
+          title: "Smart Contract Layer",
+          items: [
+            { task: "Post-quantum VM design specification (Q1-Q2 2028)", completed: false },
+            { task: "VM prototype and testnet deployment (Q3-Q4 2028)", completed: false },
+            { task: "Mainnet smart contract activation (Q1 2029)", completed: false }
+          ]
+        },
+        {
+          title: "Advanced Features",
+          items: [
+            { task: "Privacy enhancements (confidential transactions research)", completed: false },
+            { task: "Cross-chain bridges (quantum-resistant relay protocols)", completed: false },
+            { task: "Layer 2 solutions (rollups, state channels)", completed: false },
+            { task: "Interoperability standards", completed: false }
+          ]
+        },
+        {
+          title: "Ecosystem Growth",
+          items: [
+            { task: "Developer grants program ($1M+ annual budget)", completed: false },
+            { task: "DApp incubator program", completed: false },
+            { task: "Educational initiatives and workshops", completed: false },
+            { task: "Enterprise adoption partnerships", completed: false }
+          ]
+        }
+      ]
+    },
+    {
+      phase: "Phase 6",
+      title: "Long-Term Research (2029+)",
       status: "upcoming",
       items: [
-        { task: "Developer grants program", completed: false },
-        { task: "DApp ecosystem growth", completed: false },
-        { task: "Cross-chain bridges", completed: false },
-        { task: "Layer 2 solutions", completed: false },
-        { task: "On-chain governance", completed: false }
+        { task: "Post-quantum zero-knowledge proofs", completed: false },
+        { task: "Quantum random number generation integration", completed: false },
+        { task: "Proof-of-stake research (quantum-resistant consensus)", completed: false },
+        { task: "Cryptographic agility framework (algorithm migration paths)", completed: false }
       ]
     }
   ];
@@ -125,23 +230,100 @@ export default function Roadmap() {
                 {getStatusBadge(phase.status)}
               </div>
 
-              <div className="space-y-4">
-                {phase.items.map((item, itemIndex) => (
-                  <div 
-                    key={itemIndex}
-                    className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
-                  >
-                    {item.completed ? (
-                      <CheckCircle2 className="w-6 h-6 text-[#00E599] flex-shrink-0" />
-                    ) : (
-                      <Circle className="w-6 h-6 text-gray-300 flex-shrink-0" />
-                    )}
-                    <span className={`text-lg ${item.completed ? 'text-gray-900 font-medium' : 'text-gray-600'}`}>
-                      {item.task}
-                    </span>
-                  </div>
-                ))}
-              </div>
+              {/* Render quarters if they exist */}
+              {phase.quarters && (
+                <div className="space-y-8">
+                  {phase.quarters.map((quarter, qIndex) => (
+                    <div key={qIndex}>
+                      <h4 className="text-xl font-bold text-gray-900 mb-4">{quarter.title}</h4>
+                      <div className="space-y-4">
+                        {quarter.items.map((item, itemIndex) => (
+                          <div 
+                            key={itemIndex}
+                            className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
+                          >
+                            {item.completed ? (
+                              <CheckCircle2 className="w-6 h-6 text-[#00E599] flex-shrink-0" />
+                            ) : (
+                              <Circle className="w-6 h-6 text-gray-300 flex-shrink-0" />
+                            )}
+                            <span className={`text-lg ${item.completed ? 'text-gray-900 font-medium' : 'text-gray-600'}`}>
+                              {item.task}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Render sections if they exist */}
+              {phase.sections && (
+                <div className="space-y-8">
+                  {phase.sections.map((section, sIndex) => (
+                    <div key={sIndex}>
+                      <h4 className="text-xl font-bold text-gray-900 mb-4">{section.title}</h4>
+                      <div className="space-y-4">
+                        {section.items.map((item, itemIndex) => (
+                          <div 
+                            key={itemIndex}
+                            className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
+                          >
+                            {item.completed ? (
+                              <CheckCircle2 className="w-6 h-6 text-[#00E599] flex-shrink-0" />
+                            ) : (
+                              <Circle className="w-6 h-6 text-gray-300 flex-shrink-0" />
+                            )}
+                            <span className={`text-lg ${item.completed ? 'text-gray-900 font-medium' : 'text-gray-600'}`}>
+                              {item.task}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Render simple items if they exist */}
+              {phase.items && (
+                <div className="space-y-4">
+                  {phase.items.map((item, itemIndex) => (
+                    <div 
+                      key={itemIndex}
+                      className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
+                    >
+                      {item.completed ? (
+                        <CheckCircle2 className="w-6 h-6 text-[#00E599] flex-shrink-0" />
+                      ) : (
+                        <Circle className="w-6 h-6 text-gray-300 flex-shrink-0" />
+                      )}
+                      <span className={`text-lg ${item.completed ? 'text-gray-900 font-medium' : 'text-gray-600'}`}>
+                        {item.task}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              )}
+
+              {/* Success Criteria */}
+              {phase.successCriteria && (
+                <div className="mt-8 p-6 bg-[#00E599]/5 border-2 border-[#00E599]/20 rounded-xl">
+                  <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <CheckCircle2 className="w-5 h-5 text-[#00E599]" />
+                    Success Criteria
+                  </h4>
+                  <ul className="space-y-2">
+                    {phase.successCriteria.map((criteria, cIndex) => (
+                      <li key={cIndex} className="text-gray-700 flex items-start gap-2">
+                        <span className="text-[#00E599] mt-1">•</span>
+                        <span>{criteria}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
             </div>
           ))}
         </div>
