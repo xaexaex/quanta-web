@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -6,14 +7,23 @@ export default function Footer() {
       <div className="container mx-auto px-4 sm:px-6">
         <div className="flex flex-col md:flex-row justify-between items-start gap-12 sm:gap-16 mb-16 sm:mb-20 md:mb-24">
           <div>
-            <Link href="/" className="text-3xl sm:text-4xl font-bold tracking-tighter mb-6 sm:mb-8 block">
-              Quanta<span className="text-[#00E599]">.</span>
+            <Link href="/" className="flex items-center gap-4 sm:gap-5 mb-6 sm:mb-8">
+              <Image
+                src="/logo/quanta.svg"
+                alt="Quanta Logo"
+                width={64}
+                height={64}
+                className="w-14 h-14 sm:w-16 sm:h-16 mt-1"
+              />
+              <span className="text-3xl sm:text-4xl font-bold tracking-tighter">
+                Quanta<span className="text-[#00E599]">.</span>
+              </span>
             </Link>
             <p className="text-gray-500 max-w-sm text-base sm:text-lg leading-relaxed">
               Quantum-resistant blockchain built with NIST-standardized post-quantum cryptography for the next era of secure decentralized applications.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12 md:gap-16 w-full md:w-auto">
             <div>
               <h4 className="font-bold mb-6 sm:mb-8 text-base sm:text-lg">Ecosystem</h4>

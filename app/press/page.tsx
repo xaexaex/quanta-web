@@ -1,7 +1,8 @@
 import { Metadata } from "next";
+import Image from "next/image";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { Download, Palette, FileText, Image, Video, Mail } from "lucide-react";
+import { Download, Palette, FileText, Image as ImageIcon, Video, Mail } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Press Kit",
@@ -12,7 +13,7 @@ export default function PressKitPage() {
   return (
     <main className="min-h-screen bg-white text-black">
       <Navbar />
-      
+
       <div className="pt-32 pb-24">
         <div className="container mx-auto px-6">
           {/* Hero */}
@@ -61,7 +62,7 @@ export default function PressKitPage() {
           {/* Project Descriptions */}
           <div className="max-w-4xl mx-auto mb-24">
             <h2 className="text-3xl md:text-4xl font-bold mb-8">Project Descriptions</h2>
-            
+
             <div className="space-y-8">
               <div className="border-l-4 border-[#00E599] pl-6">
                 <h3 className="font-bold text-xl mb-3">One-Liner (Twitter/Social)</h3>
@@ -97,7 +98,7 @@ export default function PressKitPage() {
           {/* Brand Assets */}
           <div className="max-w-4xl mx-auto mb-24">
             <h2 className="text-3xl md:text-4xl font-bold mb-8">Brand Assets</h2>
-            
+
             {/* Colors */}
             <div className="mb-12">
               <h3 className="text-2xl font-bold mb-6">Brand Colors</h3>
@@ -129,22 +130,111 @@ export default function PressKitPage() {
             <div className="mb-12">
               <h3 className="text-2xl font-bold mb-6">Logo Downloads</h3>
               <p className="text-gray-600 mb-6">
-                Logo files coming soon. For now, use "Quanta" in system font with the green dot accent.
+                Download our official logo in various formats. Available in SVG and PNG.
               </p>
-              <div className="grid md:grid-cols-2 gap-4">
-                <div className="border-2 border-gray-200 rounded-2xl p-8 text-center">
-                  <div className="text-4xl font-bold mb-4">Quanta<span className="text-[#00E599]">.</span></div>
-                  <p className="text-sm text-gray-600 mb-4">Wordmark - Light Background</p>
-                  <button disabled className="px-6 py-3 bg-gray-200 text-gray-500 rounded-full text-sm font-semibold cursor-not-allowed">
-                    Coming Soon
-                  </button>
+              <div className="grid md:grid-cols-2 gap-6">
+                {/* SVG Logo - Light Background */}
+                <div className="border-2 border-gray-200 rounded-2xl p-8">
+                  <div className="bg-white flex items-center justify-center h-40 mb-4 rounded-xl">
+                    <Image
+                      src="/logo/quanta.svg"
+                      alt="Quanta Logo"
+                      width={160}
+                      height={160}
+                      className="w-36 h-36"
+                    />
+                  </div>
+                  <p className="text-sm text-gray-600 mb-4 text-center font-semibold">Logo SVG - Light Background</p>
+                  <div className="flex gap-2">
+                    <a
+                      href="/logo/quanta.svg"
+                      download="quanta-logo.svg"
+                      className="flex-1 px-4 py-3 bg-[#00E599] text-black rounded-full text-sm font-semibold hover:bg-[#00E599]/90 transition-all text-center flex items-center justify-center gap-2"
+                    >
+                      <Download className="w-4 h-4" />
+                      SVG
+                    </a>
+                    <a
+                      href="/logo/quanta.png"
+                      download="quanta-logo.png"
+                      className="flex-1 px-4 py-3 bg-gray-200 text-black rounded-full text-sm font-semibold hover:bg-gray-300 transition-all text-center flex items-center justify-center gap-2"
+                    >
+                      <Download className="w-4 h-4" />
+                      PNG
+                    </a>
+                  </div>
                 </div>
-                <div className="border-2 border-gray-200 rounded-2xl p-8 text-center bg-black">
-                  <div className="text-4xl font-bold mb-4 text-white">Quanta<span className="text-[#00E599]">.</span></div>
-                  <p className="text-sm text-gray-400 mb-4">Wordmark - Dark Background</p>
-                  <button disabled className="px-6 py-3 bg-gray-800 text-gray-500 rounded-full text-sm font-semibold cursor-not-allowed">
-                    Coming Soon
-                  </button>
+
+                {/* SVG Logo - Dark Background */}
+                <div className="border-2 border-gray-200 rounded-2xl p-8 bg-black">
+                  <div className="bg-black flex items-center justify-center h-40 mb-4 rounded-xl">
+                    <Image
+                      src="/logo/quanta.svg"
+                      alt="Quanta Logo"
+                      width={160}
+                      height={160}
+                      className="w-36 h-36"
+                    />
+                  </div>
+                  <p className="text-sm text-gray-400 mb-4 text-center font-semibold">Logo SVG - Dark Background</p>
+                  <div className="flex gap-2">
+                    <a
+                      href="/logo/quanta.svg"
+                      download="quanta-logo.svg"
+                      className="flex-1 px-4 py-3 bg-[#00E599] text-black rounded-full text-sm font-semibold hover:bg-[#00E599]/90 transition-all text-center flex items-center justify-center gap-2"
+                    >
+                      <Download className="w-4 h-4" />
+                      SVG
+                    </a>
+                    <a
+                      href="/logo/quanta.png"
+                      download="quanta-logo.png"
+                      className="flex-1 px-4 py-3 bg-gray-800 text-white rounded-full text-sm font-semibold hover:bg-gray-700 transition-all text-center flex items-center justify-center gap-2"
+                    >
+                      <Download className="w-4 h-4" />
+                      PNG
+                    </a>
+                  </div>
+                </div>
+
+                {/* Wordmark with Logo - Light */}
+                <div className="border-2 border-gray-200 rounded-2xl p-8">
+                  <div className="bg-white flex items-center justify-center h-40 mb-4 rounded-xl">
+                    <div className="flex items-center gap-4">
+                      <Image
+                        src="/logo/quanta.svg"
+                        alt="Quanta Logo"
+                        width={64}
+                        height={64}
+                        className="w-16 h-16"
+                      />
+                      <span className="text-5xl font-bold tracking-tighter">
+                        Quanta<span className="text-[#00E599]">.</span>
+                      </span>
+                    </div>
+                  </div>
+                  <p className="text-sm text-gray-600 mb-4 text-center font-semibold">Full Wordmark - Light</p>
+                  <p className="text-xs text-gray-500 text-center">Use logo + text for maximum brand recognition</p>
+                </div>
+
+                {/* Wordmark with Logo - Dark */}
+                <div className="border-2 border-gray-200 rounded-2xl p-8 bg-black">
+                  <div className="bg-black flex items-center justify-center h-40 mb-4 rounded-xl">
+                    <div className="flex items-center gap-4">
+                      <Image
+                        src="/logo/quanta.svg"
+                        alt="Quanta Logo"
+                        width={64}
+                        height={64}
+                        className="w-16 h-16"
+                      />
+                      <span className="text-5xl font-bold tracking-tighter text-white">
+                        Quanta<span className="text-[#00E599]">.</span>
+                      </span>
+                    </div>
+                  </div>
+                  <p className="text-sm text-gray-400 mb-4 text-center font-semibold">Full Wordmark - Dark</p>
+                  <p className="text-xs text-gray-500 text-center">Use logo + text for maximum brand recognition</p>
                 </div>
               </div>
             </div>
@@ -248,7 +338,7 @@ export default function PressKitPage() {
             <h2 className="text-3xl md:text-4xl font-bold mb-8">Media Coverage</h2>
             <div className="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-100 rounded-3xl p-10 text-center">
               <p className="text-gray-600 text-lg mb-6">
-                We're an early-stage project building in public. As we reach key milestones (testnet launch, audits, mainnet), 
+                We're an early-stage project building in public. As we reach key milestones (testnet launch, audits, mainnet),
                 we'll update this section with media coverage and press releases.
               </p>
               <div className="inline-flex items-center gap-2 px-6 py-3 bg-white border-2 border-gray-200 rounded-full">
@@ -267,8 +357,8 @@ export default function PressKitPage() {
               <p className="text-xl text-gray-300 mb-8">
                 For interviews, comments, or additional information, please reach out via GitHub or check back soon for our press contact details.
               </p>
-              <a 
-                href="https://github.com/quantachain/quanta" 
+              <a
+                href="https://github.com/quantachain/quanta"
                 target="_blank"
                 className="inline-flex items-center gap-3 px-8 py-4 bg-[#00E599] text-black font-bold rounded-full hover:bg-[#00E599]/90 transition-all"
               >
