@@ -22,40 +22,40 @@ export default function Tokenomics() {
         </div>
 
         {/* Key Metrics Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mx-2 sm:mx-4 md:mx-8 mb-16">
-          <div className="bg-gradient-to-br from-[#00E599] to-[#00cc88] p-8 rounded-[2rem] text-black">
-            <div className="text-5xl font-bold mb-2">100</div>
-            <div className="text-lg font-semibold mb-1">QUA Initial Reward</div>
-            <div className="text-sm opacity-80">Per block at launch</div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mx-2 sm:mx-4 md:mx-8 mb-16">
+          <div className="bg-gradient-to-br from-[#00E599] to-[#00cc88] p-6 sm:p-8 rounded-2xl sm:rounded-[2rem] text-black">
+            <div className="text-4xl sm:text-5xl font-bold mb-2">100</div>
+            <div className="text-base sm:text-lg font-semibold mb-1">QUA Initial Reward</div>
+            <div className="text-xs sm:text-sm opacity-80">Per block at launch</div>
           </div>
           
-          <div className="bg-gradient-to-br from-[#00E599] to-[#00cc88] p-8 rounded-[2rem] text-black">
-            <div className="text-5xl font-bold mb-2">15%</div>
-            <div className="text-lg font-semibold mb-1">Annual Reduction</div>
-            <div className="text-sm opacity-80">Smooth exponential decay</div>
+          <div className="bg-gradient-to-br from-[#00E599] to-[#00cc88] p-6 sm:p-8 rounded-2xl sm:rounded-[2rem] text-black">
+            <div className="text-4xl sm:text-5xl font-bold mb-2">15%</div>
+            <div className="text-base sm:text-lg font-semibold mb-1">Annual Reduction</div>
+            <div className="text-xs sm:text-sm opacity-80">Smooth exponential decay</div>
           </div>
           
-          <div className="bg-gradient-to-br from-[#00E599] to-[#00cc88] p-8 rounded-[2rem] text-black">
-            <div className="text-5xl font-bold mb-2">1.5B</div>
-            <div className="text-lg font-semibold mb-1">Asymptotic Maximum</div>
-            <div className="text-sm opacity-80">Reached by year 15-20</div>
+          <div className="bg-gradient-to-br from-[#00E599] to-[#00cc88] p-6 sm:p-8 rounded-2xl sm:rounded-[2rem] text-black">
+            <div className="text-4xl sm:text-5xl font-bold mb-2">1.5B</div>
+            <div className="text-base sm:text-lg font-semibold mb-1">Asymptotic Maximum</div>
+            <div className="text-xs sm:text-sm opacity-80">Reached by year 15-20</div>
           </div>
           
-          <div className="bg-gradient-to-br from-[#00E599] to-[#00cc88] p-8 rounded-[2rem] text-black">
-            <div className="text-5xl font-bold mb-2">5</div>
-            <div className="text-lg font-semibold mb-1">QUA Reward Floor</div>
-            <div className="text-sm opacity-80">Perpetual mining incentive</div>
+          <div className="bg-gradient-to-br from-[#00E599] to-[#00cc88] p-6 sm:p-8 rounded-2xl sm:rounded-[2rem] text-black">
+            <div className="text-4xl sm:text-5xl font-bold mb-2">5</div>
+            <div className="text-base sm:text-lg font-semibold mb-1">QUA Reward Floor</div>
+            <div className="text-xs sm:text-sm opacity-80">Perpetual mining incentive</div>
           </div>
         </div>
 
         {/* Economic Features */}
-        <div className="grid sm:grid-cols-2 gap-6 mx-2 sm:mx-4 md:mx-8 mb-16">
-          <div className="bg-white border-2 border-gray-200 rounded-[2rem] p-10 hover:border-[#00E599] transition-all">
-            <div className="w-16 h-16 bg-[#00E599]/10 rounded-2xl flex items-center justify-center mb-6">
-              <Flame className="w-8 h-8 text-[#00E599]" />
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mx-2 sm:mx-4 md:mx-8 mb-16">
+          <div className="bg-white border-2 border-gray-200 rounded-xl sm:rounded-[2rem] p-6 sm:p-10 hover:border-[#00E599] transition-all">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-[#00E599]/10 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6">
+              <Flame className="w-6 h-6 sm:w-8 sm:h-8 text-[#00E599]" />
             </div>
-            <h3 className="text-2xl font-bold text-black mb-4">Fee Burning (70%)</h3>
-            <p className="text-gray-600 text-lg leading-relaxed mb-4">
+            <h3 className="text-xl sm:text-2xl font-bold text-black mb-3 sm:mb-4">Fee Burning (70%)</h3>
+            <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-4">
               70% of all transaction fees are permanently burned, creating deflationary pressure as network usage grows.
             </p>
             <div className="bg-gray-50 rounded-xl p-4">
@@ -77,12 +77,12 @@ export default function Tokenomics() {
             </div>
           </div>
 
-          <div className="bg-white border-2 border-gray-200 rounded-[2rem] p-10 hover:border-[#00E599] transition-all">
-            <div className="w-16 h-16 bg-[#00E599]/10 rounded-2xl flex items-center justify-center mb-6">
-              <Lock className="w-8 h-8 text-[#00E599]" />
+          <div className="bg-white border-2 border-gray-200 rounded-xl sm:rounded-[2rem] p-6 sm:p-10 hover:border-[#00E599] transition-all">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-[#00E599]/10 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6">
+              <Lock className="w-6 h-6 sm:w-8 sm:h-8 text-[#00E599]" />
             </div>
-            <h3 className="text-2xl font-bold text-black mb-4">Mining Reward Lock (50%)</h3>
-            <p className="text-gray-600 text-lg leading-relaxed mb-4">
+            <h3 className="text-xl sm:text-2xl font-bold text-black mb-3 sm:mb-4">Mining Reward Lock (50%)</h3>
+            <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-4">
               50% of mining rewards locked for 6 months to prevent dump pressure and align miner incentives with long-term value.
             </p>
             <div className="bg-gray-50 rounded-xl p-4">
@@ -104,12 +104,12 @@ export default function Tokenomics() {
             </div>
           </div>
 
-          <div className="bg-white border-2 border-gray-200 rounded-[2rem] p-10 hover:border-[#00E599] transition-all">
-            <div className="w-16 h-16 bg-[#00E599]/10 rounded-2xl flex items-center justify-center mb-6">
-              <TrendingDown className="w-8 h-8 text-[#00E599]" />
+          <div className="bg-white border-2 border-gray-200 rounded-xl sm:rounded-[2rem] p-6 sm:p-10 hover:border-[#00E599] transition-all">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-[#00E599]/10 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6">
+              <TrendingDown className="w-6 h-6 sm:w-8 sm:h-8 text-[#00E599]" />
             </div>
-            <h3 className="text-2xl font-bold text-black mb-4">Exponential Decay</h3>
-            <p className="text-gray-600 text-lg leading-relaxed mb-4">
+            <h3 className="text-xl sm:text-2xl font-bold text-black mb-3 sm:mb-4">Exponential Decay</h3>
+            <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-4">
               Smooth 15% annual reduction prevents halving shocks while ensuring gradual supply expansion and predictable inflation.
             </p>
             <div className="bg-gray-50 rounded-xl p-4">
@@ -131,12 +131,12 @@ export default function Tokenomics() {
             </div>
           </div>
 
-          <div className="bg-white border-2 border-gray-200 rounded-[2rem] p-10 hover:border-[#00E599] transition-all">
-            <div className="w-16 h-16 bg-[#00E599]/10 rounded-2xl flex items-center justify-center mb-6">
-              <Coins className="w-8 h-8 text-[#00E599]" />
+          <div className="bg-white border-2 border-gray-200 rounded-xl sm:rounded-[2rem] p-6 sm:p-10 hover:border-[#00E599] transition-all">
+            <div className="w-12 h-12 sm:w-16 sm:h-16 bg-[#00E599]/10 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6">
+              <Coins className="w-6 h-6 sm:w-8 sm:h-8 text-[#00E599]" />
             </div>
-            <h3 className="text-2xl font-bold text-black mb-4">Fair Launch</h3>
-            <p className="text-gray-600 text-lg leading-relaxed mb-4">
+            <h3 className="text-xl sm:text-2xl font-bold text-black mb-3 sm:mb-4">Fair Launch</h3>
+            <p className="text-gray-600 text-base sm:text-lg leading-relaxed mb-4">
               Zero pre-mine and zero ICO. 100% of supply distributed through proof-of-work mining with early adopter incentives.
             </p>
             <div className="bg-gray-50 rounded-xl p-4">
@@ -160,49 +160,49 @@ export default function Tokenomics() {
         </div>
 
         {/* Supply Schedule Table */}
-        <div className="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-100 rounded-[2rem] p-8 sm:p-12 mx-2 sm:mx-4 md:mx-8">
-          <h3 className="text-3xl sm:text-4xl font-bold text-black mb-2">Supply Schedule</h3>
-          <p className="text-gray-600 mb-8">15% annual reduction from 100 QUA to 5 QUA floor</p>
+        <div className="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-100 rounded-xl sm:rounded-[2rem] p-6 sm:p-8 md:p-12 mx-2 sm:mx-4 md:mx-8">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black mb-2">Supply Schedule</h3>
+          <p className="text-sm sm:text-base text-gray-600 mb-6 sm:mb-8">15% annual reduction from 100 QUA to 5 QUA floor</p>
           
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mb-8">
-            <div className="bg-white border-2 border-gray-200 rounded-xl p-6 text-center hover:border-[#00E599] transition-all">
-              <div className="text-sm text-gray-500 mb-2">Year 1</div>
-              <div className="text-3xl font-bold text-black mb-1">100</div>
-              <div className="text-xs text-gray-500 mb-3">QUA/block</div>
-              <div className="text-sm font-semibold text-[#00E599]">315M Total</div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 mb-6 sm:mb-8">
+            <div className="bg-white border-2 border-gray-200 rounded-lg sm:rounded-xl p-4 sm:p-6 text-center hover:border-[#00E599] transition-all">
+              <div className="text-xs sm:text-sm text-gray-500 mb-2">Year 1</div>
+              <div className="text-2xl sm:text-3xl font-bold text-black mb-1">100</div>
+              <div className="text-xs text-gray-500 mb-2 sm:mb-3">QUA/block</div>
+              <div className="text-xs sm:text-sm font-semibold text-[#00E599]">315M Total</div>
             </div>
             
-            <div className="bg-white border-2 border-gray-200 rounded-xl p-6 text-center hover:border-[#00E599] transition-all">
-              <div className="text-sm text-gray-500 mb-2">Year 2</div>
-              <div className="text-3xl font-bold text-black mb-1">85</div>
-              <div className="text-xs text-gray-500 mb-3">QUA/block</div>
-              <div className="text-sm font-semibold text-[#00E599]">583M Total</div>
+            <div className="bg-white border-2 border-gray-200 rounded-lg sm:rounded-xl p-4 sm:p-6 text-center hover:border-[#00E599] transition-all">
+              <div className="text-xs sm:text-sm text-gray-500 mb-2">Year 2</div>
+              <div className="text-2xl sm:text-3xl font-bold text-black mb-1">85</div>
+              <div className="text-xs text-gray-500 mb-2 sm:mb-3">QUA/block</div>
+              <div className="text-xs sm:text-sm font-semibold text-[#00E599]">583M Total</div>
             </div>
             
-            <div className="bg-white border-2 border-gray-200 rounded-xl p-6 text-center hover:border-[#00E599] transition-all">
-              <div className="text-sm text-gray-500 mb-2">Year 5</div>
-              <div className="text-3xl font-bold text-black mb-1">52</div>
-              <div className="text-xs text-gray-500 mb-3">QUA/block</div>
-              <div className="text-sm font-semibold text-[#00E599]">1.17B Total</div>
+            <div className="bg-white border-2 border-gray-200 rounded-lg sm:rounded-xl p-4 sm:p-6 text-center hover:border-[#00E599] transition-all">
+              <div className="text-xs sm:text-sm text-gray-500 mb-2">Year 5</div>
+              <div className="text-2xl sm:text-3xl font-bold text-black mb-1">52</div>
+              <div className="text-xs text-gray-500 mb-2 sm:mb-3">QUA/block</div>
+              <div className="text-xs sm:text-sm font-semibold text-[#00E599]">1.17B Total</div>
             </div>
             
-            <div className="bg-white border-2 border-gray-200 rounded-xl p-6 text-center hover:border-[#00E599] transition-all">
-              <div className="text-sm text-gray-500 mb-2">Year 10</div>
-              <div className="text-3xl font-bold text-black mb-1">20</div>
-              <div className="text-xs text-gray-500 mb-3">QUA/block</div>
-              <div className="text-sm font-semibold text-[#00E599]">1.42B Total</div>
+            <div className="bg-white border-2 border-gray-200 rounded-lg sm:rounded-xl p-4 sm:p-6 text-center hover:border-[#00E599] transition-all">
+              <div className="text-xs sm:text-sm text-gray-500 mb-2">Year 10</div>
+              <div className="text-2xl sm:text-3xl font-bold text-black mb-1">20</div>
+              <div className="text-xs text-gray-500 mb-2 sm:mb-3">QUA/block</div>
+              <div className="text-xs sm:text-sm font-semibold text-[#00E599]">1.42B Total</div>
             </div>
             
-            <div className="bg-white border-2 border-[#00E599] rounded-xl p-6 text-center">
-              <div className="text-sm text-gray-500 mb-2">Year 20+</div>
-              <div className="text-3xl font-bold text-black mb-1">5</div>
-              <div className="text-xs text-gray-500 mb-3">QUA/block</div>
-              <div className="text-sm font-semibold text-[#00E599]">~1.5B Total</div>
+            <div className="bg-white border-2 border-[#00E599] rounded-lg sm:rounded-xl p-4 sm:p-6 text-center">
+              <div className="text-xs sm:text-sm text-gray-500 mb-2">Year 20+</div>
+              <div className="text-2xl sm:text-3xl font-bold text-black mb-1">5</div>
+              <div className="text-xs text-gray-500 mb-2 sm:mb-3">QUA/block</div>
+              <div className="text-xs sm:text-sm font-semibold text-[#00E599]">~1.5B Total</div>
             </div>
           </div>
           
-          <div className="bg-white rounded-xl p-6 border border-gray-200">
-            <div className="flex items-center justify-between text-sm">
+          <div className="bg-white rounded-xl p-4 sm:p-6 border border-gray-200">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center sm:justify-between gap-2 text-xs sm:text-sm">
               <span className="text-gray-600">Block time: 10 seconds</span>
               <span className="text-gray-600">~3.15M blocks/year</span>
               <span className="font-semibold text-black">Perpetual 5 QUA floor ensures long-term security</span>

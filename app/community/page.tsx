@@ -14,20 +14,20 @@ export default function CommunityPage() {
     <main className="min-h-screen bg-white text-black">
       <Navbar />
       
-      <div className="pt-32 pb-24">
-        <div className="container mx-auto px-6">
+      <div className="pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24">
+        <div className="container mx-auto px-4 sm:px-6">
           {/* Hero Section */}
-          <div className="text-center mb-20">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tighter mb-6">
+          <div className="text-center mb-16 sm:mb-20">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-4 sm:mb-6 px-4">
               Join the <span className="text-[#00E599]">Community</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
               Join the movement building quantum-resistant infrastructure. Connect with developers, miners, researchers, and blockchain enthusiasts securing the future.
             </p>
           </div>
 
           {/* Email Capture */}
-          <div className="max-w-3xl mx-auto mb-24">
+          <div className="max-w-3xl mx-auto mb-20 sm:mb-24 px-4">
             <EmailCapture 
               title="Get Testnet Launch Updates"
               description="Be notified when QUANTA testnet launches in Q1 2026. Get early access to mining, exclusive community benefits, and development updates."
@@ -35,15 +35,15 @@ export default function CommunityPage() {
           </div>
 
           {/* Social Channels */}
-          <div className="mb-24">
-            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">Connect With Us</h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              <a href="https://discord.gg/7KmMBrrJEz" target="_blank" className="border-2 border-gray-100 rounded-3xl p-8 hover:border-[#00E599] transition-all block">
-                <div className="w-14 h-14 bg-[#00E599]/10 rounded-2xl flex items-center justify-center mb-6">
-                  <MessagesSquare className="w-7 h-7 text-[#00E599]" />
+          <div className="mb-20 sm:mb-24 px-4">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center">Connect With Us</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
+              <a href="https://discord.gg/7KmMBrrJEz" target="_blank" className="border-2 border-gray-100 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-[#00E599] transition-all block">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[#00E599]/10 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6">
+                  <MessagesSquare className="w-6 h-6 sm:w-7 sm:h-7 text-[#00E599]" />
                 </div>
-                <h3 className="text-2xl font-bold mb-3">Discord</h3>
-                <p className="text-gray-600 mb-6">
+                <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3">Discord</h3>
+                <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
                   Join our community hub for technical discussions, mining support, development updates, and direct access to the core team.
                 </p>
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#00E599] text-white rounded-full font-semibold hover:bg-[#00E599]/90 transition-all">

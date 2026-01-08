@@ -47,3 +47,32 @@ body {
 .animate-marquee:hover {
   animation-play-state: paused;
 }
+/* Mobile-specific improvements */
+@media (max-width: 640px) {
+  html {
+    font-size: 14px;
+  }
+  
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+/* Improve scrollbar on mobile */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

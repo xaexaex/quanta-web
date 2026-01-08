@@ -160,11 +160,11 @@ export default function Roadmap() {
         </div>
 
         {/* Roadmap Phases */}
-        <div className="space-y-8 mx-4 md:mx-8">
+        <div className="space-y-6 sm:space-y-8 mx-2 sm:mx-4 md:mx-8">
           {roadmapPhases.map((phase, index) => (
             <div 
               key={index}
-              className={`bg-white border-2 rounded-[2rem] p-10 md:p-12 transition-all duration-300 ${
+              className={`bg-white border-2 rounded-xl sm:rounded-[2rem] p-6 sm:p-8 md:p-10 lg:p-12 transition-all duration-300 ${
                 phase.status === 'In Progress' 
                   ? 'border-[#00E599] shadow-[0_0_30px_rgba(0,229,153,0.2)]' 
                   : phase.status === 'Completed'
@@ -172,16 +172,16 @@ export default function Roadmap() {
                   : 'border-gray-200 hover:border-gray-300'
               }`}
             >
-              <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 gap-4">
+              <div className="flex flex-col md:flex-row md:items-center justify-between mb-6 sm:mb-8 gap-3 sm:gap-4">
                 <div>
-                  <div className="text-sm text-gray-500 font-bold uppercase tracking-widest mb-2">
+                  <div className="text-xs sm:text-sm text-gray-500 font-bold uppercase tracking-widest mb-2">
                     {phase.phase}
                   </div>
-                  <h3 className="text-3xl md:text-4xl font-bold text-black">
+                  <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-black">
                     {phase.title}
                   </h3>
                   {phase.targetDate && (
-                    <div className="text-sm text-gray-600 font-semibold mt-2">
+                    <div className="text-xs sm:text-sm text-gray-600 font-semibold mt-2">
                       Target: {phase.targetDate}
                     </div>
                   )}
@@ -191,12 +191,12 @@ export default function Roadmap() {
 
               {/* Progress Bar */}
               {phase.progress !== undefined && (
-                <div className="mb-8">
+                <div className="mb-6 sm:mb-8">
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-sm font-bold text-gray-700">Phase Progress</span>
-                    <span className="text-sm font-bold text-[#00E599]">{phase.progress}%</span>
+                    <span className="text-xs sm:text-sm font-bold text-gray-700">Phase Progress</span>
+                    <span className="text-xs sm:text-sm font-bold text-[#00E599]">{phase.progress}%</span>
                   </div>
-                  <div className="w-full h-3 bg-gray-200 rounded-full overflow-hidden">
+                  <div className="w-full h-2 sm:h-3 bg-gray-200 rounded-full overflow-hidden">
                     <div 
                       className="h-full bg-gradient-to-r from-[#00E599] to-[#00cc88] transition-all duration-500 rounded-full"
                       style={{ width: `${phase.progress}%` }}
@@ -207,22 +207,22 @@ export default function Roadmap() {
 
               {/* Render sections if they exist */}
               {phase.sections && (
-                <div className="space-y-8">
+                <div className="space-y-6 sm:space-y-8">
                   {phase.sections.map((section, sIndex) => (
                     <div key={sIndex}>
-                      <h4 className="text-xl font-bold text-gray-900 mb-4">{section.title}</h4>
-                      <div className="space-y-4">
+                      <h4 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4">{section.title}</h4>
+                      <div className="space-y-3 sm:space-y-4">
                         {section.items.map((item, itemIndex) => (
                           <div 
                             key={itemIndex}
-                            className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
+                            className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-gray-50 rounded-lg sm:rounded-xl hover:bg-gray-100 transition-colors"
                           >
                             {item.completed ? (
-                              <CheckCircle2 className="w-6 h-6 text-[#00E599] flex-shrink-0" />
+                              <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-[#00E599] flex-shrink-0" />
                             ) : (
-                              <Circle className="w-6 h-6 text-gray-300 flex-shrink-0" />
+                              <Circle className="w-5 h-5 sm:w-6 sm:h-6 text-gray-300 flex-shrink-0" />
                             )}
-                            <span className={`text-lg ${item.completed ? 'text-gray-900 font-medium' : 'text-gray-600'}`}>
+                            <span className={`text-sm sm:text-base md:text-lg ${item.completed ? 'text-gray-900 font-medium' : 'text-gray-600'}`}>
                               {item.task}
                             </span>
                           </div>
@@ -235,18 +235,18 @@ export default function Roadmap() {
 
               {/* Render simple items if they exist */}
               {phase.items && (
-                <div className="space-y-4">
+                <div className="space-y-3 sm:space-y-4">
                   {phase.items.map((item, itemIndex) => (
                     <div 
                       key={itemIndex}
-                      className="flex items-center gap-4 p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
+                      className="flex items-center gap-3 sm:gap-4 p-3 sm:p-4 bg-gray-50 rounded-lg sm:rounded-xl hover:bg-gray-100 transition-colors"
                     >
                       {item.completed ? (
-                        <CheckCircle2 className="w-6 h-6 text-[#00E599] flex-shrink-0" />
+                        <CheckCircle2 className="w-5 h-5 sm:w-6 sm:h-6 text-[#00E599] flex-shrink-0" />
                       ) : (
-                        <Circle className="w-6 h-6 text-gray-300 flex-shrink-0" />
+                        <Circle className="w-5 h-5 sm:w-6 sm:h-6 text-gray-300 flex-shrink-0" />
                       )}
-                      <span className={`text-lg ${item.completed ? 'text-gray-900 font-medium' : 'text-gray-600'}`}>
+                      <span className={`text-sm sm:text-base md:text-lg ${item.completed ? 'text-gray-900 font-medium' : 'text-gray-600'}`}>
                         {item.task}
                       </span>
                     </div>
@@ -256,14 +256,14 @@ export default function Roadmap() {
 
               {/* Success Criteria */}
               {phase.successCriteria && (
-                <div className="mt-8 p-6 bg-[#00E599]/5 border-2 border-[#00E599]/20 rounded-xl">
-                  <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-                    <CheckCircle2 className="w-5 h-5 text-[#00E599]" />
+                <div className="mt-6 sm:mt-8 p-4 sm:p-6 bg-[#00E599]/5 border-2 border-[#00E599]/20 rounded-lg sm:rounded-xl">
+                  <h4 className="text-base sm:text-lg font-bold text-gray-900 mb-3 sm:mb-4 flex items-center gap-2">
+                    <CheckCircle2 className="w-4 h-4 sm:w-5 sm:h-5 text-[#00E599]" />
                     Success Criteria
                   </h4>
                   <ul className="space-y-2">
                     {phase.successCriteria.map((criteria, cIndex) => (
-                      <li key={cIndex} className="text-gray-700 flex items-start gap-2">
+                      <li key={cIndex} className="text-sm sm:text-base text-gray-700 flex items-start gap-2">
                         <span className="text-[#00E599] mt-1">•</span>
                         <span>{criteria}</span>
                       </li>
@@ -276,20 +276,20 @@ export default function Roadmap() {
         </div>
 
         {/* Call to Contribute */}
-        <div className="mt-16 bg-[#00E599] rounded-[2rem] p-12 md:p-16 mx-4 md:mx-8 text-center">
-          <h3 className="text-3xl md:text-5xl font-bold text-black mb-6">
+        <div className="mt-12 sm:mt-16 bg-[#00E599] rounded-xl sm:rounded-[2rem] p-8 sm:p-12 md:p-16 mx-2 sm:mx-4 md:mx-8 text-center">
+          <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-black mb-4 sm:mb-6">
             Contribute to the Future
           </h3>
-          <p className="text-lg md:text-xl text-black/80 mb-8 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-black/80 mb-6 sm:mb-8 max-w-2xl mx-auto px-4">
             QUANTA is open source and community-driven. Join developers worldwide building quantum-resistant infrastructure.
           </p>
           <a 
             href="https://github.com/quantachain/quanta"
             target="_blank"
-            className="inline-flex items-center justify-center gap-3 px-10 py-5 text-xl font-bold text-[#00E599] bg-black rounded-full hover:bg-gray-900 transition-all hover:scale-105"
+            className="inline-flex items-center justify-center gap-2 sm:gap-3 px-8 sm:px-10 py-4 sm:py-5 text-lg sm:text-xl font-bold text-[#00E599] bg-black rounded-full hover:bg-gray-900 transition-all hover:scale-105"
           >
             Start Contributing
-            <GitFork className="w-5 h-5" />
+            <GitFork className="w-4 h-4 sm:w-5 sm:h-5" />
           </a>
         </div>
       </div>

@@ -57,8 +57,8 @@ export default function BlogPage() {
     <main className="min-h-screen bg-white text-black">
       <Navbar />
       
-      <div className="pt-32 pb-24">
-        <div className="container mx-auto px-6">
+      <div className="pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24">
+        <div className="container mx-auto px-4 sm:px-6">
           {/* Hero */}
           <div className="text-center mb-20">
             <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tighter mb-6">

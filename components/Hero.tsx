@@ -5,20 +5,20 @@ import { Star, GitFork, Users } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-40 overflow-hidden bg-white">
+    <section className="relative min-h-screen flex items-center justify-center pt-32 pb-16 sm:pt-40 overflow-hidden bg-white">
       {/* Background Elements */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-gradient-to-r from-[#00E599]/10 to-[#00cc88]/5 rounded-full blur-[150px] animate-pulse -z-10" />
-      <div className="absolute top-0 right-0 w-[700px] h-[700px] bg-[#00E599]/8 rounded-full blur-[120px] -z-10" />
-      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-[#00E599]/5 to-transparent rounded-full blur-[100px] -z-10" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] sm:w-[800px] sm:h-[800px] md:w-[1000px] md:h-[1000px] bg-gradient-to-r from-[#00E599]/10 to-[#00cc88]/5 rounded-full blur-[150px] animate-pulse -z-10" />
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] sm:w-[600px] sm:h-[600px] md:w-[700px] md:h-[700px] bg-[#00E599]/8 rounded-full blur-[120px] -z-10" />
+      <div className="absolute bottom-0 left-0 w-[350px] h-[350px] sm:w-[500px] sm:h-[500px] md:w-[600px] md:h-[600px] bg-gradient-to-tr from-[#00E599]/5 to-transparent rounded-full blur-[100px] -z-10" />
 
       <div className="container mx-auto px-6 text-center z-10">
 
-        <h1 className="text-5xl sm:text-7xl md:text-9xl font-bold tracking-tighter mb-8 text-black">
+        <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-9xl font-bold tracking-tighter mb-6 sm:mb-8 text-black px-4">
           Quantum-Proof <br />
           <span className="text-[#00E599]">Blockchain</span>
         </h1>
 
-        <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed">
+        <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8 sm:mb-12 leading-relaxed px-4">
           <span className="font-semibold text-gray-900">Protect your digital assets for decades.</span> Built with NIST-standardized post-quantum cryptography—secure against future quantum computers.
         </p>
 

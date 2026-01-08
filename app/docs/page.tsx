@@ -25,16 +25,17 @@ export default function Documentation() {
         customStyle={{
           margin: 0,
           borderRadius: '0.75rem',
-          padding: '1.5rem',
-          fontSize: '0.875rem',
+          padding: '1rem',
+          fontSize: '0.75rem',
         }}
+        wrapLongLines={true}
         showLineNumbers={false}
       >
         {code}
       </SyntaxHighlighter>
       <button
         onClick={() => copyToClipboard(code, id)}
-        className="absolute top-4 right-4 p-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition-all opacity-0 group-hover:opacity-100"
+        className="absolute top-3 right-3 sm:top-4 sm:right-4 p-1.5 sm:p-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition-all opacity-0 group-hover:opacity-100"
       >
         {copiedCode === id ? (
           <Check className="w-4 h-4 text-[#00E599]" />
@@ -49,36 +50,36 @@ export default function Documentation() {
     <main className="min-h-screen bg-white text-black">
       <Navbar />
       
-      <div className="pt-40 pb-32">
-        <div className="container mx-auto px-6">
+      <div className="pt-32 sm:pt-40 pb-24 sm:pb-32">
+        <div className="container mx-auto px-4 sm:px-6">
           {/* Header Section */}
-          <div className="text-center mb-24">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tighter mb-6">
+          <div className="text-center mb-16 sm:mb-24">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-4 sm:mb-6">
               Documentation<span className="text-[#00E599]">.</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
               Complete guide to QUANTA - quantum-resistant blockchain with NIST-standardized post-quantum cryptography and adaptive tokenomics.
             </p>
           </div>
 
           {/* Content */}
-          <div className="max-w-5xl mx-auto space-y-24">
+          <div className="max-w-5xl mx-auto space-y-16 sm:space-y-24">
 
 
           
           {/* Installation */}
           <section id="installation" className="scroll-mt-24">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 flex items-center gap-4">
-              <Rocket className="w-10 h-10 text-[#00E599]" />
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 flex items-center gap-3 sm:gap-4">
+              <Rocket className="w-8 h-8 sm:w-10 sm:h-10 text-[#00E599]" />
               Installation
             </h2>
-            <div className="space-y-6">
-              <p className="text-xl text-gray-600">
+            <div className="space-y-4 sm:space-y-6">
+              <p className="text-lg sm:text-xl text-gray-600">
                 Quanta requires Rust 1.70+ to build from source.
               </p>
-              <div className="border-2 border-gray-100 p-8 rounded-2xl">
-                <h3 className="font-bold text-xl mb-4">System Requirements</h3>
-                <ul className="space-y-2 text-gray-600">
+              <div className="border-2 border-gray-100 p-6 sm:p-8 rounded-xl sm:rounded-2xl">
+                <h3 className="font-bold text-lg sm:text-xl mb-3 sm:mb-4">System Requirements</h3>
+                <ul className="space-y-2 text-sm sm:text-base text-gray-600">
                   <li>• Rust 2021 edition or higher</li>
                   <li>• 4GB RAM minimum (8GB recommended)</li>
                   <li>• 20GB disk space for blockchain data</li>
@@ -99,20 +100,20 @@ cargo test`} />
 
           {/* Quick Start */}
           <section id="quickstart" className="scroll-mt-24">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 flex items-center gap-4">
-              <Terminal className="w-10 h-10 text-[#00E599]" />
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 flex items-center gap-3 sm:gap-4">
+              <Terminal className="w-8 h-8 sm:w-10 sm:h-10 text-[#00E599]" />
               Quick Start
             </h2>
-            <div className="space-y-6">
-              <div className="border-2 border-gray-100 p-8 rounded-2xl">
-                <h3 className="font-bold text-xl mb-4">1. Create a Wallet</h3>
+            <div className="space-y-4 sm:space-y-6">
+              <div className="border-2 border-gray-100 p-6 sm:p-8 rounded-xl sm:rounded-2xl">
+                <h3 className="font-bold text-lg sm:text-xl mb-3 sm:mb-4">1. Create a Wallet</h3>
                 <CodeBlock id="wallet" code={`./target/release/quanta new_wallet --file miner.qua
 # Enter a strong password when prompted
 # Wallet uses Falcon-512 quantum-resistant signatures`} />
               </div>
 
-              <div className="border-2 border-gray-100 p-8 rounded-2xl">
-                <h3 className="font-bold text-xl mb-4">2. Start a Node</h3>
+              <div className="border-2 border-gray-100 p-6 sm:p-8 rounded-xl sm:rounded-2xl">
+                <h3 className="font-bold text-lg sm:text-xl mb-3 sm:mb-4">2. Start a Node</h3>
                 <CodeBlock id="start" code={`# Start node as daemon
 ./target/release/quanta start --detach --port 3000 --network-port 8333 --rpc-port 7782 --db ./node_data
 
@@ -120,8 +121,8 @@ cargo test`} />
 ./target/release/quanta status --rpc-port 7782`} />
               </div>
 
-              <div className="border-2 border-gray-100 p-8 rounded-2xl">
-                <h3 className="font-bold text-xl mb-4">3. Start Mining</h3>
+              <div className="border-2 border-gray-100 p-6 sm:p-8 rounded-xl sm:rounded-2xl">
+                <h3 className="font-bold text-lg sm:text-xl mb-3 sm:mb-4">3. Start Mining</h3>
                 <CodeBlock id="mine" code={`# Start mining via RPC
 ./target/release/quanta start_mining YOUR_ADDRESS --rpc-port 7782
 
@@ -136,14 +137,14 @@ cargo test`} />
 
           {/* Wallet Operations */}
           <section id="wallet-ops" className="scroll-mt-24">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 flex items-center gap-4">
-              <Shield className="w-10 h-10 text-[#00E599]" />
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 flex items-center gap-3 sm:gap-4">
+              <Shield className="w-8 h-8 sm:w-10 sm:h-10 text-[#00E599]" />
               Wallet Operations
             </h2>
-            <div className="space-y-6">
-              <div className="border-2 border-gray-100 p-8 rounded-2xl">
-                <h3 className="font-bold text-xl mb-4">HD Wallets (BIP39)</h3>
-                <p className="text-gray-600 mb-4">Create HD wallets with 24-word mnemonic phrases:</p>
+            <div className="space-y-4 sm:space-y-6">
+              <div className="border-2 border-gray-100 p-6 sm:p-8 rounded-xl sm:rounded-2xl">
+                <h3 className="font-bold text-lg sm:text-xl mb-3 sm:mb-4">HD Wallets (BIP39)</h3>
+                <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">Create HD wallets with 24-word mnemonic phrases:</p>
                 <CodeBlock id="hdwallet" code={`# Create HD wallet
 ./target/release/quanta new_hd_wallet --file hd.json
 
@@ -153,8 +154,8 @@ cargo test`} />
 # Multiple accounts from one seed with deterministic derivation`} />
               </div>
 
-              <div className="border-2 border-gray-100 p-8 rounded-2xl">
-                <h3 className="font-bold text-xl mb-4">Check Balance</h3>
+              <div className="border-2 border-gray-100 p-6 sm:p-8 rounded-xl sm:rounded-2xl">
+                <h3 className="font-bold text-lg sm:text-xl mb-3 sm:mb-4">Check Balance</h3>
                 <CodeBlock id="balance" code={`# CLI
 ./target/release/quanta wallet --file miner.qua
 
@@ -164,8 +165,8 @@ curl -X POST http://localhost:3000/api/balance \\
   -d '{"address": "YOUR_ADDRESS"}'`} />
               </div>
 
-              <div className="border-2 border-gray-100 p-8 rounded-2xl">
-                <h3 className="font-bold text-xl mb-4">Send Transactions</h3>
+              <div className="border-2 border-gray-100 p-6 sm:p-8 rounded-xl sm:rounded-2xl">
+                <h3 className="font-bold text-lg sm:text-xl mb-3 sm:mb-4">Send Transactions</h3>
                 <CodeBlock id="send" code={`./target/release/quanta send \\
   --wallet miner.qua \\
   --to RECIPIENT_ADDRESS \\
@@ -176,31 +177,31 @@ curl -X POST http://localhost:3000/api/balance \\
 
           {/* API Reference */}
           <section id="api" className="scroll-mt-24">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 flex items-center gap-4">
-              <Code2 className="w-10 h-10 text-[#00E599]" />
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 flex items-center gap-3 sm:gap-4">
+              <Code2 className="w-8 h-8 sm:w-10 sm:h-10 text-[#00E599]" />
               API Reference
             </h2>
             <div className="space-y-4">
-              <p className="text-xl text-gray-600 mb-6">
+              <p className="text-lg sm:text-xl text-gray-600 mb-4 sm:mb-6">
                 Quanta provides a REST API on port 3000 (configurable).
               </p>
 
-              <div className="border-2 border-gray-100 rounded-2xl overflow-hidden">
-                <div className="bg-gray-50 text-black p-4 font-mono text-sm font-semibold">
+              <div className="border-2 border-gray-100 rounded-xl sm:rounded-2xl overflow-hidden">
+                <div className="bg-gray-50 text-black p-3 sm:p-4 font-mono text-xs sm:text-sm font-semibold overflow-x-auto">
                   GET /health
                 </div>
-                <div className="p-6">
-                  <p className="text-gray-600 mb-4">Health check and node status</p>
+                <div className="p-4 sm:p-6">
+                  <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">Health check and node status</p>
                   <CodeBlock id="health" code={`curl http://localhost:3000/health`} />
                 </div>
               </div>
 
-              <div className="border-2 border-gray-100 rounded-2xl overflow-hidden">
-                <div className="bg-gray-50 text-black p-4 font-mono text-sm font-semibold">
+              <div className="border-2 border-gray-100 rounded-xl sm:rounded-2xl overflow-hidden">
+                <div className="bg-gray-50 text-black p-3 sm:p-4 font-mono text-xs sm:text-sm font-semibold overflow-x-auto">
                   GET /api/stats
                 </div>
-                <div className="p-6">
-                  <p className="text-gray-600 mb-4">Get blockchain statistics</p>
+                <div className="p-4 sm:p-6">
+                  <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">Get blockchain statistics</p>
                   <CodeBlock language="bash" id="stats" code={`curl http://localhost:3000/api/stats`} />
                   <p className="text-sm text-gray-500 mt-2 mb-2">Response:</p>
                   <CodeBlock language="json" id="stats-response" code={`{
