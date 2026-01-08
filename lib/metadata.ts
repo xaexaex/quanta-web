@@ -4,7 +4,7 @@ export function generateMetadata({
   title = "Quanta Chain - Quantum-Resistant Blockchain",
   description = "The world's first production-ready quantum-resistant blockchain. Built with Rust and NIST-standardized post-quantum cryptography to secure digital assets in the quantum era.",
   path = "/",
-  image = "/og-image.jpg"
+  image = "/seo/image.png"
 }: {
   title?: string;
   description?: string;

@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     description: "The world's first production-ready quantum-resistant blockchain. Built with Rust and NIST-standardized post-quantum cryptography.",
     images: [
       {
-        url: "/og-image.jpg",
+        url: "/seo/image.png",
         width: 1200,
         height: 630,
         alt: "Quanta Chain - Quantum-Resistant Blockchain",
@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Quanta Chain - Quantum-Resistant Blockchain",
     description: "The world's first production-ready quantum-resistant blockchain. Built with Rust and NIST-standardized post-quantum cryptography.",
-    images: ["/og-image.jpg"],
+    images: ["/seo/image.png"],
     creator: "@quantachain",
   },
   robots: {
