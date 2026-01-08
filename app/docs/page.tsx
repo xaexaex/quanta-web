@@ -4,12 +4,49 @@ import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Book, Code2, Rocket, Shield, Terminal, Zap, Copy, Check } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
 export default function Documentation() {
   const [copiedCode, setCopiedCode] = useState<string | null>(null);
+  const [activeSection, setActiveSection] = useState<string>("installation");
+
+  const sections = [
+    { id: "installation", label: "Installation", icon: Rocket },
+    { id: "quickstart", label: "Quick Start", icon: Terminal },
+    { id: "wallet-ops", label: "Wallet Operations", icon: Shield },
+    { id: "api", label: "API Reference", icon: Code2 },
+    { id: "rpc", label: "JSON-RPC", icon: Terminal },
+    { id: "config", label: "Configuration", icon: Zap },
+    { id: "p2p", label: "P2P Networking", icon: Terminal },
+    { id: "specs", label: "Technical Specs", icon: Book },
+    { id: "quantum", label: "Quantum Resistance", icon: Shield },
+    { id: "security", label: "Security", icon: Shield },
+    { id: "contributing", label: "Contributing", icon: Book },
+  ];
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 100;
+      
+      for (const section of sections) {
+        const element = document.getElementById(section.id);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const offsetBottom = offsetTop + element.offsetHeight;
+          
+          if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+            setActiveSection(section.id);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const copyToClipboard = (text: string, id: string) => {
     navigator.clipboard.writeText(text);
@@ -50,30 +87,78 @@ export default function Documentation() {
     <main className="min-h-screen bg-white text-black">
       <Navbar />
       
-      <div className="pt-32 sm:pt-40 pb-24 sm:pb-32">
+      <div className="pt-24 sm:pt-28 pb-16 sm:pb-20">
         <div className="container mx-auto px-4 sm:px-6">
-          {/* Header Section */}
-          <div className="text-center mb-16 sm:mb-24">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-4 sm:mb-6">
-              Documentation<span className="text-[#00E599]">.</span>
-            </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
-              Complete guide to QUANTA - quantum-resistant blockchain with NIST-standardized post-quantum cryptography and adaptive tokenomics.
-            </p>
-          </div>
+          <div className="flex flex-col lg:flex-row gap-12">
+            {/* Sidebar Navigation */}
+            <aside className="hidden lg:block sticky top-24 h-[calc(100vh-6rem)] w-64 shrink-0 overflow-y-auto border-r border-gray-100">
+              <div className="py-6 pr-6">
+                <h2 className="text-sm font-bold text-gray-400 uppercase tracking-wider mb-4">Documentation</h2>
+                <nav className="space-y-1">
+                  {sections.map((section) => {
+                    const Icon = section.icon;
+                    return (
+                      <a
+                        key={section.id}
+                        href={`#${section.id}`}
+                        className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-all ${
+                          activeSection === section.id
+                            ? 'bg-[#00E599] text-black font-semibold'
+                            : 'text-gray-600 hover:bg-gray-50 hover:text-black'
+                        }`}
+                      >
+                        <Icon className="w-4 h-4 shrink-0" />
+                        <span className="text-sm">{section.label}</span>
+                      </a>
+                    );
+                  })}
+                </nav>
+                
+                {/* Quick Links */}
+                <div className="mt-8 pt-8 border-t border-gray-100">
+                  <h3 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Quick Links</h3>
+                  <div className="space-y-2">
+                    <a href="https://github.com/quantachain/quanta" target="_blank" className="flex items-center gap-2 text-sm text-gray-600 hover:text-[#00E599] transition-colors">
+                      <span>GitHub Repository</span>
+                      <span className="text-xs">↗</span>
+                    </a>
+                    <a href="https://discord.gg/7KmMBrrJEz" target="_blank" className="flex items-center gap-2 text-sm text-gray-600 hover:text-[#00E599] transition-colors">
+                      <span>Discord Community</span>
+                      <span className="text-xs">↗</span>
+                    </a>
+                    <Link href="/roadmap" className="flex items-center gap-2 text-sm text-gray-600 hover:text-[#00E599] transition-colors">
+                      <span>Roadmap</span>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </aside>
 
-          {/* Content */}
-          <div className="max-w-5xl mx-auto space-y-16 sm:space-y-24">
+            {/* Main Content */}
+            <div className="flex-1 lg:ml-0 min-w-0">
+              {/* Header Section */}
+              <div className="mb-12 sm:mb-16">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-3 sm:mb-4">
+                  Documentation<span className="text-[#00E599]">.</span>
+                </h1>
+                <p className="text-base sm:text-lg md:text-xl text-gray-600 leading-relaxed max-w-3xl">
+                  Complete guide to QUANTA - quantum-resistant blockchain with NIST-standardized post-quantum cryptography and adaptive tokenomics.
+                </p>
+              </div>
+
+              {/* Content */}
+              <div className="max-w-4xl space-y-16 sm:space-y-20 pb-16">
 
 
-          
           {/* Installation */}
-          <section id="installation" className="scroll-mt-24">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 flex items-center gap-3 sm:gap-4">
-              <Rocket className="w-8 h-8 sm:w-10 sm:h-10 text-[#00E599]" />
-              Installation
-            </h2>
-            <div className="space-y-4 sm:space-y-6">
+          <section id="installation" className="pt-12">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 bg-[#00E599]/10 rounded-lg flex items-center justify-center">
+                <Rocket className="w-6 h-6 text-[#00E599]" />
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Installation</h2>
+            </div>
+            <div className="space-y-4 sm:space-y-6 pl-0 sm:pl-13">
               <p className="text-lg sm:text-xl text-gray-600">
                 Quanta requires Rust 1.70+ to build from source.
               </p>
@@ -99,12 +184,14 @@ cargo test`} />
           </section>
 
           {/* Quick Start */}
-          <section id="quickstart" className="scroll-mt-24">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 flex items-center gap-3 sm:gap-4">
-              <Terminal className="w-8 h-8 sm:w-10 sm:h-10 text-[#00E599]" />
-              Quick Start
-            </h2>
-            <div className="space-y-4 sm:space-y-6">
+          <section id="quickstart" className="pt-12">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 bg-[#00E599]/10 rounded-lg flex items-center justify-center">
+                <Terminal className="w-6 h-6 text-[#00E599]" />
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Quick Start</h2>
+            </div>
+            <div className="space-y-4 sm:space-y-6 pl-0 sm:pl-13">
               <div className="border-2 border-gray-100 p-6 sm:p-8 rounded-xl sm:rounded-2xl">
                 <h3 className="font-bold text-lg sm:text-xl mb-3 sm:mb-4">1. Create a Wallet</h3>
                 <CodeBlock id="wallet" code={`./target/release/quanta new_wallet --file miner.qua
@@ -136,12 +223,14 @@ cargo test`} />
           </section>
 
           {/* Wallet Operations */}
-          <section id="wallet-ops" className="scroll-mt-24">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 flex items-center gap-3 sm:gap-4">
-              <Shield className="w-8 h-8 sm:w-10 sm:h-10 text-[#00E599]" />
-              Wallet Operations
-            </h2>
-            <div className="space-y-4 sm:space-y-6">
+          <section id="wallet-ops" className="pt-12">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 bg-[#00E599]/10 rounded-lg flex items-center justify-center">
+                <Shield className="w-6 h-6 text-[#00E599]" />
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Wallet Operations</h2>
+            </div>
+            <div className="space-y-4 sm:space-y-6 pl-0 sm:pl-13">
               <div className="border-2 border-gray-100 p-6 sm:p-8 rounded-xl sm:rounded-2xl">
                 <h3 className="font-bold text-lg sm:text-xl mb-3 sm:mb-4">HD Wallets (BIP39)</h3>
                 <p className="text-sm sm:text-base text-gray-600 mb-3 sm:mb-4">Create HD wallets with 24-word mnemonic phrases:</p>
@@ -176,12 +265,14 @@ curl -X POST http://localhost:3000/api/balance \\
           </section>
 
           {/* API Reference */}
-          <section id="api" className="scroll-mt-24">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6 sm:mb-8 flex items-center gap-3 sm:gap-4">
-              <Code2 className="w-8 h-8 sm:w-10 sm:h-10 text-[#00E599]" />
-              API Reference
-            </h2>
-            <div className="space-y-4">
+          <section id="api" className="pt-12">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 bg-[#00E599]/10 rounded-lg flex items-center justify-center">
+                <Code2 className="w-6 h-6 text-[#00E599]" />
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">API Reference</h2>
+            </div>
+            <div className="space-y-4 pl-0 sm:pl-13">
               <p className="text-lg sm:text-xl text-gray-600 mb-4 sm:mb-6">
                 Quanta provides a REST API on port 3000 (configurable).
               </p>
@@ -256,12 +347,14 @@ curl -X POST http://localhost:3000/api/balance \\
           </section>
 
           {/* JSON-RPC Daemon Control */}
-          <section id="rpc" className="scroll-mt-24">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 flex items-center gap-4">
-              <Terminal className="w-10 h-10 text-[#00E599]" />
-              JSON-RPC Daemon Control
-            </h2>
-            <div className="space-y-6">
+          <section id="rpc" className="pt-12">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 bg-[#00E599]/10 rounded-lg flex items-center justify-center">
+                <Terminal className="w-6 h-6 text-[#00E599]" />
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">JSON-RPC Daemon Control</h2>
+            </div>
+            <div className="space-y-6 pl-0 sm:pl-13">
               <p className="text-xl text-gray-600 mb-6">
                 The RPC server (default port 7782) provides daemon control via JSON-RPC 2.0. All CLI commands communicate with the daemon through this interface.
               </p>
@@ -322,12 +415,14 @@ curl -X POST http://localhost:3000/api/balance \\
           </section>
 
           {/* Configuration */}
-          <section id="config" className="scroll-mt-24">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 flex items-center gap-4">
-              <Zap className="w-10 h-10 text-[#00E599]" />
-              Configuration
-            </h2>
-            <div className="space-y-6">
+          <section id="config" className="pt-12">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 bg-[#00E599]/10 rounded-lg flex items-center justify-center">
+                <Zap className="w-6 h-6 text-[#00E599]" />
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Configuration</h2>
+            </div>
+            <div className="space-y-6 pl-0 sm:pl-13">
               <p className="text-xl text-gray-600">
                 Create a <code className="bg-gray-100 px-2 py-1 rounded text-sm">quanta.toml</code> file for node configuration:
               </p>
@@ -380,12 +475,14 @@ port = 9090`} />
           </section>
 
           {/* P2P Networking */}
-          <section id="p2p" className="scroll-mt-24">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 flex items-center gap-4">
-              <Terminal className="w-10 h-10 text-[#00E599]" />
-              P2P Networking
-            </h2>
-            <div className="space-y-6">
+          <section id="p2p" className="pt-12">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 bg-[#00E599]/10 rounded-lg flex items-center justify-center">
+                <Terminal className="w-6 h-6 text-[#00E599]" />
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">P2P Networking</h2>
+            </div>
+            <div className="space-y-6 pl-0 sm:pl-13">
               <p className="text-xl text-gray-600 mb-4">
                 Connect multiple nodes to form a network:
               </p>
@@ -418,12 +515,14 @@ port = 9090`} />
           </section>
 
           {/* Technical Specs */}
-          <section id="specs" className="scroll-mt-24">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 flex items-center gap-4">
-              <Book className="w-10 h-10 text-[#00E599]" />
-              Technical Specifications
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <section id="specs" className="pt-12">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 bg-[#00E599]/10 rounded-lg flex items-center justify-center">
+                <Book className="w-6 h-6 text-[#00E599]" />
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Technical Specifications</h2>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pl-0 sm:pl-13">
               <div className="border-2 border-gray-100 p-8 rounded-2xl">
                 <h3 className="font-bold text-xl mb-4 text-[#00E599]">Cryptography</h3>
                 <ul className="space-y-2 text-gray-600">
@@ -468,18 +567,21 @@ port = 9090`} />
           </section>
 
           {/* Quantum Resistance */}
-          <section id="quantum" className="scroll-mt-24">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 flex items-center gap-4">
-              <Shield className="w-10 h-10 text-[#00E599]" />
-              Quantum Resistance
-            </h2>
-            <div className="border-2 border-gray-100 rounded-2xl p-12">
-              <h3 className="text-3xl font-bold mb-6">Why Quantum-Resistant?</h3>
-              <p className="text-xl text-gray-600 mb-8">
-                Current blockchain systems rely on elliptic curve cryptography (ECDSA/EdDSA) vulnerable to Shor's algorithm. Conservative estimates suggest quantum computers capable of breaking these could exist within 10-15 years. QUANTA uses NIST-standardized post-quantum cryptography to provide security for decades.
-              </p>
-              
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+          <section id="quantum" className="pt-12">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 bg-[#00E599]/10 rounded-lg flex items-center justify-center">
+                <Shield className="w-6 h-6 text-[#00E599]" />
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Quantum Resistance</h2>
+            </div>
+            <div className="space-y-6 pl-0 sm:pl-13">
+              <div className="border-2 border-gray-100 rounded-2xl p-6 sm:p-8 md:p-12">
+                <h3 className="text-3xl font-bold mb-6">Why Quantum-Resistant?</h3>
+                <p className="text-xl text-gray-600 mb-8">
+                  Current blockchain systems rely on elliptic curve cryptography (ECDSA/EdDSA) vulnerable to Shor's algorithm. Conservative estimates suggest quantum computers capable of breaking these could exist within 10-15 years. QUANTA uses NIST-standardized post-quantum cryptography to provide security for decades.
+                </p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
                 <div className="bg-gray-50 p-6 rounded-xl">
                   <h4 className="font-bold text-xl mb-4">Traditional (ECDSA)</h4>
                   <ul className="space-y-2 text-gray-600">
@@ -510,16 +612,19 @@ port = 9090`} />
                   <li>Future Quantum Attacks</li>
                 </ul>
               </div>
+              </div>
             </div>
           </section>
 
           {/* Security Best Practices */}
-          <section id="security" className="scroll-mt-24">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8 flex items-center gap-4">
-              <Shield className="w-10 h-10 text-[#00E599]" />
-              Security Best Practices
-            </h2>
-            <div className="space-y-6">
+          <section id="security" className="pt-12">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 bg-[#00E599]/10 rounded-lg flex items-center justify-center">
+                <Shield className="w-6 h-6 text-[#00E599]" />
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Security Best Practices</h2>
+            </div>
+            <div className="space-y-6 pl-0 sm:pl-13">
               <div className="bg-[#00E599]/10 border-2 border-[#00E599] p-8 rounded-2xl">
                 <h3 className="font-bold text-xl mb-4 text-[#00E599]">Important Notice</h3>
                 <ul className="space-y-2 text-gray-900">
@@ -555,38 +660,45 @@ port = 9090`} />
           </section>
 
           {/* Contributing */}
-          <section id="contributing" className="scroll-mt-24">
-            <h2 className="text-4xl md:text-5xl font-bold mb-8">Contributing</h2>
-            <div className="bg-[#00E599]/10 border-2 border-[#00E599] rounded-2xl p-12 text-center">
-              <h3 className="text-3xl font-bold text-black mb-6">
-                Help Build the Future
-              </h3>
-              <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
-                Quanta is open source and actively seeking contributors. Whether you're interested in cryptography, blockchain, or Rust development, we'd love your help!
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a 
-                  href="https://github.com/quantachain/quanta"
-                  target="_blank"
-                  className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-black rounded-full hover:bg-gray-900 transition-all hover:scale-105"
-                >
-                  View on GitHub
-                </a>
-                <a 
-                  href="https://github.com/quantachain/quanta/issues"
-                  target="_blank"
-                  className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-black bg-white border-2 border-gray-200 rounded-full hover:bg-gray-50 transition-all hover:scale-105"
-                >
-                  Report Issues
-                </a>
+          <section id="contributing" className="pt-12">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 bg-[#00E599]/10 rounded-lg flex items-center justify-center">
+                <Book className="w-6 h-6 text-[#00E599]" />
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Contributing</h2>
+            </div>
+            <div className="pl-0 sm:pl-13">
+              <div className="bg-[#00E599]/10 border-2 border-[#00E599] rounded-2xl p-6 sm:p-8 md:p-12 text-center">
+                <h3 className="text-3xl font-bold text-black mb-6">
+                  Help Build the Future
+                </h3>
+                <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
+                  Quanta is open source and actively seeking contributors. Whether you're interested in cryptography, blockchain, or Rust development, we'd love your help!
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <a 
+                    href="https://github.com/quantachain/quanta"
+                    target="_blank"
+                    className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white bg-black rounded-full hover:bg-gray-900 transition-all hover:scale-105"
+                  >
+                    View on GitHub
+                  </a>
+                  <a 
+                    href="https://github.com/quantachain/quanta/issues"
+                    target="_blank"
+                    className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-black bg-white border-2 border-gray-200 rounded-full hover:bg-gray-50 transition-all hover:scale-105"
+                  >
+                    Report Issues
+                  </a>
+                </div>
               </div>
             </div>
           </section>
-
           </div>
         </div>
       </div>
-
+        </div>
+      </div>
       <Footer />
     </main>
   );
