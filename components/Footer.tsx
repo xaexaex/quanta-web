@@ -9,7 +9,7 @@ export default function Footer() {
           <div>
             <Link href="/" className="flex items-center gap-4 sm:gap-5 mb-6 sm:mb-8">
               <Image
-                src="/logo/quanta.svg"
+                src="/logo/quanta-transparent.svg"
                 alt="Quanta Logo"
                 width={64}
                 height={64}
