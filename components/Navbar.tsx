@@ -23,6 +23,7 @@ const navItems: NavGroup[] = [
     name: "Ecosystem",
     items: [
       { name: "Explorer", href: "#", badge: "Soon", description: "View real-time blocks & transactions" },
+      { name: "Faucet", href: "/faucet", description: "Get Testnet QUA for development" },
       { name: "Mining Pool", href: "#", badge: "Soon", description: "Join forces to secure the network" },
       { name: "Wallet", href: "#", badge: "Soon", description: "Securely store & manage your assets" },
     ],

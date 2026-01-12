@@ -33,6 +33,10 @@ export default function Footer() {
                   <span className="text-[10px] sm:text-xs bg-gray-200 text-gray-600 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full font-semibold">Soon</span>
                 </li>
                 <li className="flex items-center gap-2">
+                  <Link href="/faucet" className="hover:text-[#00E599] transition-colors">Faucet</Link>
+                  <span className="text-[10px] sm:text-xs bg-green-100 text-green-700 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full font-semibold">Live</span>
+                </li>
+                <li className="flex items-center gap-2">
                   <Link href="#" className="hover:text-[#00E599] transition-colors">Mining Pool</Link>
                   <span className="text-[10px] sm:text-xs bg-gray-200 text-gray-600 px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-full font-semibold">Soon</span>
                 </li>
