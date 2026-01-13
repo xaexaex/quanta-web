@@ -215,18 +215,18 @@ const QuantumParticles = () => {
     }, [dimensions]);
 
     return (
-        <div ref={containerRef} className="relative w-full h-[400px] sm:h-[500px] bg-white/50 dark:bg-black/5 rounded-3xl overflow-hidden border border-gray-200/50 backdrop-blur-md shadow-2xl group transition-all duration-500 hover:border-[#00E599]/30">
+        <div ref={containerRef} className="relative w-full h-[500px] sm:h-[600px] group">
 
-            {/* Header Bar */}
-            <div className="absolute top-0 left-0 right-0 h-10 border-b border-gray-200/30 bg-white/10 backdrop-blur-sm z-30 flex items-center justify-between px-4">
+            {/* Header Bar - Floating freely now */}
+            <div className="absolute top-4 left-0 right-0 z-30 flex items-center justify-between px-4 opacity-70 group-hover:opacity-100 transition-opacity">
                 <div className="flex items-center gap-2">
                     <div className={`w-2 h-2 rounded-full ${isStable ? 'bg-[#00E599] shadow-[0_0_10px_#00E599]' : 'bg-red-500 shadow-[0_0_10px_red]'} animate-pulse`}></div>
-                    <span className="text-[10px] font-mono font-semibold tracking-widest text-gray-500 uppercase">Quantum Field</span>
+                    <span className="text-[10px] font-mono font-semibold tracking-widest text-gray-400 uppercase">Quantum Field</span>
                 </div>
-                <div className="flex items-center gap-1.5 opacity-50">
-                    <div className="w-1 h-1 rounded-sm bg-gray-400"></div>
-                    <div className="w-1 h-1 rounded-sm bg-gray-400"></div>
-                    <div className="w-1 h-1 rounded-sm bg-gray-400"></div>
+                <div className="flex items-center gap-1.5">
+                    <div className="w-3 h-3 rounded-full bg-[#FF5F57] shadow-sm"></div>
+                    <div className="w-3 h-3 rounded-full bg-[#FEBC2E] shadow-sm"></div>
+                    <div className="w-3 h-3 rounded-full bg-[#28C840] shadow-sm"></div>
                 </div>
             </div>
 
@@ -234,22 +234,19 @@ const QuantumParticles = () => {
                 ref={canvasRef}
                 className="absolute inset-0 w-full h-full z-10 cursor-crosshair"
             />
-            {/* Grain Overlay */}
-            <div ref={grainRef} className="absolute inset-0 w-full h-full z-20 opacity-30 mix-blend-overlay pointer-events-none"></div>
+            {/* Grain Overlay - Lighter/Subtle */}
+            <div ref={grainRef} className="absolute inset-0 w-full h-full z-20 opacity-10 mix-blend-multiply pointer-events-none"></div>
 
-            {/* Footer Overlay Details */}
-            <div className="absolute bottom-0 left-0 right-0 p-4 z-20 w-full flex justify-between items-end pointer-events-none">
+            {/* Footer Overlay Details - Floating */}
+            <div className="absolute bottom-4 left-0 right-0 p-4 z-20 w-full flex justify-between items-end pointer-events-none">
                 <div className="flex flex-col gap-1">
                     <div className="text-[9px] font-mono text-gray-400">ENTANGLEMENT RATE</div>
-                    <div className="text-xl font-mono text-gray-800 font-bold tracking-tighter transition-all duration-100">{entanglementRate.toFixed(2)}%</div>
+                    <div className="text-xl font-mono text-gray-900 font-bold tracking-tighter transition-all duration-100">{entanglementRate.toFixed(2)}%</div>
                 </div>
-                <div className={`w-24 h-8 border border-gray-200/50 rounded flex items-center justify-center bg-white/20 backdrop-blur transition-colors duration-300 ${isStable ? '' : 'bg-red-500/10 border-red-500/30'}`}>
-                    <span className={`text-[9px] font-mono font-bold animate-pulse ${isStable ? 'text-[#00E599]' : 'text-red-500'}`}>{isStable ? 'STABLE' : 'FLUX'}</span>
+                <div className={`w-28 h-9 rounded border border-gray-200/50 flex items-center justify-center bg-white/40 backdrop-blur-sm transition-colors duration-300 ${isStable ? '' : 'bg-red-500/10 border-red-500/30'}`}>
+                    <span className={`text-[10px] font-mono font-bold animate-pulse ${isStable ? 'text-[#00E599]' : 'text-red-500'}`}>{isStable ? 'STABLE' : 'FLUX'}</span>
                 </div>
             </div>
-
-            {/* Hover glow effect for the container */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-[#00E599]/5 via-transparent to-[#00E599]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none z-0"></div>
         </div>
     );
 };

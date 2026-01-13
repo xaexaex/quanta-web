@@ -1,104 +1,124 @@
-import { ShieldCheck, Lock, Code2, Pickaxe, User, Database, Cog } from "lucide-react";
+import React from "react";
 
 export default function Features() {
   const features = [
     {
-      title: "Falcon-512 Signatures",
-      description: "NIST Level 1 lattice-based signatures. 897-byte public keys, 666-byte signatures. Quantum-resistant with no known polynomial-time attacks.",
-      icon: <ShieldCheck className="w-12 h-12 text-[#00E599]" />,
-      status: "live"
+      title: "Falcon-512",
+      description: "NIST Level 1 lattice signatures. 897-byte keys. Quantum-resistant security for the post-quantum era.",
+      shape: (
+        <svg viewBox="0 0 200 100" className="w-full h-full stroke-teal-500/40 fill-none stroke-[1.5]">
+          {/* Lattice Grid */}
+          <path d="M20,80 L60,40 L100,80 L140,40 L180,80 M20,40 L60,80 L100,40 L140,80 L180,40 M60,40 L60,80 M140,40 L140,80 M100,40 L100,80" />
+          <circle cx="60" cy="40" r="3" className="fill-teal-500/20" />
+          <circle cx="140" cy="80" r="3" className="fill-teal-500/20" />
+          <circle cx="100" cy="40" r="3" className="fill-teal-500/20" />
+        </svg>
+      )
     },
     {
-      title: "Kyber-1024 Encryption",
-      description: "NIST Level 5 security providing 256-bit quantum resistance. Protects against harvest now, decrypt later attacks through 2045+.",
-      icon: <Lock className="w-12 h-12 text-[#00E599]" />,
-      status: "live"
+      title: "Kyber-1024",
+      description: "NIST Level 5 encryption. 256-bit quantum security protecting against harvest-now-decrypt-later attacks.",
+      shape: (
+        <svg viewBox="0 0 200 100" className="w-full h-full stroke-teal-500/40 fill-none stroke-[1.5]">
+          {/* Concentric Shells / Encryption */}
+          <circle cx="100" cy="50" r="30" />
+          <circle cx="100" cy="50" r="20" />
+          <circle cx="100" cy="50" r="10" />
+          <path d="M70,50 L130,50 M100,20 L100,80" />
+          <rect x="140" y="35" width="25" height="30" rx="4" />
+          <circle cx="152.5" cy="50" r="4" />
+          <path d="M152.5,50 L152.5,55" />
+        </svg>
+      )
     },
     {
-      title: "Adaptive Block Rewards",
-      description: "100 QUA initial reward declining 15% annually to 5 QUA floor. Ensures perpetual mining incentive unlike Bitcoin's finite emission.",
-      icon: <Code2 className="w-12 h-12 text-[#00E599]" />,
-      status: "live"
+      title: "Adaptive Rewards",
+      description: "100 QUA initial reward declining 15% annually to a sustainable floor, ensuring perpetual incentives.",
+      shape: (
+        <svg viewBox="0 0 200 100" className="w-full h-full stroke-teal-500/40 fill-none stroke-[1.5]">
+          {/* Ascending Chart / Coins */}
+          <rect x="30" y="60" width="20" height="20" rx="2" />
+          <rect x="60" y="50" width="20" height="30" rx="2" />
+          <rect x="90" y="40" width="20" height="40" rx="2" />
+          <rect x="120" y="30" width="20" height="50" rx="2" />
+          <path d="M30,50 L150,20" strokeDasharray="4 4" />
+          <circle cx="150" cy="20" r="3" className="fill-teal-500/20" />
+        </svg>
+      )
     },
     {
-      title: "10-Second Block Time",
-      description: "Fast finality with dynamic difficulty adjustment every 10 blocks. SHA3-256 hashing provides quantum-resistant proof-of-work.",
-      icon: <Pickaxe className="w-12 h-12 text-[#00E599]" />,
-      status: "live"
+      title: "10s Block Time",
+      description: "Fast finality with dynamic difficulty. SHA3-256 hashing provides robust quantum-resistant proof-of-work.",
+      shape: (
+        <svg viewBox="0 0 200 100" className="w-full h-full stroke-teal-500/40 fill-none stroke-[1.5]">
+          {/* Speed Lines */}
+          <path d="M20,30 L100,30" />
+          <path d="M20,50 L140,50" />
+          <path d="M20,70 L80,70" />
+          <path d="M160,30 L180,30 M150,70 L180,70" />
+          {/* Block */}
+          <rect x="140" y="20" width="40" height="60" rx="4" className="fill-teal-500/5" />
+        </svg>
+      )
     },
     {
-      title: "70% Fee Burning",
-      description: "Transaction fees are burned creating deflationary pressure. 20% funds treasury, 10% rewards miners for sustainable economics.",
-      icon: <User className="w-12 h-12 text-[#00E599]" />,
-      status: "live"
+      title: "70% Fee Burn",
+      description: "Deflationary pressure mechanism. Transaction fees are burned to reduce supply and increase value.",
+      shape: (
+        <svg viewBox="0 0 200 100" className="w-full h-full stroke-teal-500/40 fill-none stroke-[1.5]">
+          {/* Flame / Entropy */}
+          <path d="M100,80 Q80,60 100,40 Q120,60 100,80" />
+          <path d="M100,40 Q90,30 100,20 Q110,30 100,40" />
+          <circle cx="60" cy="60" r="2" />
+          <circle cx="140" cy="60" r="2" />
+          <circle cx="80" cy="40" r="2" />
+          <circle cx="120" cy="40" r="2" />
+        </svg>
+      )
     },
     {
-      title: "Fair Launch Distribution",
-      description: "Zero pre-mine, zero ICO. 100% distributed through mining with 50% reward lock for 6 months to prevent dump pressure.",
-      icon: <Database className="w-12 h-12 text-[#00E599]" />,
-      status: "live"
+      title: "Fair Launch",
+      description: "Zero pre-mine, zero ICO. 100% distributed through mining to ensuring a fair start for everyone.",
+      shape: (
+        <svg viewBox="0 0 200 100" className="w-full h-full stroke-teal-500/40 fill-none stroke-[1.5]">
+          {/* Puzzle Pieces (Reference Style) */}
+          <path d="M40,30 H80 V50 H100 V30 H140 V70 H100 V90 H80 V70 H40 Z" />
+          <path d="M80,50 V70" />
+          <path d="M100,50 V70" />
+        </svg>
+      )
     }
   ];
 
   return (
-    <section id="features" className="py-24 relative bg-white">
-      <div className="px-6">
-        {/* Heading Section with Black BG */}
-        <div className="mb-16 sm:mb-24 bg-black rounded-[2rem] sm:rounded-[3rem] p-8 sm:p-16 md:p-20 mx-2 sm:mx-4 md:mx-8 relative overflow-hidden">
-          <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] bg-[#00E599]/10 rounded-full blur-[120px]" />
+    <section className="py-24 bg-white text-black">
+      <div className="container mx-auto px-6">
+        <h2 className="text-4xl md:text-5xl font-bold mb-16 tracking-tight">
+          Core <span className="text-teal-600">Features</span>
+        </h2>
 
-          <div className="relative z-10">
-            <div className="max-w-4xl">
-              <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 sm:mb-8 text-white tracking-tight">
-                Built for <br />
-                <span className="text-gray-400">Quantum Security.</span>
-              </h2>
-              <p className="text-lg sm:text-xl md:text-2xl text-gray-400 leading-relaxed">
-                QUANTA combines NIST-standardized post-quantum cryptography with sustainable economic design to deliver a blockchain secure for decades.
-              </p>
-            </div>
-
-            <div className="flex flex-wrap gap-3 sm:gap-4 mt-8 sm:mt-12">
-              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl sm:rounded-2xl px-4 sm:px-8 py-3 sm:py-5 flex items-center gap-2 sm:gap-4">
-                <div className="text-[#00E599] text-2xl sm:text-4xl font-bold">1.5B</div>
-                <div className="text-gray-400 text-xs sm:text-sm uppercase tracking-widest">Max Supply</div>
-              </div>
-              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl sm:rounded-2xl px-4 sm:px-8 py-3 sm:py-5 flex items-center gap-2 sm:gap-4">
-                <div className="text-[#00E599] text-2xl sm:text-4xl font-bold">10s</div>
-                <div className="text-gray-400 text-xs sm:text-sm uppercase tracking-widest">Block Time</div>
-              </div>
-              <div className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl sm:rounded-2xl px-4 sm:px-8 py-3 sm:py-5 flex items-center gap-2 sm:gap-4">
-                <div className="text-[#00E599] text-2xl sm:text-4xl font-bold">70%</div>
-                <div className="text-gray-400 text-xs sm:text-sm uppercase tracking-widest">Fee Burn</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8 bg-[#00E599] rounded-[2rem] sm:rounded-[3rem] p-6 sm:p-12 md:p-16 mx-2 sm:mx-4 md:mx-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="p-6 sm:p-8 md:p-10 rounded-2xl sm:rounded-[2rem] bg-white hover:bg-gray-50 transition-all duration-300 group shadow-lg hover:shadow-2xl hover:-translate-y-1 relative"
+              className="bg-teal-50/50 hover:bg-teal-50 rounded-2xl p-8 flex flex-col justify-between min-h-[320px] group transition-colors duration-300"
             >
-              {feature.status === "coming-soon" && (
-                <div className="absolute top-4 right-4 sm:top-6 sm:right-6 bg-black text-white text-[10px] sm:text-xs font-bold px-3 py-1.5 sm:px-4 sm:py-2 rounded-full uppercase tracking-wider">
-                  Coming Soon
+              <div>
+                {/* Circled Number */}
+                <div className="w-8 h-8 rounded-full border border-teal-600/30 flex items-center justify-center mb-6 text-sm font-mono text-teal-700 font-medium">
+                  {index + 1}
                 </div>
-              )}
-              {feature.status === "live" && (
-                <div className="absolute top-4 right-4 sm:top-6 sm:right-6 bg-[#00E599] text-black text-[10px] sm:text-xs font-bold px-3 py-1.5 sm:px-4 sm:py-2 rounded-full uppercase tracking-wider flex items-center gap-1.5">
-                  <div className="w-1.5 h-1.5 bg-black rounded-full animate-pulse" />
-                  Live
-                </div>
-              )}
-              <div className="mb-4 sm:mb-6 group-hover:scale-110 transition-transform duration-300 w-fit p-3 sm:p-4 bg-[#00E599]/10 rounded-xl sm:rounded-2xl">
-                {feature.icon}
+
+                <h3 className="text-2xl font-bold mb-3 text-gray-900 tracking-tight">{feature.title}</h3>
+                <p className="text-gray-600 leading-relaxed text-sm lg:text-base">
+                  {feature.description}
+                </p>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-black">{feature.title}</h3>
-              <p className="text-gray-600 leading-relaxed text-base sm:text-lg">
-                {feature.description}
-              </p>
+
+              {/* Bottom Geometric Graphic */}
+              <div className="mt-8 h-24 w-full opacity-60 group-hover:opacity-100 transition-opacity duration-500">
+                {feature.shape}
+              </div>
             </div>
           ))}
         </div>

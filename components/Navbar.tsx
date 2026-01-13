@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Github, Menu, X, ChevronDown } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 type NavItem = {
   name: string;
@@ -59,8 +59,21 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+      ? "bg-white/80 backdrop-blur-xl border-b border-gray-100 shadow-sm"
+      : "bg-transparent border-b border-transparent"
+      }`}>
       <div className="container mx-auto px-4 sm:px-6 h-20 md:h-24">
         <div className="flex items-center justify-between h-full">
           {/* Logo */}
