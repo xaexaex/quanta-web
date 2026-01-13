@@ -91,7 +91,7 @@ export default function Features() {
   ];
 
   return (
-    <section className="py-24 bg-white text-black">
+    <section className="py-24 bg-transparent text-black">
       <div className="container mx-auto px-6">
         {/* Header Block */}
         <div className="mb-16 sm:mb-24 bg-black rounded-[2.5rem] p-10 sm:p-16 relative overflow-hidden text-white">
@@ -110,7 +110,7 @@ export default function Features() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-[#F2FBF9] hover:bg-teal-50 rounded-2xl p-8 flex flex-col justify-between min-h-[320px] group transition-colors duration-300"
+              className="bg-[#F2FBF9] hover:bg-teal-50 rounded-2xl p-6 sm:p-8 flex flex-col justify-between min-h-[320px] group transition-colors duration-300"
             >
               <div>
                 {/* Circled Number */}

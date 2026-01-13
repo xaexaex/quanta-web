@@ -53,7 +53,7 @@ export default function Tokenomics() {
   ];
 
   return (
-    <section className="py-24 relative bg-white text-black">
+    <section className="py-24 relative bg-transparent text-black">
       <div className="container mx-auto px-6">
 
         {/* Header Block */}
@@ -74,7 +74,7 @@ export default function Tokenomics() {
           {metrics.map((metric, index) => (
             <div
               key={index}
-              className="bg-[#FAFAF9] rounded-3xl p-8 hover:bg-[#F2FBF9] transition-all duration-300 group hover:-translate-y-1 hover:shadow-xl border border-transparent hover:border-[#00E599]/20 relative overflow-hidden"
+              className="bg-[#FAFAF9] rounded-3xl p-6 sm:p-8 hover:bg-[#F2FBF9] transition-all duration-300 group hover:-translate-y-1 hover:shadow-xl border border-transparent hover:border-[#00E599]/20 relative overflow-hidden"
             >
               {/* Decorative Shape BG */}
               <div className="absolute -right-4 -bottom-4 w-24 h-24 text-gray-200 group-hover:text-[#00E599]/20 transition-colors duration-500 rotate-12">
