@@ -102,9 +102,9 @@ export default function EcosystemStatus() {
   };
 
   return (
-    <section className="py-32 relative bg-gray-50">
+    <section className="py-24 relative bg-gray-50">
       <div className="container mx-auto px-6">
-        
+
         {/* Heading */}
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter mb-6">
@@ -118,18 +118,16 @@ export default function EcosystemStatus() {
         {/* Tools Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
           {tools.map((tool, index) => (
-            <div 
+            <div
               key={index}
-              className={`bg-white border-2 rounded-2xl p-6 transition-all ${
-                tool.status === 'live' 
-                  ? 'border-[#00E599]/30 hover:border-[#00E599] hover:shadow-xl' 
+              className={`bg-white border-2 rounded-2xl p-6 transition-all ${tool.status === 'live'
+                  ? 'border-[#00E599]/30 hover:border-[#00E599] hover:shadow-xl'
                   : 'border-gray-200 hover:border-gray-300'
-              }`}
+                }`}
             >
               <div className="flex items-start justify-between mb-4">
-                <div className={`w-14 h-14 rounded-xl flex items-center justify-center ${
-                  tool.status === 'live' ? 'bg-[#00E599]/10 text-[#00E599]' : 'bg-gray-100 text-gray-400'
-                }`}>
+                <div className={`w-14 h-14 rounded-xl flex items-center justify-center ${tool.status === 'live' ? 'bg-[#00E599]/10 text-[#00E599]' : 'bg-gray-100 text-gray-400'
+                  }`}>
                   {tool.icon}
                 </div>
                 {getStatusBadge(tool.status)}
@@ -146,7 +144,7 @@ export default function EcosystemStatus() {
                     <span className="text-xs font-bold text-[#00E599]">{tool.progress}%</span>
                   </div>
                   <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
-                    <div 
+                    <div
                       className="h-full bg-gradient-to-r from-[#00E599] to-[#00cc88] transition-all duration-500"
                       style={{ width: `${tool.progress}%` }}
                     />
@@ -163,7 +161,7 @@ export default function EcosystemStatus() {
 
               {/* Link */}
               {tool.link ? (
-                <a 
+                <a
                   href={tool.link}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -199,7 +197,7 @@ export default function EcosystemStatus() {
         {/* Note */}
         <div className="mt-12 max-w-3xl mx-auto text-center">
           <p className="text-gray-600 leading-relaxed">
-            We prioritize <span className="font-semibold text-black">security and quality</span> over speed. 
+            We prioritize <span className="font-semibold text-black">security and quality</span> over speed.
             All tools undergo rigorous testing before public release. Follow our{" "}
             <a href="https://github.com/quantachain/quanta" target="_blank" className="text-[#00E599] font-semibold hover:underline">
               GitHub

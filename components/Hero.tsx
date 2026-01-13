@@ -23,13 +23,13 @@ export default function Hero() {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
-          <Link 
+          <Link
             href="/docs"
             className="group relative w-full sm:w-auto px-8 sm:px-10 py-4 text-lg font-bold text-black bg-[#00E599] rounded-full hover:shadow-[0_0_40px_rgba(0,229,153,0.4)] transition-all hover:scale-105 active:scale-95 text-center"
           >
             Get Started
           </Link>
-          <Link 
+          <Link
             href="https://github.com/quantachain/quanta"
             target="_blank"
             className="w-full sm:w-auto px-8 sm:px-10 py-4 text-lg font-bold text-gray-700 bg-white border-2 border-gray-200 rounded-full hover:border-[#00E599] hover:text-black transition-all hover:shadow-lg text-center"

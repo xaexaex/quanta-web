@@ -34,7 +34,7 @@ export default function FAQ() {
   ];
 
   return (
-    <section className="py-40 relative bg-white">
+    <section className="py-24 relative bg-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12 sm:mb-20">
           <h2 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-4 sm:mb-6 text-black tracking-tight">
@@ -50,35 +50,30 @@ export default function FAQ() {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className={`rounded-2xl sm:rounded-3xl overflow-hidden transition-all duration-500 ${
-                openIndex === index 
-                  ? "bg-black shadow-[0_0_40px_rgba(0,229,153,0.3)]" 
-                  : "bg-white border-2 border-gray-200 hover:border-[#00E599]/50"
-              }`}
+              className={`rounded-2xl sm:rounded-3xl overflow-hidden transition-all duration-500 ${openIndex === index
+                ? "bg-black shadow-[0_0_40px_rgba(0,229,153,0.3)]"
+                : "bg-white border-2 border-gray-200 hover:border-[#00E599]/50"
+                }`}
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 className="w-full px-6 sm:px-10 py-6 sm:py-8 flex items-center justify-between text-left group"
               >
-                <span className={`text-base sm:text-xl md:text-2xl font-bold pr-4 sm:pr-6 transition-colors ${
-                  openIndex === index ? "text-white" : "text-black group-hover:text-[#00E599]"
-                }`}>
+                <span className={`text-base sm:text-xl md:text-2xl font-bold pr-4 sm:pr-6 transition-colors ${openIndex === index ? "text-white" : "text-black group-hover:text-[#00E599]"
+                  }`}>
                   {faq.question}
                 </span>
-                <div className={`flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300 ${
-                  openIndex === index ? "bg-[#00E599] rotate-180" : "bg-gray-100 group-hover:bg-[#00E599]/10"
-                }`}>
+                <div className={`flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-300 ${openIndex === index ? "bg-[#00E599] rotate-180" : "bg-gray-100 group-hover:bg-[#00E599]/10"
+                  }`}>
                   <ChevronDown
-                    className={`w-5 h-5 sm:w-6 sm:h-6 transition-colors ${
-                      openIndex === index ? "text-black" : "text-[#00E599]"
-                    }`}
+                    className={`w-5 h-5 sm:w-6 sm:h-6 transition-colors ${openIndex === index ? "text-black" : "text-[#00E599]"
+                      }`}
                   />
                 </div>
               </button>
               <div
-                className={`overflow-hidden transition-all duration-500 ${
-                  openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-                }`}
+                className={`overflow-hidden transition-all duration-500 ${openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                  }`}
               >
                 <div className="px-6 sm:px-10 pb-6 sm:pb-8 text-gray-300 text-base sm:text-lg leading-relaxed border-t border-white/10 pt-4 sm:pt-6">
                   {faq.answer}
