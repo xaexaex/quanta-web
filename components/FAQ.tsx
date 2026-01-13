@@ -36,23 +36,28 @@ export default function FAQ() {
   return (
     <section className="py-24 relative bg-transparent">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-12 sm:mb-20">
-          <h2 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-4 sm:mb-6 text-black tracking-tight">
-            Frequently Asked <br />
-            <span className="text-[#00E599]">Questions</span>
-          </h2>
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-500 max-w-3xl mx-auto leading-relaxed px-4">
-            Everything you need to know about Quanta
-          </p>
+        {/* Header Block */}
+        <div className="mb-12 sm:mb-20 bg-black rounded-[2.5rem] p-10 sm:p-16 relative overflow-hidden text-white text-center">
+          <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-[#00E599]/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/2" />
+
+          <div className="relative z-10">
+            <h2 className="text-4xl sm:text-6xl md:text-8xl font-bold mb-6 tracking-tighter">
+              Frequently Asked <br />
+              <span className="text-[#00E599]">Questions</span>
+            </h2>
+            <p className="text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+              Everything you need to know about Quanta
+            </p>
+          </div>
         </div>
 
         <div className="max-w-5xl mx-auto space-y-4 sm:space-y-6 px-2 sm:px-4">
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className={`rounded-2xl sm:rounded-3xl overflow-hidden transition-all duration-500 ${openIndex === index
-                ? "bg-black shadow-[0_0_40px_rgba(0,229,153,0.3)]"
-                : "bg-white border-2 border-gray-200 hover:border-[#00E599]/50"
+              className={`rounded-2xl sm:rounded-3xl overflow-hidden transition-all duration-500 border ${openIndex === index
+                ? "bg-black border-black shadow-2xl"
+                : "bg-white border-gray-100 hover:border-[#00E599]/50 hover:shadow-lg"
                 }`}
             >
               <button

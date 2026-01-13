@@ -47,9 +47,9 @@ export default function TrustIndicators() {
   ];
 
   return (
-    <section className="py-32 relative bg-white">
+    <section className="py-32 relative bg-transparent text-black">
       <div className="container mx-auto px-6">
-        
+
         {/* Heading */}
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tighter mb-6">
@@ -63,9 +63,9 @@ export default function TrustIndicators() {
         {/* Indicators Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto mb-16">
           {indicators.map((indicator, index) => (
-            <div 
+            <div
               key={index}
-              className="bg-gradient-to-br from-white to-gray-50 border-2 border-gray-100 rounded-2xl p-8 hover:border-[#00E599]/30 hover:shadow-lg transition-all"
+              className="bg-white border border-gray-100 rounded-2xl p-8 hover:border-[#00E599]/30 hover:shadow-lg hover:-translate-y-1 transition-all"
             >
               <div className="w-16 h-16 bg-[#00E599]/10 rounded-xl flex items-center justify-center mb-6 text-[#00E599]">
                 {indicator.icon}
@@ -75,7 +75,7 @@ export default function TrustIndicators() {
               <div className="flex items-center justify-between">
                 <span className="text-sm font-bold text-[#00E599]">{indicator.status}</span>
                 {indicator.link && (
-                  <a 
+                  <a
                     href={indicator.link}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -117,21 +117,21 @@ export default function TrustIndicators() {
             Verify our commitments yourself. Don't trust, verify.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
-            <a 
+            <a
               href="https://github.com/quantachain/quanta"
               target="_blank"
               className="px-6 py-3 bg-black text-white font-bold rounded-full hover:bg-gray-800 transition-all"
             >
               View Source Code
             </a>
-            <a 
+            <a
               href="https://github.com/quantachain/quanta/issues"
               target="_blank"
               className="px-6 py-3 bg-gray-100 text-black font-bold rounded-full hover:bg-gray-200 transition-all"
             >
               Report Issues
             </a>
-            <a 
+            <a
               href="https://github.com/quantachain/quanta/blob/main/LICENSE"
               target="_blank"
               className="px-6 py-3 bg-gray-100 text-black font-bold rounded-full hover:bg-gray-200 transition-all"

@@ -110,7 +110,7 @@ export default function Features() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-[#F2FBF9] hover:bg-teal-50 rounded-2xl p-6 sm:p-8 flex flex-col justify-between min-h-[320px] group transition-colors duration-300"
+              className="bg-white hover:shadow-xl hover:-translate-y-1 rounded-2xl p-6 sm:p-8 flex flex-col justify-between min-h-[320px] group transition-all duration-300 border border-gray-100 hover:border-[#00E599]/30"
             >
               <div>
                 {/* Circled Number */}

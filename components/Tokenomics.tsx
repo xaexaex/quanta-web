@@ -74,7 +74,7 @@ export default function Tokenomics() {
           {metrics.map((metric, index) => (
             <div
               key={index}
-              className="bg-[#FAFAF9] rounded-3xl p-6 sm:p-8 hover:bg-[#F2FBF9] transition-all duration-300 group hover:-translate-y-1 hover:shadow-xl border border-transparent hover:border-[#00E599]/20 relative overflow-hidden"
+              className="bg-white rounded-3xl p-6 sm:p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group border border-gray-100 hover:border-[#00E599]/30 relative overflow-hidden"
             >
               {/* Decorative Shape BG */}
               <div className="absolute -right-4 -bottom-4 w-24 h-24 text-gray-200 group-hover:text-[#00E599]/20 transition-colors duration-500 rotate-12">

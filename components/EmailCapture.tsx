@@ -2,16 +2,16 @@
 
 import { useState } from "react";
 
-export default function EmailCapture({ 
-  title = "Join the Waitlist", 
+export default function EmailCapture({
+  title = "Join the Waitlist",
   description = "Be the first to know when we launch. Get exclusive early access to the testnet.",
   buttonText = "Get Early Access",
-  variant = "default" 
-}: { 
-  title?: string; 
+  variant = "default"
+}: {
+  title?: string;
   description?: string;
   buttonText?: string;
-  variant?: "default" | "minimal" 
+  variant?: "default" | "minimal"
 }) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
@@ -36,7 +36,7 @@ export default function EmailCapture({
         setStatus("success");
         setMessage(data.message || "Thanks! We'll be in touch soon.");
         setEmail("");
-        
+
         setTimeout(() => {
           setStatus("idle");
           setMessage("");
@@ -82,10 +82,10 @@ export default function EmailCapture({
   }
 
   return (
-    <div className="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-100 rounded-3xl p-8 md:p-12">
+    <div className="bg-white border text-center border-gray-100 rounded-[2.5rem] p-8 md:p-12 max-w-4xl mx-auto shadow-sm">
       <h3 className="text-2xl md:text-3xl font-bold mb-4">{title}</h3>
       <p className="text-gray-600 mb-8 text-lg">{description}</p>
-      
+
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="flex flex-col sm:flex-row gap-3">
           <input
@@ -105,14 +105,14 @@ export default function EmailCapture({
             {status === "loading" ? "Signing up..." : status === "success" ? "✓ Subscribed!" : buttonText}
           </button>
         </div>
-        
+
         {message && (
           <p className={`text-center text-sm ${status === "success" ? "text-[#00E599]" : "text-red-500"}`}>
             {message}
           </p>
         )}
       </form>
-      
+
       <p className="text-xs text-gray-500 mt-4 text-center">
         No spam, ever. Unsubscribe anytime.
       </p>
