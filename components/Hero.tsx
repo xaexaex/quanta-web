@@ -33,45 +33,45 @@ export default function Hero() {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center bg-transparent text-black overflow-hidden pt-24 pb-12">
+    <section className="relative min-h-0 md:min-h-screen flex items-center bg-transparent text-black overflow-hidden pt-16 md:pt-20 pb-6 md:pb-12">
       <div className="container mx-auto px-6 h-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 h-full items-center">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 h-full items-center">
 
           {/* Left Column: Content */}
-          <div className="lg:col-span-7 flex flex-col justify-center relative z-20 pt-10 lg:pt-0">
+          <div className="md:col-span-7 flex flex-col justify-center relative z-20 pt-4 md:pt-0">
 
             {/* Title */}
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[7rem] font-bold tracking-tighter leading-[0.9] mb-10 sm:mb-16">
+            <h1 className="text-4xl sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold tracking-tighter leading-[0.9] mb-4 md:mb-6">
               The Base Layer <br />
               <span className="text-[#00E599]">for Quantum Security</span>
             </h1>
 
             {/* Feature Rows */}
-            <div className="w-full max-w-2xl mb-10 sm:mb-16 flex flex-col gap-6 sm:gap-8 relative">
+            <div className="w-full max-w-2xl mb-4 md:mb-6 flex flex-col gap-3 md:gap-4 relative">
               {features.map((feature, index) => (
                 <div
                   key={feature.id}
-                  className="flex flex-col gap-3 group cursor-pointer relative"
+                  className="flex flex-col gap-2 group cursor-pointer relative"
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
                 >
                   <div className="flex items-center justify-between z-10 transition-transform duration-300 group-hover:translate-x-2">
-                    <span className={`text-xl sm:text-2xl font-medium tracking-tight transition-colors duration-300 ${hoveredIndex === index ? 'text-[#00E599]' : ''}`}>
+                    <span className={`text-lg sm:text-xl md:text-lg font-medium tracking-tight transition-colors duration-300 ${hoveredIndex === index ? 'text-[#00E599]' : ''}`}>
                       {feature.title}
                     </span>
                     {/* <feature.icon className={`w-5 h-5 transition-all duration-300 ${hoveredIndex === index ? 'text-[#00E599] opacity-100 scale-110' : 'text-gray-400 opacity-0 group-hover:opacity-50'}`} /> */}
                   </div>
 
                   {/* Mobile: Inline Description */}
-                  <div className="lg:hidden text-sm text-gray-500 leading-relaxed pr-4">
+                  <div className="md:hidden text-sm text-gray-500 leading-relaxed pr-4">
                     {feature.description}
                   </div>
 
                   <div className="w-full h-[1px] bg-black/10 relative group-hover:bg-black/20 transition-colors"></div>
-                  <span className="font-mono text-xs text-gray-400 mt-1">{feature.id}</span>
+                  <span className="font-mono text-xs text-gray-400 mt-0.5">{feature.id}</span>
 
                   {/* Desktop: Interactive Hover Card */}
-                  <div className={`hidden lg:block absolute top-full left-1/2 -translate-x-1/2 sm:left-[60%] sm:translate-x-0 sm:-top-4 w-[300px] bg-white/60 backdrop-blur-xl text-black p-6 rounded-2xl shadow-2xl transition-all duration-300 pointer-events-none z-50 border border-white/40 ${hoveredIndex === index ? 'opacity-100 translate-x-4 sm:translate-x-8 scale-100' : 'opacity-0 translate-x-0 scale-95'}`}>
+                  <div className={`hidden md:block absolute top-full left-1/2 -translate-x-1/2 sm:left-[60%] sm:translate-x-0 sm:-top-4 w-[300px] bg-white/60 backdrop-blur-xl text-black p-6 rounded-2xl shadow-2xl transition-all duration-300 pointer-events-none z-50 border border-white/40 ${hoveredIndex === index ? 'opacity-100 translate-x-4 sm:translate-x-8 scale-100' : 'opacity-0 translate-x-0 scale-95'}`}>
                     {/* Decorative Arrow */}
                     <div className="absolute top-8 -left-2 w-4 h-4 bg-white/60 rotate-45 border-l border-b border-white/40 backdrop-blur-xl"></div>
 
@@ -89,7 +89,7 @@ export default function Hero() {
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-center gap-6">
+            <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-5">
               <Link
                 href="/docs"
                 className="flex items-center gap-2 px-8 py-4 bg-black text-white rounded-full font-medium hover:bg-[#00E599] hover:text-black transition-all hover:scale-105 active:scale-95 w-full sm:w-auto justify-center"
@@ -107,8 +107,8 @@ export default function Hero() {
           </div>
 
           {/* Right Column: Visual Component */}
-          <div className="hidden lg:flex lg:col-span-5 relative h-full min-h-[400px] items-center justify-end z-10 pointer-events-none">
-            <div className="w-full max-w-lg pointer-events-auto">
+          <div className="hidden md:flex md:col-span-5 relative h-full min-h-[400px] md:min-h-[450px] lg:min-h-[500px] items-center justify-center md:justify-end z-10 pointer-events-none">
+            <div className="w-full h-full pointer-events-auto">
               <QuantumParticles />
             </div>
           </div>
@@ -120,7 +120,7 @@ export default function Hero() {
       <Link
         href="https://github.com/quantachain/quanta"
         target="_blank"
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden lg:flex items-center gap-3 px-5 py-2.5 bg-white border border-gray-200 rounded-full shadow-sm z-20 hover:scale-105 hover:shadow-md transition-all duration-300"
+        className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:flex items-center gap-3 px-5 py-2.5 bg-white border border-gray-200 rounded-full shadow-sm z-20 hover:scale-105 hover:shadow-md transition-all duration-300"
       >
         <span className="w-2 h-2 rounded-full bg-yellow-400"></span>
         <span className="text-sm font-mono text-gray-600">Testnet Coming Soon</span>
