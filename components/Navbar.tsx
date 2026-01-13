@@ -60,7 +60,7 @@ export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 border-b border-gray-100 bg-background/90 backdrop-blur-xl supports-[backdrop-filter]:bg-background/60">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-transparent">
       <div className="container mx-auto px-4 sm:px-6 h-20 md:h-24">
         <div className="flex items-center justify-between h-full">
           {/* Logo */}
