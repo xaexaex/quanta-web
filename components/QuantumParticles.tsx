@@ -224,9 +224,9 @@ const QuantumParticles = () => {
                     <span className="text-[10px] font-mono font-semibold tracking-widest text-gray-400 uppercase">Quantum Field</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                    <div className="w-3 h-3 rounded-full bg-[#FF5F57] shadow-sm"></div>
-                    <div className="w-3 h-3 rounded-full bg-[#FEBC2E] shadow-sm"></div>
-                    <div className="w-3 h-3 rounded-full bg-[#28C840] shadow-sm"></div>
+                    <div className="w-1 h-1 rounded-full bg-[#FF5F57] shadow-sm"></div>
+                    <div className="w-1 h-1 rounded-full bg-[#FEBC2E] shadow-sm"></div>
+                    <div className="w-1 h-1 rounded-full bg-[#28C840] shadow-sm"></div>
                 </div>
             </div>
 

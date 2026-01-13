@@ -93,15 +93,24 @@ export default function Features() {
   return (
     <section className="py-24 bg-white text-black">
       <div className="container mx-auto px-6">
-        <h2 className="text-4xl md:text-5xl font-bold mb-16 tracking-tight">
-          Core <span className="text-teal-600">Features</span>
-        </h2>
+        {/* Header Block */}
+        <div className="mb-16 sm:mb-24 bg-black rounded-[2.5rem] p-10 sm:p-16 relative overflow-hidden text-white">
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#00E599]/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/4" />
+
+          <h2 className="text-4xl sm:text-6xl font-bold mb-6 tracking-tight relative z-10">
+            Core <br />
+            <span className="text-gray-500">Features.</span>
+          </h2>
+          <p className="text-lg sm:text-xl text-gray-400 max-w-2xl leading-relaxed relative z-10">
+            QUANTA combines NIST-standardized post-quantum cryptography with sustainable economic design to deliver a blockchain secure for decades.
+          </p>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-teal-50/50 hover:bg-teal-50 rounded-2xl p-8 flex flex-col justify-between min-h-[320px] group transition-colors duration-300"
+              className="bg-[#F2FBF9] hover:bg-teal-50 rounded-2xl p-8 flex flex-col justify-between min-h-[320px] group transition-colors duration-300"
             >
               <div>
                 {/* Circled Number */}

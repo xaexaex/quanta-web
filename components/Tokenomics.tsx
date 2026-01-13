@@ -1,52 +1,95 @@
-import { TrendingDown, Lock, Flame, Coins } from "lucide-react";
+import React from "react";
 
 export default function Tokenomics() {
+  const metrics = [
+    {
+      value: "100",
+      label: "QUA Initial Reward",
+      sub: "Per block at launch",
+      shape: (
+        <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-current stroke-[1.5]">
+          <path d="M50,20 L80,50 L50,80 L20,50 Z" />
+          <path d="M50,10 V30 M50,70 V90 M10,50 H30 M70,50 H90" className="opacity-50" />
+        </svg>
+      )
+    },
+    {
+      value: "15%",
+      label: "Annual Reduction",
+      sub: "Smooth exponential decay",
+      shape: (
+        <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-current stroke-[1.5]">
+          <circle cx="50" cy="50" r="30" />
+          <path d="M50,20 Q80,20 80,50" />
+          <path d="M50,50 L80,20" />
+        </svg>
+      )
+    },
+    {
+      value: "1.5B",
+      label: "Asymptotic Max",
+      sub: "Reached by year 15-20",
+      shape: (
+        <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-current stroke-[1.5]">
+          <path d="M10,90 Q50,90 90,10" />
+          <path d="M10,90 H90" className="opacity-30" />
+          <rect x="70" y="10" width="20" height="20" />
+        </svg>
+      )
+    },
+    {
+      value: "5",
+      label: "QUA Reward Floor",
+      sub: "Perpetual mining incentive",
+      shape: (
+        <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-current stroke-[1.5]">
+          <rect x="20" y="40" width="60" height="20" />
+          <path d="M20,60 L20,80 L80,80 L80,60" />
+          <path d="M50,40 V20" />
+          <circle cx="50" cy="15" r="5" />
+        </svg>
+      )
+    }
+  ];
+
   return (
-    <section className="py-24 relative bg-white">
-      <div className="px-6">
-        {/* Heading Section with Black BG */}
-        <div className="mb-16 sm:mb-24 bg-black rounded-[2rem] sm:rounded-[3rem] p-8 sm:p-16 md:p-20 mx-2 sm:mx-4 md:mx-8 relative overflow-hidden">
-          <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[500px] h-[500px] bg-[#00E599]/10 rounded-full blur-[120px]" />
+    <section className="py-24 relative bg-white text-black">
+      <div className="container mx-auto px-6">
 
-          <div className="relative z-10">
-            <div className="max-w-4xl">
-              <h2 className="text-4xl sm:text-5xl md:text-7xl font-bold mb-6 sm:mb-8 text-white tracking-tight">
-                Sustainable <br />
-                <span className="text-gray-400">Economics.</span>
-              </h2>
-              <p className="text-lg sm:text-xl md:text-2xl text-gray-400 leading-relaxed">
-                Fair launch with adaptive tokenomics designed for long-term network health. No pre-mine, no ICO.
-              </p>
+        {/* Header Block */}
+        <div className="mb-16 sm:mb-24 bg-black rounded-[2.5rem] p-10 sm:p-16 relative overflow-hidden text-white">
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#00E599]/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/4" />
+
+          <h2 className="text-4xl sm:text-6xl font-bold mb-6 tracking-tight relative z-10">
+            Sustainable <br />
+            <span className="text-gray-500">Economics.</span>
+          </h2>
+          <p className="text-lg sm:text-xl text-gray-400 max-w-2xl leading-relaxed relative z-10">
+            Fair launch with adaptive tokenomics designed for long-term network health. No pre-mine, no ICO.
+          </p>
+        </div>
+
+        {/* Metrics Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {metrics.map((metric, index) => (
+            <div
+              key={index}
+              className="bg-[#FAFAF9] rounded-3xl p-8 hover:bg-[#F2FBF9] transition-all duration-300 group hover:-translate-y-1 hover:shadow-xl border border-transparent hover:border-[#00E599]/20 relative overflow-hidden"
+            >
+              {/* Decorative Shape BG */}
+              <div className="absolute -right-4 -bottom-4 w-24 h-24 text-gray-200 group-hover:text-[#00E599]/20 transition-colors duration-500 rotate-12">
+                {metric.shape}
+              </div>
+
+              <div className="relative z-10">
+                <div className="text-4xl font-bold mb-3 tracking-tight group-hover:text-[#00E599] transition-colors">{metric.value}</div>
+                <div className="text-lg font-bold text-gray-900 mb-1">{metric.label}</div>
+                <div className="text-sm text-gray-500 font-medium font-mono">{metric.sub}</div>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
 
-        {/* Key Metrics Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mx-2 sm:mx-4 md:mx-8 mb-16">
-          <div className="bg-gradient-to-br from-[#00E599] to-[#00cc88] p-6 sm:p-8 rounded-2xl sm:rounded-[2rem] text-black">
-            <div className="text-4xl sm:text-5xl font-bold mb-2">100</div>
-            <div className="text-base sm:text-lg font-semibold mb-1">QUA Initial Reward</div>
-            <div className="text-xs sm:text-sm opacity-80">Per block at launch</div>
-          </div>
-
-          <div className="bg-gradient-to-br from-[#00E599] to-[#00cc88] p-6 sm:p-8 rounded-2xl sm:rounded-[2rem] text-black">
-            <div className="text-4xl sm:text-5xl font-bold mb-2">15%</div>
-            <div className="text-base sm:text-lg font-semibold mb-1">Annual Reduction</div>
-            <div className="text-xs sm:text-sm opacity-80">Smooth exponential decay</div>
-          </div>
-
-          <div className="bg-gradient-to-br from-[#00E599] to-[#00cc88] p-6 sm:p-8 rounded-2xl sm:rounded-[2rem] text-black">
-            <div className="text-4xl sm:text-5xl font-bold mb-2">1.5B</div>
-            <div className="text-base sm:text-lg font-semibold mb-1">Asymptotic Maximum</div>
-            <div className="text-xs sm:text-sm opacity-80">Reached by year 15-20</div>
-          </div>
-
-          <div className="bg-gradient-to-br from-[#00E599] to-[#00cc88] p-6 sm:p-8 rounded-2xl sm:rounded-[2rem] text-black">
-            <div className="text-4xl sm:text-5xl font-bold mb-2">5</div>
-            <div className="text-base sm:text-lg font-semibold mb-1">QUA Reward Floor</div>
-            <div className="text-xs sm:text-sm opacity-80">Perpetual mining incentive</div>
-          </div>
-        </div>
       </div>
     </section>
   );

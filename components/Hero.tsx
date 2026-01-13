@@ -14,7 +14,7 @@ export default function Hero() {
           <div className="lg:col-span-7 flex flex-col justify-center">
 
             {/* Title */}
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-[6rem] font-bold tracking-tighter leading-[0.9] mb-16">
+            <h1 className="text-6xl sm:text-7xl md:text-8xl lg:text-[7rem] font-bold tracking-tighter leading-[0.9] mb-16">
               The Base Layer <br />
               <span className="text-[#00E599]">for Quantum Security</span>
             </h1>
