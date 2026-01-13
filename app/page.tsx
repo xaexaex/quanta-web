@@ -15,14 +15,14 @@ export default function Home() {
       <Features />
       <Tokenomics />
 
-      <section className="py-24 bg-transparent">
+      <section className="py-12 sm:py-24 bg-transparent">
         <div className="container mx-auto px-6">
           <EmailCapture />
         </div>
       </section>
 
       {/* <TrustIndicators /> */}
-      <FAQ />
+      {/* <FAQ /> */}
 
       {/* Call to Action Section (Old one was here, keeping it removed as replaced or moving logic) - Actually, user said change other components to same style. If I remove this huge black block, does it fit? 
       The TrustIndicators has a "Commitment" black block. 

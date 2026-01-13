@@ -47,7 +47,7 @@ export default function TrustIndicators() {
   ];
 
   return (
-    <section className="py-32 relative bg-transparent text-black">
+    <section className="py-16 sm:py-32 relative bg-transparent text-black">
       <div className="container mx-auto px-6">
 
         {/* Heading */}

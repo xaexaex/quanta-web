@@ -34,7 +34,7 @@ export default function FAQ() {
   ];
 
   return (
-    <section className="py-24 relative bg-transparent">
+    <section className="py-12 sm:py-24 relative bg-transparent">
       <div className="container mx-auto px-6">
         {/* Header Block */}
         <div className="mb-12 sm:mb-20 bg-black rounded-[2.5rem] p-10 sm:p-16 relative overflow-hidden text-white text-center">

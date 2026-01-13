@@ -91,7 +91,7 @@ export default function Features() {
   ];
 
   return (
-    <section className="py-24 bg-transparent text-black">
+    <section className="py-12 sm:py-24 bg-transparent text-black">
       <div className="container mx-auto px-6">
         {/* Header Block */}
         <div className="mb-16 sm:mb-24 bg-black rounded-[2.5rem] p-10 sm:p-16 relative overflow-hidden text-white">
