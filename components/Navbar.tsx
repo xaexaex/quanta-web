@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Github, Menu, X, ChevronDown } from "lucide-react";
+import { Github, Menu, X, Search, Droplet, Pickaxe, Wallet, BookOpen, FileText, Users, Newspaper, MessageSquare, Award, Send } from "lucide-react";
 import { useState, useEffect } from "react";
 
 type NavItem = {
@@ -11,6 +11,7 @@ type NavItem = {
   external?: boolean;
   badge?: string;
   description?: string;
+  icon?: React.ComponentType<{ className?: string }>;
 };
 
 type NavGroup = {
@@ -22,35 +23,35 @@ const navItems: NavGroup[] = [
   {
     name: "Ecosystem",
     items: [
-      { name: "Explorer", href: "#", badge: "Soon", description: "View real-time blocks & transactions" },
-      { name: "Faucet", href: "/faucet", badge: "Live", description: "Get Testnet QUA for development" },
-      { name: "Mining Pool", href: "#", badge: "Soon", description: "Join forces to secure the network" },
-      { name: "Wallet", href: "#", badge: "Soon", description: "Securely store & manage your assets" },
+      { name: "Explorer", href: "#", badge: "Soon", description: "View real-time blocks & transactions", icon: Search },
+      { name: "Faucet", href: "/faucet", badge: "Live", description: "Get Testnet QUA for development", icon: Droplet },
+      { name: "Mining Pool", href: "#", badge: "Soon", description: "Join forces to secure the network", icon: Pickaxe },
+      { name: "Wallet", href: "#", badge: "Soon", description: "Securely store & manage your assets", icon: Wallet },
     ],
   },
   {
     name: "Developers",
     items: [
-      { name: "GitHub", href: "https://github.com/quantachain/quanta", external: true, description: "Source code & contributions" },
-      { name: "Documentation", href: "https://quantachain.gitbook.io/quantachain-docs", external: true, description: "Integration guides & API reference" },
-      { name: "Whitepaper", href: "/docs/WHITEPAPER.docx", description: "Technical architecture & specs" },
+      { name: "GitHub", href: "https://github.com/quantachain/quanta", external: true, description: "Source code & contributions", icon: Github },
+      { name: "Documentation", href: "https://quantachain.gitbook.io/quantachain-docs", external: true, description: "Integration guides & API reference", icon: BookOpen },
+      { name: "Whitepaper", href: "/docs/WHITEPAPER.docx", description: "Technical architecture & specs", icon: FileText },
     ],
   },
   {
     name: "Company",
     items: [
-      { name: "About", href: "/team", description: "Our mission & the team" },
-      { name: "Blog", href: "/blog", description: "Latest updates & announcements" },
-      { name: "Community", href: "/community", description: "Join the Quanta revolution" },
-      { name: "Press Kit", href: "/press", description: "Brand assets & media resources" },
+      { name: "About", href: "/team", description: "Our mission & the team", icon: Users },
+      { name: "Blog", href: "/blog", description: "Latest updates & announcements", icon: Newspaper },
+      { name: "Community", href: "/community", description: "Join the Quanta revolution", icon: MessageSquare },
+      { name: "Press Kit", href: "/press", description: "Brand assets & media resources", icon: Award },
     ],
   },
   {
     name: "Social",
     items: [
-      { name: "Discord", href: "https://discord.gg/7KmMBrrJEz", external: true, description: "Chat with the community" },
-      { name: "X (Twitter)", href: "https://x.com/quantachain", external: true, description: "Follow for announcements" },
-      { name: "Telegram", href: "https://t.me/quantanetwork", external: true, description: "Real-time discussions" },
+      { name: "Discord", href: "https://discord.gg/7KmMBrrJEz", external: true, description: "Chat with the community", icon: MessageSquare },
+      { name: "X (Twitter)", href: "https://x.com/quantachain", external: true, description: "Follow for announcements", icon: Send },
+      { name: "Telegram", href: "https://t.me/quantanetwork", external: true, description: "Real-time discussions", icon: Send },
     ],
   },
 ];
@@ -102,42 +103,57 @@ export default function Navbar() {
                 <button className={`text-sm font-semibold transition-colors flex items-center gap-1 cursor-pointer ${activeDropdown === item.name ? 'text-[#00E599]' : 'text-gray-600 hover:text-black'
                   }`}>
                   {item.name}
-                  <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${activeDropdown === item.name ? 'rotate-180' : ''
-                    }`} />
                 </button>
 
                 {/* Dropdown Card */}
                 {activeDropdown === item.name && (
                   <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-80 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                    <div className="bg-white border border-gray-100 rounded-2xl shadow-2xl p-2 ring-1 ring-black/5">
-                      <div className="space-y-1">
-                        {item.items.map((subItem) => (
-                          <Link
-                            key={subItem.name}
-                            href={subItem.href}
-                            target={subItem.external ? "_blank" : undefined}
-                            className="block px-4 py-3 rounded-xl hover:bg-gray-50 transition-all group cursor-pointer"
-                          >
-                            <div className="flex items-center justify-between mb-1">
-                              <span className="text-sm font-bold text-black group-hover:text-[#00E599] transition-colors">
-                                {subItem.name}
-                              </span>
-                              {subItem.badge && (
-                                <span className={`text-[10px] px-2 py-0.5 rounded-full font-semibold ${subItem.badge === "Live"
-                                  ? "bg-green-100 text-green-700"
-                                  : "bg-gray-100 text-gray-500"
-                                  }`}>
-                                  {subItem.badge}
-                                </span>
-                              )}
-                            </div>
-                            {subItem.description && (
-                              <p className="text-xs text-gray-500 font-medium leading-relaxed">
-                                {subItem.description}
-                              </p>
-                            )}
-                          </Link>
-                        ))}
+                    {/* Gradient border wrapper */}
+                    <div className="relative p-[1px] rounded-2xl bg-gradient-to-br from-[#00E599]/30 via-[#00E599]/10 to-[#00E599]/5">
+                      <div className="bg-white rounded-2xl shadow-2xl p-3 backdrop-blur-xl">
+                        <div className="space-y-1">
+                          {item.items.map((subItem, idx) => (
+                            <Link
+                              key={subItem.name}
+                              href={subItem.href}
+                              target={subItem.external ? "_blank" : undefined}
+                              className="block px-4 py-3.5 rounded-xl hover:bg-[#00E599]/5 transition-all duration-300 group cursor-pointer relative overflow-hidden border border-transparent hover:border-[#00E599]/20"
+                              style={{
+                                animationDelay: `${idx * 50}ms`
+                              }}
+                            >
+                              {/* Hover gradient effect */}
+                              <div className="absolute inset-0 bg-gradient-to-r from-[#00E599]/0 via-[#00E599]/5 to-[#00E599]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+                              <div className="relative">
+                                <div className="flex items-center justify-between mb-1.5">
+                                  <div className="flex items-center gap-2">
+                                    {/* Icon with gradient background */}
+                                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#00E599]/10 to-[#00E599]/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                                      {subItem.icon && <subItem.icon className="w-4 h-4 text-[#00E599] transition-all" />}
+                                    </div>
+                                    <span className="text-sm font-bold text-black group-hover:text-[#00E599] transition-colors duration-300">
+                                      {subItem.name}
+                                    </span>
+                                  </div>
+                                  {subItem.badge && (
+                                    <span className={`text-[10px] px-2.5 py-1 rounded-full font-semibold transition-all duration-300 ${subItem.badge === "Live"
+                                      ? "bg-gradient-to-r from-green-100 to-emerald-100 text-green-700 group-hover:shadow-lg group-hover:shadow-green-200/50"
+                                      : "bg-gradient-to-r from-gray-100 to-gray-200 text-gray-500"
+                                      }`}>
+                                      {subItem.badge}
+                                    </span>
+                                  )}
+                                </div>
+                                {subItem.description && (
+                                  <p className="text-xs text-gray-500 font-medium leading-relaxed ml-10 group-hover:text-gray-700 transition-colors duration-300">
+                                    {subItem.description}
+                                  </p>
+                                )}
+                              </div>
+                            </Link>
+                          ))}
+                        </div>
                       </div>
                     </div>
                   </div>
