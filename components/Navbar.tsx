@@ -32,7 +32,7 @@ const navItems: NavGroup[] = [
     name: "Developers",
     items: [
       { name: "GitHub", href: "https://github.com/quantachain/quanta", external: true, description: "Source code & contributions" },
-      { name: "Documentation", href: "/docs", description: "Integration guides & API reference" },
+      { name: "Documentation", href: "https://quantachain.gitbook.io/quantachain-docs", external: true, description: "Integration guides & API reference" },
       { name: "Whitepaper", href: "/docs/WHITEPAPER.docx", description: "Technical architecture & specs" },
     ],
   },

@@ -1,8 +1,8 @@
 import { MetadataRoute } from 'next'
- 
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://quantachain.org'
-  
+
   return [
     {
       url: baseUrl,
@@ -17,7 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/docs`,
+      url: `https://quantachain.gitbook.io/quantachain-docs`,
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,

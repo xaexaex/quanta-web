@@ -86,7 +86,9 @@ export default function Hero() {
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-5 mb-6 md:mb-0">
               <Link
-                href="/docs"
+                href="https://quantachain.gitbook.io/quantachain-docs"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-2 px-8 py-4 bg-black text-white rounded-full font-medium hover:bg-[#00E599] hover:text-black transition-all hover:scale-105 active:scale-95 w-full sm:w-auto justify-center"
               >
                 Start Node
