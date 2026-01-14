@@ -11,39 +11,40 @@ export const metadata: Metadata = {
 
 export default function CommunityPage() {
   return (
-    <main className="min-h-screen bg-white text-black">
+    <main className="min-h-screen bg-transparent text-black">
       <Navbar />
-      
+
       <div className="pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24">
-        <div className="container mx-auto px-4 sm:px-6">
+        <div className="container mx-auto px-6">
           {/* Hero Section */}
-          <div className="text-center mb-16 sm:mb-20">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-4 sm:mb-6 px-4">
-              Join the <span className="text-[#00E599]">Community</span>
+          <div className="max-w-4xl mb-16 sm:mb-20">
+            <div className="inline-block mb-4">
+              <span className="text-xs font-mono font-bold tracking-widest text-gray-400 uppercase px-4 py-2 bg-gray-100 rounded-full">
+                Community
+              </span>
+            </div>
+            <h1 className="text-5xl sm:text-7xl font-bold mb-6 tracking-tight leading-[0.95]">
+              Join the <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00E599] to-emerald-600">Community</span>
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
-              Join the movement building quantum-resistant infrastructure. Connect with developers, miners, researchers, and blockchain enthusiasts securing the future.
+            <p className="text-xl sm:text-2xl text-gray-600 leading-relaxed font-light max-w-2xl">
+              Join the movement building quantum-resistant infrastructure. Connect with developers, miners, researchers, and blockchain enthusiasts <span className="text-black font-medium">securing the future.</span>
             </p>
           </div>
 
           {/* Email Capture */}
-          <div className="max-w-3xl mx-auto mb-20 sm:mb-24 px-4">
-            <EmailCapture 
-              title="Get Testnet Launch Updates"
-              description="Be notified when QUANTA testnet launches in Q1 2026. Get early access to mining, exclusive community benefits, and development updates."
-            />
-          </div>
+          {/* <EmailCapture /> */}
 
           {/* Social Channels */}
-          <div className="mb-20 sm:mb-24 px-4">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center">Connect With Us</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
-              <a href="https://discord.gg/7KmMBrrJEz" target="_blank" className="border-2 border-gray-100 rounded-2xl sm:rounded-3xl p-6 sm:p-8 hover:border-[#00E599] transition-all block">
-                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-[#00E599]/10 rounded-xl sm:rounded-2xl flex items-center justify-center mb-4 sm:mb-6">
-                  <MessagesSquare className="w-6 h-6 sm:w-7 sm:h-7 text-[#00E599]" />
+          <div className="mb-20 sm:mb-24 mt-20">
+            <h2 className="text-3xl md:text-4xl font-bold mb-12">Connect With Us</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              <a href="https://discord.gg/7KmMBrrJEz" target="_blank" className="border-2 border-gray-100 rounded-3xl p-8 hover:border-[#00E599]/30 transition-all block group">
+                <div className="w-14 h-14 bg-[#00E599]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#00E599]/20 transition-colors">
+                  <MessagesSquare className="w-7 h-7 text-[#00E599]" />
                 </div>
-                <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3">Discord</h3>
-                <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
+                <h3 className="text-2xl font-bold mb-3">Discord</h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">
                   Join our community hub for technical discussions, mining support, development updates, and direct access to the core team.
                 </p>
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#00E599] text-white rounded-full font-semibold hover:bg-[#00E599]/90 transition-all">
@@ -51,12 +52,12 @@ export default function CommunityPage() {
                 </div>
               </a>
 
-              <a href="https://x.com/quantachain" target="_blank" className="border-2 border-gray-100 rounded-3xl p-8 hover:border-[#00E599] transition-all block">
-                <div className="w-14 h-14 bg-[#00E599]/10 rounded-2xl flex items-center justify-center mb-6">
+              <a href="https://x.com/quantachain" target="_blank" className="border-2 border-gray-100 rounded-3xl p-8 hover:border-[#00E599]/30 transition-all block group">
+                <div className="w-14 h-14 bg-[#00E599]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#00E599]/20 transition-colors">
                   <Twitter className="w-7 h-7 text-[#00E599]" />
                 </div>
                 <h3 className="text-2xl font-bold mb-3">X (Twitter)</h3>
-                <p className="text-gray-600 mb-6">
+                <p className="text-gray-600 mb-6 leading-relaxed">
                   Follow for testnet announcements, technical deep-dives into post-quantum cryptography, ecosystem news, and roadmap updates.
                 </p>
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#00E599] text-white rounded-full font-semibold hover:bg-[#00E599]/90 transition-all">
@@ -64,12 +65,12 @@ export default function CommunityPage() {
                 </div>
               </a>
 
-              <a href="https://t.me/quantanetwork" target="_blank" className="border-2 border-gray-100 rounded-3xl p-8 hover:border-[#00E599] transition-all block">
-                <div className="w-14 h-14 bg-[#00E599]/10 rounded-2xl flex items-center justify-center mb-6">
+              <a href="https://t.me/quantanetwork" target="_blank" className="border-2 border-gray-100 rounded-3xl p-8 hover:border-[#00E599]/30 transition-all block group">
+                <div className="w-14 h-14 bg-[#00E599]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#00E599]/20 transition-colors">
                   <Send className="w-7 h-7 text-[#00E599]" />
                 </div>
                 <h3 className="text-2xl font-bold mb-3">Telegram</h3>
-                <p className="text-gray-600 mb-6">
+                <p className="text-gray-600 mb-6 leading-relaxed">
                   Fast-paced community chat for real-time discussions, quick support, trading insights, and connecting with miners worldwide.
                 </p>
                 <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#00E599] text-white rounded-full font-semibold hover:bg-[#00E599]/90 transition-all">
@@ -80,29 +81,28 @@ export default function CommunityPage() {
           </div>
 
           {/* GitHub Community */}
-          <div className="mb-24 bg-black text-white rounded-3xl p-12 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-[#00E599]/10 rounded-full blur-[100px]" />
-            <div className="relative z-10">
-              <div className="flex items-center gap-4 mb-6">
-                <Github className="w-12 h-12 text-[#00E599]" />
-                <h2 className="text-3xl md:text-4xl font-bold">Open Source</h2>
+          <div className="mb-24 border-2 border-gray-100 rounded-3xl p-12 hover:border-[#00E599]/30 transition-all">
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-12 h-12 bg-[#00E599]/10 rounded-xl flex items-center justify-center">
+                <Github className="w-6 h-6 text-[#00E599]" />
               </div>
-              <p className="text-xl text-gray-300 mb-8 max-w-2xl">
-                QUANTA is fully open source. Contribute to the codebase, report issues, review cryptographic implementation, or help improve documentation on GitHub.
-              </p>
-              <a 
-                href="https://github.com/quantachain/quanta" 
-                target="_blank"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-[#00E599] text-black font-bold rounded-full hover:bg-[#00E599]/90 transition-all hover:scale-105"
-              >
-                <Github className="w-5 h-5" />
-                View on GitHub
-              </a>
+              <h2 className="text-3xl md:text-4xl font-bold">Open Source</h2>
             </div>
+            <p className="text-xl text-gray-600 mb-8 max-w-2xl leading-relaxed">
+              QUANTA is fully open source. Contribute to the codebase, report issues, review cryptographic implementation, or help improve documentation on GitHub.
+            </p>
+            <a
+              href="https://github.com/quantachain/quanta"
+              target="_blank"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-black text-white font-bold rounded-full hover:bg-gray-800 transition-all hover:scale-105"
+            >
+              <Github className="w-5 h-5" />
+              View on GitHub
+            </a>
           </div>
 
           {/* Community Guidelines */}
-          <div className="max-w-4xl mx-auto">
+          {/* <div className="max-w-4xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-bold mb-8">Community Guidelines</h2>
             <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
               <div className="border-l-4 border-[#00E599] pl-6">
@@ -126,7 +126,7 @@ export default function CommunityPage() {
                 <p>If you see spam, abuse, or violations of these guidelines, report them to moderators.</p>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 

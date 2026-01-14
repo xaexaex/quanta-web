@@ -12,18 +12,24 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-white text-black">
+    <main className="min-h-screen bg-transparent text-black">
       <Navbar />
-      
+
       <div className="pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24">
-        <div className="container mx-auto px-4 sm:px-6">
+        <div className="container mx-auto px-6">
           {/* Hero */}
-          <div className="text-center mb-16 sm:mb-20">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-4 sm:mb-6 px-4">
-              Meet the <span className="text-[#00E599]">Core Team</span>
+          <div className="max-w-4xl mb-16 sm:mb-20">
+            <div className="inline-block mb-4">
+              <span className="text-xs font-mono font-bold tracking-widest text-gray-400 uppercase px-4 py-2 bg-gray-100 rounded-full">
+                Team
+              </span>
+            </div>
+            <h1 className="text-5xl sm:text-7xl font-bold mb-6 tracking-tight leading-[0.95]">
+              Meet the <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00E599] to-emerald-600">Core Team</span>
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
-              Building production-ready quantum-resistant blockchain infrastructure with NIST-standardized post-quantum cryptography for long-term security.
+            <p className="text-xl sm:text-2xl text-gray-600 leading-relaxed font-light max-w-2xl">
+              Building production-ready quantum-resistant blockchain infrastructure with <span className="text-black font-medium">NIST-standardized post-quantum cryptography for long-term security.</span>
             </p>
           </div>
 
@@ -33,7 +39,7 @@ export default function AboutPage() {
             <p className="text-center text-gray-600 text-base sm:text-lg mb-8 sm:mb-12 max-w-2xl mx-auto px-4">
               Building QUANTA to secure blockchain infrastructure against quantum threats for decades to come.
             </p>
-            
+
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto px-4">
               <TeamMember
                 name="XD"
@@ -151,13 +157,13 @@ export default function AboutPage() {
           </div>
 
           {/* Join Us */}
-          <div className="max-w-3xl mx-auto px-4">
-            <EmailCapture 
+          {/* <div className="max-w-3xl mx-auto px-4">
+            <EmailCapture
               title="Join Our Journey"
               description="Follow our progress as we build the quantum-resistant future. Get development updates, technical insights, and early access opportunities."
               buttonText="Stay Updated"
             />
-          </div>
+          </div> */}
 
           {/* Contact */}
           <div className="mt-12 sm:mt-16 text-center px-4">
@@ -165,15 +171,15 @@ export default function AboutPage() {
             <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
               We welcome contributors, researchers, and security auditors. Check out our GitHub or reach out via email.
             </p>
-            <a 
-              href="https://github.com/quantachain/quanta/issues" 
+            <a
+              href="https://github.com/quantachain/quanta/issues"
               target="_blank"
               className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-black text-white font-bold rounded-full hover:bg-gray-800 transition-all text-sm sm:text-base"
             >
               <Github className="w-4 h-4 sm:w-5 sm:h-5" />
               View Open Issues
             </a>
-            
+
             {/* Contact Information */}
             <div className="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-2xl mx-auto">
               <div className="bg-gray-50 rounded-lg sm:rounded-xl p-4 sm:p-6 text-left">

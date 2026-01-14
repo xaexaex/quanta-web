@@ -91,18 +91,21 @@ export default function Features() {
   ];
 
   return (
-    <section className="py-12 sm:py-24 bg-transparent text-black">
+    <section className="py-16 sm:py-32 bg-transparent text-black">
       <div className="container mx-auto px-6">
-        {/* Header Block */}
-        <div className="mb-16 sm:mb-24 bg-black rounded-[2.5rem] p-10 sm:p-16 relative overflow-hidden text-white">
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#00E599]/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/4" />
-
-          <h2 className="text-4xl sm:text-6xl font-bold mb-6 tracking-tight relative z-10">
+        {/* Header */}
+        <div className="max-w-4xl mb-16 sm:mb-20">
+          <div className="inline-block mb-4">
+            <span className="text-xs font-mono font-bold tracking-widest text-gray-400 uppercase px-4 py-2 bg-gray-100 rounded-full">
+              Core Features
+            </span>
+          </div>
+          <h2 className="text-5xl sm:text-7xl font-bold mb-6 tracking-tight leading-[0.95]">
             Core <br />
-            <span className="text-gray-500">Features.</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00E599] to-emerald-600">Features</span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-400 max-w-2xl leading-relaxed relative z-10">
-            QUANTA combines NIST-standardized post-quantum cryptography with sustainable economic design to deliver a blockchain secure for decades.
+          <p className="text-xl sm:text-2xl text-gray-600 max-w-2xl leading-relaxed font-light">
+            QUANTA combines NIST-standardized post-quantum cryptography with sustainable economic design to deliver a blockchain <span className="text-black font-medium">secure for decades.</span>
           </p>
         </div>
 

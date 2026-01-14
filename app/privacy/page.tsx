@@ -4,22 +4,26 @@ import Footer from "@/components/Footer";
 
 export default function PrivacyPolicy() {
   return (
-    <main className="min-h-screen bg-white text-black">
+    <main className="min-h-screen bg-transparent text-black">
       <Navbar />
-      
-      <div className="pt-24 md:pt-40 pb-16 md:pb-32">
+
+      <div className="pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24">
         {/* Header Section */}
-        <div className="mb-8 md:mb-16 bg-black rounded-[2rem] md:rounded-[3rem] p-8 md:p-16 lg:p-20 mx-4 md:mx-8 relative overflow-hidden">
-          <div className="absolute top-1/2 right-0 -translate-y-1/2 w-[500px] h-[500px] bg-[#00E599]/10 rounded-full blur-[120px]" />
-          
-          <div className="relative z-10">
-            <Link href="/" className="inline-flex items-center text-sm md:text-base text-gray-400 hover:text-white mb-4 md:mb-8 transition-colors">
-              Back to Home
+        <div className="container mx-auto px-6 mb-16">
+          <div className="max-w-4xl">
+            <Link href="/" className="inline-flex items-center text-sm text-gray-500 hover:text-black mb-6 transition-colors">
+              ← Back to Home
             </Link>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white tracking-tight mb-4 md:mb-6">
-              Privacy <span className="text-gray-400">Policy.</span>
+            <div className="inline-block mb-4">
+              <span className="text-xs font-mono font-bold tracking-widest text-gray-400 uppercase px-4 py-2 bg-gray-100 rounded-full">
+                Legal
+              </span>
+            </div>
+            <h1 className="text-5xl sm:text-7xl font-bold mb-6 tracking-tight leading-[0.95]">
+              Privacy <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00E599] to-emerald-600">Policy</span>
             </h1>
-            <p className="text-base md:text-xl text-gray-400">
+            <p className="text-xl text-gray-600 leading-relaxed">
               Last updated: December 31, 2025
             </p>
           </div>
@@ -40,7 +44,7 @@ export default function PrivacyPolicy() {
 
             <section className="mb-12">
               <h2 className="text-3xl font-bold mb-6 text-black">2. Information We Collect</h2>
-              
+
               <h3 className="text-2xl font-bold mb-4 text-black">2.1 Automatically Collected Information</h3>
               <p className="text-gray-600 leading-relaxed mb-4">
                 When you visit our Site, we may automatically collect certain information about your device, including:
@@ -139,7 +143,7 @@ export default function PrivacyPolicy() {
                 If you have any questions about this Privacy Policy, please contact us:
               </p>
               <ul className="list-none text-gray-600 space-y-2">
-                <li>• Via GitHub: <a href="https://github.com/quantachain/quanta" target="_blank" className="text-[#00E599] hover:underline">github.com/xaexaex/quanta</a></li>
+                <li>• Via GitHub: <a href="https://github.com/quantachain/quanta" target="_blank" className="text-[#00E599] hover:underline">github.com/quantachain/quanta</a></li>
                 <li>• Via our community channels listed on our website</li>
               </ul>
             </section>

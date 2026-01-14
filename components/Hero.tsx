@@ -33,21 +33,21 @@ export default function Hero() {
   ];
 
   return (
-    <section className="relative min-h-0 md:min-h-screen flex items-center bg-transparent text-black overflow-hidden pt-16 md:pt-20 pb-6 md:pb-12">
+    <section className="relative min-h-screen flex items-center bg-transparent text-black overflow-hidden pt-24 md:pt-20 pb-6 md:pb-12">
       <div className="container mx-auto px-6 h-full">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-10 h-full items-center">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 h-full items-center">
 
           {/* Left Column: Content */}
-          <div className="md:col-span-7 flex flex-col justify-center relative z-20 pt-4 md:pt-0">
+          <div className="md:col-span-7 flex flex-col justify-center relative z-20 pt-8 md:pt-0">
 
             {/* Title */}
-            <h1 className="text-4xl sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold tracking-tighter leading-[0.9] mb-4 md:mb-6">
+            <h1 className="text-4xl sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold tracking-tighter leading-[0.9] mb-6 md:mb-6">
               The Base Layer <br />
               <span className="text-[#00E599]">for Quantum Security</span>
             </h1>
 
             {/* Feature Rows */}
-            <div className="w-full max-w-2xl mb-4 md:mb-6 flex flex-col gap-3 md:gap-4 relative">
+            <div className="w-full max-w-2xl mb-6 md:mb-6 flex flex-col gap-4 md:gap-4 relative">
               {features.map((feature, index) => (
                 <div
                   key={feature.id}
@@ -60,11 +60,6 @@ export default function Hero() {
                       {feature.title}
                     </span>
                     {/* <feature.icon className={`w-5 h-5 transition-all duration-300 ${hoveredIndex === index ? 'text-[#00E599] opacity-100 scale-110' : 'text-gray-400 opacity-0 group-hover:opacity-50'}`} /> */}
-                  </div>
-
-                  {/* Mobile: Inline Description */}
-                  <div className="md:hidden text-sm text-gray-500 leading-relaxed pr-4">
-                    {feature.description}
                   </div>
 
                   <div className="w-full h-[1px] bg-black/10 relative group-hover:bg-black/20 transition-colors"></div>
@@ -89,7 +84,7 @@ export default function Hero() {
             </div>
 
             {/* CTAs */}
-            <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-5">
+            <div className="flex flex-col sm:flex-row items-center gap-4 md:gap-5 mb-6 md:mb-0">
               <Link
                 href="/docs"
                 className="flex items-center gap-2 px-8 py-4 bg-black text-white rounded-full font-medium hover:bg-[#00E599] hover:text-black transition-all hover:scale-105 active:scale-95 w-full sm:w-auto justify-center"
@@ -106,8 +101,8 @@ export default function Hero() {
 
           </div>
 
-          {/* Right Column: Visual Component */}
-          <div className="hidden md:flex md:col-span-5 relative h-full min-h-[400px] md:min-h-[450px] lg:min-h-[500px] items-center justify-center md:justify-end z-10 pointer-events-none">
+          {/* Right Column: Visual Component - Now visible on mobile too */}
+          <div className="md:col-span-5 relative h-[350px] sm:h-[400px] md:h-full md:min-h-[450px] lg:min-h-[500px] flex items-center justify-center md:justify-end z-10">
             <div className="w-full h-full pointer-events-auto">
               <QuantumParticles />
             </div>

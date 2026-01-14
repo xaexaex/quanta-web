@@ -10,18 +10,24 @@ export const metadata: Metadata = {
 
 export default function RoadmapPage() {
   return (
-    <main className="min-h-screen bg-white text-black">
+    <main className="min-h-screen bg-transparent text-black">
       <Navbar />
-      
+
       <div className="pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24">
-        <div className="container mx-auto px-4 sm:px-6">
+        <div className="container mx-auto px-6">
           {/* Hero */}
-          <div className="text-center mb-16 sm:mb-20">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-4 sm:mb-6 px-4">
-              Development <span className="text-[#00E599]">Roadmap</span>
+          <div className="max-w-4xl mb-16 sm:mb-20">
+            <div className="inline-block mb-4">
+              <span className="text-xs font-mono font-bold tracking-widest text-gray-400 uppercase px-4 py-2 bg-gray-100 rounded-full">
+                Roadmap
+              </span>
+            </div>
+            <h1 className="text-5xl sm:text-7xl font-bold mb-6 tracking-tight leading-[0.95]">
+              Development <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00E599] to-emerald-600">Roadmap</span>
             </h1>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed px-4">
-              Our journey from testnet to mainnet. Transparent milestones, realistic timelines, and security-first development.
+            <p className="text-xl sm:text-2xl text-gray-600 leading-relaxed font-light max-w-2xl">
+              Our journey from testnet to mainnet. <span className="text-black font-medium">Transparent milestones, realistic timelines, and security-first development.</span>
             </p>
           </div>
         </div>

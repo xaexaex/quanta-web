@@ -82,40 +82,61 @@ export default function EmailCapture({
   }
 
   return (
-    <div className="bg-white border text-center border-gray-100 rounded-[2.5rem] p-8 md:p-12 max-w-4xl mx-auto shadow-sm">
-      <h3 className="text-2xl md:text-3xl font-bold mb-4">{title}</h3>
-      <p className="text-gray-600 mb-8 text-lg">{description}</p>
+    <section className="py-16 sm:py-32 bg-transparent text-black">
+      <div className="container mx-auto px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          {/* Badge */}
+          <div className="inline-block mb-4">
+            <span className="text-xs font-mono font-bold tracking-widest text-gray-400 uppercase px-4 py-2 bg-gray-100 rounded-full">
+              Early Access
+            </span>
+          </div>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div className="flex flex-col sm:flex-row gap-3">
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="Enter your email"
-            required
-            disabled={status === "loading" || status === "success"}
-            className="flex-1 px-6 py-4 rounded-full border-2 border-gray-200 focus:border-[#00E599] focus:outline-none text-lg disabled:opacity-50 disabled:cursor-not-allowed"
-          />
-          <button
-            type="submit"
-            disabled={status === "loading" || status === "success"}
-            className="px-8 py-4 bg-[#00E599] text-black font-bold rounded-full hover:bg-[#00E599]/90 transition-all hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap text-lg shadow-[0_0_20px_rgba(0,229,153,0.3)]"
-          >
-            {status === "loading" ? "Signing up..." : status === "success" ? "✓ Subscribed!" : buttonText}
-          </button>
-        </div>
+          {/* Title */}
+          <h2 className="text-5xl sm:text-7xl font-bold mb-6 tracking-tight leading-[0.95]">
+            Join the <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00E599] to-emerald-600">Waitlist</span>
+          </h2>
 
-        {message && (
-          <p className={`text-center text-sm ${status === "success" ? "text-[#00E599]" : "text-red-500"}`}>
-            {message}
+          {/* Description */}
+          <p className="text-xl sm:text-2xl text-gray-600 mb-10 leading-relaxed font-light max-w-2xl mx-auto">
+            Be the first to know when we launch. Get exclusive early access to the <span className="text-black font-medium">testnet.</span>
           </p>
-        )}
-      </form>
 
-      <p className="text-xs text-gray-500 mt-4 text-center">
-        No spam, ever. Unsubscribe anytime.
-      </p>
-    </div>
+          {/* Form */}
+          <form onSubmit={handleSubmit} className="space-y-4 max-w-2xl mx-auto">
+            <div className="flex flex-col sm:flex-row gap-3">
+              <input
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+                required
+                disabled={status === "loading" || status === "success"}
+                className="flex-1 px-6 py-4 rounded-full border-2 border-gray-200 bg-white text-black placeholder:text-gray-400 focus:border-[#00E599] focus:outline-none text-lg disabled:opacity-50 disabled:cursor-not-allowed transition-all"
+              />
+              <button
+                type="submit"
+                disabled={status === "loading" || status === "success"}
+                className="px-8 py-4 bg-[#00E599] text-black font-bold rounded-full hover:bg-[#00E599]/90 transition-all hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap text-lg shadow-[0_0_30px_rgba(0,229,153,0.3)]"
+              >
+                {status === "loading" ? "Signing up..." : status === "success" ? "✓ Subscribed!" : buttonText}
+              </button>
+            </div>
+
+            {message && (
+              <p className={`text-center text-sm ${status === "success" ? "text-[#00E599]" : "text-red-500"}`}>
+                {message}
+              </p>
+            )}
+          </form>
+
+          {/* Privacy Note */}
+          <p className="text-xs text-gray-400 mt-6 text-center font-mono">
+            No spam, ever. Unsubscribe anytime.
+          </p>
+        </div>
+      </div>
+    </section>
   );
 }

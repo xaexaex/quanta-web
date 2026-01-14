@@ -11,18 +11,24 @@ export const metadata: Metadata = {
 
 export default function PressKitPage() {
   return (
-    <main className="min-h-screen bg-white text-black">
+    <main className="min-h-screen bg-transparent text-black">
       <Navbar />
 
-      <div className="pt-32 pb-24">
+      <div className="pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24">
         <div className="container mx-auto px-6">
           {/* Hero */}
-          <div className="text-center mb-20">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tighter mb-6">
-              Press <span className="text-[#00E599]">Kit</span>
+          <div className="max-w-4xl mb-16 sm:mb-20">
+            <div className="inline-block mb-4">
+              <span className="text-xs font-mono font-bold tracking-widest text-gray-400 uppercase px-4 py-2 bg-gray-100 rounded-full">
+                Press Kit
+              </span>
+            </div>
+            <h1 className="text-5xl sm:text-7xl font-bold mb-6 tracking-tight leading-[0.95]">
+              Press <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00E599] to-emerald-600">Kit</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Everything you need to cover Quanta. Logos, brand assets, descriptions, and media resources.
+            <p className="text-xl sm:text-2xl text-gray-600 leading-relaxed font-light max-w-2xl">
+              Everything you need to cover Quanta. <span className="text-black font-medium">Logos, brand assets, descriptions, and media resources.</span>
             </p>
           </div>
 
@@ -53,7 +59,7 @@ export default function PressKitPage() {
               <div>
                 <h3 className="font-bold mb-2 text-gray-900">GitHub</h3>
                 <a href="https://github.com/quantachain/quanta" target="_blank" className="text-[#00E599] hover:underline">
-                  github.com/xaexaex/quanta
+                  github.com/quantachain/quanta
                 </a>
               </div>
             </div>
@@ -349,18 +355,19 @@ export default function PressKitPage() {
           </div>
 
           {/* Media Contact */}
-          <div className="max-w-3xl mx-auto bg-black text-white rounded-3xl p-12 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-[#00E599]/10 rounded-full blur-[100px]" />
-            <div className="relative z-10 text-center">
-              <Mail className="w-12 h-12 text-[#00E599] mx-auto mb-6" />
+          <div className="max-w-3xl mx-auto border-2 border-gray-100 rounded-3xl p-12 hover:border-[#00E599]/30 transition-all">
+            <div className="text-center">
+              <div className="w-12 h-12 bg-[#00E599]/10 rounded-xl flex items-center justify-center mx-auto mb-6">
+                <Mail className="w-6 h-6 text-[#00E599]" />
+              </div>
               <h2 className="text-3xl font-bold mb-4">Media Inquiries</h2>
-              <p className="text-xl text-gray-300 mb-8">
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                 For interviews, comments, or additional information, please reach out via GitHub or check back soon for our press contact details.
               </p>
               <a
                 href="https://github.com/quantachain/quanta"
                 target="_blank"
-                className="inline-flex items-center gap-3 px-8 py-4 bg-[#00E599] text-black font-bold rounded-full hover:bg-[#00E599]/90 transition-all"
+                className="inline-flex items-center gap-3 px-8 py-4 bg-black text-white font-bold rounded-full hover:bg-gray-800 transition-all hover:scale-105"
               >
                 Contact on GitHub
               </a>

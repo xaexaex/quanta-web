@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 
 export default function Tokenomics() {
@@ -6,10 +8,15 @@ export default function Tokenomics() {
       value: "100",
       label: "QUA Initial Reward",
       sub: "Per block at launch",
+      id: "01",
       shape: (
-        <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-current stroke-[1.5]">
-          <path d="M50,20 L80,50 L50,80 L20,50 Z" />
-          <path d="M50,10 V30 M50,70 V90 M10,50 H30 M70,50 H90" className="opacity-50" />
+        <svg viewBox="0 0 200 100" className="w-full h-full stroke-teal-500/40 fill-none stroke-[1.5]">
+          <rect x="30" y="60" width="20" height="20" rx="2" />
+          <rect x="60" y="50" width="20" height="30" rx="2" />
+          <rect x="90" y="40" width="20" height="40" rx="2" />
+          <rect x="120" y="30" width="20" height="50" rx="2" />
+          <path d="M30,50 L150,20" strokeDasharray="4 4" />
+          <circle cx="150" cy="20" r="3" className="fill-teal-500/20" />
         </svg>
       )
     },
@@ -17,11 +24,13 @@ export default function Tokenomics() {
       value: "15%",
       label: "Annual Reduction",
       sub: "Smooth exponential decay",
+      id: "02",
       shape: (
-        <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-current stroke-[1.5]">
-          <circle cx="50" cy="50" r="30" />
-          <path d="M50,20 Q80,20 80,50" />
-          <path d="M50,50 L80,20" />
+        <svg viewBox="0 0 200 100" className="w-full h-full stroke-teal-500/40 fill-none stroke-[1.5]">
+          <path d="M20,80 Q60,80 100,40 Q140,20 180,20" />
+          <path d="M20,80 H180" className="opacity-30" />
+          <circle cx="100" cy="40" r="3" className="fill-teal-500/20" />
+          <circle cx="180" cy="20" r="3" className="fill-teal-500/20" />
         </svg>
       )
     },
@@ -29,11 +38,13 @@ export default function Tokenomics() {
       value: "1.5B",
       label: "Asymptotic Max",
       sub: "Reached by year 15-20",
+      id: "03",
       shape: (
-        <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-current stroke-[1.5]">
-          <path d="M10,90 Q50,90 90,10" />
-          <path d="M10,90 H90" className="opacity-30" />
-          <rect x="70" y="10" width="20" height="20" />
+        <svg viewBox="0 0 200 100" className="w-full h-full stroke-teal-500/40 fill-none stroke-[1.5]">
+          <path d="M20,80 Q100,80 180,20" />
+          <path d="M20,80 H180" className="opacity-30" />
+          <rect x="160" y="20" width="20" height="20" />
+          <circle cx="20" cy="80" r="3" className="fill-teal-500/20" />
         </svg>
       )
     },
@@ -41,31 +52,35 @@ export default function Tokenomics() {
       value: "5",
       label: "QUA Reward Floor",
       sub: "Perpetual mining incentive",
+      id: "04",
       shape: (
-        <svg viewBox="0 0 100 100" className="w-full h-full fill-none stroke-current stroke-[1.5]">
-          <rect x="20" y="40" width="60" height="20" />
-          <path d="M20,60 L20,80 L80,80 L80,60" />
-          <path d="M50,40 V20" />
-          <circle cx="50" cy="15" r="5" />
+        <svg viewBox="0 0 200 100" className="w-full h-full stroke-teal-500/40 fill-none stroke-[1.5]">
+          <rect x="20" y="50" width="160" height="20" />
+          <path d="M20,70 L20,80 L180,80 L180,70" />
+          <path d="M100,50 V30" />
+          <circle cx="100" cy="25" r="5" />
         </svg>
       )
     }
   ];
 
   return (
-    <section className="py-12 sm:py-24 relative bg-transparent text-black">
-      <div className="container mx-auto px-6">
+    <section className="py-16 sm:py-32 relative bg-transparent text-black overflow-hidden">
+      <div className="container mx-auto px-6 relative z-10">
 
-        {/* Header Block */}
-        <div className="mb-16 sm:mb-24 bg-black rounded-[2.5rem] p-10 sm:p-16 relative overflow-hidden text-white">
-          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#00E599]/10 rounded-full blur-[100px] -translate-y-1/2 translate-x-1/4" />
-
-          <h2 className="text-4xl sm:text-6xl font-bold mb-6 tracking-tight relative z-10">
+        {/* Header */}
+        <div className="max-w-4xl mb-16 sm:mb-20">
+          <div className="inline-block mb-4">
+            <span className="text-xs font-mono font-bold tracking-widest text-gray-400 uppercase px-4 py-2 bg-gray-100 rounded-full">
+              Tokenomics
+            </span>
+          </div>
+          <h2 className="text-5xl sm:text-7xl font-bold mb-6 tracking-tight leading-[0.95]">
             Sustainable <br />
-            <span className="text-gray-500">Economics.</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00E599] to-emerald-600">Economics</span>
           </h2>
-          <p className="text-lg sm:text-xl text-gray-400 max-w-2xl leading-relaxed relative z-10">
-            Fair launch with adaptive tokenomics designed for long-term network health. No pre-mine, no ICO.
+          <p className="text-xl sm:text-2xl text-gray-600 max-w-2xl leading-relaxed font-light">
+            Fair launch with adaptive tokenomics designed for long-term network health. <span className="text-black font-medium">No pre-mine, no ICO.</span>
           </p>
         </div>
 
@@ -74,20 +89,44 @@ export default function Tokenomics() {
           {metrics.map((metric, index) => (
             <div
               key={index}
-              className="bg-white rounded-3xl p-6 sm:p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group border border-gray-100 hover:border-[#00E599]/30 relative overflow-hidden"
+              className="bg-white rounded-2xl p-6 sm:p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group border border-gray-100 hover:border-[#00E599]/30 flex flex-col justify-between min-h-[320px]"
             >
-              {/* Decorative Shape BG */}
-              <div className="absolute -right-4 -bottom-4 w-24 h-24 text-gray-200 group-hover:text-[#00E599]/20 transition-colors duration-500 rotate-12">
-                {metric.shape}
+              <div>
+                {/* Circled Number - Matching Features Style */}
+                <div className="w-8 h-8 rounded-full border border-teal-600/30 flex items-center justify-center mb-6 text-sm font-mono text-teal-700 font-medium">
+                  {index + 1}
+                </div>
+
+                {/* Value */}
+                <div className="text-4xl font-bold tracking-tight text-gray-900 mb-3">
+                  {metric.value}
+                </div>
+
+                {/* Label */}
+                <h3 className="text-2xl font-bold mb-3 text-gray-900 tracking-tight">
+                  {metric.label}
+                </h3>
+
+                {/* Description */}
+                <p className="text-gray-600 leading-relaxed text-sm lg:text-base">
+                  {metric.sub}
+                </p>
               </div>
 
-              <div className="relative z-10">
-                <div className="text-4xl font-bold mb-3 tracking-tight group-hover:text-[#00E599] transition-colors">{metric.value}</div>
-                <div className="text-lg font-bold text-gray-900 mb-1">{metric.label}</div>
-                <div className="text-sm text-gray-500 font-medium font-mono">{metric.sub}</div>
+              {/* Bottom Geometric Graphic */}
+              <div className="mt-8 h-24 w-full opacity-60 group-hover:opacity-100 transition-opacity duration-500">
+                {metric.shape}
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Bottom Note */}
+        <div className="mt-16 sm:mt-20 text-center">
+          <p className="text-sm font-mono text-gray-400 max-w-3xl mx-auto leading-relaxed">
+            Emission schedule designed to balance early adoption incentives with long-term sustainability.
+            <span className="text-gray-600"> Mining rewards decrease gradually, ensuring network security remains economically viable indefinitely.</span>
+          </p>
         </div>
 
       </div>

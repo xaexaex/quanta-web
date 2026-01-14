@@ -54,31 +54,36 @@ const categories = ["All", "Security", "Technology", "Development", "Consensus",
 
 export default function BlogPage() {
   return (
-    <main className="min-h-screen bg-white text-black">
+    <main className="min-h-screen bg-transparent text-black">
       <Navbar />
-      
+
       <div className="pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24">
-        <div className="container mx-auto px-4 sm:px-6">
+        <div className="container mx-auto px-6">
           {/* Hero */}
-          <div className="text-center mb-20">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tighter mb-6">
-              Quanta <span className="text-[#00E599]">Blog</span>
+          <div className="max-w-4xl mb-16 sm:mb-20">
+            <div className="inline-block mb-4">
+              <span className="text-xs font-mono font-bold tracking-widest text-gray-400 uppercase px-4 py-2 bg-gray-100 rounded-full">
+                Blog
+              </span>
+            </div>
+            <h1 className="text-5xl sm:text-7xl font-bold mb-6 tracking-tight leading-[0.95]">
+              Quanta <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00E599] to-emerald-600">Blog</span>
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Technical insights, development updates, and perspectives on building quantum-resistant blockchain infrastructure.
+            <p className="text-xl sm:text-2xl text-gray-600 leading-relaxed font-light max-w-2xl">
+              Technical insights, development updates, and perspectives on building <span className="text-black font-medium">quantum-resistant blockchain infrastructure.</span>
             </p>
           </div>
 
           {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-3 mb-16">
+          <div className="flex flex-wrap gap-3 mb-16">
             {categories.map((category) => (
               <button
                 key={category}
-                className={`px-6 py-3 rounded-full font-semibold transition-all ${
-                  category === "All"
+                className={`px-6 py-3 rounded-full font-semibold transition-all ${category === "All"
                     ? "bg-black text-white"
                     : "bg-gray-100 text-gray-700 hover:bg-gray-200"
-                }`}
+                  }`}
               >
                 {category}
               </button>
@@ -87,21 +92,21 @@ export default function BlogPage() {
 
           {/* Featured Post */}
           <div className="max-w-5xl mx-auto mb-20">
-            <div className="bg-gradient-to-br from-black to-gray-900 text-white rounded-3xl overflow-hidden">
+            <div className="bg-white border-2 border-gray-100 rounded-3xl overflow-hidden hover:border-[#00E599]/30 transition-all">
               <div className="p-12 md:p-16">
                 <div className="flex items-center gap-4 mb-6">
-                  <span className="px-4 py-2 bg-[#00E599] text-black text-sm font-bold rounded-full">
+                  <span className="px-4 py-2 bg-[#00E599]/10 text-[#00E599] text-sm font-bold rounded-full border border-[#00E599]/20">
                     Featured
                   </span>
                   <span className="text-gray-400">Coming Soon</span>
                 </div>
-                <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight">
+                <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight text-black">
                   Introducing Quanta: The Quantum-Resistant Blockchain
                 </h2>
-                <p className="text-xl text-gray-300 mb-8 leading-relaxed">
+                <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                   Why we're building a blockchain from scratch with post-quantum cryptography, what makes it different, and our vision for securing digital assets in the quantum era.
                 </p>
-                <div className="flex items-center gap-6 text-sm text-gray-400 mb-8">
+                <div className="flex items-center gap-6 text-sm text-gray-500 mb-8">
                   <div className="flex items-center gap-2">
                     <Calendar className="w-4 h-4" />
                     <span>Coming Soon</span>
@@ -111,7 +116,7 @@ export default function BlogPage() {
                     <span>12 min read</span>
                   </div>
                 </div>
-                <button disabled className="inline-flex items-center gap-3 px-8 py-4 bg-[#00E599] text-black font-bold rounded-full opacity-50 cursor-not-allowed">
+                <button disabled className="inline-flex items-center gap-3 px-8 py-4 bg-gray-100 text-gray-400 font-bold rounded-full cursor-not-allowed">
                   Read Article
                   <ArrowRight className="w-5 h-5" />
                 </button>
@@ -126,7 +131,7 @@ export default function BlogPage() {
               {blogPosts.map((post) => (
                 <article
                   key={post.id}
-                  className="border-2 border-gray-100 rounded-3xl p-8 hover:border-[#00E599] transition-all group"
+                  className="border-2 border-gray-100 rounded-3xl p-8 hover:border-[#00E599]/30 transition-all group"
                 >
                   <div className="flex items-center gap-3 mb-4">
                     <span className="text-sm font-bold text-[#00E599]">{post.category}</span>
@@ -152,17 +157,11 @@ export default function BlogPage() {
           </div>
 
           {/* Newsletter Signup */}
-          <div className="max-w-3xl mx-auto mb-20">
-            <EmailCapture 
-              title="Never Miss an Update"
-              description="Get notified when we publish new articles, technical deep-dives, and development updates."
-              buttonText="Subscribe to Blog"
-            />
-          </div>
+          <EmailCapture />
 
           {/* Coming Soon Notice */}
-          <div className="max-w-4xl mx-auto text-center">
-            <div className="bg-gray-50 border-2 border-gray-200 rounded-3xl p-12">
+          <div className="max-w-4xl mx-auto text-center mt-20">
+            <div className="bg-gray-50 border-2 border-gray-100 rounded-3xl p-12">
               <h3 className="text-2xl font-bold mb-4">More Content Coming Soon</h3>
               <p className="text-gray-600 text-lg leading-relaxed max-w-2xl mx-auto">
                 We're working on comprehensive technical documentation, tutorials, and regular development updates. Subscribe to our newsletter to be notified when new content is published.
