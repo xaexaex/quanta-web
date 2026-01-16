@@ -11,7 +11,7 @@ export default function Footer() {
           <div className="lg:col-span-4">
             <Link href="/" className="flex items-center gap-3 mb-6 group">
               <Image
-                src="/logo/quanta-transparent.svg"
+                src="/logo/quanta-transparent-bg-logo.svg"
                 alt="Quanta Logo"
                 width={48}
                 height={48}

@@ -143,7 +143,7 @@ export default function PressKitPage() {
                 <div className="border-2 border-gray-200 rounded-2xl p-8">
                   <div className="bg-white flex items-center justify-center h-40 mb-4 rounded-xl">
                     <Image
-                      src="/logo/quanta-transparent.svg"
+                      src="/logo/quanta-transparent-bg-logo.svg"
                       alt="Quanta Logo"
                       width={160}
                       height={160}
@@ -153,16 +153,16 @@ export default function PressKitPage() {
                   <p className="text-sm text-gray-600 mb-4 text-center font-semibold">Transparent Logo - Light Background</p>
                   <div className="flex gap-2">
                     <a
-                      href="/logo/quanta-transparent.svg"
-                      download="quanta-transparent.svg"
+                      href="/logo/quanta-transparent-bg-logo.svg"
+                      download="quanta-transparent-bg-logo.svg"
                       className="flex-1 px-4 py-3 bg-[#00E599] text-black rounded-full text-sm font-semibold hover:bg-[#00E599]/90 transition-all text-center flex items-center justify-center gap-2"
                     >
                       <Download className="w-4 h-4" />
                       SVG
                     </a>
                     <a
-                      href="/logo/quanta-transparent.png"
-                      download="quanta-transparent.png"
+                      href="/logo/quanta-transparent-bg-logo.png"
+                      download="quanta-transparent-bg-logo.png"
                       className="flex-1 px-4 py-3 bg-gray-200 text-black rounded-full text-sm font-semibold hover:bg-gray-300 transition-all text-center flex items-center justify-center gap-2"
                     >
                       <Download className="w-4 h-4" />
@@ -175,7 +175,7 @@ export default function PressKitPage() {
                 <div className="border-2 border-gray-200 rounded-2xl p-8 bg-black">
                   <div className="bg-black flex items-center justify-center h-40 mb-4 rounded-xl">
                     <Image
-                      src="/logo/quanta-white.svg"
+                      src="/logo/quanta-white-bg-logo.svg"
                       alt="Quanta Logo White"
                       width={160}
                       height={160}
@@ -185,17 +185,49 @@ export default function PressKitPage() {
                   <p className="text-sm text-gray-400 mb-4 text-center font-semibold">White Logo - Dark Background</p>
                   <div className="flex gap-2">
                     <a
-                      href="/logo/quanta-white.svg"
-                      download="quanta-white.svg"
+                      href="/logo/quanta-white-bg-logo.svg"
+                      download="quanta-white-bg-logo.svg"
                       className="flex-1 px-4 py-3 bg-[#00E599] text-black rounded-full text-sm font-semibold hover:bg-[#00E599]/90 transition-all text-center flex items-center justify-center gap-2"
                     >
                       <Download className="w-4 h-4" />
                       SVG
                     </a>
                     <a
-                      href="/logo/quanta-white.png"
-                      download="quanta-white.png"
+                      href="/logo/quanta-white-bg-logo.png"
+                      download="quanta-white-bg-logo.png"
                       className="flex-1 px-4 py-3 bg-gray-800 text-white rounded-full text-sm font-semibold hover:bg-gray-700 transition-all text-center flex items-center justify-center gap-2"
+                    >
+                      <Download className="w-4 h-4" />
+                      PNG
+                    </a>
+                  </div>
+                </div>
+
+                {/* Black Logo - Light Background */}
+                <div className="border-2 border-gray-200 rounded-2xl p-8">
+                  <div className="bg-white flex items-center justify-center h-40 mb-4 rounded-xl">
+                    <Image
+                      src="/logo/quanta-black-bg-logo.svg"
+                      alt="Quanta Logo Black"
+                      width={160}
+                      height={160}
+                      className="w-36 h-36"
+                    />
+                  </div>
+                  <p className="text-sm text-gray-600 mb-4 text-center font-semibold">Black Logo - Light Background</p>
+                  <div className="flex gap-2">
+                    <a
+                      href="/logo/quanta-black-bg-logo.svg"
+                      download="quanta-black-bg-logo.svg"
+                      className="flex-1 px-4 py-3 bg-[#00E599] text-black rounded-full text-sm font-semibold hover:bg-[#00E599]/90 transition-all text-center flex items-center justify-center gap-2"
+                    >
+                      <Download className="w-4 h-4" />
+                      SVG
+                    </a>
+                    <a
+                      href="/logo/quanta-black-bg-logo.png"
+                      download="quanta-black-bg-logo.png"
+                      className="flex-1 px-4 py-3 bg-gray-200 text-black rounded-full text-sm font-semibold hover:bg-gray-300 transition-all text-center flex items-center justify-center gap-2"
                     >
                       <Download className="w-4 h-4" />
                       PNG
@@ -208,7 +240,7 @@ export default function PressKitPage() {
                   <div className="bg-white flex items-center justify-center h-40 mb-4 rounded-xl">
                     <div className="flex items-center gap-4">
                       <Image
-                        src="/logo/quanta-transparent.svg"
+                        src="/logo/quanta-transparent-bg-logo.svg"
                         alt="Quanta Logo"
                         width={64}
                         height={64}
@@ -228,7 +260,7 @@ export default function PressKitPage() {
                   <div className="bg-black flex items-center justify-center h-40 mb-4 rounded-xl">
                     <div className="flex items-center gap-4">
                       <Image
-                        src="/logo/quanta-white.svg"
+                        src="/logo/quanta-white-bg-logo.svg"
                         alt="Quanta Logo White"
                         width={64}
                         height={64}

@@ -79,7 +79,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 flex-shrink-0 group">
             <Image
-              src="/logo/quanta-transparent.svg"
+              src="/logo/quanta-transparent-bg-logo.svg"
               alt="Quanta Logo"
               width={48}
               height={48}
