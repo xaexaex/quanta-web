@@ -4,55 +4,25 @@ import Footer from "@/components/Footer";
 import EmailCapture from "@/components/EmailCapture";
 import Link from "next/link";
 import { Calendar, ArrowRight, Clock } from "lucide-react";
+import { getAllPosts, getFeaturedPosts, getAllCategories } from "@/lib/blog";
 
 export const metadata: Metadata = {
-  title: "Blog",
+  title: "Blog | Quanta Chain - Quantum-Resistant Blockchain Insights",
   description: "Technical insights, development updates, and perspectives on quantum-resistant blockchain technology and post-quantum cryptography.",
+  keywords: ["quantum blockchain", "post-quantum cryptography", "Falcon-512", "blockchain development", "quantum computing"],
+  openGraph: {
+    title: "Quanta Chain Blog",
+    description: "Technical insights on quantum-resistant blockchain technology",
+    type: "website",
+  },
 };
 
-// Blog post data - in a real app, this would come from a CMS or API
-const blogPosts = [
-  {
-    id: 1,
-    title: "Why Quantum Resistance Matters Now",
-    excerpt: "Quantum computers are advancing faster than most realize. Learn why we need quantum-resistant blockchains today, not tomorrow.",
-    date: "Coming Soon",
-    category: "Security",
-    readTime: "5 min read",
-    slug: "why-quantum-resistance-matters"
-  },
-  {
-    id: 2,
-    title: "Understanding Falcon-512 Signatures",
-    excerpt: "A deep dive into the NIST-standardized post-quantum signature scheme that powers Quanta's security.",
-    date: "Coming Soon",
-    category: "Technology",
-    readTime: "8 min read",
-    slug: "understanding-falcon-512"
-  },
-  {
-    id: 3,
-    title: "Building on Quanta: Developer Guide",
-    excerpt: "Everything developers need to know to start building quantum-resistant applications on Quanta Chain.",
-    date: "Coming Soon",
-    category: "Development",
-    readTime: "10 min read",
-    slug: "building-on-quanta"
-  },
-  {
-    id: 4,
-    title: "Proof-of-Work in the Quantum Era",
-    excerpt: "How Quanta's PoW consensus mechanism remains secure against quantum attacks while maintaining decentralization.",
-    date: "Coming Soon",
-    category: "Consensus",
-    readTime: "6 min read",
-    slug: "pow-quantum-era"
-  }
-];
-
-const categories = ["All", "Security", "Technology", "Development", "Consensus", "Updates"];
-
 export default function BlogPage() {
+  const allPosts = getAllPosts();
+  const featuredPost = getFeaturedPosts()[0] || allPosts[0];
+  const categories = getAllCategories();
+  const latestPosts = allPosts.slice(0, 4);
+
   return (
     <main className="min-h-screen bg-transparent text-black">
       <Navbar />
@@ -91,67 +61,72 @@ export default function BlogPage() {
           </div>
 
           {/* Featured Post */}
-          <div className="max-w-5xl mx-auto mb-20">
-            <div className="bg-white border-2 border-gray-100 rounded-3xl overflow-hidden hover:border-[#00E599]/30 transition-all">
-              <div className="p-12 md:p-16">
-                <div className="flex items-center gap-4 mb-6">
-                  <span className="px-4 py-2 bg-[#00E599]/10 text-[#00E599] text-sm font-bold rounded-full border border-[#00E599]/20">
-                    Featured
-                  </span>
-                  <span className="text-gray-400">Coming Soon</span>
-                </div>
-                <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight text-black">
-                  Introducing Quanta: The Quantum-Resistant Blockchain
-                </h2>
-                <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                  Why we're building a blockchain from scratch with post-quantum cryptography, what makes it different, and our vision for securing digital assets in the quantum era.
-                </p>
-                <div className="flex items-center gap-6 text-sm text-gray-500 mb-8">
-                  <div className="flex items-center gap-2">
-                    <Calendar className="w-4 h-4" />
-                    <span>Coming Soon</span>
+          {featuredPost && (
+            <div className="max-w-5xl mx-auto mb-20">
+              <Link href={`/blog/${featuredPost.slug}`}>
+                <div className="bg-white border-2 border-gray-100 rounded-3xl overflow-hidden hover:border-[#00E599]/30 transition-all cursor-pointer group">
+                  <div className="p-12 md:p-16">
+                    <div className="flex items-center gap-4 mb-6">
+                      <span className="px-4 py-2 bg-[#00E599]/10 text-[#00E599] text-sm font-bold rounded-full border border-[#00E599]/20">
+                        Featured
+                      </span>
+                      <span className="text-gray-400">{new Date(featuredPost.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+                    </div>
+                    <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight text-black group-hover:text-[#00E599] transition-colors">
+                      {featuredPost.title}
+                    </h2>
+                    <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                      {featuredPost.description}
+                    </p>
+                    <div className="flex items-center gap-6 text-sm text-gray-500 mb-8">
+                      <div className="flex items-center gap-2">
+                        <Calendar className="w-4 h-4" />
+                        <span>{new Date(featuredPost.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <Clock className="w-4 h-4" />
+                        <span>{featuredPost.readTime}</span>
+                      </div>
+                    </div>
+                    <div className="inline-flex items-center gap-3 px-8 py-4 bg-black text-white font-bold rounded-full group-hover:bg-[#00E599] transition-colors">
+                      Read Article
+                      <ArrowRight className="w-5 h-5" />
+                    </div>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Clock className="w-4 h-4" />
-                    <span>12 min read</span>
-                  </div>
                 </div>
-                <button disabled className="inline-flex items-center gap-3 px-8 py-4 bg-gray-100 text-gray-400 font-bold rounded-full cursor-not-allowed">
-                  Read Article
-                  <ArrowRight className="w-5 h-5" />
-                </button>
-              </div>
+              </Link>
             </div>
-          </div>
+          )}
 
           {/* Blog Posts Grid */}
           <div className="max-w-6xl mx-auto mb-20">
             <h2 className="text-3xl font-bold mb-12">Latest Articles</h2>
             <div className="grid md:grid-cols-2 gap-8">
-              {blogPosts.map((post) => (
-                <article
-                  key={post.id}
-                  className="border-2 border-gray-100 rounded-3xl p-8 hover:border-[#00E599]/30 transition-all group"
-                >
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="text-sm font-bold text-[#00E599]">{post.category}</span>
-                    <span className="text-sm text-gray-400">•</span>
-                    <span className="text-sm text-gray-500">{post.readTime}</span>
-                  </div>
-                  <h3 className="text-2xl font-bold mb-4 group-hover:text-[#00E599] transition-colors">
-                    {post.title}
-                  </h3>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    {post.excerpt}
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-sm text-gray-500">{post.date}</span>
-                    <button disabled className="inline-flex items-center gap-2 text-gray-400 font-semibold cursor-not-allowed">
-                      Read More
-                      <ArrowRight className="w-4 h-4" />
-                    </button>
-                  </div>
-                </article>
+              {latestPosts.map((post) => (
+                <Link key={post.slug} href={`/blog/${post.slug}`}>
+                  <article className="border-2 border-gray-100 rounded-3xl p-8 hover:border-[#00E599]/30 transition-all group cursor-pointer">
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="text-sm font-bold text-[#00E599]">{post.category}</span>
+                      <span className="text-sm text-gray-400">•</span>
+                      <span className="text-sm text-gray-500">{post.readTime}</span>
+                    </div>
+                    <h3 className="text-2xl font-bold mb-4 group-hover:text-[#00E599] transition-colors">
+                      {post.title}
+                    </h3>
+                    <p className="text-gray-600 mb-6 leading-relaxed">
+                      {post.description}
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-sm text-gray-500">
+                        {new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                      </span>
+                      <div className="inline-flex items-center gap-2 text-black group-hover:text-[#00E599] font-semibold transition-colors">
+                        Read More
+                        <ArrowRight className="w-4 h-4" />
+                      </div>
+                    </div>
+                  </article>
+                </Link>
               ))}
             </div>
           </div>
@@ -159,13 +134,33 @@ export default function BlogPage() {
           {/* Newsletter Signup */}
           <EmailCapture />
 
-          {/* Coming Soon Notice */}
-          <div className="max-w-4xl mx-auto text-center mt-20">
+          {/* SEO Content */}
+          <div className="max-w-4xl mx-auto mt-20">
             <div className="bg-gray-50 border-2 border-gray-100 rounded-3xl p-12">
-              <h3 className="text-2xl font-bold mb-4">More Content Coming Soon</h3>
-              <p className="text-gray-600 text-lg leading-relaxed max-w-2xl mx-auto">
-                We're working on comprehensive technical documentation, tutorials, and regular development updates. Subscribe to our newsletter to be notified when new content is published.
+              <h3 className="text-2xl font-bold mb-4">Stay Updated on Quantum-Resistant Blockchain</h3>
+              <p className="text-gray-600 text-lg leading-relaxed max-w-2xl mx-auto mb-6">
+                Our blog covers the latest developments in post-quantum cryptography, blockchain security, and the future of decentralized systems. Subscribe to our newsletter to get notified when new technical articles and development updates are published.
               </p>
+              <div className="grid md:grid-cols-2 gap-4 text-sm text-gray-600">
+                <div>
+                  <h4 className="font-bold text-black mb-2">Topics We Cover:</h4>
+                  <ul className="space-y-1">
+                    <li>• Post-Quantum Cryptography</li>
+                    <li>• Falcon-512 Signatures</li>
+                    <li>• Blockchain Development</li>
+                    <li>• Quantum Computing Threats</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4 className="font-bold text-black mb-2">For Developers:</h4>
+                  <ul className="space-y-1">
+                    <li>• Technical Tutorials</li>
+                    <li>• API Documentation</li>
+                    <li>• Code Examples</li>
+                    <li>• Best Practices</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
         </div>
