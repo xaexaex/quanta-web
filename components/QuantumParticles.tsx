@@ -215,7 +215,7 @@ const QuantumParticles = () => {
     }, [dimensions]);
 
     return (
-        <div ref={containerRef} className="relative w-full h-full group">
+        <div ref={containerRef} className="relative w-full h-full group border border-gray-200 rounded-2xl overflow-hidden">
 
             {/* Header Bar - Floating freely now */}
             <div className="absolute top-4 left-0 right-0 z-30 flex items-center justify-between px-4 opacity-70 group-hover:opacity-100 transition-opacity">

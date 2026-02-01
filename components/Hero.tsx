@@ -11,24 +11,24 @@ export default function Hero() {
   const features = [
     {
       id: "01",
-      title: "NIST-Standardized PQC",
+      title: "NIST-Grade PQC",
       icon: ShieldCheck,
-      description: "Implementing Falcon-512 signatures and Kyber-1024 encapsulation for long-term quantum resistance, securing your assets against future threats.",
-      stat: "Level 5 Security"
+      description: "Native implementation of Falcon-512 & Kyber-1024. The only blockchain securing digital assets against the immediate threat of quantum computing.",
+      stat: "Falcon + Kyber"
     },
     {
       id: "02",
-      title: "Rust-Based Efficiency",
+      title: "Rust-Native PoW",
       icon: Zap,
-      description: "Built on a high-performance Rust codebase, ensuring memory safety, parallel execution, and lightning-fast transaction throughput.",
-      stat: "100k+ TPS"
+      description: "Built entirely in Rust for maximum memory safety and parallelism. A modernized Proof-of-Work consensus that delivers uncompromised security.",
+      stat: "Memory Safe"
     },
     {
       id: "03",
-      title: "Real-time Finality (~10s)",
+      title: "10s Block Time",
       icon: CheckCircle2,
-      description: "Deterministic finality with adaptive block times, eliminating reversion risks for critical financial operations and dApps.",
-      stat: "99.9% Uptime"
+      description: "Rapid block generation with deterministic finality. Optimized for high-frequency trading and real-time decentralized applications.",
+      stat: "10s Finality"
     }
   ];
 
@@ -42,8 +42,8 @@ export default function Hero() {
 
             {/* Title */}
             <h1 className="text-4xl sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold tracking-tighter leading-[0.9] mb-6 md:mb-6">
-              The Base Layer <br />
-              <span className="text-[#00E599]">for Quantum Security</span>
+              The Quantum Proof <br />
+              <span className="text-[#00E599]">Blockchain.</span>
             </h1>
 
             {/* Feature Rows */}
@@ -96,8 +96,8 @@ export default function Hero() {
               </Link>
 
               <div className="flex items-center gap-2 text-sm font-medium text-gray-500 bg-gray-50 sm:bg-transparent px-4 py-2 sm:p-0 rounded-full sm:rounded-none">
-                <span className="w-2 h-2 rounded-full bg-yellow-400 animate-pulse"></span>
-                {new Date().toLocaleDateString('en-US')}
+                <span className="w-2 h-2 rounded-full bg-orange-400 animate-pulse"></span>
+                Alpha v0.1
               </div>
             </div>
 

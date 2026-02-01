@@ -40,33 +40,25 @@ export default function AboutPage() {
               Building QUANTA to secure blockchain infrastructure against quantum threats for decades to come.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 max-w-5xl mx-auto px-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto px-4">
               <TeamMember
-                name="XD"
-                role="Founder"
-                description="Architect of Quanta's quantum-resistant protocol design. Leading the vision for post-quantum blockchain infrastructure with focus on long-term security and sustainable economics."
+                name="Kishore K"
+                role="Founder & Core Protocol Architect"
+                description="Architect of Quanta's quantum-resistant protocol design. Leading the vision for post-quantum blockchain infrastructure with extreme focus on long-term security and sustainable economics."
                 imageSrc="/team/founder.jpg"
-                fallbackText="XD"
+                fallbackText="KK"
                 fallbackGradient="bg-gradient-to-br from-[#00E599] to-[#00E599]/50"
                 githubUrl="https://github.com/XD637"
+                twitterUrl="https://x.com/idcidkidgfa"
+                linkedinUrl="https://www.linkedin.com/in/kishore-k-100819212"
               />
 
               <TeamMember
-                name="Main Developer"
-                role="Core Protocol Engineer"
-                description="Building Quanta's Rust implementation from the ground up. Expert in systems programming, cryptography, and distributed systems with focus on security and performance."
-                imageSrc="/team/xae.jpg"
-                fallbackIcon="code"
-                fallbackGradient="bg-gradient-to-br from-gray-800 to-gray-600"
-                githubUrl="https://github.com/xaexaex"
-                twitterUrl="https://x.com/Idcidkidgfa"
-              />
-
-              <TeamMember
-                name="flexipsy"
+                name="Flexispy"
                 role="Community Manager"
                 description="Building and nurturing Quanta's global community. Coordinating developer relations, managing social channels, and ensuring transparent communication with stakeholders."
                 imageSrc="/team/flexispy.jpg"
+                fallbackText="FP"
                 fallbackGradient="bg-gradient-to-br from-blue-500 to-blue-400"
                 twitterUrl="https://x.com/flexispy30"
               />
@@ -167,9 +159,9 @@ export default function AboutPage() {
 
           {/* Contact */}
           <div className="mt-12 sm:mt-16 text-center px-4">
-            <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Want to Contribute?</h3>
-            <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6">
-              We welcome contributors, researchers, and security auditors. Check out our GitHub or reach out via email.
+            <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Call for Passionate Builders</h3>
+            <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 max-w-2xl mx-auto">
+              We are looking for passionate contributors who believe in the post-quantum future. Whether you are a Rustacean, a cryptographer, or a community builder, join us in building the most secure blockchain infrastructure.
             </p>
             <a
               href="https://github.com/quantachain/quanta/issues"
@@ -183,11 +175,16 @@ export default function AboutPage() {
             {/* Contact Information */}
             <div className="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-2xl mx-auto">
               <div className="bg-gray-50 rounded-lg sm:rounded-xl p-4 sm:p-6 text-left">
-                <h4 className="font-bold text-base sm:text-lg mb-2">Partnerships & Sponsorships</h4>
-                <p className="text-gray-600 text-xs sm:text-sm mb-2 sm:mb-3">Interested in collaborating or sponsoring?</p>
-                <a href="mailto:contact@quantachain.org" className="text-[#00E599] hover:underline font-semibold text-sm sm:text-base">
-                  contact@quantachain.org
-                </a>
+                <h4 className="font-bold text-base sm:text-lg mb-2">Partnerships & Connect</h4>
+                <p className="text-gray-600 text-xs sm:text-sm mb-2 sm:mb-3">Collaborate or follow our professional updates.</p>
+                <div className="flex flex-col gap-2">
+                  <a href="mailto:contact@quantachain.org" className="text-[#00E599] hover:underline font-semibold text-sm sm:text-base">
+                    contact@quantachain.org
+                  </a>
+                  <a href="https://www.linkedin.com/company/quantachain" target="_blank" className="text-[#00E599] hover:underline font-semibold text-sm sm:text-base">
+                    Follow on LinkedIn &rarr;
+                  </a>
+                </div>
               </div>
               <div className="bg-gray-50 rounded-lg sm:rounded-xl p-4 sm:p-6 text-left">
                 <h4 className="font-bold text-base sm:text-lg mb-2">General Inquiries</h4>
