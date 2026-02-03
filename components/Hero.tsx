@@ -42,8 +42,8 @@ export default function Hero() {
 
             {/* Title */}
             <h1 className="text-4xl sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl font-bold tracking-tighter leading-[0.9] mb-6 md:mb-6">
-              The Quantum Proof <br />
-              <span className="text-[#00E599]">Blockchain.</span>
+              The World's Most Trusted <br />
+              <span className="text-[#00E599]">Quantum Blockchain.</span>
             </h1>
 
             {/* Feature Rows */}

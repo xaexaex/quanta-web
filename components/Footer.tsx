@@ -93,7 +93,6 @@ export default function Footer() {
               <h4 className="font-bold mb-6 text-sm uppercase tracking-wider text-gray-900">Company</h4>
               <ul className="space-y-3 text-sm text-gray-600">
                 <li><Link href="/team" className="hover:text-[#00E599] transition-colors">About</Link></li>
-                <li><Link href="/blog" className="hover:text-[#00E599] transition-colors">Blog</Link></li>
                 <li><Link href="/community" className="hover:text-[#00E599] transition-colors">Community</Link></li>
                 <li><Link href="/press" className="hover:text-[#00E599] transition-colors">Press Kit</Link></li>
               </ul>

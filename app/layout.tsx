@@ -10,11 +10,12 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   title: {
-    default: "Quanta Chain - Quantum-Resistant Blockchain",
+    default: "Quanta Chain - The Quantum Blockchain",
     template: "%s | Quanta Chain"
   },
-  description: "The world's first production-ready quantum-resistant blockchain. Built with Rust and NIST-standardized post-quantum cryptography to secure digital assets in the quantum era.",
+  description: "The world's most trusted production-ready quantum-resistant blockchain. Built with Rust and NIST-standardized post-quantum cryptography to secure digital assets in the quantum era.",
   keywords: [
+    "quantum blockchain",
     "quantum resistant blockchain",
     "post-quantum cryptography",
     "Falcon-512",
@@ -35,8 +36,8 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://quantachain.org",
     siteName: "Quanta Chain",
-    title: "Quanta Chain - Quantum-Resistant Blockchain",
-    description: "The world's first production-ready quantum-resistant blockchain. Built with Rust and NIST-standardized post-quantum cryptography.",
+    title: "Quanta Chain - The Quantum Blockchain",
+    description: "The world's most trusted production-ready quantum-resistant blockchain. Built with Rust and NIST-standardized post-quantum cryptography.",
     images: [
       {
         url: "/seo/image.png",
@@ -48,8 +49,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Quanta Chain - Quantum-Resistant Blockchain",
-    description: "The world's first production-ready quantum-resistant blockchain. Built with Rust and NIST-standardized post-quantum cryptography.",
+    title: "Quanta Chain - The Quantum Blockchain",
+    description: "The world's most trusted production-ready quantum-resistant blockchain. Built with Rust and NIST-standardized post-quantum cryptography.",
     images: ["/seo/image.png"],
     creator: "@quantachain",
   },

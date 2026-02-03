@@ -41,7 +41,6 @@ const navItems: NavGroup[] = [
     name: "Company",
     items: [
       { name: "About", href: "/team", description: "Our mission & the team", icon: Users },
-      { name: "Blog", href: "/blog", description: "Latest updates & announcements", icon: Newspaper },
       { name: "Community", href: "/community", description: "Join the Quanta revolution", icon: MessageSquare },
       { name: "Press Kit", href: "/press", description: "Brand assets & media resources", icon: Award },
     ],
