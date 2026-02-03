@@ -105,54 +105,42 @@ export default function Navbar() {
                 </button>
 
                 {/* Dropdown Card */}
+                {/* Dropdown Card */}
                 {activeDropdown === item.name && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-4 w-80 z-50 animate-in fade-in slide-in-from-top-2 duration-200">
-                    {/* Gradient border wrapper */}
-                    <div className="relative p-[1px] rounded-2xl bg-gradient-to-br from-[#00E599]/30 via-[#00E599]/10 to-[#00E599]/5">
-                      <div className="bg-white rounded-2xl shadow-2xl p-3 backdrop-blur-xl">
-                        <div className="space-y-1">
-                          {item.items.map((subItem, idx) => (
-                            <Link
-                              key={subItem.name}
-                              href={subItem.href}
-                              target={subItem.external ? "_blank" : undefined}
-                              className="block px-4 py-3.5 rounded-xl hover:bg-[#00E599]/5 transition-all duration-300 group cursor-pointer relative overflow-hidden border border-transparent hover:border-[#00E599]/20"
-                              style={{
-                                animationDelay: `${idx * 50}ms`
-                              }}
-                            >
-                              {/* Hover gradient effect */}
-                              <div className="absolute inset-0 bg-gradient-to-r from-[#00E599]/0 via-[#00E599]/5 to-[#00E599]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-6 w-[22rem] z-50 animate-in fade-in slide-in-from-top-2 duration-200">
+                    <div className="bg-white rounded-2xl shadow-[0_20px_50px_-12px_rgba(0,0,0,0.1)] p-2 border border-black/5 overflow-hidden ring-1 ring-black/5">
+                      <div className="grid gap-1">
+                        {item.items.map((subItem, idx) => (
+                          <Link
+                            key={subItem.name}
+                            href={subItem.href}
+                            target={subItem.external ? "_blank" : undefined}
+                            className="group flex items-start gap-4 p-4 rounded-xl hover:bg-gray-50 transition-all duration-200"
+                          >
+                            {/* Icon */}
+                            <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-gray-100 flex items-center justify-center text-gray-500 group-hover:bg-[#00E599] group-hover:text-black transition-all duration-300">
+                              {subItem.icon && <subItem.icon className="w-5 h-5" />}
+                            </div>
 
-                              <div className="relative">
-                                <div className="flex items-center justify-between mb-1.5">
-                                  <div className="flex items-center gap-2">
-                                    {/* Icon with gradient background */}
-                                    <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-[#00E599]/10 to-[#00E599]/20 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                                      {subItem.icon && <subItem.icon className="w-4 h-4 text-[#00E599] transition-all" />}
-                                    </div>
-                                    <span className="text-sm font-bold text-black group-hover:text-[#00E599] transition-colors duration-300">
-                                      {subItem.name}
-                                    </span>
-                                  </div>
-                                  {subItem.badge && (
-                                    <span className={`text-[10px] px-2.5 py-1 rounded-full font-semibold transition-all duration-300 ${subItem.badge === "Live"
-                                      ? "bg-gradient-to-r from-green-100 to-emerald-100 text-green-700 group-hover:shadow-lg group-hover:shadow-green-200/50"
-                                      : "bg-gradient-to-r from-gray-100 to-gray-200 text-gray-500"
-                                      }`}>
-                                      {subItem.badge}
-                                    </span>
-                                  )}
-                                </div>
-                                {subItem.description && (
-                                  <p className="text-xs text-gray-500 font-medium leading-relaxed ml-10 group-hover:text-gray-700 transition-colors duration-300">
-                                    {subItem.description}
-                                  </p>
+                            {/* Content */}
+                            <div>
+                              <div className="flex items-center gap-2 mb-0.5">
+                                <span className="text-sm font-bold text-gray-900 group-hover:text-black transition-colors">{subItem.name}</span>
+                                {subItem.badge && (
+                                  <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wide ${subItem.badge === "Live"
+                                      ? "bg-[#00E599]/20 text-emerald-800"
+                                      : "bg-gray-100 text-gray-500"
+                                    }`}>
+                                    {subItem.badge}
+                                  </span>
                                 )}
                               </div>
-                            </Link>
-                          ))}
-                        </div>
+                              <p className="text-xs text-gray-500 leading-relaxed font-medium group-hover:text-gray-600">
+                                {subItem.description}
+                              </p>
+                            </div>
+                          </Link>
+                        ))}
                       </div>
                     </div>
                   </div>
