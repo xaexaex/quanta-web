@@ -82,7 +82,7 @@ export default function EmailCapture({
   }
 
   return (
-    <section className="py-16 sm:py-32 bg-transparent text-black">
+    <section className="py-10 sm:py-20 bg-transparent text-black">
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
@@ -95,7 +95,7 @@ export default function EmailCapture({
           {/* Title */}
           <h2 className="text-5xl sm:text-7xl font-bold mb-6 tracking-tight leading-[0.95]">
             Join the <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00E599] to-emerald-600">Waitlist</span>
+            <span className="text-[#00E599]">Waitlist</span>
           </h2>
 
           {/* Description */}

@@ -47,7 +47,7 @@ export default function TrustIndicators() {
   ];
 
   return (
-    <section className="py-16 sm:py-32 relative bg-transparent text-black">
+    <section className="py-10 sm:py-24 relative bg-transparent text-black">
       <div className="container mx-auto px-6">
 
         {/* Heading */}
@@ -65,7 +65,7 @@ export default function TrustIndicators() {
           {indicators.map((indicator, index) => (
             <div
               key={index}
-              className="bg-white border border-gray-100 rounded-2xl p-8 hover:border-[#00E599]/30 hover:shadow-lg hover:-translate-y-1 transition-all"
+              className="bg-white border border-[#00E599]/30 rounded-2xl p-8 shadow-lg -translate-y-1 transition-all hover:-translate-y-2 hover:shadow-2xl"
             >
               <div className="w-16 h-16 bg-[#00E599]/10 rounded-xl flex items-center justify-center mb-6 text-[#00E599]">
                 {indicator.icon}

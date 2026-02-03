@@ -21,7 +21,7 @@ export default function Hero() {
       title: "Rust-Native PoW",
       icon: Zap,
       description: "Built entirely in Rust for maximum memory safety and parallelism. A modernized Proof-of-Work consensus that delivers uncompromised security.",
-      stat: "Memory Safe"
+      stat: "Fastest Performance"
     },
     {
       id: "03",
@@ -51,33 +51,45 @@ export default function Hero() {
               {features.map((feature, index) => (
                 <div
                   key={feature.id}
-                  className="flex flex-col gap-2 group cursor-pointer relative"
+                  className="flex flex-col gap-2 group cursor-pointer relative py-2"
                   onMouseEnter={() => setHoveredIndex(index)}
                   onMouseLeave={() => setHoveredIndex(null)}
                 >
-                  <div className="flex items-center justify-between z-10 transition-transform duration-300 group-hover:translate-x-2">
-                    <span className={`text-lg sm:text-xl md:text-lg font-medium tracking-tight transition-colors duration-300 ${hoveredIndex === index ? 'text-[#00E599]' : ''}`}>
+                  <div className="flex flex-col gap-1 z-10 transition-transform duration-300 group-hover:translate-x-2">
+                    <span className={`text-xl sm:text-2xl font-medium tracking-tight transition-colors duration-300 ${hoveredIndex === index ? 'text-[#00E599]' : 'text-black'}`}>
                       {feature.title}
                     </span>
-                    {/* <feature.icon className={`w-5 h-5 transition-all duration-300 ${hoveredIndex === index ? 'text-[#00E599] opacity-100 scale-110' : 'text-gray-400 opacity-0 group-hover:opacity-50'}`} /> */}
+                    {/* Always visible stat/tag */}
+                    <span className="text-sm font-mono text-gray-400 group-hover:text-black transition-colors">
+                      {feature.stat}
+                    </span>
                   </div>
 
-                  <div className="w-full h-[1px] bg-black/10 relative group-hover:bg-black/20 transition-colors"></div>
-                  <span className="font-mono text-xs text-gray-400 mt-0.5">{feature.id}</span>
+                  <div className="w-full h-[1px] bg-black/10 relative group-hover:bg-[#00E599]/50 transition-colors mt-2"></div>
 
-                  {/* Desktop: Interactive Hover Card */}
-                  <div className={`hidden md:block absolute top-full left-1/2 -translate-x-1/2 sm:left-[60%] sm:translate-x-0 sm:-top-4 w-[300px] bg-white/60 backdrop-blur-xl text-black p-6 rounded-2xl shadow-2xl transition-all duration-300 pointer-events-none z-50 border border-white/40 ${hoveredIndex === index ? 'opacity-100 translate-x-4 sm:translate-x-8 scale-100' : 'opacity-0 translate-x-0 scale-95'}`}>
-                    {/* Decorative Arrow */}
-                    <div className="absolute top-8 -left-2 w-4 h-4 bg-white/60 rotate-45 border-l border-b border-white/40 backdrop-blur-xl"></div>
+                  {/* Styled Hover Card - Premium Dark Mode */}
+                  <div
+                    className={`hidden md:block absolute top-1/2 left-[105%] -translate-y-1/2 w-[340px] bg-black p-8 rounded-[2rem] shadow-2xl transition-all duration-500 pointer-events-none z-50 border border-gray-800
+                    ${hoveredIndex === index ? 'opacity-100 translate-x-0 scale-100' : 'opacity-0 -translate-x-4 scale-95'}`}
+                  >
+                    {/* Glow Effect */}
+                    <div className="absolute top-0 right-0 w-32 h-32 bg-[#00E599]/20 rounded-full blur-[50px] -mr-16 -mt-16 pointer-events-none" />
 
-                    <div className="flex items-start justify-between mb-4">
-                      {/* <feature.icon className="w-8 h-8 text-[#00E599]" /> */}
-                      <span className="text-[10px] font-mono text-gray-500 border border-black/5 px-2 py-1 rounded-full bg-white/50">{feature.stat}</span>
+                    {/* Decorative Arrow pointing left to the list item */}
+                    <div className="absolute top-1/2 -left-3 w-6 h-6 bg-black rotate-45 border-l border-b border-gray-800 transform -translate-y-1/2"></div>
+
+                    <div className="relative z-10">
+                      <div className="flex items-center gap-3 mb-4 text-[#00E599]">
+                        <feature.icon className="w-6 h-6" />
+                        <span className="text-xs font-bold uppercase tracking-wider border border-[#00E599]/30 px-2 py-1 rounded-full">{feature.id}</span>
+                      </div>
+
+                      <h4 className="text-xl font-bold text-white mb-3 leading-tight">{feature.title}</h4>
+
+                      <p className="text-gray-400 text-sm leading-relaxed font-light">
+                        {feature.description}
+                      </p>
                     </div>
-                    <h4 className="text-lg font-bold mb-2 text-black">{feature.title}</h4>
-                    <p className="text-sm text-gray-600 leading-relaxed font-medium">
-                      {feature.description}
-                    </p>
                   </div>
                 </div>
               ))}
@@ -96,7 +108,7 @@ export default function Hero() {
               </Link>
 
               <div className="flex items-center gap-2 text-sm font-medium text-gray-500 bg-gray-50 sm:bg-transparent px-4 py-2 sm:p-0 rounded-full sm:rounded-none">
-                <span className="w-2 h-2 rounded-full bg-orange-400 animate-pulse"></span>
+                <span className="w-2 h-2 rounded-full bg-green-500"></span>
                 Alpha v0.1
               </div>
             </div>
@@ -113,16 +125,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Floating Status Pill (Centered Bottom - like ref) */}
-      <Link
-        href="https://github.com/quantachain/quanta"
-        target="_blank"
-        className="absolute bottom-6 left-1/2 -translate-x-1/2 hidden md:flex items-center gap-3 px-5 py-2.5 bg-white border border-gray-200 rounded-full shadow-sm z-20 hover:scale-105 hover:shadow-md transition-all duration-300"
-      >
-        <span className="w-2 h-2 rounded-full bg-yellow-400"></span>
-        <span className="text-sm font-mono text-gray-600">Testnet Coming Soon</span>
-        <ArrowUpRight className="w-3 h-3 text-gray-400" />
-      </Link>
+      {/* Floating Status Pill (Removed) */}
 
     </section>
   );

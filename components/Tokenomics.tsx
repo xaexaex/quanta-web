@@ -11,12 +11,27 @@ export default function Tokenomics() {
       id: "01",
       shape: (
         <svg viewBox="0 0 200 100" className="w-full h-full stroke-teal-500/40 fill-none stroke-[1.5]">
-          <rect x="30" y="60" width="20" height="20" rx="2" />
-          <rect x="60" y="50" width="20" height="30" rx="2" />
-          <rect x="90" y="40" width="20" height="40" rx="2" />
-          <rect x="120" y="30" width="20" height="50" rx="2" />
-          <path d="M30,50 L150,20" strokeDasharray="4 4" />
-          <circle cx="150" cy="20" r="3" className="fill-teal-500/20" />
+          <rect x="30" y="60" width="20" height="20" rx="2">
+            <animate attributeName="height" values="20; 25; 20" dur="3s" repeatCount="indefinite" />
+            <animate attributeName="y" values="60; 55; 60" dur="3s" repeatCount="indefinite" />
+          </rect>
+          <rect x="60" y="50" width="20" height="30" rx="2">
+            <animate attributeName="height" values="30; 45; 30" dur="4s" repeatCount="indefinite" />
+            <animate attributeName="y" values="50; 35; 50" dur="4s" repeatCount="indefinite" />
+          </rect>
+          <rect x="90" y="40" width="20" height="40" rx="2">
+            <animate attributeName="height" values="40; 55; 40" dur="2.5s" repeatCount="indefinite" />
+            <animate attributeName="y" values="40; 25; 40" dur="2.5s" repeatCount="indefinite" />
+          </rect>
+          <rect x="120" y="30" width="20" height="50" rx="2">
+            <animate attributeName="height" values="50; 70; 50" dur="3.5s" repeatCount="indefinite" />
+            <animate attributeName="y" values="30; 10; 30" dur="3.5s" repeatCount="indefinite" />
+          </rect>
+          <path d="M30,50 L150,20" strokeDasharray="4 4" className="opacity-50" />
+          <circle cx="150" cy="20" r="3" className="fill-[#00E599]">
+            <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite" />
+          </circle>
         </svg>
       )
     },
@@ -31,6 +46,17 @@ export default function Tokenomics() {
           <path d="M20,80 H180" className="opacity-30" />
           <circle cx="100" cy="40" r="3" className="fill-teal-500/20" />
           <circle cx="180" cy="20" r="3" className="fill-teal-500/20" />
+          {/* Dot tracing the curve */}
+          <circle r="4" className="fill-[#00E599]">
+            <animateMotion
+              path="M20,80 Q60,80 100,40 Q140,20 180,20"
+              dur="5s"
+              repeatCount="indefinite"
+              calcMode="spline"
+              keyTimes="0;1"
+              keySplines="0.4 0 0.2 1"
+            />
+          </circle>
         </svg>
       )
     },
@@ -43,8 +69,19 @@ export default function Tokenomics() {
         <svg viewBox="0 0 200 100" className="w-full h-full stroke-teal-500/40 fill-none stroke-[1.5]">
           <path d="M20,80 Q100,80 180,20" />
           <path d="M20,80 H180" className="opacity-30" />
-          <rect x="160" y="20" width="20" height="20" />
+          <rect x="160" y="20" width="20" height="20" className="opacity-50" />
           <circle cx="20" cy="80" r="3" className="fill-teal-500/20" />
+          {/* Dot tracing the curve */}
+          <circle r="4" className="fill-[#00E599]">
+            <animateMotion
+              path="M20,80 Q100,80 180,20"
+              dur="6s"
+              repeatCount="indefinite"
+              calcMode="spline"
+              keyTimes="0;1"
+              keySplines="0.4 0 0.2 1"
+            />
+          </circle>
         </svg>
       )
     },
@@ -55,17 +92,25 @@ export default function Tokenomics() {
       id: "04",
       shape: (
         <svg viewBox="0 0 200 100" className="w-full h-full stroke-teal-500/40 fill-none stroke-[1.5]">
-          <rect x="20" y="50" width="160" height="20" />
-          <path d="M20,70 L20,80 L180,80 L180,70" />
-          <path d="M100,50 V30" />
-          <circle cx="100" cy="25" r="5" />
+          <rect x="20" y="50" width="160" height="20">
+            <animate attributeName="width" values="160; 150; 160" dur="4s" repeatCount="indefinite" />
+            <animate attributeName="x" values="20; 25; 20" dur="4s" repeatCount="indefinite" />
+          </rect>
+          <path d="M20,70 L20,80 L180,80 L180,70" className="opacity-50" />
+          <path d="M100,50 V30">
+            <animate attributeName="d" values="M100,50 V30; M100,55 V30; M100,50 V30" dur="2s" repeatCount="indefinite" />
+          </path>
+          <circle cx="100" cy="25" r="5" className="fill-[#00E599]">
+            <animate attributeName="r" values="5;6;5" dur="2s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite" />
+          </circle>
         </svg>
       )
     }
   ];
 
   return (
-    <section className="py-16 sm:py-32 relative bg-transparent text-black overflow-hidden">
+    <section className="py-10 sm:py-24 relative bg-transparent text-black overflow-hidden">
       <div className="container mx-auto px-6 relative z-10">
 
         {/* Header */}
@@ -77,7 +122,7 @@ export default function Tokenomics() {
           </div>
           <h2 className="text-5xl sm:text-7xl font-bold mb-6 tracking-tight leading-[0.95]">
             Sustainable <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00E599] to-emerald-600">Economics</span>
+            <span className="text-[#00E599]">Economics</span>
           </h2>
           <p className="text-xl sm:text-2xl text-gray-600 max-w-2xl leading-relaxed font-light">
             Fair launch with adaptive tokenomics designed for long-term network health. <span className="text-black font-medium">No pre-mine, no ICO.</span>
@@ -89,7 +134,7 @@ export default function Tokenomics() {
           {metrics.map((metric, index) => (
             <div
               key={index}
-              className="bg-white rounded-2xl p-6 sm:p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group border border-gray-100 hover:border-[#00E599]/30 flex flex-col justify-between min-h-[320px]"
+              className="bg-white rounded-2xl p-6 sm:p-8 shadow-xl -translate-y-1 transition-all duration-300 group border border-[#00E599]/30 flex flex-col justify-between min-h-[320px] hover:-translate-y-2 hover:shadow-2xl"
             >
               <div>
                 {/* Circled Number - Matching Features Style */}

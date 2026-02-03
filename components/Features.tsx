@@ -9,9 +9,20 @@ export default function Features() {
         <svg viewBox="0 0 200 100" className="w-full h-full stroke-teal-500/40 fill-none stroke-[1.5]">
           {/* Lattice Grid */}
           <path d="M20,80 L60,40 L100,80 L140,40 L180,80 M20,40 L60,80 L100,40 L140,80 L180,40 M60,40 L60,80 M140,40 L140,80 M100,40 L100,80" />
+          {/* Static dots */}
           <circle cx="60" cy="40" r="3" className="fill-teal-500/20" />
           <circle cx="140" cy="80" r="3" className="fill-teal-500/20" />
           <circle cx="100" cy="40" r="3" className="fill-teal-500/20" />
+
+          {/* Animated Dot traversing the lattice */}
+          <circle r="4" className="fill-[#00E599]">
+            <animateMotion
+              path="M20,80 L60,40 L100,80 L140,40 L180,80 L140,40 L100,80 L60,40 L20,80"
+              dur="8s"
+              repeatCount="indefinite"
+              calcMode="linear"
+            />
+          </circle>
         </svg>
       )
     },
@@ -20,11 +31,17 @@ export default function Features() {
       description: "NIST Level 5 encryption. 256-bit quantum security protecting against harvest-now-decrypt-later attacks.",
       shape: (
         <svg viewBox="0 0 200 100" className="w-full h-full stroke-teal-500/40 fill-none stroke-[1.5]">
-          {/* Concentric Shells / Encryption */}
+          {/* Concentric Shells */}
           <circle cx="100" cy="50" r="30" />
           <circle cx="100" cy="50" r="20" />
           <circle cx="100" cy="50" r="10" />
           <path d="M70,50 L130,50 M100,20 L100,80" />
+          {/* Orbiting Dot */}
+          <g>
+            <animateTransform attributeName="transform" type="rotate" from="0 100 50" to="360 100 50" dur="10s" repeatCount="indefinite" />
+            <circle cx="100" cy="20" r="3" className="fill-[#00E599]" />
+          </g>
+          {/* Key Icon */}
           <rect x="140" y="35" width="25" height="30" rx="4" />
           <circle cx="152.5" cy="50" r="4" />
           <path d="M152.5,50 L152.5,55" />
@@ -42,7 +59,10 @@ export default function Features() {
           <rect x="90" y="40" width="20" height="40" rx="2" />
           <rect x="120" y="30" width="20" height="50" rx="2" />
           <path d="M30,50 L150,20" strokeDasharray="4 4" />
-          <circle cx="150" cy="20" r="3" className="fill-teal-500/20" />
+          {/* Bouncing Coin */}
+          <circle cx="150" cy="20" r="4" className="fill-[#00E599]">
+            <animate attributeName="cy" values="20; 15; 20" dur="2s" repeatCount="indefinite" />
+          </circle>
         </svg>
       )
     },
@@ -52,12 +72,20 @@ export default function Features() {
       shape: (
         <svg viewBox="0 0 200 100" className="w-full h-full stroke-teal-500/40 fill-none stroke-[1.5]">
           {/* Speed Lines */}
-          <path d="M20,30 L100,30" />
-          <path d="M20,50 L140,50" />
-          <path d="M20,70 L80,70" />
+          <path d="M20,30 L100,30" strokeDasharray="5 5">
+            <animate attributeName="stroke-dashoffset" from="10" to="0" dur="0.5s" repeatCount="indefinite" />
+          </path>
+          <path d="M20,50 L140,50" strokeDasharray="10 5">
+            <animate attributeName="stroke-dashoffset" from="15" to="0" dur="0.7s" repeatCount="indefinite" />
+          </path>
+          <path d="M20,70 L80,70" strokeDasharray="5 5">
+            <animate attributeName="stroke-dashoffset" from="10" to="0" dur="0.5s" repeatCount="indefinite" />
+          </path>
           <path d="M160,30 L180,30 M150,70 L180,70" />
           {/* Block */}
-          <rect x="140" y="20" width="40" height="60" rx="4" className="fill-teal-500/5" />
+          <rect x="140" y="20" width="40" height="60" rx="4" className="fill-teal-500/5">
+            <animate attributeName="opacity" values="0.5; 1; 0.5" dur="2s" repeatCount="indefinite" />
+          </rect>
         </svg>
       )
     },
@@ -67,12 +95,27 @@ export default function Features() {
       shape: (
         <svg viewBox="0 0 200 100" className="w-full h-full stroke-teal-500/40 fill-none stroke-[1.5]">
           {/* Flame / Entropy */}
-          <path d="M100,80 Q80,60 100,40 Q120,60 100,80" />
+          <path d="M100,80 Q80,60 100,40 Q120,60 100,80" className="fill-teal-500/10">
+            <animate attributeName="d" values="M100,80 Q80,60 100,40 Q120,60 100,80; M100,80 Q75,65 100,35 Q125,65 100,80; M100,80 Q80,60 100,40 Q120,60 100,80" dur="3s" repeatCount="indefinite" />
+          </path>
           <path d="M100,40 Q90,30 100,20 Q110,30 100,40" />
-          <circle cx="60" cy="60" r="2" />
-          <circle cx="140" cy="60" r="2" />
-          <circle cx="80" cy="40" r="2" />
-          <circle cx="120" cy="40" r="2" />
+          {/* Rising Sparks */}
+          <circle cx="60" cy="60" r="2" className="fill-[#00E599]" opacity="0">
+            <animate attributeName="cy" from="60" to="20" dur="2s" begin="0s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0;1;0" dur="2s" begin="0s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="140" cy="60" r="2" className="fill-[#00E599]" opacity="0">
+            <animate attributeName="cy" from="60" to="30" dur="2.5s" begin="0.5s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0;1;0" dur="2.5s" begin="0.5s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="80" cy="40" r="2" className="fill-[#00E599]" opacity="0">
+            <animate attributeName="cy" from="40" to="10" dur="1.8s" begin="0.2s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0;1;0" dur="1.8s" begin="0.2s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="120" cy="40" r="2" className="fill-[#00E599]" opacity="0">
+            <animate attributeName="cy" from="40" to="15" dur="2.2s" begin="0.8s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0;1;0" dur="2.2s" begin="0.8s" repeatCount="indefinite" />
+          </circle>
         </svg>
       )
     },
@@ -85,13 +128,17 @@ export default function Features() {
           <path d="M40,30 H80 V50 H100 V30 H140 V70 H100 V90 H80 V70 H40 Z" />
           <path d="M80,50 V70" />
           <path d="M100,50 V70" />
+          {/* Sliding Piece Indicator */}
+          <rect x="85" y="55" width="30" height="10" rx="5" className="fill-[#00E599]" opacity="0.5">
+            <animate attributeName="x" values="85; 45; 85" dur="4s" repeatCount="indefinite" />
+          </rect>
         </svg>
       )
     }
   ];
 
   return (
-    <section className="py-16 sm:py-32 bg-transparent text-black">
+    <section className="py-10 sm:py-24 bg-transparent text-black">
       <div className="container mx-auto px-6">
         {/* Header */}
         <div className="max-w-4xl mb-16 sm:mb-20">
@@ -102,7 +149,7 @@ export default function Features() {
           </div>
           <h2 className="text-5xl sm:text-7xl font-bold mb-6 tracking-tight leading-[0.95]">
             Core <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00E599] to-emerald-600">Features</span>
+            <span className="text-[#00E599]">Features</span>
           </h2>
           <p className="text-xl sm:text-2xl text-gray-600 max-w-2xl leading-relaxed font-light">
             QUANTA combines NIST-standardized post-quantum cryptography with sustainable economic design to deliver a blockchain <span className="text-black font-medium">secure for decades.</span>
@@ -113,7 +160,7 @@ export default function Features() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-white hover:shadow-xl hover:-translate-y-1 rounded-2xl p-6 sm:p-8 flex flex-col justify-between min-h-[320px] group transition-all duration-300 border border-gray-100 hover:border-[#00E599]/30"
+              className="bg-white shadow-xl -translate-y-1 rounded-2xl p-6 sm:p-8 flex flex-col justify-between min-h-[320px] group transition-all duration-300 border border-[#00E599]/30 hover:-translate-y-2 hover:shadow-2xl"
             >
               <div>
                 {/* Circled Number */}
