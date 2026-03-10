@@ -61,9 +61,9 @@ export default function Tokenomics() {
       )
     },
     {
-      value: "1.5B",
-      label: "Asymptotic Max",
-      sub: "Reached by year 15-20",
+      value: "50%",
+      label: "Anti-Dump Vesting",
+      sub: "6-month rolling lock for miners",
       id: "03",
       shape: (
         <svg viewBox="0 0 200 100" className="w-full h-full stroke-teal-500/40 fill-none stroke-[1.5]">
@@ -169,7 +169,7 @@ export default function Tokenomics() {
         {/* Bottom Note */}
         <div className="mt-16 sm:mt-20 text-center">
           <p className="text-sm font-mono text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            Emission schedule designed to balance early adoption incentives with long-term sustainability.
+            Emission schedule designed to provide a deflationary and sustainable economic model.
             <span className="text-gray-600"> Mining rewards decrease gradually, ensuring network security remains economically viable indefinitely.</span>
           </p>
         </div>

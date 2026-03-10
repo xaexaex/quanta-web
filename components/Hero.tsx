@@ -18,10 +18,10 @@ export default function Hero() {
     },
     {
       id: "02",
-      title: "Rust-Native PoW",
+      title: "Parallel Execution",
       icon: Zap,
-      description: "Built entirely in Rust for maximum memory safety and parallelism. A modernized Proof-of-Work consensus that delivers uncompromised security.",
-      stat: "Fastest Performance"
+      description: "Rust-native implementation featuring parallel transaction verification, bincode serialization, and zstd block compression for massive scale.",
+      stat: "120 TPS Throughput"
     },
     {
       id: "03",

@@ -68,7 +68,7 @@ export default function Features() {
     },
     {
       title: "10s Block Time",
-      description: "Fast finality with dynamic difficulty. SHA3-256 hashing provides robust quantum-resistant proof-of-work.",
+      description: "Fast finality with dynamic difficulty. Parallel signature verification achieves 120 TPS, overcoming post-quantum size penalties.",
       shape: (
         <svg viewBox="0 0 200 100" className="w-full h-full stroke-teal-500/40 fill-none stroke-[1.5]">
           {/* Speed Lines */}
@@ -120,8 +120,8 @@ export default function Features() {
       )
     },
     {
-      title: "Fair Launch",
-      description: "Zero pre-mine, zero ICO. 100% distributed through mining to ensuring a fair start for everyone.",
+      title: "Extreme Optimization",
+      description: "Bincode serialization and zstd compression deliver 4x smaller blocks, while sled embedded storage ensures lightning-fast state access.",
       shape: (
         <svg viewBox="0 0 200 100" className="w-full h-full stroke-teal-500/40 fill-none stroke-[1.5]">
           {/* Puzzle Pieces (Reference Style) */}
