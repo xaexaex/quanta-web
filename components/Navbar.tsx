@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Github, Menu, X, Search, Droplet, Pickaxe, Wallet, BookOpen, FileText, Users, Newspaper, MessageSquare, Award, Send } from "lucide-react";
+import { Github, Menu, X, Search, Droplet, Pickaxe, Wallet, BookOpen, FileText, Users, Newspaper, MessageSquare, Award, Send, Briefcase } from "lucide-react";
 import { useState, useEffect } from "react";
 
 type NavItem = {
@@ -41,6 +41,7 @@ const navItems: NavGroup[] = [
     name: "Company",
     items: [
       { name: "About", href: "/team", description: "Our mission & the team", icon: Users },
+      { name: "Services", href: "/services", description: "Quantum-safe engineering & consulting", icon: Briefcase },
       { name: "Community", href: "/community", description: "Join the Quanta revolution", icon: MessageSquare },
       { name: "Press Kit", href: "/press", description: "Brand assets & media resources", icon: Award },
     ],
@@ -128,8 +129,8 @@ export default function Navbar() {
                                 <span className="text-sm font-bold text-gray-900 group-hover:text-black transition-colors">{subItem.name}</span>
                                 {subItem.badge && (
                                   <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold uppercase tracking-wide ${subItem.badge === "Live"
-                                      ? "bg-[#00E599]/20 text-emerald-800"
-                                      : "bg-gray-100 text-gray-500"
+                                    ? "bg-[#00E599]/20 text-emerald-800"
+                                    : "bg-gray-100 text-gray-500"
                                     }`}>
                                     {subItem.badge}
                                   </span>

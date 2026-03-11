@@ -6,6 +6,7 @@ import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import TrustIndicators from "@/components/TrustIndicators";
 import EmailCapture from "@/components/EmailCapture";
+import ServiceCTA from "@/components/ServiceCTA";
 
 export default function Home() {
   return (
@@ -21,14 +22,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* <TrustIndicators /> */}
-      {/* <FAQ /> */}
-
-      {/* Call to Action Section (Old one was here, keeping it removed as replaced or moving logic) - Actually, user said change other components to same style. If I remove this huge black block, does it fit? 
-      The TrustIndicators has a "Commitment" black block. 
-      The EmailCapture is a "Join Waitlist". 
-      The old CTA was "Join Revolution". 
-      I will replace the OLD CTA with the NEW components. */}
+      <ServiceCTA />
 
       <Footer />
     </main>

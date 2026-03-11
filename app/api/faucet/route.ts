@@ -1,16 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { RateLimiterMemory } from 'rate-limiter-flexible';
 import { exec } from 'child_process';
 import util from 'util';
+import clientPromise from '@/lib/mongodb';
 
 // Promisify exec for cleaner async/await usage
 const execPromise = util.promisify(exec);
-
-// Rate Limiter: 1 request per 24 hours per IP
-const rateLimiter = new RateLimiterMemory({
-    points: 1,
-    duration: 86400, // 24 hours
-});
 
 // Helper to get IP
 function getIp(request: NextRequest): string {
@@ -35,9 +29,19 @@ export async function POST(request: NextRequest) {
             return NextResponse.json({ success: false, error: 'Invalid address format' }, { status: 400 });
         }
 
-        try {
-            await rateLimiter.consume(ip);
-        } catch (rlRejected) {
+        const client = await clientPromise;
+        const db = client.db();
+        const collection = db.collection('faucet_claims');
+
+        // Check rate limit: 1 request per 24 hours per IP or Address
+        const twentyFourHoursAgo = new Date(Date.now() - 24 * 60 * 60 * 1000);
+
+        const recentClaim = await collection.findOne({
+            $or: [{ ip: ip }, { address: address }],
+            claimed_at: { $gte: twentyFourHoursAgo }
+        });
+
+        if (recentClaim) {
             return NextResponse.json({ success: false, error: 'Rate limit exceeded. Try again in 24 hours.' }, { status: 429 });
         }
 
@@ -59,6 +63,15 @@ export async function POST(request: NextRequest) {
 
             console.log(`Success: ${stdout}`);
 
+            // Log successful claim to MongoDB
+            await collection.insertOne({
+                address,
+                ip,
+                claimed_at: new Date(),
+                amount: 100,
+                status: 'success'
+            });
+
             return NextResponse.json({
                 success: true,
                 message: 'Sent 100 Testnet QUA',
@@ -67,8 +80,17 @@ export async function POST(request: NextRequest) {
 
         } catch (error: any) {
             console.error(`Exec error: ${error}`);
-            // Return 500 but ideally we might want to revert the rate limit consumption here if it's a system error,
-            // but keeping it simple as per request.
+
+            // Still log failed attempts to prevent abuse
+            await collection.insertOne({
+                address,
+                ip,
+                claimed_at: new Date(),
+                amount: 100,
+                status: 'failed',
+                error: error.stderr || error.message
+            });
+
             return NextResponse.json({
                 success: false,
                 error: 'Transaction failed via node CLI.',

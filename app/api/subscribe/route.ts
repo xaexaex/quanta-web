@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
+import clientPromise from '@/lib/mongodb';
 
 export async function POST(request: NextRequest) {
   try {
@@ -12,12 +12,13 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    const client = await clientPromise;
+    // Connects to the database provided in the connection string
+    const db = client.db();
+    const collection = db.collection('email_subscribers');
+
     // Check if email already exists
-    const { data: existingEmail } = await supabase
-      .from('email_subscribers')
-      .select('email')
-      .eq('email', email.toLowerCase())
-      .single();
+    const existingEmail = await collection.findOne({ email: email.toLowerCase() });
 
     if (existingEmail) {
       return NextResponse.json(
@@ -27,27 +28,16 @@ export async function POST(request: NextRequest) {
     }
 
     // Insert new email
-    const { data, error } = await supabase
-      .from('email_subscribers')
-      .insert([
-        {
-          email: email.toLowerCase(),
-          subscribed_at: new Date().toISOString(),
-          source: 'website',
-        },
-      ])
-      .select();
+    const newSubscriber = {
+      email: email.toLowerCase(),
+      subscribed_at: new Date().toISOString(),
+      source: 'website',
+    };
 
-    if (error) {
-      console.error('Supabase error:', error);
-      return NextResponse.json(
-        { error: 'Failed to subscribe. Please try again.' },
-        { status: 500 }
-      );
-    }
+    const result = await collection.insertOne(newSubscriber);
 
     return NextResponse.json(
-      { message: 'Successfully subscribed!', data },
+      { message: 'Successfully subscribed!', data: { ...newSubscriber, _id: result.insertedId } },
       { status: 200 }
     );
   } catch (error) {
