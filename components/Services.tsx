@@ -1,6 +1,6 @@
 "use client";
 
-import { Shield, Lock, Cpu, Server, Send } from "lucide-react";
+import { Shield, Lock, Wallet, Server, Send } from "lucide-react";
 import { useState } from "react";
 
 export default function Services() {
@@ -46,18 +46,18 @@ export default function Services() {
             icon: Shield
         },
         {
-            title: "Migration from classical cryptography to PQC",
-            description: "Expert guidance on transitioning your infrastructure to post-quantum security.",
+            title: "Kyber / Dilithium / Falcon migration",
+            description: "Expert guidance on transitioning your infrastructure to post-quantum security algorithms.",
             icon: Lock
         },
         {
-            title: "Secure blockchain & protocol engineering",
-            description: "Custom blockchain development and layer-1 protocol engineering built with Rust.",
-            icon: Cpu
+            title: "Quantum-safe wallet architecture",
+            description: "Design and implementation of secure, quantum-resistant cryptocurrency wallets.",
+            icon: Wallet
         },
         {
-            title: "Quantum-safe infrastructure consulting",
-            description: "Comprehensive audits and architectural consulting to future-proof your digital assets.",
+            title: "PQC security audit",
+            description: "Comprehensive audits of your cryptographic implementations to ensure post-quantum resilience.",
             icon: Server
         }
     ];
@@ -75,13 +75,12 @@ export default function Services() {
                     <h2 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight text-gray-900">
                         Quantum-Safe <span className="text-[#00E599]">Services</span>
                     </h2>
-                    <p className="text-lg text-gray-600 leading-relaxed mb-4">
-                        Quantachain is a blockchain infrastructure team focused on post-quantum cryptography (PQC).
-                        We built Quanta, a quantum-resistant blockchain developed in Rust using NIST-standardized
-                        algorithms such as Falcon-512 and Kyber-1024 to secure digital systems against future quantum attacks.
+                    <p className="text-xl md:text-2xl font-medium text-gray-900 mb-6">
+                        We help blockchain projects upgrade to quantum-resistant cryptography.
                     </p>
-                    <p className="text-lg text-gray-600 leading-relaxed">
-                        Leveraging this experience, we help organizations prepare for the quantum era. Our mission is to help companies build and migrate to quantum-resilient systems before quantum threats become reality.
+                    <p className="text-lg text-gray-600 leading-relaxed mb-4">
+                        Quantachain is a specialized team focused exclusively on post-quantum cryptography (PQC).
+                        Having built Quanta—a quantum-resistant blockchain using NIST-standardized algorithms like Falcon-512 and Kyber-1024—we offer expert guidance to transition your infrastructure before quantum threats become reality.
                     </p>
                 </div>
 
@@ -153,7 +152,7 @@ export default function Services() {
                             disabled={isSubmitting}
                             className="w-full bg-[#00E599] hover:bg-[#00c282] disabled:opacity-50 disabled:cursor-not-allowed text-black font-bold py-4 px-6 rounded-xl transition-all flex items-center justify-center gap-2 mt-4 text-lg shadow-lg shadow-[#00E599]/20 hover:shadow-[#00E599]/40 active:scale-[0.98]"
                         >
-                            <Send className="w-5 h-5" />
+                            {/* <Send className="w-5 h-5" /> */}
                             {isSubmitting ? "Sending..." : "Send Message"}
                         </button>
                         {status && (

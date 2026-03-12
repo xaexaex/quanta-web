@@ -14,16 +14,16 @@ export default function ServiceCTA() {
                     <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#00E599]/20 rounded-full blur-[80px]" />
 
                     <div className="relative z-10 flex flex-col items-center">
-                        <div className="w-16 h-16 bg-[#00E599]/10 border border-[#00E599]/20 rounded-2xl flex items-center justify-center mb-8 text-[#00E599] shadow-[0_0_30px_-5px_#00E599]">
+                        {/* <div className="w-16 h-16 bg-[#00E599]/10 border border-[#00E599]/20 rounded-2xl flex items-center justify-center mb-8 text-[#00E599] shadow-[0_0_30px_-5px_#00E599]">
                             <ShieldCheck className="w-8 h-8" />
-                        </div>
+                        </div> */}
 
                         <h2 className="text-3xl md:text-5xl font-extrabold mb-6 tracking-tight">
-                            Ready to <span className="text-[#00E599]">Future-Proof</span> Your Systems?
+                            Upgrade to <span className="text-[#00E599]">Quantum-Resistant</span> Cryptography
                         </h2>
 
                         <p className="text-gray-400 text-lg md:text-xl mb-10 max-w-2xl text-center leading-relaxed text-balance">
-                            Partner with our experts to integrate post-quantum cryptography and secure your infrastructure against next-generation threats.
+                            Partner with us for Kyber/Dilithium/Falcon migration, quantum-safe wallet architecture, and comprehensive PQC security audits.
                         </p>
 
                         <Link
