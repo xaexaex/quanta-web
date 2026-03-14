@@ -67,7 +67,7 @@ export default function Features() {
       )
     },
     {
-      title: "10s Block Time",
+      title: "30s Block Time",
       description: "Fast finality with dynamic difficulty. Parallel signature verification achieves 120 TPS, overcoming post-quantum size penalties.",
       shape: (
         <svg viewBox="0 0 200 100" className="w-full h-full stroke-teal-500/40 fill-none stroke-[1.5]">

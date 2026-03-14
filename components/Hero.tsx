@@ -25,10 +25,10 @@ export default function Hero() {
     },
     {
       id: "03",
-      title: "10s Block Time",
+      title: "30s Block Time",
       icon: CheckCircle2,
       description: "Rapid block generation with deterministic finality. Optimized for high-frequency trading and real-time decentralized applications.",
-      stat: "10s Finality"
+      stat: "30s Finality"
     }
   ];
 

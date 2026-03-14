@@ -44,7 +44,7 @@ The QUANTA economic model achieves:
 | Initial Block Reward | 100 QUA | `YEAR_1_REWARD = 100_000_000` |
 | Annual Reduction | 15% | `ANNUAL_REDUCTION_PERCENT = 15` |
 | Minimum Reward Floor | 5 QUA | `MIN_REWARD = 5_000_000` |
-| Block Time Target | 10 seconds | `TARGET_BLOCK_TIME = 10` |
+| Block Time Target | 30 seconds | `TARGET_BLOCK_TIME = 30` |
 | Blocks Per Year | 3,153,600 | `BLOCKS_PER_YEAR = 3_153_600` |
 | Fee Burn Rate | **70%** | `FEE_BURN_PERCENT = 70` |
 | Fee to Treasury | **20%** | `FEE_TREASURY_PERCENT = 20` |
@@ -262,7 +262,7 @@ Treasury receives 20% of all transaction fees, creating a sustainable independen
 **Parameters**:
 ```
 MINING_REWARD_LOCK_PERCENT  = 50  (% of miner's share that is locked)
-MINING_REWARD_LOCK_BLOCKS   = 157,680  (≈ 6 months at 10-second blocks)
+MINING_REWARD_LOCK_BLOCKS   = 157,680  (≈ 6 months at 30-second blocks)
 ```
 
 **Mechanism** (as implemented in `blockchain.rs`):
@@ -309,7 +309,7 @@ The treasury receives two distinct income streams:
 
 | Source | Amount | Frequency |
 |---|---|---|
-| Block Reward Allocation | 5% of each block reward | Every block (~10 seconds) |
+| Block Reward Allocation | 5% of each block reward | Every block (~30 seconds) |
 | Fee Share | 20% of block's total transaction fees | Every block (when fees > 0) |
 
 **Year 1 projections**:
@@ -553,7 +553,7 @@ All changes require hard fork + community consensus:
 ### 11.2 Selfish Mining
 
 **Attack**: Withhold valid blocks to gain advantage over competing miners  
-**Mitigation**: 10-second block time minimizes orphan risk; checkpoint system prevents deep reorgs  
+**Mitigation**: 30-second block time minimizes orphan risk; checkpoint system prevents deep reorgs  
 **Economics**: Selfish mining requires >25% hashrate to be profitable — very high barrier
 
 ### 11.3 Long-Range Attack

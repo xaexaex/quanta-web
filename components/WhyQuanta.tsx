@@ -44,7 +44,7 @@ export default function WhyQuanta() {
               <span className="text-[#00E599] text-2xl font-bold flex-shrink-0">•</span>
               <div>
                 <strong className="text-gray-900">Fast & Efficient:</strong>
-                <span className="text-gray-600"> 10-second block times for quick confirmations without compromising security.</span>
+                <span className="text-gray-600"> 30-second block times for quick confirmations without compromising security.</span>
               </div>
             </li>
           </ul>

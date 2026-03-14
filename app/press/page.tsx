@@ -54,7 +54,7 @@ export default function PressKitPage() {
               </div>
               <div>
                 <h3 className="font-bold mb-2 text-gray-900">Block Time</h3>
-                <p className="text-gray-600">~10 seconds</p>
+                <p className="text-gray-600">~30 seconds</p>
               </div>
               <div>
                 <h3 className="font-bold mb-2 text-gray-900">GitHub</h3>
@@ -80,7 +80,7 @@ export default function PressKitPage() {
               <div className="border-l-4 border-[#00E599] pl-6">
                 <h3 className="font-bold text-xl mb-3">Short Description (100 words)</h3>
                 <p className="text-gray-700 leading-relaxed">
-                  Quanta is a next-generation blockchain designed to be secure against quantum computer attacks. Built entirely in Rust and utilizing NIST-standardized post-quantum cryptographic algorithms (Falcon-512 for digital signatures and Kyber-1024 for key encapsulation), Quanta provides enterprise-grade security for the quantum era. With a ~10 second block time, familiar account-based model, and comprehensive security features including HD wallet support and encrypted transaction memos, Quanta is production-ready infrastructure for decentralized applications that need to withstand future quantum threats.
+                  Quanta is a next-generation blockchain designed to be secure against quantum computer attacks. Built entirely in Rust and utilizing NIST-standardized post-quantum cryptographic algorithms (Falcon-512 for digital signatures and Kyber-1024 for key encapsulation), Quanta provides enterprise-grade security for the quantum era. With a ~30 second block time, familiar account-based model, and comprehensive security features including HD wallet support and encrypted transaction memos, Quanta is production-ready infrastructure for decentralized applications that need to withstand future quantum threats.
                 </p>
               </div>
 
@@ -91,7 +91,7 @@ export default function PressKitPage() {
                   <br /><br />
                   Developed entirely in Rust for memory safety and performance, Quanta implements NIST-standardized post-quantum cryptographic algorithms: Falcon-512 for digital signatures and Kyber-1024 for key encapsulation mechanisms. This isn't experimental cryptography—these are officially standardized algorithms vetted by the world's leading cryptographers.
                   <br /><br />
-                  The protocol features a familiar account-based model similar to Ethereum, making it accessible for developers transitioning from existing blockchain platforms. With approximately 10-second block times, comprehensive security monitoring, HD wallet support, and encrypted transaction memos, Quanta provides all the features enterprises need for real-world deployment.
+                  The protocol features a familiar account-based model similar to Ethereum, making it accessible for developers transitioning from existing blockchain platforms. With approximately 30-second block times, comprehensive security monitoring, HD wallet support, and encrypted transaction memos, Quanta provides all the features enterprises need for real-world deployment.
                   <br /><br />
                   Quanta uses Proof-of-Work consensus with SHA-256 mining, enabling decentralized network security while remaining quantum-resistant. The entire codebase is open source, allowing security researchers and developers worldwide to audit and contribute to the protocol.
                   <br /><br />

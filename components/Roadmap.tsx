@@ -105,7 +105,7 @@ export default function Roadmap() {
       successCriteria: [
         "25+ independent mainnet nodes within first month",
         "95%+ network uptime and stability",
-        "Block time consistency within 10-15 seconds",
+        "Block time consistency within 25-35 seconds",
         "Zero consensus failures or chain reorganizations"
       ]
     }

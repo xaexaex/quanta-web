@@ -143,7 +143,7 @@ export default function AboutPage() {
               </div>
               <div className="border-2 border-gray-100 rounded-xl sm:rounded-2xl p-4 sm:p-6 hover:border-[#00E599] transition-all">
                 <h3 className="font-bold text-lg sm:text-xl mb-2">Consensus</h3>
-                <p className="text-sm sm:text-base text-gray-600">Adaptive PoW with 10s block time</p>
+                <p className="text-sm sm:text-base text-gray-600">Adaptive PoW with 30s block time</p>
               </div>
             </div>
           </div>

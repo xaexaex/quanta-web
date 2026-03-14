@@ -300,15 +300,15 @@ Valid Block: Hash starts with `difficulty` leading zero nibbles
 Double-SHA3 provides a two-layer pre-image resistance barrier and eliminates length-extension attacks present in SHA-2 based double-hash constructions.
 
 #### Difficulty Adjustment
-- **Interval**: Every **2,016 blocks** (~5.6 hours at 10-second average)
+- **Interval**: Every **2,016 blocks** (~16.8 hours at 30-second average)
   - *Why 2,016?* Security fix from original design (was 10 blocks). 2,016 prevents rapid oscillation — matches Bitcoin's proven stability window.
-- **Target Block Time**: 10 seconds
+- **Target Block Time**: 30 seconds
 - **Formula (pure integer math — no floats)**:
   ```
   scaled = round(current_difficulty × expected_time / actual_time)
   
   Where:
-    expected_time = 2,016 blocks × 10 seconds = 20,160 seconds
+    expected_time = 2,016 blocks × 30 seconds = 60,480 seconds
     actual_time   = median_time_past(latest_block) - median_time_past(2016_blocks_ago)
     # Median-Time-Past (MTP) prevents timestamp manipulation attacks
   ```
@@ -439,9 +439,7 @@ Network daily data:  ~13 GB → ~3.25 GB
 ```
 
 **Throughput**:
-- **120 TPS** (1,200 tx ÷ 10 seconds)
-- 17× higher than Bitcoin (~7 TPS)
-- 8× higher than Ethereum (~15 TPS)
+- **40 TPS** (1,200 tx ÷ 30 seconds)
 - Achieved despite 10.4× larger signatures than ECDSA
 
 ---
@@ -824,7 +822,7 @@ Hard forks will be:
 - Continuous network monitoring
 - Exchange listing coordination
 
-**Success Criteria**: 25+ independent nodes, 95%+ uptime, consistent block times 10–15 seconds
+**Success Criteria**: 25+ independent nodes, 95%+ uptime, consistent block times 25–35 seconds
 
 ### Phase 6: Expansion (Q2–Q4 2027)
 
