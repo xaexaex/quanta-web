@@ -82,11 +82,23 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Quanta Chain",
+    alternateName: ["QuantaChain"],
+    url: "https://quantachain.org/",
+  };
+
   return (
     <html lang="en">
       <body
         className={`${manrope.variable} antialiased bg-white text-black font-sans`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {children}
       </body>
     </html>
