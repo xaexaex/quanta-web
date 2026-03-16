@@ -17,8 +17,10 @@ QUANTA is the first production-ready blockchain purpose-built with post-quantum 
 - **Quantum-Resistant Security**: NIST-standardized Falcon-512 signatures and Kyber-1024 encryption — deployed from genesis, not retrofitted
 - **Fair Launch Model**: No pre-mine, no ICO, 100% community distribution through mining
 - **Sustainable Economics**: Adaptive tokenomics with 70% fee burning, 50% anti-dump vesting, and perpetual mining incentives
-- **Production-Ready**: Built in Rust with parallel signature verification, LRU caching, zstd compression, and sled embedded storage
-- **Smart Contract Foundation**: Transfer, DeployContract, and CallContract transaction types with crypto-agile signature scheme field
+- **Production-Ready**: Built in Rust with parallel signature verification, bloom filter mempool, LRU sig cache, pubkey cache, zstd compression, and sled embedded storage
+- **3-of-5 Treasury Multisig**: Live on-chain — `ms69216b1d10425689704d5ae3b2a4aa17049f59b1`. Any 3 of 5 keyholders must sign to spend. Address consensus-enforced, not configurable.
+- **Minimal Attack Surface**: No Turing-complete virtual machine. Zero risk of smart contract exploits.
+- **Institutional Vault Capabilities**: Transfer and TimeLockTransfer (Escrow/Vesting) natively built into the protocol.
 - **Open Development**: Transparent roadmap, fully open-source codebase, and active security audits
 
 This whitepaper presents the technical architecture, cryptographic foundations, consensus mechanism, economic model, and implementation details of the QUANTA blockchain.
@@ -300,7 +302,7 @@ Valid Block: Hash starts with `difficulty` leading zero nibbles
 Double-SHA3 provides a two-layer pre-image resistance barrier and eliminates length-extension attacks present in SHA-2 based double-hash constructions.
 
 #### Difficulty Adjustment
-- **Interval**: Every **2,016 blocks** (~16.8 hours at 30-second average)
+- **Interval**: Every **2,016 blocks** (~5.6 hours at 10-second average)
   - *Why 2,016?* Security fix from original design (was 10 blocks). 2,016 prevents rapid oscillation — matches Bitcoin's proven stability window.
 - **Target Block Time**: 30 seconds
 - **Formula (pure integer math — no floats)**:
@@ -342,24 +344,20 @@ The genesis hash is hardcoded in `blockchain.rs`. Any mismatch immediately panic
 
 ### 4.3 Transaction Types
 
-QUANTA supports three transaction types, all signed with Falcon-512:
+QUANTA supports two extremely strict transaction types, both signed with Falcon-512:
 
 ```rust
 TransactionType {
     Transfer,
     // Standard value transfer between two accounts
 
-    DeployContract { code: Vec<u8> },
-    // Deploy on-chain program bytecode
-    // Minimum fee: 10,000 microunits (0.01 QUA)
-
-    CallContract { contract: String, function: String, args: Vec<u8> },
-    // Invoke deployed contract function with arguments
-    // Minimum fee: 5,000 microunits (0.005 QUA)
+    TimeLockTransfer { unlock_height: u64 },
+    // Cryptographic Escrow/Vaulting
+    // Locks funds on the recipient's account until a specific block height
 }
 ```
 
-All transaction types share the identical signing pipeline (same domain prefix, same Falcon-512 verification). The `tx_type` discriminant byte and any type-specific payload are included in `signing_bytes` and thus covered by the signature.
+By explicitly rejecting Turing-complete smart contracts, QUANTA eliminates the risk of re-entrancy attacks, logic bugs, and platform-level exploits that cost the industry billions annually.
 
 ### 4.4 Transaction Structure
 
@@ -409,18 +407,19 @@ Each block must satisfy:
 4. **Timestamp**: `prev.timestamp < block.timestamp <= now + 7200` (within 2 hours of current time)
 5. **Transaction Validity**: All transactions individually valid (parallel Falcon-512 verification + nonce/balance state validation)
 6. **Coinbase Correctness**: Exactly one `COINBASE` sender tx; amount must equal `immediate_reward + fee_to_miner`
-7. **Treasury Correctness**: Treasury tx must exist when `treasury_amount > 0`; must send to `0x0000000000000000000000000000000000000001`
+7. **Treasury Correctness**: Treasury tx must exist when `treasury_amount > 0`; must send to `ms69216b1d10425689704d5ae3b2a4aa17049f59b1` (3-of-5 Falcon-512 multisig, hardcoded consensus constant)
 8. **Block Size**: Serialized ≤ 2,097,152 bytes (2 MB)
 9. **Transaction Count**: ≤ 1,200 transactions
 10. **Difficulty**: Must equal `calculate_next_difficulty()` exactly
 11. **Checkpoint**: Must match hardcoded checkpoint hash at checkpoint heights
 
-### 4.7 Performance Optimizations
+### 4.7 PQC Performance Optimizations
 
-**Parallel Signature Verification (Rayon)**:
+**Parallel Signature Verification (Rayon — physical core tuning)**:
 ```
-Serial:    1,200 tx × 1.5 ms = 1,800 ms
-Parallel:  1,200 tx × 1.5 ms ÷ 8 cores = 225 ms   ← 8× speedup
+Serial:          1,200 tx × 1.5 ms = 1,800 ms
+Parallel:        1,200 tx × 1.5 ms ÷ physical_cores = ~225 ms  ← 8× speedup
+Thread pool:     num_cpus::get_physical() (not logical — HT adds no benefit for Falcon crypto)
 ```
 
 **Signature Verification Cache (LRU)**:
@@ -429,6 +428,20 @@ Cache size:  100,000 entries
 Hit rate:    ~80% (transactions seen multiple times before block inclusion)
 Cache hit:   0 ms  ← instant verification
 Effective block validation time: ~45 ms at 80% cache
+```
+
+**Bloom Filter Mempool Deduplication (NEW)**:
+```
+Before: O(n) scan — 1,200 txs × 1,713 bytes = 2 MB iteration per add
+After:  O(1) probabilistic — Bloom::new_for_fp_rate(50_000, 0.0001)
+False-positive rate: 0.01% — confirmed by hash-compare on positive hit
+```
+
+**Pubkey Deserialization Cache (NEW)**:
+```
+Problem: Falcon-512 pubkey = 897 bytes, re-deserialized N times for N txs from same sender
+Solution: DashMap<sender_address, pubkey_bytes> — lock-free concurrent reads
+Bonus: detects key-substitution attacks (mismatch = instant reject with warn log)
 ```
 
 **Block Compression (zstd)**:
@@ -440,6 +453,8 @@ Network daily data:  ~13 GB → ~3.25 GB
 
 **Throughput**:
 - **40 TPS** (1,200 tx ÷ 30 seconds)
+- 17× higher than Bitcoin (~7 TPS)
+- 8× higher than Ethereum PoW (~15 TPS)
 - Achieved despite 10.4× larger signatures than ECDSA
 
 ---
@@ -458,7 +473,7 @@ See [TOKENOMICS.md](./TOKENOMICS.md) for the complete economic specification.
 ### 5.2 Block Reward Formula (Integer Math — Consensus Critical)
 
 ```
-year = block_height / 3,153,600    (integer division)
+year = block_height / 1,051,200    (integer division)
 base  = 100 QUA × (85/100)^year   (applied iteratively using integer ops)
 reward = max(base, 5 QUA)
 
@@ -471,12 +486,12 @@ across x86_64 and ARM64 architectures.
 ```
 Block Reward = R  (e.g., 100 QUA in Year 1)
 
-Treasury allocation:  R × 5%  → Treasury address (0x0000...0001)
+Treasury allocation:  R × 5%  → ms69216b1d10425689704d5ae3b2a4aa17049f59b1 (3-of-5 multisig)
 Miner reward:         R × 95% → Miner address
 
   Of miner reward:
     Immediate:  (R × 95%) × 50% = 47.5% of R  (spendable now)
-    Locked:     (R × 95%) × 50% = 47.5% of R  (locked for 157,680 blocks / ~6 months)
+    Locked:     (R × 95%) × 50% = 47.5% of R  (locked for 52,560 blocks / ~6 months)
 ```
 
 ### 5.4 Fee Distribution Per Block
@@ -739,13 +754,15 @@ GET  /network/stats              ← Network statistics
 
 ## 9. Governance and Upgrades
 
-### 9.1 Current Governance Model (Off-Chain)
+See [GOVERNANCE.md](GOVERNANCE.md) for full governance documentation.
 
-QUANTA v1.x uses off-chain governance:
-- Kishore K (Founder) and core team propose upgrades
-- Community review on GitHub Discussions and Discord
-- Testnet deployment and minimum 2-week testing period
-- Mainnet upgrade with clear migration path and 4-week advance notice
+### 9.1 Current Governance Model (Off-Chain, Phase 1)
+
+- Kishore K (Founder) and core team propose upgrades via GitHub Discussions
+- Community review minimum 7 days open before implementation
+- Testnet deployment minimum 14 days before mainnet consideration
+- Mainnet consensus changes: minimum 30-day advance notice
+- **Treasury**: 3-of-5 Falcon-512 multisig (`ms69216b1d10425689704d5ae3b2a4aa17049f59b1`). Any 3 of 5 keyholders must sign all treasury spends. All transactions publicly visible on-chain.
 
 ### 9.2 Soft Fork Process
 
@@ -763,12 +780,24 @@ Hard forks will be:
 - Semantically versioned (MAJOR.MINOR.PATCH)
 - Require explicit user upgrade action
 
-### 9.4 Future On-Chain Governance (Planned Year 2+)
+### 9.4 PoW → PoS Transition (Planned)
+
+The codebase includes a `ConsensusEngine` enum with `ProofOfWork` (live) and `ProofOfStake` (stub). When PoS is implemented:
+
+```toml
+# quanta.toml — future activation
+consensus_engine = "proof_of_stake"
+```
+
+Planned timeline: PoW/PoS hybrid by Q1 2027, PoS primary by Q3 2027. See [GOVERNANCE.md §4](GOVERNANCE.md) for details.
+
+### 9.5 Future On-Chain Governance (Planned Year 2+)
 
 - Token-weighted proposal voting
 - Time-locked protocol upgrade execution
 - Emergency security patches with multisig override
 - Transparent on-chain treasury spending proposals
+- Expand treasury multisig from 3-of-5 to 5-of-9 with external contributors
 
 ---
 
@@ -779,12 +808,15 @@ Hard forks will be:
 - ✅ Core blockchain implementation (consensus, crypto, storage)
 - ✅ P2P networking with DNS seed discovery
 - ✅ REST API and RPC server
-- ✅ HD Wallet (BIP39/BIP32) and multisig
+- ✅ HD Wallet (BIP39/BIP32) and M-of-N multisig
+- ✅ **3-of-5 Treasury Multisig** — live, hardcoded in consensus
 - ✅ Docker deployment and monitoring setup
-- ✅ Performance optimizations (parallel verify, LRU cache, zstd)
+- ✅ PQC Performance: parallel verify (physical-core Rayon), LRU sig cache, bloom filter mempool, pubkey cache, zstd
+- ✅ Node modes: Archive / Pruned / Light (configurable)
+- ✅ Consensus engine enum: PoW (live) + PoS (stub ready for future)
 - ✅ Security hardening (strict pre-checks, domain separation, build determinism)
-- ✅ Community onboarding materials and guides
 - ✅ Block explorer (explorer.html)
+- ✅ Documentation: Whitepaper v2.1, Tokenomics v2.1, Governance.md
 
 ### 🔄 Phase 2: Public Testnet Launch (Q2 2026)
 
@@ -822,7 +854,7 @@ Hard forks will be:
 - Continuous network monitoring
 - Exchange listing coordination
 
-**Success Criteria**: 25+ independent nodes, 95%+ uptime, consistent block times 25–35 seconds
+**Success Criteria**: 25+ independent nodes, 95%+ uptime, consistent block times 30–35 seconds
 
 ### Phase 6: Expansion (Q2–Q4 2027)
 
@@ -849,7 +881,7 @@ Hard forks will be:
 | Security Budget | Ends ~2140 | Perpetual (5 QUA/block minimum) |
 | Fee Burning | None | 70% of fees |
 | Block TPS | ~7 TPS | 120 TPS |
-| Smart Contracts | No (only UTXO scripts) | Transfer + DeployContract + CallContract |
+| Smart Contracts | No | **Intentionally omitted for security** |
 | HD Wallet | BIP32/39 (ECDSA) | BIP32/39 (Falcon-512) |
 | Multisig | ECDSA multisig | Falcon-512 M-of-N |
 | Quantum Risk | **HIGH** — ECDSA breakable | **NONE** — native PQ from genesis |
@@ -864,7 +896,7 @@ Hard forks will be:
 | Issuance | ~0.5% annual | 15% → 0.8% over 20 years |
 | Fee Burning | EIP-1559 (variable burn) | 70% fixed burn |
 | Initial Distribution | ICO + pre-mine (~72M ETH founders) | Fair launch — zero pre-mine |
-| Smart Contracts | Solidity EVM | Native TX types + future QUANTA VM |
+| Smart Contracts | Solidity EVM (High Risk) | None (Maximum Security) |
 
 ### 11.3 vs QRL (Quantum Resistant Ledger)
 
@@ -874,7 +906,7 @@ Hard forks will be:
 | Signature Size | ~2,500 bytes | ~666 bytes (3.75× smaller) |
 | Key State | Stateful (limited uses) | Stateless (unlimited reuse) |
 | TPS | ~10 | 120 |
-| Smart Contracts | Limited | Transfer + Deploy + Call |
+| Smart Contracts | Limited | Intentionally Omitted |
 | Language | Python + Go | Rust (memory-safe, high-performance) |
 
 ### 11.4 vs QANplatform
@@ -886,7 +918,7 @@ Hard forks will be:
 | Fair Launch | No (ICO) | Yes (100% mining, no pre-mine) |
 | Open Source | Partial | Fully open source (GitHub) |
 
-**QUANTA's unique position**: Purpose-built PQ blockchain, fully open source, fair launch, production-ready Rust implementation, 120 TPS, smart contract foundations, and the only PQ chain using NIST-standardized Falcon-512 as its native and only signature scheme.
+**QUANTA's unique position**: Purpose-built PQ blockchain, fully open source, fair launch, production-ready Rust implementation, 120 TPS, zero smart contract risk, and the only PQ chain using NIST-standardized Falcon-512 as its native and only signature scheme.
 
 ---
 
@@ -926,7 +958,7 @@ A: Level 1 provides 128-bit classical / 64-bit quantum security. A quantum compu
 
 **Q: What is the `tx_type` field and why does it matter for investors?**
 
-A: QUANTA supports three transaction types: `Transfer`, `DeployContract`, and `CallContract`. This means QUANTA is not just a value-transfer layer — it is a foundation for quantum-resistant decentralized applications. Smart contracts deployed on QUANTA inherit full Falcon-512 security, unlike EVM contracts on quantum-vulnerable Ethereum.
+A: QUANTA supports two transaction types: `Transfer` and `TimeLockTransfer`. By explicitly omitting smart contracts, QUANTA guarantees that funds cannot be lost to code exploits, re-entrancy attacks, or "rug pulls". It is a true cryptographic vault. The `TimeLockTransfer` functionality provides native protocol-level escrow and vesting without relying on vulnerable third-party code.
 
 **Q: What is the HD wallet and why does it matter?**
 

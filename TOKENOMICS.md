@@ -45,13 +45,13 @@ The QUANTA economic model achieves:
 | Annual Reduction | 15% | `ANNUAL_REDUCTION_PERCENT = 15` |
 | Minimum Reward Floor | 5 QUA | `MIN_REWARD = 5_000_000` |
 | Block Time Target | 30 seconds | `TARGET_BLOCK_TIME = 30` |
-| Blocks Per Year | 3,153,600 | `BLOCKS_PER_YEAR = 3_153_600` |
+| Blocks Per Year | 1,051,200 | `BLOCKS_PER_YEAR = 1_051_200` |
 | Fee Burn Rate | **70%** | `FEE_BURN_PERCENT = 70` |
 | Fee to Treasury | **20%** | `FEE_TREASURY_PERCENT = 20` |
 | Fee to Miner | **10%** | `FEE_VALIDATOR_PERCENT = 10` |
 | Block Reward to Treasury | **5%** | `TREASURY_ALLOCATION_PERCENT = 5` |
 | Mining Reward Lock | **50% for 6 months** | `MINING_REWARD_LOCK_PERCENT = 50` |
-| Lock Duration | 157,680 blocks | `MINING_REWARD_LOCK_BLOCKS = 157_680` |
+| Lock Duration | 52,560 blocks | `MINING_REWARD_LOCK_BLOCKS = 52_560` |
 | Coinbase Maturity | 100 blocks | `COINBASE_MATURITY = 100` |
 | Min Transaction Fee | 100 microunits (0.0001 QUA) | `MIN_TRANSACTION_FEE = 100` |
 | Mempool Limit | 5,000 transactions | `MAX_MEMPOOL_SIZE = 5000` |
@@ -127,7 +127,7 @@ The anti-dump vesting mechanism means **not all mined QUA is immediately circula
 
 Of 100 QUA mined per block in Year 1:
 - 47.5 QUA → miner wallet immediately spendable
-- 47.5 QUA → miner wallet locked for 157,680 blocks (~6 months)
+- 47.5 QUA → miner wallet locked for 52,560 blocks (~6 months)
 - 5.0 QUA → treasury (immediately spendable for operations)
 
 ---
@@ -151,7 +151,7 @@ Miner Base Reward:    R × 95%           → available to miner
 
   Of Miner Base Reward:
     Immediate:        (R × 95%) × 50%   → credited to miner immediately
-    Locked:           (R × 95%) × 50%   → locked until height + 157,680
+    Locked:           (R × 95%) × 50%   → locked until height + 52,560
 
 Example at R = 100 QUA:
   Treasury:       5.0 QUA  (hardcoded address)
@@ -201,8 +201,7 @@ def usage_multiplier(block_height):
 | Transaction Type | Recommended Fee |
 |---|---|
 | Transfer | 1,000 microunits (0.001 QUA) |
-| DeployContract | 10,000 microunits (0.01 QUA) |
-| CallContract | 5,000 microunits (0.005 QUA) |
+| TimeLockTransfer | 5,000 microunits (0.005 QUA) |
 
 **Fee Market**: Transactions are sorted highest-fee-first for block inclusion. A natural fee market emerges as mempool fills (5,000 TX cap).
 
@@ -213,7 +212,7 @@ Each block's total transaction fees (`F`) are split in fixed proportions:
 | Recipient | Percentage | Destination |
 |---|---|---|
 | **Burn (destroyed)** | **70%** | Sent to unspendable address — permanent deflation |
-| **Treasury** | **20%** | `0x0000000000000000000000000000000000000001` |
+| **Treasury** | **20%** | `ms69216b1d10425689704d5ae3b2a4aa17049f59b1` (3-of-5 multisig) |
 | **Block Miner** | **10%** | Miner's coinbase address (added to immediate reward) |
 
 > **Rounding**: `fee_burned + fee_to_treasury + fee_to_miner = total_fees` is guaranteed arithmetically. Any rounding remainder goes to the miner (preventing loss of microunits).
@@ -262,7 +261,7 @@ Treasury receives 20% of all transaction fees, creating a sustainable independen
 **Parameters**:
 ```
 MINING_REWARD_LOCK_PERCENT  = 50  (% of miner's share that is locked)
-MINING_REWARD_LOCK_BLOCKS   = 157,680  (≈ 6 months at 30-second blocks)
+MINING_REWARD_LOCK_BLOCKS   = 52,560  (≈ 6 months at 30-second blocks)
 ```
 
 **Mechanism** (as implemented in `blockchain.rs`):
@@ -313,16 +312,20 @@ The treasury receives two distinct income streams:
 | Fee Share | 20% of block's total transaction fees | Every block (when fees > 0) |
 
 **Year 1 projections**:
-- Block allocation: 3,153,600 blocks × 5 QUA = **~15,768,000 QUA/year** from blocks
+- Block allocation: 1,051,200 blocks × 5 QUA = **~5,256,000 QUA/year** from blocks
 - Fee share: ~10M TX × 0.001 QUA × 20% = **~2,000 QUA/year** from fees (initially modest)
 
 ### 6.2 Treasury Address
 
 ```
-Treasury Address: 0x0000000000000000000000000000000000000001
+Treasury Address: ms69216b1d10425689704d5ae3b2a4aa17049f59b1
+Type:             3-of-5 Falcon-512 multisig (generated 2026-03-14)
+Threshold:        Any 3 of 5 keyholders must sign to spend
 ```
 
-This is a **hardcoded consensus constant** (`TREASURY_ADDRESS` in `blockchain.rs`). Every node enforces that the treasury transaction in each block targets this exact address. Tampering with the treasury address is an automatic block rejection.
+This is a **consensus constant** hardcoded in `src/consensus/blockchain.rs`. Every node enforces that the treasury transaction in each block targets exactly this address. Tampering with the address causes instant block rejection. The address cannot be changed via `quanta.toml` — only a coordinated network upgrade (hard fork) can change it.
+
+See [GOVERNANCE.md](GOVERNANCE.md) for spending procedures and keyholder policy.
 
 ### 6.3 Allocation Guidelines
 
@@ -540,6 +543,19 @@ All changes require hard fork + community consensus:
 - Lock duration: 6 months ± 3 months (range 3–12 months)
 - Treasury allocation: 5% ± 2% (range 3–7%)
 
+### 10.3 PoW → PoS Transition (Planned)
+
+Consensus engine is configurable via `quanta.toml`:
+
+```toml
+consensus_engine = "proof_of_work"   # current (live)
+# consensus_engine = "proof_of_stake"  # planned — node will refuse to start until implemented
+```
+
+When PoS is implemented, validator staking rewards will supplement (then replace) PoW mining rewards. The treasury model (5% allocation + 20% fee share) remains unchanged across both consensus engines.
+
+See [GOVERNANCE.md §4](GOVERNANCE.md) for the full PoS transition roadmap and validator economics.
+
 ---
 
 ## 11. Economic Attack Vectors
@@ -599,7 +615,7 @@ let immediate_reward = (miner_reward * (100 - MINING_REWARD_LOCK_PERCENT)) / 100
 // ≈ 47.5% of total block reward
 
 let locked_reward = miner_reward - immediate_reward;
-// ≈ 47.5% of total block reward, locked for 157,680 blocks
+// ≈ 47.5% of total block reward, locked for 52,560 blocks
 ```
 
 ### Fee Distribution
@@ -616,7 +632,7 @@ let fee_to_miner    = total_fees - fee_burned - fee_to_treasury;   // 10% + rema
 account_state.add_locked_balance(
     miner_address,
     locked_reward,
-    current_height + MINING_REWARD_LOCK_BLOCKS  // current + 157,680
+    current_height + MINING_REWARD_LOCK_BLOCKS  // current + 52,560
 );
 ```
 
@@ -624,25 +640,28 @@ account_state.add_locked_balance(
 
 ## Appendix B: Treasury Multisig Configuration
 
-**Treasury Address**: `0x0000000000000000000000000000000000000001`
+**Treasury Address**: `ms69216b1d10425689704d5ae3b2a4aa17049f59b1`  
+**Type**: 3-of-5 Falcon-512 multisig — generated 2026-03-14
 
-**Multisig Arrangement (3-of-5 Falcon-512)**:
-1. Kishore K — Founder (admin@quantachain.org)
-2. Core Developer 2
-3. Core Developer 3
-4. Community Representative 1
-5. Community Representative 2
+**Keyholder Keys** (from `treasury_keys/treasury_setup.json`):
+1. `treasury_key0.qua` — address `0x5372c47e617180f95c6e8a957b3e3c3a7c17ec7a`
+2. `treasury_key1.qua` — address `0x9430dc395f9be6d76873dc6fa703f1ebb4acb4e5`
+3. `treasury_key2.qua` — address `0x6f64731ab168a114ed1a39aa6beeb4b59202239e`
+4. `treasury_key3.qua` — address `0x9e5995fab9d6246e37d9e9bb30c10a1dfeff17f7`
+5. `treasury_key4.qua` — address `0x1160d8504f9cb2b4b3e621114c90c7a8a0bc41d8`
 
 **Signing Thresholds**:
 | Expense Level | Required Signatures | Public Notice |
 |---|---|---|
 | < 10,000 QUA | Any 3 of 5 | Optional |
-| > 10,000 QUA | All 5 | Required (7-day notice) |
-| Emergency | Any 3 of 5 | Post-facto disclosure |
+| > 10,000 QUA | All 5 signers | Required (7-day public notice) |
+| Emergency | Any 3 of 5 | Post-facto public disclosure |
+
+Full spending procedures: [GOVERNANCE.md](GOVERNANCE.md)
 
 ---
 
-**Document Version**: 2.0  
-**Last Updated**: March 2026  
+**Document Version**: 2.1  
+**Last Updated**: 2026-03-14  
 **Founder**: Kishore K (admin@quantachain.org)  
 **License**: CC BY 4.0

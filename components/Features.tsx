@@ -67,55 +67,38 @@ export default function Features() {
       )
     },
     {
-      title: "30s Block Time",
-      description: "Fast finality with dynamic difficulty. Parallel signature verification achieves 120 TPS, overcoming post-quantum size penalties.",
+      title: "Native Time-Locks",
+      description: "Protocol-level Time-Locks and escrow features built natively into consensus—designed for institutional custody without smart contract risk.",
       shape: (
         <svg viewBox="0 0 200 100" className="w-full h-full stroke-teal-500/40 fill-none stroke-[1.5]">
-          {/* Speed Lines */}
-          <path d="M20,30 L100,30" strokeDasharray="5 5">
-            <animate attributeName="stroke-dashoffset" from="10" to="0" dur="0.5s" repeatCount="indefinite" />
-          </path>
-          <path d="M20,50 L140,50" strokeDasharray="10 5">
-            <animate attributeName="stroke-dashoffset" from="15" to="0" dur="0.7s" repeatCount="indefinite" />
-          </path>
-          <path d="M20,70 L80,70" strokeDasharray="5 5">
-            <animate attributeName="stroke-dashoffset" from="10" to="0" dur="0.5s" repeatCount="indefinite" />
-          </path>
-          <path d="M160,30 L180,30 M150,70 L180,70" />
-          {/* Block */}
-          <rect x="140" y="20" width="40" height="60" rx="4" className="fill-teal-500/5">
-            <animate attributeName="opacity" values="0.5; 1; 0.5" dur="2s" repeatCount="indefinite" />
-          </rect>
+          {/* Hourglass / Lock Hybrid */}
+          <path d="M80,20 L120,20 L100,50 L80,20 Z M80,80 L120,80 L100,50 L80,80 Z" />
+          {/* Sand dropping */}
+          <circle cx="100" cy="50" r="1.5" className="fill-[#00E599]">
+            <animate attributeName="cy" from="50" to="75" dur="1.5s" repeatCount="indefinite" />
+          </circle>
+          <circle cx="100" cy="50" r="1.5" className="fill-[#00E599]" opacity="0.5">
+            <animate attributeName="cy" from="45" to="70" dur="1.5s" begin="0.5s" repeatCount="indefinite" />
+          </circle>
+          <path d="M60,35 L60,45 A40,40 0 0,0 140,45 L140,35" strokeDasharray="4 4" />
         </svg>
       )
     },
     {
-      title: "70% Fee Burn",
-      description: "Deflationary pressure mechanism. Transaction fees are burned to reduce supply and increase value.",
+      title: "M-of-N Threshold Multisig",
+      description: "Natively integrated M-of-N threshold multi-signature support using Falcon-512. Perfect for corporate treasury and institutional administration.",
       shape: (
         <svg viewBox="0 0 200 100" className="w-full h-full stroke-teal-500/40 fill-none stroke-[1.5]">
-          {/* Flame / Entropy */}
-          <path d="M100,80 Q80,60 100,40 Q120,60 100,80" className="fill-teal-500/10">
-            <animate attributeName="d" values="M100,80 Q80,60 100,40 Q120,60 100,80; M100,80 Q75,65 100,35 Q125,65 100,80; M100,80 Q80,60 100,40 Q120,60 100,80" dur="3s" repeatCount="indefinite" />
+          {/* Linked nodes */}
+          <circle cx="70" cy="40" r="8" />
+          <circle cx="130" cy="40" r="8" />
+          <circle cx="100" cy="70" r="8" className="fill-[#00E599]/20 stroke-[#00E599]" />
+          <path d="M75,45 L95,65 M125,45 L105,65" strokeDasharray="3 3">
+            <animate attributeName="stroke-dashoffset" from="10" to="0" dur="1s" repeatCount="indefinite" />
           </path>
-          <path d="M100,40 Q90,30 100,20 Q110,30 100,40" />
-          {/* Rising Sparks */}
-          <circle cx="60" cy="60" r="2" className="fill-[#00E599]" opacity="0">
-            <animate attributeName="cy" from="60" to="20" dur="2s" begin="0s" repeatCount="indefinite" />
-            <animate attributeName="opacity" values="0;1;0" dur="2s" begin="0s" repeatCount="indefinite" />
-          </circle>
-          <circle cx="140" cy="60" r="2" className="fill-[#00E599]" opacity="0">
-            <animate attributeName="cy" from="60" to="30" dur="2.5s" begin="0.5s" repeatCount="indefinite" />
-            <animate attributeName="opacity" values="0;1;0" dur="2.5s" begin="0.5s" repeatCount="indefinite" />
-          </circle>
-          <circle cx="80" cy="40" r="2" className="fill-[#00E599]" opacity="0">
-            <animate attributeName="cy" from="40" to="10" dur="1.8s" begin="0.2s" repeatCount="indefinite" />
-            <animate attributeName="opacity" values="0;1;0" dur="1.8s" begin="0.2s" repeatCount="indefinite" />
-          </circle>
-          <circle cx="120" cy="40" r="2" className="fill-[#00E599]" opacity="0">
-            <animate attributeName="cy" from="40" to="15" dur="2.2s" begin="0.8s" repeatCount="indefinite" />
-            <animate attributeName="opacity" values="0;1;0" dur="2.2s" begin="0.8s" repeatCount="indefinite" />
-          </circle>
+          {/* Keys */}
+          <circle cx="70" cy="40" r="2" className="fill-teal-500" />
+          <circle cx="130" cy="40" r="2" className="fill-teal-500" />
         </svg>
       )
     },
@@ -149,10 +132,10 @@ export default function Features() {
           </div>
           <h2 className="text-5xl sm:text-7xl font-bold mb-6 tracking-tight leading-[0.95]">
             Core <br />
-            <span className="text-[#00E599]">Features</span>
+            <span className="text-[#00E599]">Vault Features</span>
           </h2>
           <p className="text-xl sm:text-2xl text-gray-600 max-w-2xl leading-relaxed font-light">
-            QUANTA combines NIST-standardized post-quantum cryptography with sustainable economic design to deliver a blockchain <span className="text-black font-medium">secure for decades.</span>
+            QUANTA combines NIST-standardized cryptography with a hardened, contract-free architecture to deliver an institutional settlement layer <span className="text-black font-medium">secure for decades.</span>
           </p>
         </div>
 

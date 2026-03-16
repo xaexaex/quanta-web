@@ -19,8 +19,8 @@ export default function WhyQuanta() {
             <li className="flex items-start gap-4">
               <span className="text-[#00E599] text-2xl font-bold flex-shrink-0">•</span>
               <div>
-                <strong className="text-gray-900">Quantum-Resistant Security:</strong>
-                <span className="text-gray-600"> NIST L1-5 certified post-quantum cryptography protects your assets for decades to come.</span>
+                <strong className="text-gray-900">Minimal Attack Surface:</strong>
+                <span className="text-gray-600"> Zero smart contracts. We eliminated Turing-complete execution to create a hardened, exploit-free institutional vault.</span>
               </div>
             </li>
 

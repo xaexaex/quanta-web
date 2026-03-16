@@ -25,10 +25,10 @@ export default function Hero() {
     },
     {
       id: "03",
-      title: "30s Block Time",
+      title: "Native Time-Locks & Multisig",
       icon: CheckCircle2,
-      description: "Rapid block generation with deterministic finality. Optimized for high-frequency trading and real-time decentralized applications.",
-      stat: "30s Finality"
+      description: "Cryptographic escrow and M-of-N threshold signatures built directly into the consensus layer. Built natively as a hyper-secure digital vault for sovereign wealth and institutional capital.",
+      stat: "Institutional Vault"
     }
   ];
 
