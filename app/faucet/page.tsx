@@ -63,7 +63,7 @@ export default function FaucetPage() {
           </h1>
 
           <p className="text-xl sm:text-2xl text-gray-600 mb-10 leading-relaxed font-light max-w-xl mx-auto">
-            Get 100 Testnet QUA every 24 hours for <span className="text-black font-medium">testing your applications on the Quanta Chain.</span>
+            Get <span className="text-black font-medium">1 Testnet QUA</span> every 24 hours for testing your applications on the Quanta Chain.
           </p>
 
           <div className="bg-white p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100">
@@ -91,7 +91,7 @@ export default function FaucetPage() {
                     Requesting...
                   </>
                 ) : (
-                  "Request 100 QUA"
+                  "Request 1 QUA"
                 )}
               </button>
             </div>
