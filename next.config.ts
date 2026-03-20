@@ -1,7 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Allow the WASM file to be served correctly
+  // Turbopack config (used by `next dev` in Next.js 16+).
+  // Turbopack has native async WASM support — no extra rules needed.
+  // This empty config silences the "webpack config but no turbopack config" error.
+  turbopack: {},
+
+  // Webpack config (used by `next build` / production builds).
+  // Keep this for WASM support during production bundling.
   webpack(config, { isServer }) {
     // Enable WASM support in webpack
     config.experiments = {
