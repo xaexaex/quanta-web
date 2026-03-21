@@ -27,7 +27,7 @@ function getWasm(): QuantaWasm {
     const wasmBytes = fs.readFileSync(wasmPath);
 
     // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const mod = require('../../lib/wasm/quanta_wasm') as QuantaWasm;
+    const mod = require('../../../lib/wasm/quanta_wasm') as QuantaWasm;
     mod.initSync({ module: wasmBytes });
 
     g.__quantaWasm = mod;
