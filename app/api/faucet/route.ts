@@ -167,7 +167,9 @@ export async function POST(request: NextRequest) {
                 signal: AbortSignal.timeout(5000),
             });
             if (res.ok) {
-                const data = await res.json() as { nonce?: number };
+                // M-5 FIX: /api/balance now returns { address, balance_microunits, nonce }
+                // Previously this was cast as { nonce? } but the field didn't exist — always 0.
+                const data = await res.json() as { nonce?: number; balance_microunits?: number };
                 currentNonce = BigInt(data.nonce ?? 0);
             }
         } catch (e) {

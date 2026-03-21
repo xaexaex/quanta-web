@@ -6,6 +6,26 @@ const nextConfig: NextConfig = {
   // This empty config silences the "webpack config but no turbopack config" error.
   turbopack: {},
 
+  // L-9 FIX: Security headers — essential for a wallet app.
+  // Prevents clickjacking, MIME sniffing, and unnecessary browser feature leaks.
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          // Prevent this page from being embedded in iframes (clickjacking)
+          { key: 'X-Frame-Options', value: 'DENY' },
+          // Prevent MIME type sniffing
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          // Don't send referrer when navigating away from the wallet
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+          // Restrict browser features (camera, mic, etc.)
+          { key: 'Permissions-Policy', value: 'camera=(), microphone=(), geolocation=()' },
+        ],
+      },
+    ];
+  },
+
   // Webpack config (used by `next build` / production builds).
   // Keep this for WASM support during production bundling.
   webpack(config, { isServer }) {
@@ -35,3 +55,4 @@ const nextConfig: NextConfig = {
 };
 
 export default nextConfig;
+
