@@ -68,8 +68,8 @@ export default function Footer() {
               <h4 className="font-bold mb-6 text-sm uppercase tracking-wider text-gray-900">Ecosystem</h4>
               <ul className="space-y-3 text-sm text-gray-600">
                 <li className="flex items-center gap-2">
-                  <Link href="#" className="hover:text-[#00E599] transition-colors">Explorer</Link>
-                  <span className="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full font-semibold">Soon</span>
+                  <Link href="https://scan.quantachain.org" target="_blank" className="hover:text-[#00E599] transition-colors">Explorer</Link>
+                  <span className="text-[10px] bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-semibold">Live</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <Link href="/faucet" className="hover:text-[#00E599] transition-colors">Faucet</Link>
@@ -80,8 +80,8 @@ export default function Footer() {
                   <span className="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full font-semibold">Soon</span>
                 </li>
                 <li className="flex items-center gap-2">
-                  <Link href="#" className="hover:text-[#00E599] transition-colors">Wallet</Link>
-                  <span className="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full font-semibold">Soon</span>
+                  <Link href="https://chrome.google.com/webstore/detail/glofbcgdmodmaohealombcgoapdbdaff" target="_blank" className="hover:text-[#00E599] transition-colors">Wallet</Link>
+                  <span className="text-[10px] bg-green-100 text-green-700 px-2 py-0.5 rounded-full font-semibold">Live</span>
                 </li>
               </ul>
             </div>

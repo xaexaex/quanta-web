@@ -23,10 +23,10 @@ const navItems: NavGroup[] = [
   {
     name: "Ecosystem",
     items: [
-      { name: "Explorer", href: "#", badge: "Soon", description: "View real-time blocks & transactions", icon: Search },
+      { name: "Explorer", href: "https://scan.quantachain.org", external: true, badge: "Live", description: "View real-time blocks & transactions", icon: Search },
       { name: "Faucet", href: "/faucet", badge: "Live", description: "Get Testnet QUA for development", icon: Droplet },
       { name: "Mining Pool", href: "#", badge: "Soon", description: "Join forces to secure the network", icon: Pickaxe },
-      { name: "Wallet", href: "#", badge: "Soon", description: "Securely store & manage your assets", icon: Wallet },
+      { name: "Wallet", href: "https://chrome.google.com/webstore/detail/glofbcgdmodmaohealombcgoapdbdaff", external: true, badge: "Live", description: "Securely store & manage your assets", icon: Wallet },
     ],
   },
   {
