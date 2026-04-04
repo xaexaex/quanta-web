@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import NetworkStats from "@/components/NetworkStats";
 import Features from "@/components/Features";
 import Tokenomics from "@/components/Tokenomics";
 import Research from "@/components/Research";
@@ -23,6 +24,9 @@ export default function Home() {
     <main className="min-h-screen bg-transparent text-black selection:bg-[#00E599] selection:text-black">
       <Navbar />
       <Hero />
+      <section className="pb-12 pt-6 lg:pb-24 -mt-12 md:-mt-24 w-full bg-transparent">
+        <NetworkStats />
+      </section>
       <Features />
       <Tokenomics />
       <Research />
