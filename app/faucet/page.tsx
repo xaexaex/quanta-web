@@ -53,7 +53,7 @@ export default function FaucetPage() {
   };
 
   return (
-    <main className="min-h-screen bg-transparent text-black selection:bg-[#00E599] selection:text-black flex flex-col">
+    <main className="min-h-screen bg-transparent text-black selection:bg-emerald-100 selection:text-emerald-900 flex flex-col">
       <Navbar />
 
       <section className="flex-grow flex items-center justify-center pt-32 pb-16">
@@ -66,14 +66,14 @@ export default function FaucetPage() {
 
           <h1 className="text-5xl sm:text-7xl font-bold mb-6 tracking-tight leading-[0.95]">
             Testnet <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00E599] to-emerald-600">Faucet</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-emerald-500">Faucet</span>
           </h1>
 
           <p className="text-xl sm:text-2xl text-gray-600 mb-10 leading-relaxed font-light max-w-xl mx-auto">
             Get <span className="text-black font-medium">5 Testnet QUA</span> every 24 hours for testing your applications on the Quanta Chain.
           </p>
 
-          <div className="bg-white p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100">
+          <div className="bg-white p-8 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-gray-100/80 max-w-lg mx-auto">
             <div className="flex flex-col gap-4 text-left">
               <label htmlFor="address" className="text-sm font-semibold text-gray-700 ml-1">
                 Wallet Address
@@ -84,7 +84,7 @@ export default function FaucetPage() {
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
                 placeholder="Enter your Quanta wallet address"
-                className="w-full p-4 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:border-[#00E599] focus:ring-1 focus:ring-[#00E599] transition-all"
+                className="w-full p-4 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:border-black focus:ring-2 focus:ring-black/10 transition-all text-gray-900"
               />
 
               <div className="flex justify-center mt-2 h-[65px]">
@@ -98,7 +98,7 @@ export default function FaucetPage() {
               <button
                 onClick={requestCoins}
                 disabled={loading}
-                className="w-full mt-2 py-4 text-lg font-bold text-black bg-[#00E599] rounded-xl hover:shadow-[0_0_20px_rgba(0,229,153,0.4)] transition-all hover:scale-[1.02] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
+                className="w-full mt-4 py-4 text-lg font-bold text-white bg-black rounded-full hover:bg-gray-900 shadow-md hover:shadow-lg transition-all hover:-translate-y-1 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:scale-100 disabled:shadow-none flex items-center justify-center gap-2"
               >
                 {loading ? (
                   <>
@@ -112,10 +112,10 @@ export default function FaucetPage() {
             </div>
 
             {result && (
-              <div className={`mt-6 p-4 rounded-xl border flex items-start gap-3 text-left ${result.success ? "bg-[#00E599]/10 border-[#00E599]/20 text-green-800" : "bg-red-50 border-red-100 text-red-800"
+              <div className={`mt-6 p-4 rounded-2xl border flex items-start gap-3 text-left ${result.success ? "bg-emerald-50/50 border-emerald-100 text-emerald-800" : "bg-red-50 border-red-100 text-red-800"
                 }`}>
                 {result.success ? (
-                  <CheckCircle2 className="w-5 h-5 mt-0.5 text-[#00E599]" />
+                  <CheckCircle2 className="w-5 h-5 mt-0.5 text-emerald-500" />
                 ) : (
                   <XCircle className="w-5 h-5 mt-0.5 text-red-500" />
                 )}

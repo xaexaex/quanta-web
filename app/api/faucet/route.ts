@@ -58,8 +58,12 @@ function buildSigningBytesHex(opts: {
     nonce: bigint;
     lockTime: bigint;
     pubKeyHex: string;
+    networkId?: number; // 0 = testnet
 }): string {
     const enc = new TextEncoder();
+    const networkId = opts.networkId ?? 0;
+    const networkIdBuf = Buffer.allocUnsafe(4);
+    networkIdBuf.writeUInt32LE(networkId, 0);
     const parts: Buffer[] = [
         Buffer.from(enc.encode(opts.sender)),
         Buffer.from(enc.encode(opts.recipient)),
@@ -70,6 +74,7 @@ function buildSigningBytesHex(opts: {
         u64LE(opts.lockTime),
         Buffer.from(opts.pubKeyHex, 'hex'),
         Buffer.from([0x00]),      // sig_scheme = Falcon512
+        networkIdBuf,             // network_id (u32 LE) — 0 = testnet
         Buffer.from([0x00]),      // tx_type    = Transfer
     ];
     return Buffer.concat(parts).toString('hex');
@@ -237,6 +242,7 @@ export async function POST(request: NextRequest) {
             fee:        Number(FEE_MICROUNITS),
             nonce:      Number(nonce),
             lock_time:  0,
+            network_id: 0,           // 0 = testnet
             tx_type:    'Transfer',
             sig_scheme: 'Falcon512',
         };
