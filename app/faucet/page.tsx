@@ -4,9 +4,11 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Loader2, CheckCircle2, XCircle } from "lucide-react";
+import { Turnstile } from '@marsidev/react-turnstile';
 
 export default function FaucetPage() {
   const [address, setAddress] = useState("");
+  const [token, setToken] = useState("");
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<{ success: boolean; message: string; details?: string } | null>(null);
 
@@ -21,6 +23,11 @@ export default function FaucetPage() {
       return;
     }
 
+    if (!token) {
+      setResult({ success: false, message: "Please complete the CAPTCHA" });
+      return;
+    }
+
     setLoading(true);
     setResult(null);
 
@@ -28,7 +35,7 @@ export default function FaucetPage() {
       const response = await fetch("/api/faucet", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ address: address.trim() }),
+        body: JSON.stringify({ address: address.trim(), token }),
       });
 
       const data = await response.json();
@@ -63,7 +70,7 @@ export default function FaucetPage() {
           </h1>
 
           <p className="text-xl sm:text-2xl text-gray-600 mb-10 leading-relaxed font-light max-w-xl mx-auto">
-            Get <span className="text-black font-medium">1 Testnet QUA</span> every 24 hours for testing your applications on the Quanta Chain.
+            Get <span className="text-black font-medium">5 Testnet QUA</span> every 24 hours for testing your applications on the Quanta Chain.
           </p>
 
           <div className="bg-white p-8 rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100">
@@ -80,6 +87,14 @@ export default function FaucetPage() {
                 className="w-full p-4 rounded-xl bg-gray-50 border border-gray-200 focus:outline-none focus:border-[#00E599] focus:ring-1 focus:ring-[#00E599] transition-all"
               />
 
+              <div className="flex justify-center mt-2 h-[65px]">
+                <Turnstile
+                  siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+                  onSuccess={(t) => setToken(t)}
+                  options={{ theme: "light" }}
+                />
+              </div>
+
               <button
                 onClick={requestCoins}
                 disabled={loading}
@@ -91,7 +106,7 @@ export default function FaucetPage() {
                     Requesting...
                   </>
                 ) : (
-                  "Request 1 QUA"
+                  "Request 5 QUA"
                 )}
               </button>
             </div>

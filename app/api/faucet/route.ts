@@ -91,7 +91,7 @@ function getIp(req: NextRequest): string {
 // POST /api/faucet
 // ─────────────────────────────────────────────────────────────────────────────
 
-const AMOUNT_MICROUNITS = 1_000_000n; // 1 QUA  (1 QUA = 1_000_000 microunits)
+const AMOUNT_MICROUNITS = 5_000_000n; // 5 QUA  (1 QUA = 1_000_000 microunits)
 const FEE_MICROUNITS    = 1_000n;     // 0.001 QUA fee
 
 export async function POST(request: NextRequest) {
@@ -114,6 +114,35 @@ export async function POST(request: NextRequest) {
 
         const ip = getIp(request);
 
+        // ── 1.5 Verify Cloudflare Turnstile token ─────────────────────────
+        const token = typeof body.token === 'string' ? body.token : '';
+        if (!token) {
+            return NextResponse.json({ success: false, error: 'CAPTCHA token is missing. Please complete the CAPTCHA.' }, { status: 400 });
+        }
+
+        const turnstileSecret = process.env.TURNSTILE_SECRET_KEY;
+        if (!turnstileSecret) {
+            return NextResponse.json({ success: false, error: 'Server configuration error (missing Turnstile secret).' }, { status: 500 });
+        }
+
+        const formData = new FormData();
+        formData.append('secret', turnstileSecret);
+        formData.append('response', token);
+        formData.append('remoteip', ip);
+
+        try {
+            const turnstileRes = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+                method: 'POST',
+                body: formData,
+            });
+            const turnstileData = await turnstileRes.json();
+            if (!turnstileData.success) {
+                return NextResponse.json({ success: false, error: 'CAPTCHA verification failed. Please try again.' }, { status: 400 });
+            }
+        } catch (e) {
+            return NextResponse.json({ success: false, error: 'CAPTCHA verification error.' }, { status: 500 });
+        }
+
         // ── 2. MongoDB rate-limit check (1 success per IP + per address per 24h) ─
         const client   = await clientPromise;
         const db       = client.db('quanta');
@@ -130,7 +159,7 @@ export async function POST(request: NextRequest) {
             const nextAt   = new Date(existing.claimed_at.getTime() + 24 * 60 * 60 * 1000);
             const hoursLeft = Math.max(1, Math.ceil((nextAt.getTime() - Date.now()) / 3_600_000));
             return NextResponse.json(
-                { success: false, error: `You can claim again in ~${hoursLeft}h. Limit: 1 QUA per wallet per IP per 24 hours.` },
+                { success: false, error: `You can claim again in ~${hoursLeft}h. Limit: 5 QUA per wallet per IP per 24 hours.` },
                 { status: 429 }
             );
         }
@@ -226,7 +255,7 @@ export async function POST(request: NextRequest) {
             submitOk   = submitRes.ok && submitData.success;
         } catch (e) {
             console.error('[faucet] Node submission error:', e);
-            await claims.insertOne({ address, ip, claimed_at: new Date(), amount_qua: 1, status: 'node_unreachable' });
+            await claims.insertOne({ address, ip, claimed_at: new Date(), amount_qua: 5, status: 'node_unreachable' });
             return NextResponse.json({ success: false, error: 'Could not reach the Quanta node. Please try again later.' }, { status: 502 });
         }
 
@@ -234,7 +263,7 @@ export async function POST(request: NextRequest) {
             await claims.insertOne({
                 address, ip,
                 claimed_at: new Date(),
-                amount_qua: 1,
+                amount_qua: 5,
                 status: 'failed',
                 error: submitData!.error ?? 'unknown',
             });
@@ -249,14 +278,14 @@ export async function POST(request: NextRequest) {
             address,
             ip,
             claimed_at: new Date(),
-            amount_qua: 1,
+            amount_qua: 5,
             tx_hash: submitData!.tx_hash,
             status: 'success',
         });
 
         return NextResponse.json({
             success: true,
-            message:  '1 QUA sent to your wallet!',
+            message:  '5 QUA sent to your wallet!',
             details:  `TX Hash: ${submitData!.tx_hash}`,
             tx_hash:  submitData!.tx_hash,
         });
