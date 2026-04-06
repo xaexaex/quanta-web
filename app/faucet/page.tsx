@@ -66,7 +66,7 @@ export default function FaucetPage() {
 
           <h1 className="text-5xl sm:text-7xl font-bold mb-6 tracking-tight leading-[0.95]">
             Testnet <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-emerald-500">Faucet</span>
+            <span className="text-[#00E599]">Faucet</span>
           </h1>
 
           <p className="text-xl sm:text-2xl text-gray-600 mb-10 leading-relaxed font-light max-w-xl mx-auto">

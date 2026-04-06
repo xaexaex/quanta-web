@@ -1,9 +1,8 @@
 import { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import EmailCapture from "@/components/EmailCapture";
 import TeamMember from "@/components/TeamMember";
-import { Shield, Code, Zap, Github } from "lucide-react";
+import { Github } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Core Team",
@@ -11,12 +10,27 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
+  const techStack = [
+    { title: "Language", desc: "Rust 2021 for memory safety and performance" },
+    { title: "Signatures", desc: "Falcon-512 (NIST Level 1, lattice-based)" },
+    { title: "Encryption", desc: "Kyber-1024 (NIST Level 5, 256-bit quantum security)" },
+    { title: "Consensus", desc: "Adaptive PoW with 30s block time" },
+  ];
+
+  const transparency = [
+    { title: "Funding Status", desc: "Self-funded by founding team. No venture capital, no pre-mine, no ICO. We're building for the long term, not a quick exit." },
+    { title: "Development Progress", desc: "Active development since 2024. Core protocol implementation complete. Currently in Phase 1 of testnet preparation." },
+    { title: "Audits & Security", desc: "External security audits scheduled for Q2 2026 during public testnet phase. Bug bounty program will launch alongside testnet." },
+    { title: "Open Source Commitment", desc: "All code is MIT licensed and publicly available on GitHub. We believe in radical transparency and community-driven development." },
+  ];
+
   return (
-    <main className="min-h-screen bg-transparent text-black">
+    <main className="min-h-screen bg-transparent text-black selection:bg-[#00E599] selection:text-black">
       <Navbar />
 
       <div className="pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24">
         <div className="container mx-auto px-6">
+
           {/* Hero */}
           <div className="max-w-4xl mb-16 sm:mb-20">
             <div className="inline-block mb-4">
@@ -26,21 +40,17 @@ export default function AboutPage() {
             </div>
             <h1 className="text-5xl sm:text-7xl font-bold mb-6 tracking-tight leading-[0.95]">
               Meet the <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00E599] to-emerald-600">Core Team</span>
+              <span className="text-[#00E599]">Core Team</span>
             </h1>
             <p className="text-xl sm:text-2xl text-gray-600 leading-relaxed font-light max-w-2xl">
-              Building production-ready quantum-resistant blockchain infrastructure with <span className="text-black font-medium">NIST-standardized post-quantum cryptography for long-term security.</span>
+              Building production-ready quantum-resistant blockchain infrastructure with{" "}
+              <span className="text-black font-medium">NIST-standardized post-quantum cryptography for long-term security.</span>
             </p>
           </div>
 
-          {/* The Team */}
+          {/* Team Members */}
           <div className="mb-20 sm:mb-24">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-center px-4">Core Development Team</h2>
-            <p className="text-center text-gray-600 text-base sm:text-lg mb-8 sm:mb-12 max-w-2xl mx-auto px-4">
-              Building QUANTA to secure blockchain infrastructure against quantum threats for decades to come.
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-4xl mx-auto px-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-4xl">
               <TeamMember
                 name="Kishore K"
                 role="Founder & Core Protocol Architect"
@@ -64,137 +74,119 @@ export default function AboutPage() {
               />
             </div>
 
-            {/* Additional Contributors Note */}
-            <div className="text-center mt-8 sm:mt-12 px-4">
-              <div className="inline-flex items-center gap-2 px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-[#00E599]/10 to-[#00E599]/5 border border-[#00E599]/20 rounded-full">
+            <div className="mt-8">
+              <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#00E599]/10 border border-[#00E599]/20 rounded-full">
                 <div className="w-2 h-2 bg-[#00E599] rounded-full" />
-                <p className="text-gray-700 font-semibold text-xs sm:text-sm">
+                <p className="text-gray-700 font-semibold text-sm">
                   + Anonymous contributors helping build the future
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Why We're Building This */}
-          <div className="max-w-4xl mx-auto mb-24">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8">Why Quantum Resistance Matters</h2>
-            <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
+          {/* Why Quantum Resistance Matters */}
+          <div className="max-w-4xl mb-24">
+            <div className="inline-block mb-4">
+              <span className="text-xs font-mono font-bold tracking-widest text-gray-400 uppercase px-4 py-2 bg-gray-100 rounded-full">
+                The Mission
+              </span>
+            </div>
+            <h2 className="text-4xl sm:text-5xl font-bold mb-8 tracking-tight">
+              Why Quantum Resistance <span className="text-[#00E599]">Matters</span>
+            </h2>
+            <div className="space-y-5 text-lg text-gray-600 leading-relaxed">
               <p>
-                Quantum computers are advancing rapidly. IBM, Google, and other tech giants are making significant progress. Conservative estimates suggest quantum computers capable of breaking current blockchain cryptography (ECDSA/EdDSA) could exist within 10-15 years.
+                Quantum computers are advancing rapidly. IBM, Google, and other tech giants are making significant progress. Conservative estimates suggest quantum computers capable of breaking current blockchain cryptography (ECDSA/EdDSA) could exist within 10–15 years.
               </p>
               <p>
-                Traditional cryptographic algorithms like ECDSA and RSA, which secure billions of dollars in cryptocurrency today, will become vulnerable to Shor's algorithm running on sufficiently powerful quantum computers. This isn't speculation - it's a matter of when, not if.
+                Traditional cryptographic algorithms like ECDSA and RSA, which secure billions of dollars in cryptocurrency today, will become vulnerable to Shor's algorithm running on sufficiently powerful quantum computers. This isn't speculation — it's a matter of when, not if.
               </p>
               <p className="font-semibold text-black">
                 QUANTA is built from the ground up with NIST-standardized post-quantum cryptography: Falcon-512 signatures (NIST Level 1) and Kyber-1024 encryption (NIST Level 5, 256-bit quantum security). No known polynomial-time quantum attacks exist against these lattice-based algorithms.
-              </p>
-              <p>
-                We're not waiting for quantum computers to break existing chains. We're building secure infrastructure now, protecting against harvest now, decrypt later attacks through 2045 and beyond.
               </p>
             </div>
           </div>
 
           {/* Project Transparency */}
-          <div className="max-w-4xl mx-auto mb-20 sm:mb-24 bg-gradient-to-br from-gray-50 to-white border-2 border-gray-100 rounded-2xl sm:rounded-3xl p-6 sm:p-8 md:p-10 px-4">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 sm:mb-8">Project Transparency</h2>
-            <div className="space-y-4 sm:space-y-6">
-              <div className="border-l-4 border-[#00E599] pl-4 sm:pl-6">
-                <h3 className="font-bold text-lg sm:text-xl mb-2">Funding Status</h3>
-                <p className="text-sm sm:text-base text-gray-700">
-                  Self-funded by founding team. No venture capital, no pre-mine, no ICO. We're building for the long term, not a quick exit.
-                </p>
-              </div>
-              <div className="border-l-4 border-[#00E599] pl-4 sm:pl-6">
-                <h3 className="font-bold text-lg sm:text-xl mb-2">Development Progress</h3>
-                <p className="text-sm sm:text-base text-gray-700">
-                  Active development since 2024. Core protocol implementation complete. Currently in Phase 1 of testnet preparation (35% complete as of January 2026).
-                </p>
-              </div>
-              <div className="border-l-4 border-[#00E599] pl-4 sm:pl-6">
-                <h3 className="font-bold text-lg sm:text-xl mb-2">Audits & Security</h3>
-                <p className="text-sm sm:text-base text-gray-700">
-                  External security audits scheduled for Q2 2026 during public testnet phase. Bug bounty program will launch alongside testnet.
-                </p>
-              </div>
-              <div className="border-l-4 border-[#00E599] pl-4 sm:pl-6">
-                <h3 className="font-bold text-lg sm:text-xl mb-2">Open Source Commitment</h3>
-                <p className="text-sm sm:text-base text-gray-700">
-                  All code is MIT licensed and publicly available on GitHub. We believe in radical transparency and community-driven development.
-                </p>
-              </div>
+          <div className="max-w-4xl mb-24">
+            <div className="inline-block mb-4">
+              <span className="text-xs font-mono font-bold tracking-widest text-gray-400 uppercase px-4 py-2 bg-gray-100 rounded-full">
+                Transparency
+              </span>
+            </div>
+            <h2 className="text-4xl sm:text-5xl font-bold mb-10 tracking-tight">
+              Project <span className="text-[#00E599]">Transparency</span>
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              {transparency.map((item, i) => (
+                <div
+                  key={i}
+                  className="bg-white shadow-xl -translate-y-1 rounded-2xl p-6 sm:p-8 border border-[#00E599]/30 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300"
+                >
+                  <div className="w-8 h-8 rounded-full border border-teal-600/30 flex items-center justify-center mb-5 text-sm font-mono text-teal-700 font-medium">
+                    {i + 1}
+                  </div>
+                  <h3 className="font-bold text-lg mb-2 text-gray-900">{item.title}</h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
             </div>
           </div>
 
           {/* Technology Stack */}
-          <div className="mb-20 sm:mb-24 px-4">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 sm:mb-12 text-center">Technology Stack</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
-              <div className="border-2 border-gray-100 rounded-xl sm:rounded-2xl p-4 sm:p-6 hover:border-[#00E599] transition-all">
-                <h3 className="font-bold text-lg sm:text-xl mb-2">Language</h3>
-                <p className="text-sm sm:text-base text-gray-600">Rust 2021 for memory safety and performance</p>
-              </div>
-              <div className="border-2 border-gray-100 rounded-xl sm:rounded-2xl p-4 sm:p-6 hover:border-[#00E599] transition-all">
-                <h3 className="font-bold text-lg sm:text-xl mb-2">Signatures</h3>
-                <p className="text-sm sm:text-base text-gray-600">Falcon-512 (NIST Level 1, lattice-based)</p>
-              </div>
-              <div className="border-2 border-gray-100 rounded-xl sm:rounded-2xl p-4 sm:p-6 hover:border-[#00E599] transition-all">
-                <h3 className="font-bold text-lg sm:text-xl mb-2">Encryption</h3>
-                <p className="text-sm sm:text-base text-gray-600">Kyber-1024 (NIST Level 5, 256-bit quantum security)</p>
-              </div>
-              <div className="border-2 border-gray-100 rounded-xl sm:rounded-2xl p-4 sm:p-6 hover:border-[#00E599] transition-all">
-                <h3 className="font-bold text-lg sm:text-xl mb-2">Consensus</h3>
-                <p className="text-sm sm:text-base text-gray-600">Adaptive PoW with 30s block time</p>
-              </div>
+          <div className="max-w-4xl mb-24">
+            <div className="inline-block mb-4">
+              <span className="text-xs font-mono font-bold tracking-widest text-gray-400 uppercase px-4 py-2 bg-gray-100 rounded-full">
+                Built With
+              </span>
+            </div>
+            <h2 className="text-4xl sm:text-5xl font-bold mb-10 tracking-tight">
+              Technology <span className="text-[#00E599]">Stack</span>
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {techStack.map((item, i) => (
+                <div
+                  key={i}
+                  className="bg-white shadow-xl -translate-y-1 rounded-2xl p-6 border border-[#00E599]/30 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300"
+                >
+                  <div className="w-8 h-8 rounded-full border border-teal-600/30 flex items-center justify-center mb-4 text-sm font-mono text-teal-700 font-medium">
+                    {i + 1}
+                  </div>
+                  <h3 className="font-bold text-base mb-2 text-gray-900">{item.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Join Us */}
-          {/* <div className="max-w-3xl mx-auto px-4">
-            <EmailCapture
-              title="Join Our Journey"
-              description="Follow our progress as we build the quantum-resistant future. Get development updates, technical insights, and early access opportunities."
-              buttonText="Stay Updated"
-            />
-          </div> */}
-
-          {/* Contact */}
-          <div className="mt-12 sm:mt-16 text-center px-4">
-            <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4">Call for Passionate Builders</h3>
-            <p className="text-sm sm:text-base text-gray-600 mb-4 sm:mb-6 max-w-2xl mx-auto">
-              We are looking for passionate contributors who believe in the post-quantum future. Whether you are a Rustacean, a cryptographer, or a community builder, join us in building the most secure blockchain infrastructure.
-            </p>
-            <a
-              href="https://github.com/quantachain/quanta/issues"
-              target="_blank"
-              className="inline-flex items-center gap-2 px-6 sm:px-8 py-3 sm:py-4 bg-black text-white font-bold rounded-full hover:bg-gray-800 transition-all text-sm sm:text-base"
-            >
-              <Github className="w-4 h-4 sm:w-5 sm:h-5" />
-              View Open Issues
-            </a>
-
-            {/* Contact Information */}
-            <div className="mt-8 sm:mt-12 grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-2xl mx-auto">
-              <div className="bg-gray-50 rounded-lg sm:rounded-xl p-4 sm:p-6 text-left">
-                <h4 className="font-bold text-base sm:text-lg mb-2">Partnerships & Connect</h4>
-                <p className="text-gray-600 text-xs sm:text-sm mb-2 sm:mb-3">Collaborate or follow our professional updates.</p>
-                <div className="flex flex-col gap-2">
-                  <a href="mailto:contact@quantachain.org" className="text-[#00E599] hover:underline font-semibold text-sm sm:text-base">
-                    contact@quantachain.org
-                  </a>
-                  <a href="https://www.linkedin.com/company/quantachain" target="_blank" className="text-[#00E599] hover:underline font-semibold text-sm sm:text-base">
-                    Follow on LinkedIn &rarr;
-                  </a>
+          {/* Call for Builders */}
+          <div className="max-w-4xl">
+            <div className="bg-white shadow-xl rounded-2xl p-8 sm:p-12 border border-[#00E599]/30 text-center">
+              <div className="w-8 h-8 rounded-full border border-teal-600/30 flex items-center justify-center mb-6 text-sm font-mono text-teal-700 font-medium mx-auto">
+                ✦
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-3 text-gray-900">Call for Passionate Builders</h3>
+              <p className="text-gray-600 mb-8 max-w-xl mx-auto leading-relaxed">
+                We are looking for passionate contributors who believe in the post-quantum future. Whether you are a Rustacean, a cryptographer, or a community builder, join us.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href="https://github.com/quantachain/quanta/issues"
+                  target="_blank"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-black text-white font-bold rounded-full hover:bg-[#00E599] hover:text-black transition-all hover:scale-105 active:scale-95"
+                >
+                  <Github className="w-5 h-5" />
+                  View Open Issues
+                </a>
+                <div className="flex flex-col sm:flex-row gap-4 items-center justify-center text-sm text-gray-500">
+                  <a href="mailto:contact@quantachain.org" className="text-[#00E599] hover:underline font-semibold">contact@quantachain.org</a>
+                  <span className="hidden sm:inline text-gray-300">|</span>
+                  <a href="https://www.linkedin.com/company/quantachain" target="_blank" className="text-[#00E599] hover:underline font-semibold">LinkedIn →</a>
                 </div>
               </div>
-              <div className="bg-gray-50 rounded-lg sm:rounded-xl p-4 sm:p-6 text-left">
-                <h4 className="font-bold text-base sm:text-lg mb-2">General Inquiries</h4>
-                <p className="text-gray-600 text-xs sm:text-sm mb-2 sm:mb-3">Questions about Quanta Chain?</p>
-                <a href="mailto:info@quantachain.org" className="text-[#00E599] hover:underline font-semibold text-sm sm:text-base">
-                  info@quantachain.org
-                </a>
-              </div>
             </div>
           </div>
+
         </div>
       </div>
 
