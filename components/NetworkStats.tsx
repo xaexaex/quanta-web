@@ -87,12 +87,12 @@ export default function NetworkStats() {
 
           <div className="mt-6">
             <Link
-              href="https://quantascan.io"
+              href="https://scan.quantachain.org/"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gray-200 text-sm font-medium text-gray-600 hover:border-[#00E599] hover:text-black hover:bg-[#00E599]/5 transition-all duration-200 group"
             >
-              View in QuantaScan
+              View in QuaScan
               <ArrowUpRight className="w-4 h-4 text-gray-400 group-hover:text-[#00E599] transition-colors" />
             </Link>
           </div>
