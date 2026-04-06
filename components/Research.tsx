@@ -39,82 +39,98 @@ const articles = [
 
 export default function Research() {
   return (
-    <section className="py-24 bg-transparent mt-12 mb-12 relative overflow-hidden">
-      {/* Decorative Glow */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-[#00E599]/5 rounded-full blur-[100px] -translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+    <section className="py-20 bg-transparent relative overflow-hidden">
 
       <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
-          <div className="max-w-2xl">
-            <h2 className="text-4xl sm:text-5xl font-bold mb-6 tracking-tight leading-[1]">
+        {/* Section Header */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-14 gap-6">
+          <div>
+            <span className="text-xs font-mono font-bold tracking-widest text-gray-400 uppercase mb-4 block">
+              Our Work
+            </span>
+            <h2 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1] text-gray-900">
               Research &amp; <span className="text-[#00E599]">Publications</span>
             </h2>
-            <p className="text-xl text-gray-600 font-light leading-relaxed">
-              We operate at the forefront of cryptography and theoretical physics. Explore our peer-reviewed research and latest insights.
-            </p>
           </div>
+          <p className="text-lg text-gray-500 font-light leading-relaxed max-w-md text-right hidden md:block">
+            Operating at the forefront of cryptography and theoretical physics.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Academic Papers */}
-          <div className="space-y-6">
-            <div className="flex items-center gap-3 mb-8">
-              <BookOpen className="w-6 h-6 text-[#00E599]" />
-              <h3 className="text-2xl font-bold">Academic Papers</h3>
+          <div>
+            <div className="flex items-center gap-2.5 mb-6">
+              <div className="w-8 h-8 rounded-lg bg-[#00E599]/10 flex items-center justify-center">
+                <BookOpen className="w-4 h-4 text-[#00E599]" />
+              </div>
+              <h3 className="text-base font-bold text-gray-900 tracking-tight">Academic Papers</h3>
             </div>
-            {publications.map((pub, index) => (
-              <Link 
-                key={index}
-                href={pub.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block p-6 bg-white rounded-3xl border border-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.02)] hover:shadow-[0_8px_30px_rgba(0,229,153,0.12)] hover:border-[#00E599]/30 transition-all duration-300 relative overflow-hidden"
-              >
-                <div className="absolute top-0 left-0 w-1.5 h-full bg-black group-hover:bg-[#00E599] transition-colors" />
-                <div className="flex flex-col gap-3 ml-2">
-                  <div className="flex justify-between items-start">
-                     <span className="text-xs font-mono font-bold tracking-widest text-[#00E599] uppercase pt-1">
-                       {pub.type}
-                     </span>
-                     <ArrowUpRight className="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" />
+            <div className="space-y-3">
+              {publications.map((pub, index) => (
+                <Link
+                  key={index}
+                  href={pub.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-start gap-4 p-5 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-[#00E599]/25 transition-all duration-300 relative overflow-hidden"
+                >
+                  {/* Left accent line */}
+                  <div className="absolute left-0 top-0 w-0.5 h-full bg-gray-100 group-hover:bg-[#00E599] transition-colors duration-300 rounded-l-2xl" />
+
+                  <div className="flex-1 min-w-0 pl-1">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-[10px] font-mono font-bold tracking-widest text-[#00E599] uppercase">
+                        {pub.type}
+                      </span>
+                    </div>
+                    <h4 className="text-sm sm:text-[15px] font-semibold text-gray-800 leading-snug group-hover:text-gray-900 transition-colors line-clamp-2">
+                      {pub.title}
+                    </h4>
+                    <p className="text-xs text-gray-400 font-medium mt-2">Published: {pub.date}</p>
                   </div>
-                  <h4 className="text-lg sm:text-xl font-bold text-black leading-snug group-hover:text-[#00E599] transition-colors">
-                    {pub.title}
-                  </h4>
-                  <p className="text-sm text-gray-500 font-medium">Published: {pub.date}</p>
-                </div>
-              </Link>
-            ))}
+
+                  <ArrowUpRight className="w-4 h-4 text-gray-300 group-hover:text-[#00E599] flex-shrink-0 mt-0.5 transition-colors duration-300" />
+                </Link>
+              ))}
+            </div>
           </div>
 
-          {/* Articles */}
-          <div className="space-y-6">
-             <div className="flex items-center gap-3 mb-8">
-              <FileText className="w-6 h-6 text-black" />
-              <h3 className="text-2xl font-bold">Articles &amp; Insights</h3>
+          {/* Articles & Insights */}
+          <div>
+            <div className="flex items-center gap-2.5 mb-6">
+              <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center">
+                <FileText className="w-4 h-4 text-gray-500" />
+              </div>
+              <h3 className="text-base font-bold text-gray-900 tracking-tight">Articles &amp; Insights</h3>
             </div>
-            {articles.map((article, index) => (
-              <Link 
-                key={index}
-                href={article.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="group block p-6 bg-gray-50 rounded-3xl border border-gray-100 hover:bg-white hover:shadow-[0_8px_30px_rgba(0,0,0,0.06)] hover:border-black/10 transition-all duration-300"
-              >
-                <div className="flex flex-col gap-3">
-                  <div className="flex justify-between items-start">
-                     <span className="text-xs font-mono font-bold tracking-widest text-gray-400 uppercase pt-1">
-                       {article.type}
-                     </span>
-                     <ArrowUpRight className="w-5 h-5 text-gray-400 group-hover:text-black transition-colors" />
+            <div className="space-y-3">
+              {articles.map((article, index) => (
+                <Link
+                  key={index}
+                  href={article.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-start gap-4 p-5 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-gray-200 transition-all duration-300"
+                >
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-[10px] font-mono font-bold tracking-widest text-gray-400 uppercase">
+                        {article.type}
+                      </span>
+                    </div>
+                    <h4 className="text-sm sm:text-[15px] font-semibold text-gray-800 leading-snug group-hover:text-gray-900 transition-colors line-clamp-2">
+                      {article.title}
+                    </h4>
+                    <p className="text-xs text-gray-400 font-medium mt-2">{article.date}</p>
                   </div>
-                  <h4 className="text-lg sm:text-xl font-bold text-black leading-snug group-hover:text-[#00E599] transition-colors">
-                    {article.title}
-                  </h4>
-                  <p className="text-sm text-gray-500 font-medium">{article.date}</p>
-                </div>
-              </Link>
-            ))}
+
+                  <ArrowUpRight className="w-4 h-4 text-gray-300 group-hover:text-gray-600 flex-shrink-0 mt-0.5 transition-colors duration-300" />
+                </Link>
+              ))}
+
+
+            </div>
           </div>
         </div>
       </div>

@@ -24,14 +24,12 @@ export default function Home() {
     <main className="min-h-screen bg-transparent text-black selection:bg-[#00E599] selection:text-black">
       <Navbar />
       <Hero />
-      <section className="pb-12 pt-6 lg:pb-24 -mt-12 md:-mt-24 w-full bg-transparent">
-        <NetworkStats />
-      </section>
+      <NetworkStats />
       <Features />
       <Tokenomics />
       <Research />
 
-      <section className="py-12 sm:py-24 bg-transparent">
+      <section className="py-8 sm:py-16 bg-transparent">
         <div className="container mx-auto px-6">
           <EmailCapture />
         </div>
