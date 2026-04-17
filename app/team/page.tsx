@@ -1,7 +1,6 @@
 import { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import TeamMember from "@/components/TeamMember";
 import { Github } from "lucide-react";
 
 export const metadata: Metadata = {
@@ -32,15 +31,15 @@ export default function AboutPage() {
         <div className="container mx-auto px-6">
 
           {/* Hero */}
-          <div className="max-w-4xl mb-16 sm:mb-20">
+          <div className="max-w-4xl mx-auto mb-16 sm:mb-20">
             <div className="inline-block mb-4">
               <span className="text-xs font-mono font-bold tracking-widest text-gray-400 uppercase px-4 py-2 bg-gray-100 rounded-full">
                 Team
               </span>
             </div>
             <h1 className="text-5xl sm:text-7xl font-bold mb-6 tracking-tight leading-[0.95]">
-              Meet the <br />
-              <span className="text-[#00E599]">Core Team</span>
+              Protocol <br />
+              <span className="text-[#00E599]">Maintainers</span>
             </h1>
             <p className="text-xl sm:text-2xl text-gray-600 leading-relaxed font-light max-w-2xl">
               Building production-ready quantum-resistant blockchain infrastructure with{" "}
@@ -48,44 +47,39 @@ export default function AboutPage() {
             </p>
           </div>
 
-          {/* Team Members */}
-          <div className="mb-20 sm:mb-24">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 max-w-4xl">
-              <TeamMember
-                name="Kishore K"
-                role="Founder & Core Protocol Architect"
-                description="Architect of Quanta's quantum-resistant protocol design. Leading the vision for post-quantum blockchain infrastructure with extreme focus on long-term security and sustainable economics."
-                imageSrc="/team/founder.jpg"
-                fallbackText="KK"
-                fallbackGradient="bg-gradient-to-br from-[#00E599] to-[#00E599]/50"
-                githubUrl="https://github.com/XD637"
-                twitterUrl="https://x.com/idcidkidgfa"
-                linkedinUrl="https://www.linkedin.com/in/kishore-k-100819212"
-              />
-
-              <TeamMember
-                name="Flexispy"
-                role="Community Manager"
-                description="Building and nurturing Quanta's global community. Coordinating developer relations, managing social channels, and ensuring transparent communication with stakeholders."
-                imageSrc="/team/flexispy.jpg"
-                fallbackText="FP"
-                fallbackGradient="bg-gradient-to-br from-blue-500 to-blue-400"
-                twitterUrl="https://x.com/flexispy30"
-              />
+          {/* Core Maintainers */}
+          <div className="mb-20 sm:mb-24 max-w-4xl mx-auto">
+            <div className="bg-white shadow-xl -translate-y-1 rounded-2xl p-8 sm:p-12 border border-[#00E599]/30 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+              <h2 className="text-3xl font-bold mb-6 text-gray-900 tracking-tight">
+                Quantalabs
+              </h2>
+              <p className="text-xl text-gray-600 leading-relaxed font-light mb-8">
+                The Quanta Protocol is actively developed and maintained by the engineering team at <strong className="text-black font-semibold">Quantalabs</strong>. We are a dedicated group of cryptographers, distributed systems engineers, and researchers focused exclusively on building sovereign, quantum-resistant infrastructure for the future of finance and enterprise.
+              </p>
+              <div className="inline-flex">
+                <a
+                  href="https://quantalabs.cc"
+                  target="_blank"
+                  className="bg-black text-white px-6 py-3 rounded-full font-bold hover:bg-[#00E599] hover:text-black transition-colors flex items-center gap-2"
+                >
+                  Visit Quantalabs.cc
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                </a>
+              </div>
             </div>
 
             <div className="mt-8">
               <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#00E599]/10 border border-[#00E599]/20 rounded-full">
                 <div className="w-2 h-2 bg-[#00E599] rounded-full" />
                 <p className="text-gray-700 font-semibold text-sm">
-                  + Anonymous contributors helping build the future
+                  Supported by a global ecosystem of independent contributors
                 </p>
               </div>
             </div>
           </div>
 
           {/* Why Quantum Resistance Matters */}
-          <div className="max-w-4xl mb-24">
+          <div className="max-w-4xl mx-auto mb-24">
             <div className="inline-block mb-4">
               <span className="text-xs font-mono font-bold tracking-widest text-gray-400 uppercase px-4 py-2 bg-gray-100 rounded-full">
                 The Mission
@@ -108,7 +102,7 @@ export default function AboutPage() {
           </div>
 
           {/* Project Transparency */}
-          <div className="max-w-4xl mb-24">
+          <div className="max-w-4xl mx-auto mb-24">
             <div className="inline-block mb-4">
               <span className="text-xs font-mono font-bold tracking-widest text-gray-400 uppercase px-4 py-2 bg-gray-100 rounded-full">
                 Transparency
@@ -134,7 +128,7 @@ export default function AboutPage() {
           </div>
 
           {/* Technology Stack */}
-          <div className="max-w-4xl mb-24">
+          <div className="max-w-4xl mx-auto mb-24">
             <div className="inline-block mb-4">
               <span className="text-xs font-mono font-bold tracking-widest text-gray-400 uppercase px-4 py-2 bg-gray-100 rounded-full">
                 Built With
@@ -160,7 +154,7 @@ export default function AboutPage() {
           </div>
 
           {/* Call for Builders */}
-          <div className="max-w-4xl">
+          <div className="max-w-4xl mx-auto">
             <div className="bg-white shadow-xl rounded-2xl p-8 sm:p-12 border border-[#00E599]/30 text-center">
               <div className="w-8 h-8 rounded-full border border-teal-600/30 flex items-center justify-center mb-6 text-sm font-mono text-teal-700 font-medium mx-auto">
                 ✦

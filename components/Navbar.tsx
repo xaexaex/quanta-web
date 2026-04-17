@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { Github, Menu, X, Search, Droplet, Pickaxe, Wallet, BookOpen, FileText, Users, Newspaper, MessageSquare, Award, Send, Briefcase } from "lucide-react";
+import { Github, Menu, X, Search, Droplet, Pickaxe, Wallet, BookOpen, FileText, Users, Newspaper, MessageSquare, Award, Send, Briefcase, Package, Code2 } from "lucide-react";
 import { useState, useEffect } from "react";
 
 type NavItem = {
@@ -35,12 +35,15 @@ const navItems: NavGroup[] = [
       { name: "GitHub", href: "https://github.com/quantachain/quanta", external: true, description: "Source code & contributions", icon: Github },
       { name: "Documentation", href: "https://quantachain.gitbook.io/quantachain-docs", external: true, description: "Integration guides & API reference", icon: BookOpen },
       { name: "Whitepaper", href: "/docs/WHITEPAPER.docx", description: "Technical architecture & specs", icon: FileText },
+      { name: "NPM SDK", href: "https://www.npmjs.com/package/quanta-sdk", external: true, description: "Official JS/TS Client", icon: Package },
+      { name: "WASM Engine", href: "https://crates.io/crates/quanta-wasm", external: true, description: "Rust Cryptography Module", icon: Code2 },
     ],
   },
   {
     name: "Company",
     items: [
-      { name: "About", href: "/team", description: "Our mission & the team", icon: Users },
+      { name: "Quantalabs", href: "https://quantalabs.cc", external: true, description: "Core Protocol Maintainers", icon: Briefcase },
+      { name: "About", href: "/team", description: "Protocol mission & values", icon: Users },
       { name: "Services", href: "/services", description: "Quantum-safe engineering & consulting", icon: Briefcase },
       { name: "Community", href: "/community", description: "Join the Quanta revolution", icon: MessageSquare },
       { name: "Press Kit", href: "/press", description: "Brand assets & media resources", icon: Award },
