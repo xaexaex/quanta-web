@@ -5,6 +5,7 @@ import NetworkStats from "@/components/NetworkStats";
 import Features from "@/components/Features";
 import Tokenomics from "@/components/Tokenomics";
 import Research from "@/components/Research";
+import DeveloperTools from "@/components/DeveloperTools";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import TrustIndicators from "@/components/TrustIndicators";
@@ -28,6 +29,7 @@ export default function Home() {
       <Features />
       <Tokenomics />
       <Research />
+      <DeveloperTools />
 
       <section className="py-8 sm:py-16 bg-transparent">
         <div className="container mx-auto px-6">
