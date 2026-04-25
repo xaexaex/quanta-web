@@ -357,9 +357,9 @@ export default function Navbar() {
             </a>
             <Link
               href="/faucet"
-              className="hidden md:inline-flex items-center gap-1.5 px-5 py-2.5 bg-black text-white rounded-full font-semibold text-sm hover:bg-[#00E599] hover:text-black transition-all"
+              className="hidden md:inline-flex items-center gap-1.5 px-5 py-2.5 bg-black text-white rounded-full font-semibold text-sm hover:bg-[#00E599] hover:text-black transition-all shadow-[0_0_15px_rgba(0,229,153,0.3)] hover:shadow-[0_0_25px_rgba(0,229,153,0.5)] border border-[#00E599]/20"
             >
-              Get QUA
+              Testnet Faucet
             </Link>
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -435,9 +435,9 @@ export default function Navbar() {
             <Link
               href="/faucet"
               onClick={() => setIsOpen(false)}
-              className="mt-2 block px-6 py-4 text-sm font-bold text-white bg-black rounded-2xl text-center hover:bg-[#00E599] hover:text-black transition-all uppercase tracking-wider"
+              className="mt-2 block px-6 py-4 text-sm font-bold text-white bg-black rounded-2xl text-center hover:bg-[#00E599] hover:text-black transition-all uppercase tracking-wider shadow-[0_0_15px_rgba(0,229,153,0.3)] border border-[#00E599]/20"
             >
-              Get QUA
+              Testnet Faucet
             </Link>
           </div>
         </div>
