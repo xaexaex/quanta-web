@@ -1,110 +1,289 @@
-import Link from 'next/link';
-import { Package, Code2, ArrowUpRight, ShieldCheck, Zap } from 'lucide-react';
+"use client";
+
+import Link from "next/link";
+import {
+  ArrowUpRight,
+  Search,
+  Droplet,
+  Wallet,
+  Smartphone,
+  Package,
+  Code2,
+  BookOpen,
+  Pickaxe,
+  Briefcase,
+  MessageSquare,
+} from "lucide-react";
+
+const PRODUCTS = [
+  {
+    category: "Infrastructure",
+    items: [
+      {
+        name: "Block Explorer",
+        description: "Real-time blocks, transactions, addresses, and network analytics — powered by quantascan.",
+        href: "https://scan.quantachain.org",
+        external: true,
+        icon: Search,
+        status: "live" as const,
+        accent: "#00E599",
+      },
+      {
+        name: "Testnet Faucet",
+        description: "Request free testnet QUA to fund your development workflow instantly.",
+        href: "/faucet",
+        external: false,
+        icon: Droplet,
+        status: "live" as const,
+        accent: "#00E599",
+      },
+      {
+        name: "Quantalabs",
+        description: "The core engineering lab behind the Quanta protocol — R&D, audits, and institutional services.",
+        href: "https://quantalabs.cc",
+        external: true,
+        icon: Briefcase,
+        status: "live" as const,
+        accent: "#00E599",
+      },
+    ],
+  },
+  {
+    category: "Wallets",
+    items: [
+      {
+        name: "Chrome Extension",
+        description: "Falcon-512 secured browser wallet. Send, receive, and sign transactions right from your browser.",
+        href: "https://chrome.google.com/webstore/detail/glofbcgdmodmaohealombcgoapdbdaff",
+        external: true,
+        icon: Wallet,
+        status: "live" as const,
+        accent: "#00E599",
+      },
+      {
+        name: "Mobile Wallet",
+        description: "Native Android wallet with Rust cryptography compiled directly on-device. No compromise on security.",
+        href: "https://github.com/quantachain/quanta-mobile-wallet",
+        external: true,
+        icon: Smartphone,
+        status: "building" as const,
+        accent: "#3b82f6",
+      },
+      {
+        name: "Mining",
+        description: "CPU-friendly SHA3-256 Proof-of-Work. Any machine can participate — no ASICs required.",
+        href: "https://quantachain.gitbook.io/quantachain-docs/mining-guide",
+        external: true,
+        icon: Pickaxe,
+        status: "live" as const,
+        accent: "#00E599",
+      },
+    ],
+  },
+  {
+    category: "Developer",
+    items: [
+      {
+        name: "quanta-sdk",
+        description: "Official JavaScript / TypeScript SDK. Wallets, transactions, TimeLock, MultiSig — all post-quantum.",
+        href: "https://www.npmjs.com/package/quanta-sdk",
+        external: true,
+        icon: Package,
+        status: "live" as const,
+        accent: "#00E599",
+        meta: "NPM",
+      },
+      {
+        name: "quanta-wasm",
+        description: "Falcon-512 cryptography compiled to WebAssembly. Native-speed PQC directly in the browser or Node.js.",
+        href: "https://www.npmjs.com/package/quanta-wasm",
+        external: true,
+        icon: Code2,
+        status: "live" as const,
+        accent: "#00E599",
+        meta: "NPM · Crates.io",
+      },
+      {
+        name: "Documentation",
+        description: "Full node setup, mining guide, REST API reference, SDK integration, and technical specifications.",
+        href: "https://quantachain.gitbook.io/quantachain-docs",
+        external: true,
+        icon: BookOpen,
+        status: "live" as const,
+        accent: "#00E599",
+        meta: "GitBook",
+      },
+    ],
+  },
+];
+
+const STATS = [
+  { value: "8", label: "Live Products" },
+  { value: "120+", label: "TPS" },
+  { value: "9", label: "Repos on GitHub" },
+  { value: "5+", label: "Networks & Integrations" },
+];
+
+const STATUS_CONFIG = {
+  live: {
+    dot: "bg-[#00E599]",
+    badge: "bg-[#00E599]/10 text-[#00864a] border-[#00E599]/20",
+    label: "Live",
+  },
+  building: {
+    dot: "bg-blue-400 animate-pulse",
+    badge: "bg-blue-50 text-blue-600 border-blue-100",
+    label: "Building",
+  },
+  soon: {
+    dot: "bg-gray-300",
+    badge: "bg-gray-50 text-gray-500 border-gray-200",
+    label: "Soon",
+  },
+};
 
 export default function DeveloperTools() {
   return (
-    <section className="py-16 sm:py-24 bg-transparent relative overflow-hidden">
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-14 gap-6">
-          <div>
-            <span className="text-xs font-mono font-bold tracking-widest text-gray-400 uppercase mb-4 block">
-              Ecosystem Access
+    <section id="ecosystem" className="py-16 sm:py-28 bg-transparent relative overflow-hidden">
+
+      {/* Subtle background grid */}
+      <div
+        className="absolute inset-0 -z-10 opacity-[0.025]"
+        style={{
+          backgroundImage:
+            "linear-gradient(to right,#000 1px,transparent 1px),linear-gradient(to bottom,#000 1px,transparent 1px)",
+          backgroundSize: "48px 48px",
+        }}
+      />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+        {/* ── HEADER ─────────────────────────────────────────────── */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-10 mb-20">
+          <div className="max-w-2xl">
+            <span className="inline-block text-xs font-mono font-bold tracking-widest text-gray-400 uppercase mb-5 px-4 py-2 bg-gray-100 rounded-full">
+              Ecosystem
             </span>
-            <h2 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1] text-gray-900">
-              Developer <span className="text-[#00E599]">Tools</span>
+            <h2 className="text-5xl sm:text-7xl font-bold tracking-tight leading-[0.93] mb-6">
+              Everything<br />
+              <span className="text-[#00E599]">Built &amp; Live.</span>
             </h2>
-          </div>
-          <p className="text-lg text-gray-500 font-light leading-relaxed max-w-md text-left md:text-right">
-            Production-ready SDKs and WebAssembly modules built for extreme performance and post-quantum security.
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Quanta SDK */}
-          <div className="group bg-white rounded-2xl border border-gray-100 p-8 shadow-sm hover:-translate-y-1 hover:shadow-xl hover:border-[#00E599]/30 transition-all duration-300 relative overflow-hidden flex flex-col justify-between min-h-[300px]">
-             <div className="absolute top-0 right-0 p-6 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity duration-500">
-               <Package className="w-32 h-32 text-black" />
-             </div>
-             
-             <div>
-               <div className="flex items-center gap-3 mb-6">
-                 <div className="w-12 h-12 rounded-xl bg-gray-50 flex items-center justify-center border border-gray-100 group-hover:border-[#00E599]/30 transition-colors">
-                   <Code2 className="w-6 h-6 text-gray-700 group-hover:text-[#00E599] transition-colors" />
-                 </div>
-                 <div>
-                   <h3 className="text-2xl font-bold text-gray-900">quanta-sdk</h3>
-                   <span className="text-xs font-mono font-semibold tracking-wider text-gray-400 uppercase">NPM Package</span>
-                 </div>
-               </div>
-               
-               <p className="text-gray-600 mb-8 relative z-10 leading-relaxed font-light">
-                 The official JavaScript/TypeScript SDK for interacting with the Quanta protocol. Full support for account management, transaction signing, and protocol interaction in Node.js and browser environments.
-               </p>
-             </div>
-
-             <div className="flex items-center justify-between mt-auto">
-               <div className="flex items-center gap-4 text-xs font-mono text-gray-500 font-medium">
-                 <span className="flex items-center gap-1.5"><Zap className="w-4 h-4 text-[#00E599]" /> Typesafe</span>
-                 <span className="flex items-center gap-1.5"><ShieldCheck className="w-4 h-4 text-[#00E599]" /> Verified</span>
-               </div>
-               
-               <Link
-                 href="https://www.npmjs.com/package/quanta-sdk"
-                 target="_blank"
-                 className="flex items-center gap-2 text-sm font-semibold text-gray-900 group-hover:text-[#00E599] transition-colors"
-               >
-                 View on NPM <ArrowUpRight className="w-4 h-4" />
-               </Link>
-             </div>
+            <p className="text-xl text-gray-500 font-light leading-relaxed max-w-lg">
+              From protocol to wallets, explorer to SDK — the entire quantum-resistant stack is production-ready and growing fast.
+            </p>
           </div>
 
-          {/* Quanta WASM */}
-          <div className="group bg-white rounded-2xl border border-gray-100 p-8 shadow-sm hover:-translate-y-1 hover:shadow-xl hover:border-teal-500/30 transition-all duration-300 relative overflow-hidden flex flex-col justify-between min-h-[300px]">
-             <div className="absolute top-0 right-0 p-6 opacity-[0.03] group-hover:opacity-[0.08] transition-opacity duration-500">
-               <Code2 className="w-32 h-32 text-black" />
-             </div>
-             
-             <div>
-               <div className="flex items-center gap-3 mb-6">
-                 <div className="w-12 h-12 rounded-xl bg-gray-50 flex items-center justify-center border border-gray-100 group-hover:border-teal-500/30 transition-colors">
-                   <Package className="w-6 h-6 text-gray-700 group-hover:text-teal-600 transition-colors" />
-                 </div>
-                 <div>
-                   <h3 className="text-2xl font-bold text-gray-900">quanta-wasm</h3>
-                   <span className="text-xs font-mono font-semibold tracking-wider text-gray-400 uppercase">Crates.io & NPM</span>
-                 </div>
-               </div>
-               
-               <p className="text-gray-600 mb-8 relative z-10 leading-relaxed font-light">
-                 High-performance WebAssembly module compiled from Rust. Provides native-speed post-quantum cryptographic operations, including Falcon-512 signatures directly in the browser.
-               </p>
-             </div>
-
-             <div className="flex items-center justify-between mt-auto">
-               <div className="flex items-center gap-4 text-xs font-mono text-gray-500 font-medium">
-                 <span className="flex items-center gap-1.5"><Zap className="w-4 h-4 text-teal-500" /> WebAssembly</span>
-                 <span className="flex items-center gap-1.5"><ShieldCheck className="w-4 h-4 text-teal-500" /> Rust Core</span>
-               </div>
-               
-               <div className="flex flex-col items-end gap-2 sm:flex-row sm:gap-4 mt-4 sm:mt-0">
-                 <Link
-                   href="https://crates.io/crates/quanta-wasm"
-                   target="_blank"
-                   className="flex items-center gap-2 text-sm font-semibold text-gray-900 group-hover:text-teal-600 transition-colors"
-                 >
-                   Crates.io <ArrowUpRight className="w-4 h-4" />
-                 </Link>
-                 <Link
-                   href="https://www.npmjs.com/package/quanta-wasm"
-                   target="_blank"
-                   className="flex items-center gap-2 text-sm font-semibold text-gray-900 group-hover:text-teal-600 transition-colors"
-                 >
-                   NPM <ArrowUpRight className="w-4 h-4" />
-                 </Link>
-               </div>
-             </div>
+          {/* Stats strip */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-2 xl:grid-cols-4 gap-4 lg:max-w-sm xl:max-w-none shrink-0">
+            {STATS.map((s) => (
+              <div
+                key={s.label}
+                className="bg-white border border-gray-100 rounded-2xl px-5 py-4 shadow-sm text-center min-w-[110px]"
+              >
+                <div className="text-3xl font-extrabold text-gray-900 tracking-tight">{s.value}</div>
+                <div className="text-xs text-gray-500 font-semibold mt-1 leading-tight">{s.label}</div>
+              </div>
+            ))}
           </div>
         </div>
+
+        {/* ── PRODUCT GRID ─────────────────────────────────────────── */}
+        <div className="space-y-12">
+          {PRODUCTS.map((group) => (
+            <div key={group.category}>
+              {/* Category label */}
+              <div className="flex items-center gap-4 mb-6">
+                <span className="text-xs font-black uppercase tracking-widest text-gray-400">
+                  {group.category}
+                </span>
+                <div className="flex-1 h-px bg-gray-100" />
+              </div>
+
+              {/* Cards */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+                {group.items.map((item) => {
+                  const Icon = item.icon;
+                  const statusConf = STATUS_CONFIG[item.status];
+
+                  return (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      target={item.external ? "_blank" : undefined}
+                      rel={item.external ? "noopener noreferrer" : undefined}
+                      className="group relative flex flex-col bg-white border border-gray-100 rounded-2xl p-7 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-[#00E599]/30 transition-all duration-300 overflow-hidden"
+                    >
+                      {/* Hover glow */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#00E599]/0 to-[#00E599]/0 group-hover:from-[#00E599]/5 group-hover:to-transparent transition-all duration-500 rounded-2xl pointer-events-none" />
+
+                      {/* Top row */}
+                      <div className="flex items-start justify-between mb-5">
+                        <div className="w-11 h-11 rounded-xl bg-gray-50 border border-gray-100 flex items-center justify-center group-hover:bg-black group-hover:border-black transition-all duration-300">
+                          <Icon className="w-5 h-5 text-gray-600 group-hover:text-[#00E599] transition-colors duration-300" />
+                        </div>
+                        <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-[10px] font-black uppercase tracking-wider ${statusConf.badge}`}>
+                          <span className={`w-1.5 h-1.5 rounded-full ${statusConf.dot}`} />
+                          {statusConf.label}
+                        </div>
+                      </div>
+
+                      {/* Content */}
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 mb-2">
+                          <h3 className="text-lg font-bold text-gray-900">{item.name}</h3>
+                          {"meta" in item && item.meta && (
+                            <span className="text-[10px] font-mono font-semibold text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full">
+                              {item.meta}
+                            </span>
+                          )}
+                        </div>
+                        <p className="text-sm text-gray-500 leading-relaxed font-medium">
+                          {item.description}
+                        </p>
+                      </div>
+
+                      {/* Bottom link */}
+                      <div className="mt-6 flex items-center gap-1.5 text-xs font-bold text-gray-400 group-hover:text-[#00E599] transition-colors">
+                        {item.external ? "Open" : "Explore"}
+                        <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* ── BOTTOM CTA ─────────────────────────────────────────── */}
+        <div className="mt-20 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-gray-100 pt-10">
+          <div>
+            <p className="text-sm font-bold text-gray-900">Want to build on Quanta?</p>
+            <p className="text-sm text-gray-500 font-medium mt-0.5">
+              Docs, SDK, and WASM are ready. Start in minutes.
+            </p>
+          </div>
+          <div className="flex items-center gap-3 flex-wrap">
+            <Link
+              href="https://quantachain.gitbook.io/quantachain-docs"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white text-sm font-bold rounded-xl hover:bg-[#00E599] hover:text-black transition-all"
+            >
+              Read the Docs <ArrowUpRight className="w-4 h-4" />
+            </Link>
+            <Link
+              href="https://github.com/quantachain"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 border border-gray-200 text-black text-sm font-bold rounded-xl hover:border-black transition-all"
+            >
+              GitHub
+              <MessageSquare className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
+
       </div>
     </section>
   );
