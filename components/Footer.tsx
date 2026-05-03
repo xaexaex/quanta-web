@@ -58,7 +58,8 @@ const footerColumns = [
       { label: "Faucet", href: "/faucet", badge: "Live" },
       { label: "Chrome Wallet", href: "https://chrome.google.com/webstore/detail/glofbcgdmodmaohealombcgoapdbdaff", badge: "Live", external: true },
       { label: "Mobile Wallet", href: "https://github.com/quantachain/quanta-mobile-wallet", badge: "Building", external: true },
-      { label: "Mining Pool", href: "#", badge: "Soon" },
+      { label: "Mining Pool", href: "https://github.com/quantachain/quanta-pool", badge: "Live", external: true },
+      { label: "Data Indexer", href: "https://github.com/quantachain/quanta-indexer", badge: "Live", external: true },
     ],
   },
   {
