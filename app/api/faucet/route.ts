@@ -97,6 +97,26 @@ function getIp(req: NextRequest): string {
 // POST /api/faucet
 // ─────────────────────────────────────────────────────────────────────────────
 
+// ─────────────────────────────────────────────────────────────────────────────
+// Concurrency guard — prevents duplicate nonces when two claims arrive before
+// the first TX is confirmed.  A simple module-level mutex serialises the
+// nonce-fetch → sign → submit sequence.  On server restart the in-memory
+// tracker resets to 0 and falls back to the node's confirmed nonce.
+// ─────────────────────────────────────────────────────────────────────────────
+
+const g2 = global as typeof globalThis & {
+    __faucetNonceLock?: Promise<void>;
+    __faucetPendingNonce?: bigint;
+};
+
+function acquireFaucetLock(): { release: () => void; promise: Promise<void> } {
+    let release!: () => void;
+    const next = new Promise<void>(resolve => { release = resolve; });
+    const wait = g2.__faucetNonceLock ?? Promise.resolve();
+    g2.__faucetNonceLock = wait.then(() => next);
+    return { release, promise: wait };
+}
+
 const FEE_MICROUNITS    = 1_000n;     // 0.001 QUA fee
 
 export async function POST(request: NextRequest) {
@@ -222,7 +242,10 @@ export async function POST(request: NextRequest) {
         const { address: faucetAddress, public_key: pubKeyHex, secret_key: secretKeyHex } =
             wasm.import_wallet(faucetMnemonic, faucetPassphrase, 0);
 
-        // ── 5. Fetch faucet nonce from the node ────────────────────────────
+        // ── 5. Fetch faucet nonce — serialised to prevent duplicate nonces ───
+        const lock = acquireFaucetLock();
+        await lock.promise; // wait for any in-flight claim to finish
+
         let currentNonce = 0n;
         try {
             const res = await fetch(`${nodeUrl}/api/balance`, {
@@ -232,16 +255,20 @@ export async function POST(request: NextRequest) {
                 signal: AbortSignal.timeout(5000),
             });
             if (res.ok) {
-                // M-5 FIX: /api/balance now returns { address, balance_microunits, nonce }
-                // Previously this was cast as { nonce? } but the field didn't exist — always 0.
-                const data = await res.json() as { nonce?: number; balance_microunits?: number };
+                const data = await res.json() as { nonce?: number };
                 currentNonce = BigInt(data.nonce ?? 0);
             }
         } catch (e) {
             console.warn('[faucet] Could not reach node to fetch nonce, defaulting to 0:', e);
         }
 
-        const nonce     = currentNonce + 1n;
+        // Use max(confirmed nonce, last locally submitted nonce) to avoid reuse
+        const pendingNonce = g2.__faucetPendingNonce ?? 0n;
+        const baseNonce    = currentNonce > pendingNonce ? currentNonce : pendingNonce;
+        const nonce        = baseNonce + 1n;
+        // Reserve this nonce immediately so concurrent requests see it
+        g2.__faucetPendingNonce = nonce;
+
         const timestamp = BigInt(Math.floor(Date.now() / 1000));
 
         // ── 6. Build signing bytes & sign with Falcon-512 ──────────────────
@@ -297,6 +324,9 @@ export async function POST(request: NextRequest) {
         }
 
         if (!submitOk) {
+            // Revert the reserved nonce so the next claim can retry with the correct one
+            if (g2.__faucetPendingNonce === nonce) g2.__faucetPendingNonce = baseNonce;
+            lock.release();
             await claims.insertOne({
                 address, ip, github_id: githubId || null,
                 claimed_at: new Date(),
@@ -309,6 +339,8 @@ export async function POST(request: NextRequest) {
                 { status: 502 }
             );
         }
+
+        lock.release();
 
         // ── 8. Record successful claim ─────────────────────────────────────
         await claims.insertOne({
