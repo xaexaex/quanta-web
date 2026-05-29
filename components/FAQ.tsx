@@ -9,27 +9,27 @@ export default function FAQ() {
   const faqs = [
     {
       question: "Why is QUANTA quantum-resistant?",
-      answer: "QUANTA uses NIST-standardized post-quantum cryptography: Falcon-512 for digital signatures (NIST Level 1) and Kyber-1024 for encryption (NIST Level 5). These algorithms are designed to withstand attacks from both classical and quantum computers."
+      answer: "QUANTA uses NIST-standardized post-quantum cryptography (Falcon-512). As the NSA CNSA 2.0 directive mandates a transition to PQC by 2030, Quanta ensures enterprise AI deployments are legally and mathematically secure today."
     },
     {
-      question: "When will mainnet launch?",
-      answer: "Mainnet is targeted for Q1 2027. We're currently in Phase 1 (Testnet Preparation, Q1 2026), followed by Public Testnet (Q2 2026), Security Hardening (Q3 2026), and Mainnet Preparation (Q4 2026). We prioritize security over speed."
+      question: "Why AlephBFT instead of Proof of Work?",
+      answer: "Autonomous AI agents and DePIN hardware require sub-second deterministic finality. Proof of Work takes 10+ minutes per block. AlephBFT gives Quanta the high-frequency transaction throughput required for massive machine-to-machine interactions."
     },
     {
-      question: "How can I contribute?",
-      answer: "Visit our GitHub at github.com/quantachain/quanta to contribute code, report issues, or review PRs. Join Discord (discord.gg/7KmMBrrJEz) for community discussions. Once testnet launches in Q2 2026, you can run a node and participate in testing."
+      question: "Do AI Agents need smart contracts?",
+      answer: "No. 95% of AI interactions require basic Escrow, Payments, and Multisig. Instead of heavy Ethereum-style smart contracts, Quanta uses Native Rust Templates built directly into the node. Zero VM overhead, zero gas bloat, blazing fast execution."
     },
     {
-      question: "How can I support the project?",
-      answer: "Star us on GitHub, join our community channels, and spread the word. For partnerships or sponsorships, reach out via email: contact@quantachain.org. We're self-funded and building for the long term."
-    },
-    {
-      question: "What about security audits?",
-      answer: "External security audits are scheduled for Q2 2026 during the public testnet phase. We'll publish all audit reports publicly. A bug bounty program will launch alongside the testnet."
+      question: "What is DePIN Settlement?",
+      answer: "Decentralized Physical Infrastructure Networks (DePIN) like GPU clouds or IoT sensors generate millions of micro-transactions. Quanta acts as the unhackable settlement layer, allowing an AI agent to rent a GPU and pay per minute using quantum-secure state channels."
     },
     {
       question: "What are the tokenomics?",
-      answer: "Fair launch with zero pre-mine and zero ICO. Initial block reward of 100 QUA declining 15% annually to a 5 QUA floor. 70% of transaction fees are burned, 20% funds treasury, and 10% goes to miners. Maximum supply ~1.5 billion QUA."
+      answer: "Fair launch with zero pre-mine and zero ICO. Initial epoch reward of 100 QUA is distributed to BFT Validators, declining 15% annually to a 5 QUA floor. DePIN transaction fees and AI Escrow fees are burned, acting as a perpetual deflationary mechanism."
+    },
+    {
+      question: "When will mainnet launch?",
+      answer: "Mainnet is targeted for Q4 2026. We are currently bootstrapping the V2.0 Testnet Enterprise Consortium. We prioritize institutional compliance and security over retail speed."
     }
   ];
 

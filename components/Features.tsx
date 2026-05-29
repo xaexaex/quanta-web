@@ -3,8 +3,8 @@ import React from "react";
 export default function Features() {
   const features = [
     {
-      title: "Falcon-512",
-      description: "NIST Level 1 lattice signatures. 897-byte keys. Quantum-resistant security for the post-quantum era.",
+      title: "Falcon-512 Security",
+      description: "NIST Level 1 lattice signatures. 897-byte keys. Quantum-resistant security for the post-quantum era, ensuring AI agents operate on mathematically secure rails.",
       shape: (
         <svg viewBox="0 0 200 100" className="w-full h-full stroke-teal-500/40 fill-none stroke-[1.5]">
           {/* Lattice Grid */}
@@ -27,8 +27,8 @@ export default function Features() {
       )
     },
     {
-      title: "Kyber-1024",
-      description: "NIST Level 5 encryption. 256-bit quantum security protecting against harvest-now-decrypt-later attacks.",
+      title: "AlephBFT Consensus",
+      description: "Asynchronous Directed Acyclic Graph (DAG) consensus. Reaching sub-second finality with zero forks, designed for extreme AI-to-AI microtransaction throughput.",
       shape: (
         <svg viewBox="0 0 200 100" className="w-full h-full stroke-teal-500/40 fill-none stroke-[1.5]">
           {/* Concentric Shells */}
@@ -49,8 +49,8 @@ export default function Features() {
       )
     },
     {
-      title: "Adaptive Rewards",
-      description: "100 QUA initial reward declining 15% annually to a sustainable floor, ensuring perpetual incentives.",
+      title: "Native Templates (Zero VM)",
+      description: "No EVM. No Gas overhead. Smart contracts are written as hyper-optimized Rust templates compiled directly into the node binary for bare-metal execution speeds.",
       shape: (
         <svg viewBox="0 0 200 100" className="w-full h-full stroke-teal-500/40 fill-none stroke-[1.5]">
           {/* Ascending Chart / Coins */}
@@ -67,8 +67,8 @@ export default function Features() {
       )
     },
     {
-      title: "Native Time-Locks",
-      description: "Protocol-level Time-Locks and escrow features built natively into consensus—designed for institutional custody without smart contract risk.",
+      title: "Cryptographic AI Escrow",
+      description: "Built-in trustless escrow for data bounties. AI Agents lock funds that are only released when a valid dataset hash (preimage) is verified by the network.",
       shape: (
         <svg viewBox="0 0 200 100" className="w-full h-full stroke-teal-500/40 fill-none stroke-[1.5]">
           {/* Hourglass / Lock Hybrid */}
@@ -85,8 +85,8 @@ export default function Features() {
       )
     },
     {
-      title: "M-of-N Threshold Multisig",
-      description: "Natively integrated M-of-N threshold multi-signature support using Falcon-512. Perfect for corporate treasury and institutional administration.",
+      title: "DePIN Infrastructure Settlement",
+      description: "Secure the physical layer. Fast enough to track GPU compute cycles, sensor data, and hardware networks with unforgeable post-quantum signatures.",
       shape: (
         <svg viewBox="0 0 200 100" className="w-full h-full stroke-teal-500/40 fill-none stroke-[1.5]">
           {/* Linked nodes */}
@@ -103,8 +103,8 @@ export default function Features() {
       )
     },
     {
-      title: "Extreme Optimization",
-      description: "Bincode serialization and zstd compression deliver 4x smaller blocks, while sled embedded storage ensures lightning-fast state access.",
+      title: "Institutional Compliance",
+      description: "Future-proof your enterprise. By adhering to the NSA's CNSA 2.0 directive, Quanta is ready for defense, medical, and banking AI deployments from Day 1.",
       shape: (
         <svg viewBox="0 0 200 100" className="w-full h-full stroke-teal-500/40 fill-none stroke-[1.5]">
           {/* Puzzle Pieces (Reference Style) */}
@@ -131,11 +131,11 @@ export default function Features() {
             </span>
           </div>
           <h2 className="text-5xl sm:text-7xl font-bold mb-6 tracking-tight leading-[0.95]">
-            Core <br />
-            <span className="text-[#00E599]">Vault Features</span>
+            Engineered for <br />
+            <span className="text-[#00E599]">Autonomous Markets</span>
           </h2>
           <p className="text-xl sm:text-2xl text-gray-600 max-w-2xl leading-relaxed font-light">
-            QUANTA combines NIST-standardized cryptography with a hardened, contract-free architecture to deliver an institutional settlement layer <span className="text-black font-medium">secure for decades.</span>
+            QUANTA abandons heavy virtual machines for native Rust templates, delivering an institutional settlement layer <span className="text-black font-medium">ready for DePIN and AI integration.</span>
           </p>
         </div>
 

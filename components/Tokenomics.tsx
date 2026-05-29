@@ -1,179 +1,174 @@
-"use client";
+const supplyRows = [
+  { year: "Year 1", reward: "50 QUA", emission: "263.8M", cumulative: "263.8M", highlight: false },
+  { year: "Year 2", reward: "42.5 QUA", emission: "223.4M", cumulative: "487.2M", highlight: false },
+  { year: "Year 5", reward: "26.1 QUA", emission: "137.2M", cumulative: "975.8M", highlight: false },
+  { year: "Year 10", reward: "9.85 QUA", emission: "51.8M", cumulative: "1.24B", highlight: false },
+  { year: "Year 20+", reward: "2 QUA (floor)", emission: "10.5M", cumulative: "~1.75B", highlight: true },
+];
 
-import React from "react";
+const feeRows = [
+  { label: "Burned (destroyed)", pct: "50%", color: "#ff6060", bar: 50 },
+  { label: "Block Proposer", pct: "35%", color: "#00E599", bar: 35 },
+  { label: "Ecosystem Fund (QEF)", pct: "15%", color: "#8a8a8a", bar: 15 },
+];
+
+const keyParams = [
+  { k: "Initial reward", v: "50 QUA / block" },
+  { k: "Annual decay", v: "−15% per year" },
+  { k: "Perpetual floor", v: "2 QUA / block" },
+  { k: "Fee burn rate", v: "50% destroyed" },
+  { k: "BFT slot time", v: "6 seconds" },
+  { k: "Min tx fee", v: "0.0001 QUA" },
+];
 
 export default function Tokenomics() {
-  const metrics = [
-    {
-      value: "100",
-      label: "QUA Initial Reward",
-      sub: "Per block at launch",
-      id: "01",
-      shape: (
-        <svg viewBox="0 0 200 100" className="w-full h-full stroke-teal-500/40 fill-none stroke-[1.5]">
-          <rect x="30" y="60" width="20" height="20" rx="2">
-            <animate attributeName="height" values="20; 25; 20" dur="3s" repeatCount="indefinite" />
-            <animate attributeName="y" values="60; 55; 60" dur="3s" repeatCount="indefinite" />
-          </rect>
-          <rect x="60" y="50" width="20" height="30" rx="2">
-            <animate attributeName="height" values="30; 45; 30" dur="4s" repeatCount="indefinite" />
-            <animate attributeName="y" values="50; 35; 50" dur="4s" repeatCount="indefinite" />
-          </rect>
-          <rect x="90" y="40" width="20" height="40" rx="2">
-            <animate attributeName="height" values="40; 55; 40" dur="2.5s" repeatCount="indefinite" />
-            <animate attributeName="y" values="40; 25; 40" dur="2.5s" repeatCount="indefinite" />
-          </rect>
-          <rect x="120" y="30" width="20" height="50" rx="2">
-            <animate attributeName="height" values="50; 70; 50" dur="3.5s" repeatCount="indefinite" />
-            <animate attributeName="y" values="30; 10; 30" dur="3.5s" repeatCount="indefinite" />
-          </rect>
-          <path d="M30,50 L150,20" strokeDasharray="4 4" className="opacity-50" />
-          <circle cx="150" cy="20" r="3" className="fill-[#00E599]">
-            <animate attributeName="r" values="3;5;3" dur="2s" repeatCount="indefinite" />
-            <animate attributeName="opacity" values="0.5;1;0.5" dur="2s" repeatCount="indefinite" />
-          </circle>
-        </svg>
-      )
-    },
-    {
-      value: "15%",
-      label: "Annual Reduction",
-      sub: "Smooth exponential decay",
-      id: "02",
-      shape: (
-        <svg viewBox="0 0 200 100" className="w-full h-full stroke-teal-500/40 fill-none stroke-[1.5]">
-          <path d="M20,80 Q60,80 100,40 Q140,20 180,20" />
-          <path d="M20,80 H180" className="opacity-30" />
-          <circle cx="100" cy="40" r="3" className="fill-teal-500/20" />
-          <circle cx="180" cy="20" r="3" className="fill-teal-500/20" />
-          {/* Dot tracing the curve */}
-          <circle r="4" className="fill-[#00E599]">
-            <animateMotion
-              path="M20,80 Q60,80 100,40 Q140,20 180,20"
-              dur="5s"
-              repeatCount="indefinite"
-              calcMode="spline"
-              keyTimes="0;1"
-              keySplines="0.4 0 0.2 1"
-            />
-          </circle>
-        </svg>
-      )
-    },
-    {
-      value: "50%",
-      label: "Anti-Dump Vesting",
-      sub: "6-month rolling lock for miners",
-      id: "03",
-      shape: (
-        <svg viewBox="0 0 200 100" className="w-full h-full stroke-teal-500/40 fill-none stroke-[1.5]">
-          <path d="M20,80 Q100,80 180,20" />
-          <path d="M20,80 H180" className="opacity-30" />
-          <rect x="160" y="20" width="20" height="20" className="opacity-50" />
-          <circle cx="20" cy="80" r="3" className="fill-teal-500/20" />
-          {/* Dot tracing the curve */}
-          <circle r="4" className="fill-[#00E599]">
-            <animateMotion
-              path="M20,80 Q100,80 180,20"
-              dur="6s"
-              repeatCount="indefinite"
-              calcMode="spline"
-              keyTimes="0;1"
-              keySplines="0.4 0 0.2 1"
-            />
-          </circle>
-        </svg>
-      )
-    },
-    {
-      value: "5",
-      label: "QUA Reward Floor",
-      sub: "Perpetual mining incentive",
-      id: "04",
-      shape: (
-        <svg viewBox="0 0 200 100" className="w-full h-full stroke-teal-500/40 fill-none stroke-[1.5]">
-          <rect x="20" y="50" width="160" height="20">
-            <animate attributeName="width" values="160; 150; 160" dur="4s" repeatCount="indefinite" />
-            <animate attributeName="x" values="20; 25; 20" dur="4s" repeatCount="indefinite" />
-          </rect>
-          <path d="M20,70 L20,80 L180,80 L180,70" className="opacity-50" />
-          <path d="M100,50 V30">
-            <animate attributeName="d" values="M100,50 V30; M100,55 V30; M100,50 V30" dur="2s" repeatCount="indefinite" />
-          </path>
-          <circle cx="100" cy="25" r="5" className="fill-[#00E599]">
-            <animate attributeName="r" values="5;6;5" dur="2s" repeatCount="indefinite" />
-            <animate attributeName="opacity" values="0.8;1;0.8" dur="2s" repeatCount="indefinite" />
-          </circle>
-        </svg>
-      )
-    }
-  ];
-
   return (
-    <section className="py-10 sm:py-24 relative bg-transparent text-black overflow-hidden">
-      <div className="container mx-auto px-6 relative z-10">
+    <section className="py-32 px-6 md:px-12 max-w-7xl mx-auto">
+      {/* Header */}
+      <div className="mb-16 max-w-2xl">
+        <span className="section-label">Tokenomics</span>
+        <h2
+          className="text-5xl sm:text-6xl font-bold leading-[1.0] tracking-tight text-white mt-2"
+          style={{ fontFamily: "var(--font-syne)" }}
+        >
+          QUA is Gas,
+          <br />
+          <span className="text-[#00E599]">Not Currency.</span>
+        </h2>
+        <p className="mt-6 text-[#8a8a8a] text-lg leading-relaxed font-light">
+          QUA pays for execution on-chain. Agents settle in USDC/USDT via the
+          signed payload field. QUA never competes with stablecoins — it is the
+          gas that powers the AI agent economy.
+        </p>
+      </div>
 
-        {/* Header */}
-        <div className="max-w-4xl mb-16 sm:mb-20">
-          <div className="inline-block mb-4">
-            <span className="text-xs font-mono font-bold tracking-widest text-gray-400 uppercase px-4 py-2 bg-gray-100 rounded-full">
-              Tokenomics
-            </span>
-          </div>
-          <h2 className="text-5xl sm:text-7xl font-bold mb-6 tracking-tight leading-[0.95]">
-            Sustainable <br />
-            <span className="text-[#00E599]">Economics</span>
-          </h2>
-          <p className="text-xl sm:text-2xl text-gray-600 max-w-2xl leading-relaxed font-light">
-            Fair launch with adaptive tokenomics designed for long-term network health. <span className="text-black font-medium">No pre-mine, no ICO.</span>
-          </p>
-        </div>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
 
-        {/* Metrics Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {metrics.map((metric, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-2xl p-6 sm:p-8 shadow-xl -translate-y-1 transition-all duration-300 group border border-[#00E599]/30 flex flex-col justify-between min-h-[320px] hover:-translate-y-2 hover:shadow-2xl"
+        {/* Left: Key params + fee split */}
+        <div className="space-y-6">
+          {/* Key params */}
+          <div className="card-dark p-6">
+            <h3
+              className="text-sm font-semibold text-white mb-5 uppercase tracking-wider"
+              style={{ fontFamily: "var(--font-mono)" }}
             >
-              <div>
-                {/* Circled Number - Matching Features Style */}
-                <div className="w-8 h-8 rounded-full border border-teal-600/30 flex items-center justify-center mb-6 text-sm font-mono text-teal-700 font-medium">
-                  {index + 1}
+              Key Parameters
+            </h3>
+            <div className="space-y-3">
+              {keyParams.map((p) => (
+                <div key={p.k} className="flex items-center justify-between py-2 border-b border-[rgba(255,255,255,0.04)] last:border-0">
+                  <span className="text-sm text-[#8a8a8a]">{p.k}</span>
+                  <span
+                    className="text-sm font-semibold text-white"
+                    style={{ fontFamily: "var(--font-mono)" }}
+                  >
+                    {p.v}
+                  </span>
                 </div>
-
-                {/* Value */}
-                <div className="text-4xl font-bold tracking-tight text-gray-900 mb-3">
-                  {metric.value}
-                </div>
-
-                {/* Label */}
-                <h3 className="text-2xl font-bold mb-3 text-gray-900 tracking-tight">
-                  {metric.label}
-                </h3>
-
-                {/* Description */}
-                <p className="text-gray-600 leading-relaxed text-sm lg:text-base">
-                  {metric.sub}
-                </p>
-              </div>
-
-              {/* Bottom Geometric Graphic */}
-              <div className="mt-8 h-24 w-full opacity-60 group-hover:opacity-100 transition-opacity duration-500">
-                {metric.shape}
-              </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* Fee distribution */}
+          <div className="card-dark p-6">
+            <h3
+              className="text-sm font-semibold text-white mb-5 uppercase tracking-wider"
+              style={{ fontFamily: "var(--font-mono)" }}
+            >
+              Fee Distribution
+            </h3>
+            <div className="space-y-4">
+              {feeRows.map((row) => (
+                <div key={row.label}>
+                  <div className="flex items-center justify-between mb-1.5">
+                    <span className="text-sm text-[#8a8a8a]">{row.label}</span>
+                    <span
+                      className="text-sm font-bold"
+                      style={{ color: row.color, fontFamily: "var(--font-mono)" }}
+                    >
+                      {row.pct}
+                    </span>
+                  </div>
+                  <div className="h-1.5 bg-[#161616] rounded-full overflow-hidden">
+                    <div
+                      className="h-full rounded-full transition-all"
+                      style={{ width: `${row.bar}%`, backgroundColor: row.color, opacity: 0.7 }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="mt-5 text-xs text-[#4a4a4a] leading-relaxed">
+              At 2B+ annual transactions (Year 15), fee burn may exceed new emission
+              — making QUA net deflationary.
+            </p>
+          </div>
         </div>
 
-        {/* Bottom Note */}
-        <div className="mt-16 sm:mt-20 text-center">
-          <p className="text-sm font-mono text-gray-400 max-w-3xl mx-auto leading-relaxed">
-            Emission schedule designed to provide a deflationary and sustainable economic model.
-            <span className="text-gray-600"> Mining rewards decrease gradually, ensuring network security remains economically viable indefinitely.</span>
-          </p>
-        </div>
+        {/* Right: Supply schedule table */}
+        <div className="card-dark p-6">
+          <h3
+            className="text-sm font-semibold text-white mb-5 uppercase tracking-wider"
+            style={{ fontFamily: "var(--font-mono)" }}
+          >
+            Emission Schedule
+          </h3>
 
+          {/* Table */}
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr>
+                  {["Year", "Reward", "Emission", "Cumulative"].map((h) => (
+                    <th
+                      key={h}
+                      className="text-left text-[9px] text-[#4a4a4a] uppercase tracking-widest pb-3 pr-4 font-normal"
+                      style={{ fontFamily: "var(--font-mono)" }}
+                    >
+                      {h}
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {supplyRows.map((row) => (
+                  <tr
+                    key={row.year}
+                    className={`border-t border-[rgba(255,255,255,0.04)] ${
+                      row.highlight ? "text-[#00E599]" : ""
+                    }`}
+                  >
+                    <td className="py-3 pr-4 text-white font-medium" style={{ fontFamily: "var(--font-mono)", fontSize: 12 }}>{row.year}</td>
+                    <td className="py-3 pr-4 text-[#8a8a8a]" style={{ fontFamily: "var(--font-mono)", fontSize: 12 }}>{row.reward}</td>
+                    <td className="py-3 pr-4 text-[#8a8a8a]" style={{ fontFamily: "var(--font-mono)", fontSize: 12 }}>{row.emission}</td>
+                    <td className="py-3 text-[#8a8a8a]" style={{ fontFamily: "var(--font-mono)", fontSize: 12 }}>{row.cumulative}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="mt-6 p-4 rounded-xl bg-[rgba(0,229,153,0.04)] border border-[rgba(0,229,153,0.1)]">
+            <p className="text-xs text-[#8a8a8a] leading-relaxed">
+              No ICO. No VC allocation. QUA is distributed exclusively through
+              BFT block rewards and a genesis allocation to founding validators.
+              No unlock cliff. No dump schedule.
+            </p>
+          </div>
+
+          {/* Treasury address */}
+          <div className="mt-4">
+            <span className="text-[9px] text-[#4a4a4a] uppercase tracking-widest block mb-1.5" style={{ fontFamily: "var(--font-mono)" }}>
+              3-of-5 Treasury Multisig
+            </span>
+            <code
+              className="text-xs text-[#4a4a4a] break-all"
+              style={{ fontFamily: "var(--font-mono)" }}
+            >
+              ms69216b1d10425689704d5ae3b2a4aa17049f59b1
+            </code>
+          </div>
+        </div>
       </div>
     </section>
   );

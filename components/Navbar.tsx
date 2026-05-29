@@ -6,23 +6,17 @@ import Image from "next/image";
 import {
   Menu,
   X,
-  BookOpen,
-  Globe,
-  MessageSquare,
-  Blocks,
-  ArrowUpRight,
   ChevronDown,
+  ArrowUpRight,
   Search,
   Droplet,
-  Pickaxe,
   Wallet,
+  BookOpen,
   Code2,
   Package,
   FileText,
-  Briefcase,
-  Users,
-  Award,
-  Smartphone,
+  Globe,
+  MessageSquare,
 } from "lucide-react";
 
 const GithubIcon = ({ className }: { className?: string }) => (
@@ -38,7 +32,7 @@ const DiscordIcon = ({ className }: { className?: string }) => (
 );
 
 type NavItem = {
-  name: string;
+  label: string;
   href: string;
   external?: boolean;
   description?: string;
@@ -49,161 +43,103 @@ type NavItem = {
 type NavGroup = {
   name: string;
   items: NavItem[];
-  footer?: { label: string; href: string };
 };
 
 const navGroups: NavGroup[] = [
   {
-    name: "Ecosystem",
-    footer: { label: "Explore the full ecosystem →", href: "/#ecosystem" },
+    name: "Network",
     items: [
       {
-        name: "Block Explorer",
+        label: "Block Explorer",
         href: "https://scan.quantachain.org",
         external: true,
-        description: "Real-time blocks, transactions & analytics",
+        description: "Real-time blocks, transactions, validators",
         icon: Search,
-        badge: "Live",
       },
       {
-        name: "Faucet",
+        label: "Faucet",
         href: "/faucet",
-        description: "Get Testnet QUA for development",
+        description: "Get testnet QUA for development",
         icon: Droplet,
-        badge: "Live",
       },
       {
-        name: "Chrome Wallet",
+        label: "Chrome Wallet",
         href: "https://chrome.google.com/webstore/detail/glofbcgdmodmaohealombcgoapdbdaff",
         external: true,
-        description: "Falcon-512 secured browser extension wallet",
+        description: "Falcon-512 browser extension wallet",
         icon: Wallet,
-        badge: "Live",
-      },
-      {
-        name: "Mobile Wallet",
-        href: "https://github.com/quantachain/quanta-mobile-wallet",
-        external: true,
-        description: "Android app with native Rust cryptography",
-        icon: Smartphone,
-        badge: "Building",
-      },
-      {
-        name: "Mining Pool",
-        href: "https://github.com/quantachain/quanta-pool",
-        external: true,
-        description: "Join forces to secure the network",
-        icon: Pickaxe,
-        badge: "Live",
-      },
-      {
-        name: "Data Indexer",
-        href: "https://github.com/quantachain/quanta-indexer",
-        external: true,
-        description: "High-throughput Rust daemon",
-        icon: Search,
-        badge: "Live",
       },
     ],
   },
   {
-    name: "Developers",
-    footer: { label: "Read the documentation →", href: "https://quantachain.gitbook.io/quantachain-docs" },
+    name: "Build",
     items: [
       {
-        name: "GitHub",
+        label: "GitHub",
         href: "https://github.com/quantachain/quanta",
         external: true,
-        description: "Source code & open source contributions",
+        description: "Source code and open contributions",
         icon: GithubIcon,
       },
       {
-        name: "Documentation",
+        label: "Documentation",
         href: "https://quantachain.gitbook.io/quantachain-docs",
         external: true,
-        description: "Integration guides & API reference",
+        description: "Node setup, API reference, SDK guides",
         icon: BookOpen,
       },
       {
-        name: "NPM SDK",
+        label: "NPM SDK",
         href: "https://www.npmjs.com/package/quanta-sdk",
         external: true,
         description: "Official JS/TS client library",
         icon: Package,
-        badge: "Live",
       },
       {
-        name: "WASM Engine",
+        label: "WASM Engine",
         href: "https://crates.io/crates/quanta-wasm",
         external: true,
-        description: "Rust post-quantum cryptography module",
+        description: "Rust post-quantum crypto for browsers",
         icon: Code2,
-        badge: "Live",
       },
       {
-        name: "Whitepaper",
+        label: "Whitepaper",
         href: "/docs/WHITEPAPER.docx",
-        description: "Protocol architecture & technical specs",
+        description: "Protocol architecture and technical specs",
         icon: FileText,
       },
     ],
   },
   {
-    name: "Company",
-    footer: { label: "Learn about Quantalabs →", href: "https://quantalabs.cc" },
+    name: "Community",
     items: [
       {
-        name: "Quantalabs",
-        href: "https://quantalabs.cc",
-        external: true,
-        description: "Core protocol engineering lab",
-        icon: Briefcase,
-      },
-      {
-        name: "Team",
-        href: "/team",
-        description: "Protocol mission & the people behind Quanta",
-        icon: Users,
-      },
-      {
-        name: "Community",
-        href: "/community",
-        description: "Join the Quanta ecosystem",
-        icon: Globe,
-      },
-      {
-        name: "Press Kit",
-        href: "/press",
-        description: "Brand assets & media resources",
-        icon: Award,
-      },
-    ],
-  },
-  {
-    name: "Social",
-    footer: { label: "Join the Discord →", href: "https://discord.gg/7KmMBrrJEz" },
-    items: [
-      {
-        name: "Discord",
+        label: "Discord",
         href: "https://discord.gg/7KmMBrrJEz",
         external: true,
-        description: "Chat with the community",
+        description: "Chat with builders and validators",
         icon: DiscordIcon,
-        badge: "Active",
       },
       {
-        name: "X (Twitter)",
+        label: "X (Twitter)",
         href: "https://x.com/quantachain",
         external: true,
-        description: "Follow for announcements",
+        description: "Announcements and updates",
         icon: MessageSquare,
       },
       {
-        name: "Telegram",
+        label: "Telegram",
         href: "https://t.me/quantanetwork",
         external: true,
         description: "Real-time discussions",
         icon: MessageSquare,
+      },
+      {
+        label: "Community Hub",
+        href: "/community",
+        description: "Community grants coming soon",
+        icon: Globe,
+        badge: "TGE",
       },
     ],
   },
@@ -217,10 +153,19 @@ export default function Navbar() {
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => { document.body.style.overflow = ""; };
+  }, [isOpen]);
 
   const handleMouseEnter = (name: string) => {
     if (closeTimer.current) clearTimeout(closeTimer.current);
@@ -228,35 +173,39 @@ export default function Navbar() {
   };
 
   const handleMouseLeave = () => {
-    closeTimer.current = setTimeout(() => setActiveDropdown(null), 120);
+    closeTimer.current = setTimeout(() => setActiveDropdown(null), 150);
   };
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-          ? "bg-white/90 backdrop-blur-xl border-b border-gray-100 shadow-sm"
-          : "bg-transparent border-b border-transparent"
-        }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20">
-        <div className="flex items-center justify-between h-full">
-
+    <>
+      {/* Floating Pill Navbar */}
+      <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-5 px-4">
+        <nav
+          className={`w-full max-w-5xl flex items-center justify-between h-14 px-4 rounded-2xl transition-all duration-300 ${
+            scrolled
+              ? "bg-[#0f0f0f]/95 backdrop-blur-xl border border-[rgba(255,255,255,0.08)] shadow-[0_0_40px_rgba(0,229,153,0.05)]"
+              : "bg-[#0f0f0f]/80 backdrop-blur-md border border-[rgba(255,255,255,0.06)]"
+          }`}
+        >
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 flex-shrink-0 group">
+          <Link href="/" className="flex items-center gap-2.5 flex-shrink-0 group">
             <Image
               src="/logo/quanta-transparent-bg-logo.svg"
-              alt="Quanta Logo"
-              width={48}
-              height={48}
-              className="w-10 h-10 transition-transform group-hover:scale-110"
+              alt="Quanta"
+              width={32}
+              height={32}
+              className="w-8 h-8 transition-transform duration-200 group-hover:scale-110"
               priority
             />
-            <span className="text-2xl font-bold tracking-tighter text-black">
+            <span
+              className="text-lg font-bold tracking-tight text-white"
+              style={{ fontFamily: "var(--font-syne)" }}
+            >
               Quanta<span className="text-[#00E599]">.</span>
             </span>
           </Link>
 
-          {/* Desktop nav */}
+          {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-1">
             {navGroups.map((group) => (
               <div
@@ -266,174 +215,161 @@ export default function Navbar() {
                 onMouseLeave={handleMouseLeave}
               >
                 <button
-                  className={`inline-flex items-center gap-1 px-4 py-2 text-sm font-semibold rounded-full transition-all ${activeDropdown === group.name
-                      ? "text-black bg-gray-100"
-                      : "text-gray-600 hover:text-black hover:bg-gray-50"
-                    }`}
+                  className={`inline-flex items-center gap-1 px-3 py-1.5 text-sm font-medium rounded-lg transition-all duration-150 ${
+                    activeDropdown === group.name
+                      ? "text-white bg-[rgba(255,255,255,0.06)]"
+                      : "text-[#8a8a8a] hover:text-white hover:bg-[rgba(255,255,255,0.04)]"
+                  }`}
                 >
                   {group.name}
                   <ChevronDown
-                    className={`w-3.5 h-3.5 transition-transform duration-200 ${activeDropdown === group.name ? "rotate-180 text-[#00E599]" : ""
-                      }`}
+                    className={`w-3 h-3 transition-transform duration-200 ${
+                      activeDropdown === group.name ? "rotate-180 text-[#00E599]" : ""
+                    }`}
                   />
                 </button>
 
                 {activeDropdown === group.name && (
                   <div
                     className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50"
-                    style={{ minWidth: "22rem" }}
+                    style={{ minWidth: "20rem" }}
                     onMouseEnter={() => handleMouseEnter(group.name)}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <div className="bg-white rounded-2xl shadow-[0_24px_60px_-10px_rgba(0,0,0,0.12)] border border-black/5 overflow-hidden">
+                    <div className="bg-[#0f0f0f] rounded-xl border border-[rgba(255,255,255,0.08)] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.8)]">
                       <div className="p-2">
                         {group.items.map((item) => (
                           <Link
-                            key={item.name}
+                            key={item.label}
                             href={item.href}
                             target={item.external ? "_blank" : undefined}
                             rel={item.external ? "noopener noreferrer" : undefined}
-                            className="group/item flex items-start gap-3 p-3 rounded-xl hover:bg-gray-50 transition-all"
+                            className="group/item flex items-start gap-3 p-2.5 rounded-lg hover:bg-[rgba(255,255,255,0.04)] transition-all duration-150"
                             onClick={() => setActiveDropdown(null)}
                           >
-                            <div className="flex-shrink-0 w-9 h-9 rounded-lg bg-gray-100 flex items-center justify-center text-gray-500 group-hover/item:bg-black group-hover/item:text-white transition-all">
-                              {item.icon && <item.icon className="w-4 h-4" />}
+                            <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-[#161616] border border-[rgba(255,255,255,0.06)] flex items-center justify-center text-[#4a4a4a] group-hover/item:border-[rgba(0,229,153,0.2)] group-hover/item:text-[#00E599] transition-all duration-150">
+                              {item.icon && <item.icon className="w-3.5 h-3.5" />}
                             </div>
                             <div className="flex-1 min-w-0">
-                              <div className="flex items-center gap-2 mb-0.5">
-                                <span className="text-sm font-bold text-gray-900">{item.name}</span>
+                              <div className="flex items-center gap-1.5 mb-0.5">
+                                <span className="text-sm font-medium text-white">{item.label}</span>
                                 {item.badge && (
-                                  <span className={`text-[10px] font-black px-2 py-0.5 rounded-full ${item.badge === "Live" || item.badge === "Active"
-                                      ? "bg-green-50 text-green-700 border border-green-100"
-                                      : item.badge === "Building"
-                                        ? "bg-blue-50 text-blue-600 border border-blue-100"
-                                        : "bg-gray-100 text-gray-500 border border-gray-200"
-                                    }`}>
+                                  <span className="px-1.5 py-0.5 rounded border border-[rgba(0,229,153,0.3)] bg-[rgba(0,229,153,0.1)] text-[9px] font-bold tracking-wider uppercase text-[#00E599]">
                                     {item.badge}
                                   </span>
                                 )}
                                 {item.external && (
-                                  <ArrowUpRight className="w-3 h-3 text-gray-300 group-hover/item:text-gray-500 transition-colors" />
+                                  <ArrowUpRight className="w-3 h-3 text-[#4a4a4a] group-hover/item:text-[#8a8a8a] transition-colors" />
                                 )}
                               </div>
-                              <p className="text-xs text-gray-500 font-medium leading-snug">
+                              <p className="text-xs text-[#4a4a4a] leading-snug font-normal">
                                 {item.description}
                               </p>
                             </div>
                           </Link>
                         ))}
                       </div>
-
-                      {group.footer && (
-                        <div className="px-4 py-3 border-t border-gray-50 bg-gray-50/50">
-                          <Link
-                            href={group.footer.href}
-                            target={group.footer.href.startsWith("http") ? "_blank" : undefined}
-                            rel={group.footer.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                            className="text-xs font-bold text-gray-400 hover:text-[#00E599] transition-colors"
-                            onClick={() => setActiveDropdown(null)}
-                          >
-                            {group.footer.label}
-                          </Link>
-                        </div>
-                      )}
                     </div>
                   </div>
                 )}
               </div>
             ))}
+
+            <a
+              href="https://quantalabs.cc"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3 py-1.5 text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors duration-150 rounded-lg hover:bg-[rgba(255,255,255,0.04)]"
+            >
+              Company
+            </a>
           </div>
 
-          {/* Right side */}
+          {/* Right Side */}
           <div className="flex items-center gap-2 flex-shrink-0">
             <a
               href="https://github.com/quantachain/quanta"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:inline-flex items-center justify-center w-9 h-9 text-gray-500 hover:text-black transition-all hover:bg-gray-100 rounded-full"
+              className="hidden md:flex items-center justify-center w-8 h-8 text-[#4a4a4a] hover:text-white transition-colors duration-150 rounded-lg hover:bg-[rgba(255,255,255,0.04)]"
               aria-label="GitHub"
             >
-              <GithubIcon className="w-[18px] h-[18px]" />
+              <GithubIcon className="w-4 h-4" />
             </a>
-            <a
-              href="https://discord.gg/7KmMBrrJEz"
+
+            <Link
+              href="https://quantachain.gitbook.io/quantachain-docs"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:inline-flex items-center justify-center w-9 h-9 text-gray-500 hover:text-[#5865F2] transition-all hover:bg-indigo-50 rounded-full"
-              aria-label="Discord"
+              className="hidden md:inline-flex items-center gap-1.5 px-4 py-1.5 text-sm font-semibold text-[#00E599] border border-[rgba(0,229,153,0.4)] rounded-lg hover:bg-[#00E599] hover:text-black transition-all duration-150 hover:shadow-[0_0_20px_rgba(0,229,153,0.2)]"
             >
-              <DiscordIcon className="w-[18px] h-[18px]" />
-            </a>
-            <Link
-              href="/faucet"
-              className="hidden md:inline-flex items-center gap-1.5 px-5 py-2.5 bg-black text-white rounded-full font-semibold text-sm hover:bg-[#00E599] hover:text-black transition-all shadow-[0_0_15px_rgba(0,229,153,0.3)] hover:shadow-[0_0_25px_rgba(0,229,153,0.5)] border border-[#00E599]/20"
-            >
-              Testnet Faucet
+              Run a Node
             </Link>
+
+            {/* Mobile hamburger */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden w-10 h-10 flex items-center justify-center text-gray-600 hover:text-black transition-colors rounded-full hover:bg-gray-100"
+              className="lg:hidden w-8 h-8 flex items-center justify-center text-[#8a8a8a] hover:text-white transition-colors rounded-lg hover:bg-[rgba(255,255,255,0.04)]"
               aria-label="Toggle menu"
             >
-              {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {isOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
             </button>
           </div>
-        </div>
-      </div>
+        </nav>
+      </header>
 
-      {/* Mobile menu */}
+      {/* Mobile Menu Overlay */}
       {isOpen && (
-        <div className="lg:hidden fixed inset-x-0 top-20 bottom-0 bg-white border-t border-gray-100 overflow-y-auto z-40">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 py-6 flex flex-col gap-2">
-
+        <div className="lg:hidden fixed inset-0 z-40 bg-[#080808] pt-24 overflow-y-auto">
+          <div className="px-6 pb-10 flex flex-col gap-2">
             {navGroups.map((group) => (
-              <div key={group.name} className="border border-gray-100 rounded-2xl overflow-hidden">
+              <div key={group.name}>
                 <button
                   onClick={() =>
                     setMobileExpanded(mobileExpanded === group.name ? null : group.name)
                   }
-                  className="w-full flex items-center justify-between px-5 py-4 text-left"
+                  className="w-full flex items-center justify-between px-4 py-3 rounded-xl border border-[rgba(255,255,255,0.06)] text-left mb-1 hover:bg-[rgba(255,255,255,0.03)] transition-colors"
                 >
-                  <span className="font-bold text-sm text-black uppercase tracking-wider">
+                  <span
+                    className="text-sm font-semibold text-white uppercase tracking-wider"
+                    style={{ fontFamily: "var(--font-syne)" }}
+                  >
                     {group.name}
                   </span>
                   <ChevronDown
-                    className={`w-4 h-4 text-gray-400 transition-transform ${mobileExpanded === group.name ? "rotate-180" : ""
-                      }`}
+                    className={`w-4 h-4 text-[#4a4a4a] transition-transform ${
+                      mobileExpanded === group.name ? "rotate-180" : ""
+                    }`}
                   />
                 </button>
 
                 {mobileExpanded === group.name && (
-                  <div className="border-t border-gray-50 bg-gray-50/50 px-3 py-2">
+                  <div className="border border-[rgba(255,255,255,0.04)] rounded-xl bg-[#0f0f0f] px-3 py-2 mb-2">
                     {group.items.map((item) => (
                       <Link
-                        key={item.name}
+                        key={item.label}
                         href={item.href}
                         target={item.external ? "_blank" : undefined}
                         rel={item.external ? "noopener noreferrer" : undefined}
-                        className="flex items-center gap-3 px-3 py-3 rounded-xl hover:bg-white transition-colors"
+                        className="flex items-center gap-3 px-2 py-2.5 rounded-lg hover:bg-[rgba(255,255,255,0.04)] transition-colors"
                         onClick={() => setIsOpen(false)}
                       >
-                        <div className="w-8 h-8 rounded-lg bg-white border border-gray-100 flex items-center justify-center shrink-0">
-                          {item.icon && <item.icon className="w-4 h-4 text-gray-600" />}
+                        <div className="w-7 h-7 rounded-lg bg-[#161616] border border-[rgba(255,255,255,0.06)] flex items-center justify-center text-[#4a4a4a]">
+                          {item.icon && <item.icon className="w-3.5 h-3.5" />}
                         </div>
                         <div>
-                          <div className="flex items-center gap-2">
-                            <span className="text-sm font-bold text-gray-900">{item.name}</span>
+                          <div className="flex items-center gap-1.5">
+                            <span className="text-sm font-medium text-white">{item.label}</span>
                             {item.badge && (
-                              <span className={`text-[10px] font-black px-1.5 py-0.5 rounded-full ${item.badge === "Live" || item.badge === "Active"
-                                  ? "bg-green-50 text-green-700"
-                                  : item.badge === "Building"
-                                    ? "bg-blue-50 text-blue-600"
-                                    : "bg-gray-100 text-gray-500"
-                                }`}>
+                              <span className="px-1.5 py-0.5 rounded border border-[rgba(0,229,153,0.3)] bg-[rgba(0,229,153,0.1)] text-[9px] font-bold tracking-wider uppercase text-[#00E599]">
                                 {item.badge}
                               </span>
                             )}
+                            {item.external && (
+                              <ArrowUpRight className="inline-block w-3 h-3 text-[#4a4a4a] ml-1" />
+                            )}
                           </div>
-                          <p className="text-xs text-gray-500 font-medium">{item.description}</p>
                         </div>
-                        {item.external && <ArrowUpRight className="w-3.5 h-3.5 text-gray-300 ml-auto shrink-0" />}
                       </Link>
                     ))}
                   </div>
@@ -441,16 +377,37 @@ export default function Navbar() {
               </div>
             ))}
 
-            <Link
-              href="/faucet"
+            <a
+              href="https://quantalabs.cc"
+              target="_blank"
+              rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}
-              className="mt-2 block px-6 py-4 text-sm font-bold text-white bg-black rounded-2xl text-center hover:bg-[#00E599] hover:text-black transition-all uppercase tracking-wider shadow-[0_0_15px_rgba(0,229,153,0.3)] border border-[#00E599]/20"
+              className="flex items-center px-4 py-3 rounded-xl border border-[rgba(255,255,255,0.06)] text-sm font-semibold text-[#8a8a8a] hover:text-white transition-colors"
             >
-              Testnet Faucet
-            </Link>
+              Company
+            </a>
+
+            <div className="flex flex-col gap-3 mt-4">
+              <Link
+                href="https://quantachain.gitbook.io/quantachain-docs"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsOpen(false)}
+                className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-bold text-[#00E599] border border-[rgba(0,229,153,0.4)] hover:bg-[#00E599] hover:text-black transition-all"
+              >
+                Run a Node
+              </Link>
+              <Link
+                href="/faucet"
+                onClick={() => setIsOpen(false)}
+                className="flex items-center justify-center px-6 py-3 rounded-xl text-sm font-medium text-[#8a8a8a] border border-[rgba(255,255,255,0.06)] hover:text-white transition-colors"
+              >
+                Testnet Faucet
+              </Link>
+            </div>
           </div>
         </div>
       )}
-    </nav>
+    </>
   );
 }

@@ -26,11 +26,8 @@ export default function NetworkStats() {
     return () => clearInterval(interval);
   }, []);
 
-  const renderHashrate = (diff: number) => {
-    const hashrate = diff / 30;
-    if (hashrate > 1000000) return `${(hashrate / 1000000).toLocaleString(undefined, { maximumFractionDigits: 2 })} MH/s`;
-    if (hashrate > 1000) return `${(hashrate / 1000).toLocaleString(undefined, { maximumFractionDigits: 2 })} kH/s`;
-    return `${hashrate.toLocaleString(undefined, { maximumFractionDigits: 0 })} H/s`;
+  const renderFinality = () => {
+    return "< 0.8s"; // Simulated or static representation for BFT finality
   };
 
   const statCards = [
@@ -39,7 +36,7 @@ export default function NetworkStats() {
       title: "Chain Height",
       icon: Layers,
       value: stats ? stats.chain_length.toLocaleString() : "---",
-      description: "Total blocks confirmed on-chain since genesis.",
+      description: "Total BFT blocks confirmed on-chain since genesis.",
     },
     {
       index: 2,
@@ -52,17 +49,17 @@ export default function NetworkStats() {
     },
     {
       index: 3,
-      title: "Difficulty",
+      title: "Active Validators",
       icon: Cpu,
-      value: stats ? `${(stats.current_difficulty / 1_000_000).toFixed(1)}M` : "---",
-      description: "Mining proof-of-work target at current epoch.",
+      value: "21",
+      description: "Institutional bare-metal nodes securing the AlephBFT consensus.",
     },
     {
       index: 4,
-      title: "Network Hashrate",
+      title: "Avg Finality",
       icon: Activity,
-      value: stats ? renderHashrate(stats.current_difficulty) : "---",
-      description: "Estimated combined computational power of all miners.",
+      value: renderFinality(),
+      description: "Estimated time to irrevocable deterministic finality.",
     },
   ];
 

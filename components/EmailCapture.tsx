@@ -87,20 +87,20 @@ export default function EmailCapture({
         <div className="max-w-4xl mx-auto text-center">
           {/* Badge */}
           <div className="inline-block mb-4">
-            <span className="text-xs font-mono font-bold tracking-widest text-gray-400 uppercase px-4 py-2 bg-gray-100 rounded-full">
-              Early Access
+            <span className="text-xs font-mono font-bold tracking-widest text-[#00E599] uppercase px-4 py-2 bg-[#00E599]/10 rounded-full">
+              Testnet Validator
             </span>
           </div>
 
           {/* Title */}
           <h2 className="text-5xl sm:text-7xl font-bold mb-6 tracking-tight leading-[0.95]">
-            Join the <br />
-            <span className="text-[#00E599]">Waitlist</span>
+            Run a <br />
+            <span className="text-[#00E599]">Validator</span>
           </h2>
 
           {/* Description */}
           <p className="text-xl sm:text-2xl text-gray-600 mb-10 leading-relaxed font-light max-w-2xl mx-auto">
-            Be the first to know when we launch. Get exclusive early access to the <span className="text-black font-medium">testnet.</span>
+            Help secure the AlephBFT consensus network. Subscribe to get notified about the upcoming <span className="text-black font-medium">Testnet.</span>
           </p>
 
           {/* Form */}

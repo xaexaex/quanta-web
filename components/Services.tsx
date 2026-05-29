@@ -41,24 +41,24 @@ export default function Services() {
 
     const services = [
         {
-            title: "Post-quantum cryptography integration",
-            description: "Seamlessly integrate NIST-standardized algorithms into your existing systems.",
+            title: "Private Consortium BFT Networks",
+            description: "Deploy a sovereign, NSA-compliant AlephBFT sub-network specifically tuned for your enterprise use case.",
             icon: Shield
         },
         {
-            title: "Kyber / Dilithium / Falcon migration",
-            description: "Expert guidance on transitioning your infrastructure to post-quantum security algorithms.",
-            icon: Lock
+            title: "DePIN Hardware Integration",
+            description: "Integrate Quanta's ultra-lightweight Rust templates directly into your IoT devices, GPUs, and sensor networks.",
+            icon: Server
         },
         {
-            title: "Quantum-safe wallet architecture",
-            description: "Design and implementation of secure, quantum-resistant cryptocurrency wallets.",
+            title: "AI Agent Settlement Infrastructure",
+            description: "Build high-frequency trustless escrows and dataset validation for your autonomous AI workforce.",
             icon: Wallet
         },
         {
-            title: "PQC security audit",
-            description: "Comprehensive audits of your cryptographic implementations to ensure post-quantum resilience.",
-            icon: Server
+            title: "Y2Q Security Audits",
+            description: "Comprehensive cryptography audits ensuring your digital infrastructure is mathematically secure against harvest-now-decrypt-later attacks.",
+            icon: Lock
         }
     ];
 
@@ -73,14 +73,13 @@ export default function Services() {
             <div className="container mx-auto px-6">
                 <div className="text-center max-w-4xl mx-auto mb-16">
                     <h2 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight text-gray-900">
-                        Quantum-Safe <span className="text-[#00E599]">Services</span>
+                        Institutional <span className="text-[#00E599]">Deployment</span>
                     </h2>
                     <p className="text-xl md:text-2xl font-medium text-gray-900 mb-6">
-                        We help blockchain projects upgrade to quantum-resistant cryptography.
+                        We help enterprises build and deploy autonomous infrastructure.
                     </p>
                     <p className="text-lg text-gray-600 leading-relaxed mb-4">
-                        Quantachain is a specialized team focused exclusively on post-quantum cryptography (PQC).
-                        Having built Quanta—a quantum-resistant blockchain using NIST-standardized algorithms like Falcon-512 and Kyber-1024—we offer expert guidance to transition your infrastructure before quantum threats become reality.
+                        Quantalabs is the core engineering team behind the Quanta protocol. We offer white-glove engineering services for defense, medical, and supply-chain enterprises looking to leverage quantum-secure AI settlement layers and DePIN hardware networks.
                     </p>
                 </div>
 

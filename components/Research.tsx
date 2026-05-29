@@ -1,136 +1,85 @@
-import Link from 'next/link';
-import { ArrowUpRight, BookOpen, FileText } from 'lucide-react';
-
-const publications = [
-  {
-    title: "Learning with Correlated Errors: A New Lattice Hard Problem with Worst-Case Reductions and Public-Key Encryption",
-    date: "March 11, 2026",
-    link: "https://doi.org/10.5281/zenodo.18962921",
-    type: "Zenodo Publication"
-  },
-  {
-    title: "Quantum Temporal Order: Structural Inevitability of Modular Flow and the Problem of Time",
-    date: "March 3, 2026",
-    link: "https://doi.org/10.5281/zenodo.18845465",
-    type: "Zenodo Publication"
-  },
-  {
-    title: "QUANTA: Engineering a Production-Ready Post-Quantum Blockchain with Falcon-512 Lattice Signatures",
-    date: "February 24, 2026",
-    link: "https://doi.org/10.5281/zenodo.18753528",
-    type: "Zenodo Publication"
-  }
-];
-
-const articles = [
-  {
-    title: "The Quantum Clock Is Ticking — And Only One Blockchain Was Built to Survive It",
-    date: "Feb 24, 2026",
-    link: "https://medium.com/@kishorekkumar34/the-quantum-clock-is-ticking-and-only-one-blockchain-was-built-to-survive-it-ee3cca7675b7",
-    type: "Medium Article"
-  },
-  {
-    title: "Quantum Computers Will Steal Your Crypto. We Built a Blockchain That Can't Be Hacked.",
-    date: "Feb 22, 2026",
-    link: "https://medium.com/@kishorekkumar34/quantum-computers-will-steal-your-crypto-we-built-a-blockchain-that-cant-be-hacked-4d3126d81d6f",
-    type: "Medium Article"
-  }
-];
+import { ArrowUpRight } from "lucide-react";
 
 export default function Research() {
   return (
-    <section className="py-20 bg-transparent relative overflow-hidden">
+    <section className="py-24 px-6 md:px-12 max-w-7xl mx-auto">
+      <div className="divider mb-16" />
 
-      <div className="container mx-auto px-6 relative z-10">
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-14 gap-6">
-          <div>
-            <span className="text-xs font-mono font-bold tracking-widest text-gray-400 uppercase mb-4 block">
-              Our Work
-            </span>
-            <h2 className="text-4xl sm:text-5xl font-bold tracking-tight leading-[1] text-gray-900">
-              Research &amp; <span className="text-[#00E599]">Publications</span>
-            </h2>
-          </div>
-          <p className="text-lg text-gray-500 font-light leading-relaxed max-w-md text-right hidden md:block">
-            Operating at the forefront of cryptography and theoretical physics.
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="lg:col-span-7">
+          <span className="section-label">Research</span>
+          <h2
+            className="text-4xl font-bold text-white mb-6 mt-2 leading-tight"
+            style={{ fontFamily: "var(--font-syne)" }}
+          >
+            Peer-Reviewed Architecture
+          </h2>
+          <p className="text-[#8a8a8a] text-lg leading-relaxed font-light mb-8">
+            The Quanta protocol is documented in a published research paper
+            covering the full cryptographic and consensus architecture.
           </p>
+
+          {/* Citation block */}
+          <div className="code-block mb-6">
+            <pre className="text-xs leading-loose overflow-x-auto whitespace-pre-wrap">
+              <code>
+                <span className="line-flag">@misc</span>
+                <span className="line-cmd">{"{"}</span>
+                <span className="line-cmd">quanta2026,</span>
+                {"\n"}
+                <span className="line-cmd">  title  = </span>
+                <span className="line-flag">{"{"}QUANTA: Engineering a Production-Ready</span>
+                {"\n"}
+                <span className="line-flag">           Post-Quantum Blockchain with Falcon-512{"}"}</span>
+                {",\n"}
+                <span className="line-cmd">  author = </span>
+                <span className="line-flag">{"{"}Kishore K{"}"}</span>
+                {",\n"}
+                <span className="line-cmd">  year   = </span>
+                <span className="line-flag">{"{"}2026{"}"}</span>
+                {",\n"}
+                <span className="line-cmd">  doi    = </span>
+                <span className="line-flag">{"{"}10.5281/zenodo.18753528{"}"}</span>
+                {",\n"}
+                <span className="line-cmd">  url    = </span>
+                <span className="line-flag">{"{"}https://doi.org/10.5281/zenodo.18753528{"}"}</span>
+                {"\n"}
+                <span className="line-cmd">{"}"}</span>
+              </code>
+            </pre>
+          </div>
+
+          <a
+            href="https://doi.org/10.5281/zenodo.18753528"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-ghost inline-flex"
+          >
+            Read on Zenodo
+            <ArrowUpRight className="w-4 h-4" />
+          </a>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Academic Papers */}
-          <div>
-            <div className="flex items-center gap-2.5 mb-6">
-              <div className="w-8 h-8 rounded-lg bg-[#00E599]/10 flex items-center justify-center">
-                <BookOpen className="w-4 h-4 text-[#00E599]" />
-              </div>
-              <h3 className="text-base font-bold text-gray-900 tracking-tight">Academic Papers</h3>
-            </div>
-            <div className="space-y-3">
-              {publications.map((pub, index) => (
-                <Link
-                  key={index}
-                  href={pub.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-start gap-4 p-5 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-[#00E599]/25 transition-all duration-300 relative overflow-hidden"
+        {/* Right: paper metadata */}
+        <div className="lg:col-span-5">
+          <div className="card-dark p-6 space-y-4">
+            {[
+              { label: "Title", value: "Engineering a Production-Ready Post-Quantum Blockchain with Falcon-512 Lattice Signatures" },
+              { label: "Author", value: "Kishore K" },
+              { label: "Published", value: "February 2026" },
+              { label: "DOI", value: "10.5281/zenodo.18753528" },
+              { label: "Platform", value: "Zenodo / CERN" },
+            ].map((f) => (
+              <div key={f.label} className="border-b border-[rgba(255,255,255,0.04)] pb-4 last:border-0 last:pb-0">
+                <span
+                  className="text-[9px] text-[#4a4a4a] uppercase tracking-widest block mb-1"
+                  style={{ fontFamily: "var(--font-mono)" }}
                 >
-                  {/* Left accent line */}
-                  <div className="absolute left-0 top-0 w-0.5 h-full bg-gray-100 group-hover:bg-[#00E599] transition-colors duration-300 rounded-l-2xl" />
-
-                  <div className="flex-1 min-w-0 pl-1">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="text-[10px] font-mono font-bold tracking-widest text-[#00E599] uppercase">
-                        {pub.type}
-                      </span>
-                    </div>
-                    <h4 className="text-sm sm:text-[15px] font-semibold text-gray-800 leading-snug group-hover:text-gray-900 transition-colors line-clamp-2">
-                      {pub.title}
-                    </h4>
-                    <p className="text-xs text-gray-400 font-medium mt-2">Published: {pub.date}</p>
-                  </div>
-
-                  <ArrowUpRight className="w-4 h-4 text-gray-300 group-hover:text-[#00E599] flex-shrink-0 mt-0.5 transition-colors duration-300" />
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Articles & Insights */}
-          <div>
-            <div className="flex items-center gap-2.5 mb-6">
-              <div className="w-8 h-8 rounded-lg bg-gray-100 flex items-center justify-center">
-                <FileText className="w-4 h-4 text-gray-500" />
+                  {f.label}
+                </span>
+                <span className="text-sm text-[#8a8a8a]">{f.value}</span>
               </div>
-              <h3 className="text-base font-bold text-gray-900 tracking-tight">Articles &amp; Insights</h3>
-            </div>
-            <div className="space-y-3">
-              {articles.map((article, index) => (
-                <Link
-                  key={index}
-                  href={article.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex items-start gap-4 p-5 bg-white rounded-2xl border border-gray-100 shadow-sm hover:shadow-md hover:border-gray-200 transition-all duration-300"
-                >
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-2">
-                      <span className="text-[10px] font-mono font-bold tracking-widest text-gray-400 uppercase">
-                        {article.type}
-                      </span>
-                    </div>
-                    <h4 className="text-sm sm:text-[15px] font-semibold text-gray-800 leading-snug group-hover:text-gray-900 transition-colors line-clamp-2">
-                      {article.title}
-                    </h4>
-                    <p className="text-xs text-gray-400 font-medium mt-2">{article.date}</p>
-                  </div>
-
-                  <ArrowUpRight className="w-4 h-4 text-gray-300 group-hover:text-gray-600 flex-shrink-0 mt-0.5 transition-colors duration-300" />
-                </Link>
-              ))}
-
-
-            </div>
+            ))}
           </div>
         </div>
       </div>
