@@ -11,12 +11,13 @@ export const metadata: Metadata = {
 
 const quickFacts = [
   { label: "Name", value: "Quanta Chain" },
-  { label: "Type", value: "Quantum-Resistant Blockchain" },
-  { label: "Technology", value: "Rust, Falcon-512, Kyber-1024" },
-  { label: "Consensus", value: "Proof-of-Work (SHA-256)" },
-  { label: "Block Time", value: "~30 seconds" },
+  { label: "Type", value: "Post-Quantum Layer 1 Blockchain" },
+  { label: "Technology", value: "Rust, Falcon-512, AlephBFT" },
+  { label: "Consensus", value: "AlephBFT (Byzantine Fault Tolerant)" },
+  { label: "Block Time", value: "~6 seconds BFT finality" },
   { label: "GitHub", value: "github.com/quantachain/quanta", href: "https://github.com/quantachain/quanta" },
 ];
+
 
 const talkingPoints = [
   { title: "Quantum Threat Is Real", desc: "IBM, Google, and others are making rapid progress. Current blockchain cryptography will be vulnerable within a decade." },
@@ -43,7 +44,7 @@ const timeline = [
 
 export default function PressKitPage() {
   return (
-    <main className="min-h-screen bg-transparent text-black selection:bg-[#00E599] selection:text-black">
+    <main className="min-h-screen bg-[#080808] text-white selection:bg-[#00E599] selection:text-black">
       <Navbar />
 
       <div className="pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24">
@@ -52,17 +53,17 @@ export default function PressKitPage() {
           {/* Hero */}
           <div className="max-w-4xl mb-16 sm:mb-20">
             <div className="inline-block mb-4">
-              <span className="text-xs font-mono font-bold tracking-widest text-gray-400 uppercase px-4 py-2 bg-gray-100 rounded-full">
+              <span className="text-xs font-mono font-bold tracking-widest text-[#00E599] uppercase px-4 py-2 bg-[rgba(0,229,153,0.1)] rounded-full border border-[rgba(0,229,153,0.2)]">
                 Press Kit
               </span>
             </div>
-            <h1 className="text-5xl sm:text-7xl font-bold mb-6 tracking-tight leading-[0.95]">
+            <h1 className="text-5xl sm:text-7xl font-bold mb-6 tracking-tight leading-[0.95] text-white">
               Press <br />
               <span className="text-[#00E599]">Kit</span>
             </h1>
-            <p className="text-xl sm:text-2xl text-gray-600 leading-relaxed font-light max-w-2xl">
+            <p className="text-xl sm:text-2xl text-[#8a8a8a] leading-relaxed font-light max-w-2xl">
               Everything you need to cover Quanta.{" "}
-              <span className="text-black font-medium">Logos, brand assets, descriptions, and media resources.</span>
+              <span className="text-white font-medium">Logos, brand assets, descriptions, and media resources.</span>
             </p>
           </div>
 
@@ -78,15 +79,15 @@ export default function PressKitPage() {
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
               {quickFacts.map((fact, i) => (
-                <div key={i} className="bg-white shadow-xl -translate-y-1 rounded-2xl p-6 border border-[#00E599]/30 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
-                  <div className="w-8 h-8 rounded-full border border-teal-600/30 flex items-center justify-center mb-4 text-sm font-mono text-teal-700 font-medium">
+                <div key={i} className="bg-[#0f0f0f] rounded-2xl p-6 border border-[rgba(0,229,153,0.15)] hover:border-[rgba(0,229,153,0.4)] transition-all duration-300">
+                  <div className="w-8 h-8 rounded-full border border-[rgba(0,229,153,0.3)] flex items-center justify-center mb-4 text-sm font-mono text-[#00E599] font-medium">
                     {i + 1}
                   </div>
-                  <p className="text-xs font-mono font-bold tracking-widest text-gray-400 uppercase mb-1">{fact.label}</p>
+                  <p className="text-xs font-mono font-bold tracking-widest text-[#4a4a4a] uppercase mb-1">{fact.label}</p>
                   {fact.href ? (
                     <a href={fact.href} target="_blank" rel="noopener noreferrer" className="text-[#00E599] font-semibold hover:underline text-sm">{fact.value}</a>
                   ) : (
-                    <p className="text-gray-900 font-semibold text-sm">{fact.value}</p>
+                    <p className="text-white font-semibold text-sm">{fact.value}</p>
                   )}
                 </div>
               ))}

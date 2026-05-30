@@ -300,7 +300,7 @@ export default function Hero() {
 
         {/* Scrolling Use Cases ticker */}
         <div className="mt-20 overflow-hidden border-t border-[rgba(255,255,255,0.05)] pt-6">
-          <div className="flex gap-12 animate-marquee whitespace-nowrap" style={{ animationDuration: "25s" }}>
+          <div className="flex gap-12 animate-marquee whitespace-nowrap" style={{ animationDuration: "40s" }}>
             {[
               "AI Agents",
               "DePIN",

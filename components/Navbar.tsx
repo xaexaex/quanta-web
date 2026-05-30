@@ -38,6 +38,7 @@ type NavItem = {
   description?: string;
   icon?: React.ComponentType<{ className?: string }>;
   badge?: string;
+  disabled?: boolean;
 };
 
 type NavGroup = {
@@ -55,6 +56,7 @@ const navGroups: NavGroup[] = [
         external: true,
         description: "Real-time blocks, transactions, validators",
         icon: Search,
+        badge: "Live",
       },
       {
         label: "Faucet",
@@ -68,6 +70,31 @@ const navGroups: NavGroup[] = [
         external: true,
         description: "Falcon-512 browser extension wallet",
         icon: Wallet,
+        badge: "Live",
+      },
+      {
+        label: "Mining Pool",
+        href: "https://github.com/quantachain/quanta-pool",
+        external: true,
+        description: "High-performance Stratum-Q mining pool server",
+        icon: Globe,
+        badge: "Live",
+      },
+      {
+        label: "Data Indexer",
+        href: "https://github.com/quantachain/quanta-indexer",
+        external: true,
+        description: "High-throughput blockchain data indexer",
+        icon: Code2,
+        badge: "Live",
+      },
+      {
+        label: "Mobile Wallet",
+        href: "https://github.com/quantachain/quanta-mobile-wallet",
+        external: true,
+        description: "Android native wallet — Rust JNI Falcon-512",
+        icon: Wallet,
+        badge: "Building",
       },
     ],
   },
@@ -94,13 +121,15 @@ const navGroups: NavGroup[] = [
         external: true,
         description: "Official JS/TS client library",
         icon: Package,
+        badge: "Live",
       },
       {
         label: "WASM Engine",
         href: "https://crates.io/crates/quanta-wasm",
         external: true,
-        description: "Rust post-quantum crypto for browsers",
+        description: "Falcon-512 PQC compiled to WebAssembly",
         icon: Code2,
+        badge: "Live",
       },
       {
         label: "Whitepaper",
@@ -136,10 +165,11 @@ const navGroups: NavGroup[] = [
       },
       {
         label: "Community Hub",
-        href: "/community",
-        description: "Community grants coming soon",
+        href: "#",
+        description: "Community grants — coming soon",
         icon: Globe,
-        badge: "TGE",
+        badge: "Soon",
+        disabled: true,
       },
     ],
   },
@@ -239,6 +269,25 @@ export default function Navbar() {
                     <div className="bg-[#0f0f0f] rounded-xl border border-[rgba(255,255,255,0.08)] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.8)]">
                       <div className="p-2">
                         {group.items.map((item) => (
+                          item.disabled ? (
+                            <div
+                              key={item.label}
+                              className="flex items-start gap-3 p-2.5 rounded-lg opacity-40 cursor-not-allowed"
+                            >
+                              <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-[#161616] border border-[rgba(255,255,255,0.06)] flex items-center justify-center text-[#4a4a4a]">
+                                {item.icon && <item.icon className="w-3.5 h-3.5" />}
+                              </div>
+                              <div className="flex-1 min-w-0">
+                                <div className="flex items-center gap-1.5 mb-0.5">
+                                  <span className="text-sm font-medium text-white">{item.label}</span>
+                                  <span className="px-1.5 py-0.5 rounded border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.05)] text-[9px] font-bold tracking-wider uppercase text-[#6a6a6a]">
+                                    Coming Soon
+                                  </span>
+                                </div>
+                                <p className="text-xs text-[#4a4a4a] leading-snug font-normal">{item.description}</p>
+                              </div>
+                            </div>
+                          ) : (
                           <Link
                             key={item.label}
                             href={item.href}
@@ -267,6 +316,7 @@ export default function Navbar() {
                               </p>
                             </div>
                           </Link>
+                          )
                         ))}
                       </div>
                     </div>

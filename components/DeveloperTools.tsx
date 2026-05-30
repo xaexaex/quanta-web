@@ -26,7 +26,7 @@ const PRODUCTS = [
         external: true,
         icon: Search,
         status: "live" as const,
-        accent: "#00E599",
+        meta: undefined,
       },
       {
         name: "Testnet Faucet",
@@ -35,7 +35,7 @@ const PRODUCTS = [
         external: false,
         icon: Droplet,
         status: "live" as const,
-        accent: "#00E599",
+        meta: undefined,
       },
       {
         name: "Quantalabs",
@@ -44,7 +44,7 @@ const PRODUCTS = [
         external: true,
         icon: Briefcase,
         status: "live" as const,
-        accent: "#00E599",
+        meta: undefined,
       },
       {
         name: "Validator Node",
@@ -53,17 +53,6 @@ const PRODUCTS = [
         external: true,
         icon: Pickaxe,
         status: "live" as const,
-        accent: "#00E599",
-        meta: "GitHub",
-      },
-      {
-        name: "AI Escrow Demo",
-        description: "Bash integration script demonstrating how autonomous agents can securely lock and claim funds.",
-        href: "https://github.com/quantachain/quanta",
-        external: true,
-        icon: Search,
-        status: "live" as const,
-        accent: "#00E599",
         meta: "GitHub",
       },
       {
@@ -73,7 +62,6 @@ const PRODUCTS = [
         external: true,
         icon: Search,
         status: "live" as const,
-        accent: "#00E599",
         meta: "GitHub",
       },
     ],
@@ -88,7 +76,7 @@ const PRODUCTS = [
         external: true,
         icon: Wallet,
         status: "live" as const,
-        accent: "#00E599",
+        meta: undefined,
       },
       {
         name: "Mobile Wallet",
@@ -97,7 +85,7 @@ const PRODUCTS = [
         external: true,
         icon: Smartphone,
         status: "building" as const,
-        accent: "#3b82f6",
+        meta: undefined,
       },
       {
         name: "Native Templates",
@@ -106,7 +94,7 @@ const PRODUCTS = [
         external: true,
         icon: Code2,
         status: "live" as const,
-        accent: "#00E599",
+        meta: undefined,
       },
     ],
   },
@@ -120,17 +108,15 @@ const PRODUCTS = [
         external: true,
         icon: Package,
         status: "live" as const,
-        accent: "#00E599",
         meta: "NPM",
       },
       {
         name: "quanta-wasm",
         description: "Falcon-512 cryptography compiled to WebAssembly. Native-speed PQC directly in the browser or Node.js.",
-        href: "https://www.npmjs.com/package/quanta-wasm",
+        href: "https://crates.io/crates/quanta-wasm",
         external: true,
         icon: Code2,
         status: "live" as const,
-        accent: "#00E599",
         meta: "NPM · Crates.io",
       },
       {
@@ -140,7 +126,6 @@ const PRODUCTS = [
         external: true,
         icon: BookOpen,
         status: "live" as const,
-        accent: "#00E599",
         meta: "GitBook",
       },
     ],
@@ -148,7 +133,7 @@ const PRODUCTS = [
 ];
 
 const STATS = [
-  { value: "8", label: "Live Products" },
+  { value: "9", label: "Live Products" },
   { value: "120+", label: "TPS" },
   { value: "9", label: "Repos on GitHub" },
   { value: "5+", label: "Networks & Integrations" },
@@ -156,18 +141,18 @@ const STATS = [
 
 const STATUS_CONFIG = {
   live: {
-    dot: "bg-[#00E599]",
-    badge: "bg-[#00E599]/10 text-[#00864a] border-[#00E599]/20",
+    dot: "bg-[#00E599] animate-pulse-dot",
+    badge: "bg-[rgba(0,229,153,0.08)] text-[#00E599] border-[rgba(0,229,153,0.2)]",
     label: "Live",
   },
   building: {
-    dot: "bg-blue-400 animate-pulse",
-    badge: "bg-blue-50 text-blue-600 border-blue-100",
+    dot: "bg-[#4a4a4a] animate-pulse",
+    badge: "bg-[rgba(255,255,255,0.04)] text-[#8a8a8a] border-[rgba(255,255,255,0.08)]",
     label: "Building",
   },
   soon: {
-    dot: "bg-gray-300",
-    badge: "bg-gray-50 text-gray-500 border-gray-200",
+    dot: "bg-[#4a4a4a]",
+    badge: "bg-[rgba(255,255,255,0.04)] text-[#4a4a4a] border-[rgba(255,255,255,0.06)]",
     label: "Soon",
   },
 };
@@ -176,12 +161,12 @@ export default function DeveloperTools() {
   return (
     <section id="ecosystem" className="py-16 sm:py-28 bg-transparent relative overflow-hidden">
 
-      {/* Subtle background grid */}
+      {/* Subtle grid background */}
       <div
-        className="absolute inset-0 -z-10 opacity-[0.025]"
+        className="absolute inset-0 -z-10 opacity-[0.015]"
         style={{
           backgroundImage:
-            "linear-gradient(to right,#000 1px,transparent 1px),linear-gradient(to bottom,#000 1px,transparent 1px)",
+            "linear-gradient(to right,#00E599 1px,transparent 1px),linear-gradient(to bottom,#00E599 1px,transparent 1px)",
           backgroundSize: "48px 48px",
         }}
       />
@@ -191,15 +176,18 @@ export default function DeveloperTools() {
         {/* ── HEADER ─────────────────────────────────────────────── */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-10 mb-20">
           <div className="max-w-2xl">
-            <span className="inline-block text-xs font-mono font-bold tracking-widest text-gray-400 uppercase mb-5 px-4 py-2 bg-gray-100 rounded-full">
-              Ecosystem
-            </span>
-            <h2 className="text-5xl sm:text-7xl font-bold tracking-tight leading-[0.93] mb-6">
-              Everything<br />
+            <span className="section-label">Ecosystem</span>
+            <h2
+              className="text-5xl sm:text-7xl font-bold tracking-tight leading-[0.93] mb-6 text-white"
+              style={{ fontFamily: "var(--font-syne)" }}
+            >
+              Everything
+              <br />
               <span className="text-[#00E599]">Built &amp; Live.</span>
             </h2>
-            <p className="text-xl text-gray-500 font-light leading-relaxed max-w-lg">
-              From protocol to wallets, explorer to SDK — the entire quantum-resistant stack is production-ready and growing fast.
+            <p className="text-[#8a8a8a] text-xl font-light leading-relaxed max-w-lg">
+              From protocol to wallets, explorer to SDK — the entire quantum-resistant stack is
+              production-ready and growing fast.
             </p>
           </div>
 
@@ -208,10 +196,20 @@ export default function DeveloperTools() {
             {STATS.map((s) => (
               <div
                 key={s.label}
-                className="bg-white border border-gray-100 rounded-2xl px-5 py-4 shadow-sm text-center min-w-[110px]"
+                className="card-dark px-5 py-4 text-center min-w-[110px] rounded-2xl"
               >
-                <div className="text-3xl font-extrabold text-gray-900 tracking-tight">{s.value}</div>
-                <div className="text-xs text-gray-500 font-semibold mt-1 leading-tight">{s.label}</div>
+                <div
+                  className="text-3xl font-extrabold text-white tracking-tight"
+                  style={{ fontFamily: "var(--font-syne)" }}
+                >
+                  {s.value}
+                </div>
+                <div
+                  className="text-[10px] text-[#4a4a4a] font-semibold mt-1 leading-tight uppercase tracking-widest"
+                  style={{ fontFamily: "var(--font-mono)" }}
+                >
+                  {s.label}
+                </div>
               </div>
             ))}
           </div>
@@ -223,14 +221,17 @@ export default function DeveloperTools() {
             <div key={group.category}>
               {/* Category label */}
               <div className="flex items-center gap-4 mb-6">
-                <span className="text-xs font-black uppercase tracking-widest text-gray-400">
+                <span
+                  className="text-[9px] font-black uppercase tracking-widest text-[#4a4a4a]"
+                  style={{ fontFamily: "var(--font-mono)" }}
+                >
                   {group.category}
                 </span>
-                <div className="flex-1 h-px bg-gray-100" />
+                <div className="flex-1 h-px bg-[rgba(255,255,255,0.05)]" />
               </div>
 
               {/* Cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 {group.items.map((item) => {
                   const Icon = item.icon;
                   const statusConf = STATUS_CONFIG[item.status];
@@ -241,17 +242,17 @@ export default function DeveloperTools() {
                       href={item.href}
                       target={item.external ? "_blank" : undefined}
                       rel={item.external ? "noopener noreferrer" : undefined}
-                      className="group relative flex flex-col bg-white border border-gray-100 rounded-2xl p-7 shadow-sm hover:shadow-xl hover:-translate-y-1 hover:border-[#00E599]/30 transition-all duration-300 overflow-hidden"
+                      className="group relative flex flex-col card-dark rounded-2xl p-6 hover:border-[rgba(0,229,153,0.25)] hover:shadow-[0_0_40px_rgba(0,229,153,0.04)] transition-all duration-300 overflow-hidden"
                     >
-                      {/* Hover glow */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#00E599]/0 to-[#00E599]/0 group-hover:from-[#00E599]/5 group-hover:to-transparent transition-all duration-500 rounded-2xl pointer-events-none" />
+                      {/* Hover glow overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#00E599]/0 to-[#00E599]/0 group-hover:from-[#00E599]/[0.03] group-hover:to-transparent transition-all duration-500 rounded-2xl pointer-events-none" />
 
                       {/* Top row */}
                       <div className="flex items-start justify-between mb-5">
-                        <div className="w-11 h-11 rounded-xl bg-gray-50 border border-gray-100 flex items-center justify-center group-hover:bg-black group-hover:border-black transition-all duration-300">
-                          <Icon className="w-5 h-5 text-gray-600 group-hover:text-[#00E599] transition-colors duration-300" />
+                        <div className="w-10 h-10 rounded-xl bg-[#161616] border border-[rgba(255,255,255,0.06)] flex items-center justify-center group-hover:border-[rgba(0,229,153,0.2)] group-hover:bg-[rgba(0,229,153,0.06)] transition-all duration-300">
+                          <Icon className="w-4.5 h-4.5 w-[18px] h-[18px] text-[#4a4a4a] group-hover:text-[#00E599] transition-colors duration-300" />
                         </div>
-                        <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-[10px] font-black uppercase tracking-wider ${statusConf.badge}`}>
+                        <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-[9px] font-black uppercase tracking-wider ${statusConf.badge}`}>
                           <span className={`w-1.5 h-1.5 rounded-full ${statusConf.dot}`} />
                           {statusConf.label}
                         </div>
@@ -260,20 +261,27 @@ export default function DeveloperTools() {
                       {/* Content */}
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-2">
-                          <h3 className="text-lg font-bold text-gray-900">{item.name}</h3>
-                          {"meta" in item && item.meta && (
-                            <span className="text-[10px] font-mono font-semibold text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full">
+                          <h3
+                            className="text-base font-bold text-white group-hover:text-[#00E599] transition-colors"
+                            style={{ fontFamily: "var(--font-syne)" }}
+                          >
+                            {item.name}
+                          </h3>
+                          {item.meta && (
+                            <span
+                              className="text-[9px] font-mono font-semibold text-[#4a4a4a] bg-[#161616] border border-[rgba(255,255,255,0.06)] px-1.5 py-0.5 rounded"
+                            >
                               {item.meta}
                             </span>
                           )}
                         </div>
-                        <p className="text-sm text-gray-500 leading-relaxed font-medium">
+                        <p className="text-sm text-[#8a8a8a] leading-relaxed font-light">
                           {item.description}
                         </p>
                       </div>
 
-                      {/* Bottom link */}
-                      <div className="mt-6 flex items-center gap-1.5 text-xs font-bold text-gray-400 group-hover:text-[#00E599] transition-colors">
+                      {/* Bottom link indicator */}
+                      <div className="mt-5 flex items-center gap-1.5 text-xs font-semibold text-[#4a4a4a] group-hover:text-[#00E599] transition-colors">
                         {item.external ? "Open" : "Explore"}
                         <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
                       </div>
@@ -286,10 +294,15 @@ export default function DeveloperTools() {
         </div>
 
         {/* ── BOTTOM CTA ─────────────────────────────────────────── */}
-        <div className="mt-20 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-gray-100 pt-10">
+        <div className="mt-20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-t border-[rgba(255,255,255,0.06)] pt-10">
           <div>
-            <p className="text-sm font-bold text-gray-900">Want to build on Quanta?</p>
-            <p className="text-sm text-gray-500 font-medium mt-0.5">
+            <p
+              className="text-base font-bold text-white"
+              style={{ fontFamily: "var(--font-syne)" }}
+            >
+              Want to build on Quanta?
+            </p>
+            <p className="text-sm text-[#8a8a8a] font-light mt-1">
               Docs, SDK, and WASM are ready. Start in minutes.
             </p>
           </div>
@@ -298,7 +311,7 @@ export default function DeveloperTools() {
               href="https://quantachain.gitbook.io/quantachain-docs"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white text-sm font-bold rounded-xl hover:bg-[#00E599] hover:text-black transition-all"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#00E599] text-black text-sm font-bold rounded-xl hover:bg-[#00c282] transition-all"
             >
               Read the Docs <ArrowUpRight className="w-4 h-4" />
             </Link>
@@ -306,14 +319,12 @@ export default function DeveloperTools() {
               href="https://github.com/quantachain"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 border border-gray-200 text-black text-sm font-bold rounded-xl hover:border-black transition-all"
+              className="inline-flex items-center gap-2 px-6 py-3 border border-[rgba(255,255,255,0.1)] text-white text-sm font-bold rounded-xl hover:border-[rgba(255,255,255,0.25)] transition-all"
             >
-              GitHub
-              <MessageSquare className="w-4 h-4" />
+              GitHub <ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
-
       </div>
     </section>
   );

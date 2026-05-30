@@ -4,22 +4,24 @@ const milestones = [
     title: "Testnet Launch",
     items: [
       "Core blockchain, P2P, REST API, RPC",
-      "HD Wallet (BIP39/BIP32)",
-      "Multisig (M-of-N Falcon-512)",
+      "HD Wallet (BIP39/BIP32), Multisig (M-of-N)",
       "Treasury Multisig live on-chain",
-      "Docker image + monitoring",
+      "Docker image + Prometheus monitoring",
+      "Zenodo research paper published",
     ],
     status: "done",
   },
   {
     quarter: "Q2 2026",
-    title: "Public Testnet",
+    title: "Public Testnet & Ecosystem",
     items: [
-      "91,000+ blocks, 2 active validators",
-      "Block explorer at scan.quantachain.org",
-      "Chrome wallet extension",
-      "External security audits",
-      "Developer SDK and tooling",
+      "91,000+ blocks, external validators live",
+      "Block explorer — scan.quantachain.org",
+      "Chrome wallet extension (Live)",
+      "quanta-sdk (NPM) + quanta-wasm (Crates.io)",
+      "Mining Pool Server (Stratum-Q)",
+      "Data Indexer (Rust + MongoDB)",
+      "External security audits initiated",
     ],
     status: "active",
   },
@@ -29,7 +31,9 @@ const milestones = [
     items: [
       "Comprehensive protocol audit",
       "Penetration testing",
-      "Bug bounty program",
+      "Bug bounty program launch",
+      "Mobile Wallet (Android — Rust JNI)",
+      "QuantaCipher API integration",
       "Protocol finalization",
     ],
     status: "upcoming",
@@ -38,11 +42,11 @@ const milestones = [
     quarter: "Q4 2026",
     title: "Mainnet Preparation",
     items: [
-      "Code freeze",
-      "Genesis configuration",
-      "21-validator bootstrap",
-      "Desktop wallets",
-      "Block explorer v2",
+      "Code freeze + genesis configuration",
+      "21-validator bootstrap consortium",
+      "Desktop wallets (Windows / macOS / Linux)",
+      "Block explorer v2 with full analytics",
+      "AI Escrow + DePIN settlement templates",
     ],
     status: "upcoming",
   },
@@ -50,14 +54,16 @@ const milestones = [
     quarter: "Q1 2027",
     title: "Mainnet Genesis",
     items: [
-      "Genesis event",
-      "Production wallets",
+      "Genesis block event",
+      "Production wallet suite",
       "Exchange integrations",
       "AI agent SDK v1",
+      "DePIN settlement mainnet",
     ],
     status: "upcoming",
   },
 ];
+
 
 export default function Roadmap() {
   return (
@@ -83,13 +89,12 @@ export default function Roadmap() {
               {/* Connector line + dot */}
               <div className="flex items-center w-full mb-6">
                 <div
-                  className={`w-3 h-3 rounded-full flex-shrink-0 z-10 ${
-                    m.status === "done"
+                  className={`w-3 h-3 rounded-full flex-shrink-0 z-10 ${m.status === "done"
                       ? "bg-[#00E599]"
                       : m.status === "active"
-                      ? "bg-[#00E599] animate-pulse-dot ring-4 ring-[rgba(0,229,153,0.15)]"
-                      : "bg-[#2a2a2a] border border-[rgba(255,255,255,0.15)]"
-                  }`}
+                        ? "bg-[#00E599] animate-pulse-dot ring-4 ring-[rgba(0,229,153,0.15)]"
+                        : "bg-[#2a2a2a] border border-[rgba(255,255,255,0.15)]"
+                    }`}
                 />
                 {i < milestones.length - 1 && (
                   <div
@@ -113,11 +118,10 @@ export default function Roadmap() {
                   {m.quarter}
                 </span>
                 <h3
-                  className={`text-base font-bold mb-3 ${
-                    m.status === "done" || m.status === "active"
+                  className={`text-base font-bold mb-3 ${m.status === "done" || m.status === "active"
                       ? "text-white"
                       : "text-[#4a4a4a]"
-                  }`}
+                    }`}
                   style={{ fontFamily: "var(--font-syne)" }}
                 >
                   {m.title}
@@ -133,20 +137,18 @@ export default function Roadmap() {
                   {m.items.map((item) => (
                     <li key={item} className="flex items-start gap-2">
                       <span
-                        className={`mt-1 w-1 h-1 rounded-full flex-shrink-0 ${
-                          m.status === "done"
+                        className={`mt-1 w-1 h-1 rounded-full flex-shrink-0 ${m.status === "done"
                             ? "bg-[#00E599]"
                             : m.status === "active"
-                            ? "bg-[rgba(0,229,153,0.5)]"
-                            : "bg-[#2a2a2a]"
-                        }`}
+                              ? "bg-[rgba(0,229,153,0.5)]"
+                              : "bg-[#2a2a2a]"
+                          }`}
                       />
                       <span
-                        className={`text-xs leading-relaxed ${
-                          m.status === "done" || m.status === "active"
+                        className={`text-xs leading-relaxed ${m.status === "done" || m.status === "active"
                             ? "text-[#8a8a8a]"
                             : "text-[#3a3a3a]"
-                        }`}
+                          }`}
                       >
                         {item}
                       </span>
@@ -165,13 +167,12 @@ export default function Roadmap() {
           <div key={m.quarter} className="flex gap-4">
             <div className="flex flex-col items-center">
               <div
-                className={`w-2.5 h-2.5 rounded-full flex-shrink-0 mt-1 ${
-                  m.status === "done"
+                className={`w-2.5 h-2.5 rounded-full flex-shrink-0 mt-1 ${m.status === "done"
                     ? "bg-[#00E599]"
                     : m.status === "active"
-                    ? "bg-[#00E599] animate-pulse-dot"
-                    : "bg-[#2a2a2a] border border-[rgba(255,255,255,0.1)]"
-                }`}
+                      ? "bg-[#00E599] animate-pulse-dot"
+                      : "bg-[#2a2a2a] border border-[rgba(255,255,255,0.1)]"
+                  }`}
               />
               <div className="flex-1 w-px bg-[rgba(255,255,255,0.06)] mt-2" />
             </div>
@@ -183,9 +184,8 @@ export default function Roadmap() {
                 {m.quarter}
               </span>
               <h3
-                className={`text-base font-bold mb-2 ${
-                  m.status !== "upcoming" ? "text-white" : "text-[#4a4a4a]"
-                }`}
+                className={`text-base font-bold mb-2 ${m.status !== "upcoming" ? "text-white" : "text-[#4a4a4a]"
+                  }`}
                 style={{ fontFamily: "var(--font-syne)" }}
               >
                 {m.title}
@@ -194,14 +194,12 @@ export default function Roadmap() {
                 {m.items.map((item) => (
                   <li key={item} className="flex items-start gap-2">
                     <span
-                      className={`mt-1.5 w-1 h-1 rounded-full flex-shrink-0 ${
-                        m.status !== "upcoming" ? "bg-[rgba(0,229,153,0.4)]" : "bg-[#2a2a2a]"
-                      }`}
+                      className={`mt-1.5 w-1 h-1 rounded-full flex-shrink-0 ${m.status !== "upcoming" ? "bg-[rgba(0,229,153,0.4)]" : "bg-[#2a2a2a]"
+                        }`}
                     />
                     <span
-                      className={`text-xs ${
-                        m.status !== "upcoming" ? "text-[#8a8a8a]" : "text-[#3a3a3a]"
-                      }`}
+                      className={`text-xs ${m.status !== "upcoming" ? "text-[#8a8a8a]" : "text-[#3a3a3a]"
+                        }`}
                     >
                       {item}
                     </span>

@@ -24,6 +24,9 @@ const footerLinks = {
     { label: "Block Explorer", href: "https://scan.quantachain.org", external: true },
     { label: "Faucet", href: "/faucet" },
     { label: "Chrome Wallet", href: "https://chrome.google.com/webstore/detail/glofbcgdmodmaohealombcgoapdbdaff", external: true },
+    { label: "Mining Pool", href: "https://github.com/quantachain/quanta-pool", external: true },
+    { label: "Data Indexer", href: "https://github.com/quantachain/quanta-indexer", external: true },
+    { label: "Mobile Wallet", href: "https://github.com/quantachain/quanta-mobile-wallet", external: true },
     { label: "Docker Hub", href: "https://hub.docker.com/r/xd637/quanta-node", external: true },
   ],
   Build: [
@@ -36,9 +39,11 @@ const footerLinks = {
   Legal: [
     { label: "Privacy Policy", href: "/privacy" },
     { label: "Terms of Use", href: "/terms" },
+    { label: "Press Kit", href: "/press" },
     { label: "Security", href: "https://github.com/quantachain/quanta/blob/main/SECURITY.md", external: true },
   ],
 };
+
 
 export default function Footer() {
   return (
