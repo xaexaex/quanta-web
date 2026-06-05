@@ -1,6 +1,12 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description: "Privacy policy for Quantachain. Learn how we handle your data on the quantum-resistant blockchain network.",
+};
 
 export default function PrivacyPolicy() {
   return (

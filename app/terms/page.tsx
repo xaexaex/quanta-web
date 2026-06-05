@@ -1,6 +1,12 @@
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Terms of Service",
+  description: "Terms of service and user agreement for interacting with the Quantachain post-quantum network and AI services.",
+};
 
 export default function TermsOfService() {
   return (

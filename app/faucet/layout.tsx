@@ -1,11 +1,8 @@
-import type { Metadata } from "next";
+import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Testnet Faucet",
-  description: "Get Testnet QUA every 24 hours for testing your applications on the Quanta Chain.",
-  alternates: {
-    canonical: "https://quantachain.org/faucet",
-  },
+  description: "Request free testnet QUA to fund your development workflow instantly on the Quantachain post-quantum blockchain.",
 };
 
 export default function FaucetLayout({

@@ -5,7 +5,7 @@ import { Github } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Core Team",
-  description: "Learn about Quanta Chain, our mission to build quantum-resistant blockchain infrastructure, and why post-quantum cryptography matters now.",
+  description: "Learn about Quantachain, our mission to build quantum-resistant blockchain infrastructure for AI and DePIN, and why post-quantum cryptography matters now.",
 };
 
 export default function AboutPage() {
