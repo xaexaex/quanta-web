@@ -19,9 +19,21 @@ const XIcon = () => (
   </svg>
 );
 
+const TelegramIcon = () => (
+  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.223-.548.223l.188-2.85 5.18-4.686c.223-.204-.054-.31-.35-.11l-6.4 4.024-2.76-.86c-.6-.185-.615-.6.125-.89l10.736-4.135c.498-.18 1.042.106.892.892z" />
+  </svg>
+);
+
+const LinkedInIcon = () => (
+  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+  </svg>
+);
+
 const footerLinks = {
   Network: [
-    { label: "Block Explorer", href: "https://scan.quantachain.org", external: true },
+    { label: "Block Explorer", href: "https://quascan.xyz", external: true },
     { label: "Faucet", href: "/faucet" },
     { label: "Chrome Wallet", href: "https://chrome.google.com/webstore/detail/glofbcgdmodmaohealombcgoapdbdaff", external: true },
     { label: "Mining Pool", href: "https://github.com/quantachain/quanta-pool", external: true },
@@ -47,9 +59,10 @@ const footerLinks = {
 
 export default function Footer() {
   return (
-    <footer className="border-t border-[rgba(255,255,255,0.06)] bg-[#080808]">
-      <div className="max-w-7xl mx-auto px-6 md:px-12 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+    <div className="bg-transparent pt-4 sm:pt-8">
+      <footer className="border-t border-white/10 bg-[#050505] rounded-t-[2.5rem] sm:rounded-t-[4rem] overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 py-10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-8">
 
           {/* Brand column */}
           <div className="md:col-span-4">
@@ -62,13 +75,13 @@ export default function Footer() {
                 className="w-7 h-7"
               />
               <span
-                className="text-base font-bold text-white"
+                className="text-base font-bold text-white tracking-tight"
                 style={{ fontFamily: "var(--font-syne)" }}
               >
-                Quanta<span className="text-[#00E599]">.</span>
+                Quantachain<span className="text-[#C4ED5F]">.</span>
               </span>
             </Link>
-            <p className="text-sm text-[#4a4a4a] leading-relaxed max-w-xs mb-6">
+            <p className="text-sm text-gray-400 leading-relaxed max-w-xs mb-6">
               The AI agent execution layer. Post-quantum blockchain built in Rust.
               Falcon-512 signatures. 6-second BFT finality. Sub-cent gas.
             </p>
@@ -79,6 +92,8 @@ export default function Footer() {
                 { href: "https://github.com/quantachain/quanta", icon: <GithubIcon />, label: "GitHub" },
                 { href: "https://discord.gg/7KmMBrrJEz", icon: <DiscordIcon />, label: "Discord" },
                 { href: "https://x.com/quantachain", icon: <XIcon />, label: "X" },
+                { href: "https://t.me/quantanetwork", icon: <TelegramIcon />, label: "Telegram" },
+                { href: "https://www.linkedin.com/company/quantachain", icon: <LinkedInIcon />, label: "LinkedIn" },
               ].map((s) => (
                 <a
                   key={s.label}
@@ -86,7 +101,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={s.label}
-                  className="w-8 h-8 flex items-center justify-center rounded-lg border border-[rgba(255,255,255,0.06)] text-[#4a4a4a] hover:text-[#00E599] hover:border-[rgba(0,229,153,0.2)] transition-all duration-150"
+                  className="w-8 h-8 flex items-center justify-center rounded-lg border border-white/10 text-gray-500 hover:text-[#C4ED5F] hover:border-[#C4ED5F]/30 hover:bg-[#C4ED5F]/10 transition-all duration-150"
                 >
                   {s.icon}
                 </a>
@@ -99,19 +114,19 @@ export default function Footer() {
             {Object.entries(footerLinks).map(([section, links]) => (
               <div key={section}>
                 <h4
-                  className="text-[10px] text-[#4a4a4a] uppercase tracking-widest mb-4"
+                  className="text-[10px] text-gray-400 uppercase tracking-widest mb-4"
                   style={{ fontFamily: "var(--font-mono)" }}
                 >
                   {section}
                 </h4>
-                <ul className="space-y-3">
+                <ul className="space-y-2">
                   {links.map((link) => (
                     <li key={link.label}>
                       <Link
                         href={link.href}
                         target={"external" in link && link.external ? "_blank" : undefined}
                         rel={"external" in link && link.external ? "noopener noreferrer" : undefined}
-                        className="text-sm text-[#4a4a4a] hover:text-white transition-colors duration-150"
+                        className="text-sm text-gray-400 hover:text-[#C4ED5F] hover:-translate-y-0.5 inline-block transition-all duration-150"
                       >
                         {link.label}
                       </Link>
@@ -124,21 +139,22 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-[rgba(255,255,255,0.04)] pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="border-t border-white/10 pt-4 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p
-            className="text-xs text-[#4a4a4a]"
+            className="text-xs text-gray-400"
             style={{ fontFamily: "var(--font-mono)" }}
           >
-            Quanta v0.2.0
+            Quantachain V2.0.0
           </p>
           <p
-            className="text-xs text-[#4a4a4a]"
+            className="text-xs text-gray-400"
             style={{ fontFamily: "var(--font-mono)" }}
           >
             {new Date().getFullYear()} QUANTALABS PVT LTD {" "}
           </p>
         </div>
       </div>
-    </footer>
+      </footer>
+    </div>
   );
 }

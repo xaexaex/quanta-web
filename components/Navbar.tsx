@@ -52,7 +52,7 @@ const navGroups: NavGroup[] = [
     items: [
       {
         label: "Block Explorer",
-        href: "https://scan.quantachain.org",
+        href: "https://quascan.xyz",
         external: true,
         description: "Real-time blocks, transactions, validators",
         icon: Search,
@@ -213,8 +213,8 @@ export default function Navbar() {
         <nav
           className={`w-full max-w-5xl flex items-center justify-between h-14 px-4 rounded-2xl transition-all duration-300 ${
             scrolled
-              ? "bg-[#0f0f0f]/95 backdrop-blur-xl border border-[rgba(255,255,255,0.08)] shadow-[0_0_40px_rgba(0,229,153,0.05)]"
-              : "bg-[#0f0f0f]/80 backdrop-blur-md border border-[rgba(255,255,255,0.06)]"
+              ? "bg-gray-50/95 backdrop-blur-xl border border-[rgba(0,0,0,0.08)] shadow-[0_0_40px_rgba(196,237,95,0.05)]"
+              : "bg-gray-50/80 backdrop-blur-md border border-[rgba(0,0,0,0.06)]"
           }`}
         >
           {/* Logo */}
@@ -228,10 +228,10 @@ export default function Navbar() {
               priority
             />
             <span
-              className="text-lg font-bold tracking-tight text-white"
+              className="text-lg font-bold tracking-tight text-black"
               style={{ fontFamily: "var(--font-syne)" }}
             >
-              Quanta<span className="text-[#00E599]">.</span>
+              Quanta<span className="text-[#C4ED5F]">.</span>
             </span>
           </Link>
 
@@ -247,14 +247,14 @@ export default function Navbar() {
                 <button
                   className={`inline-flex items-center gap-1 px-3 py-1.5 text-sm font-medium rounded-lg transition-all duration-150 ${
                     activeDropdown === group.name
-                      ? "text-white bg-[rgba(255,255,255,0.06)]"
-                      : "text-[#8a8a8a] hover:text-white hover:bg-[rgba(255,255,255,0.04)]"
+                      ? "text-[#C4ED5F] bg-[#050505] shadow-[0_4px_20px_rgba(196,237,95,0.15)]"
+                      : "text-gray-600 hover:text-[#C4ED5F] hover:bg-[#050505] hover:shadow-[0_4px_20px_rgba(196,237,95,0.15)]"
                   }`}
                 >
                   {group.name}
                   <ChevronDown
                     className={`w-3 h-3 transition-transform duration-200 ${
-                      activeDropdown === group.name ? "rotate-180 text-[#00E599]" : ""
+                      activeDropdown === group.name ? "rotate-180 text-[#C4ED5F]" : ""
                     }`}
                   />
                 </button>
@@ -266,7 +266,7 @@ export default function Navbar() {
                     onMouseEnter={() => handleMouseEnter(group.name)}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <div className="bg-[#0f0f0f] rounded-xl border border-[rgba(255,255,255,0.08)] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.8)]">
+                    <div className="bg-gray-50 rounded-xl border border-[rgba(0,0,0,0.08)] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.8)]">
                       <div className="p-2">
                         {group.items.map((item) => (
                           item.disabled ? (
@@ -274,17 +274,17 @@ export default function Navbar() {
                               key={item.label}
                               className="flex items-start gap-3 p-2.5 rounded-lg opacity-40 cursor-not-allowed"
                             >
-                              <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-[#161616] border border-[rgba(255,255,255,0.06)] flex items-center justify-center text-[#4a4a4a]">
+                              <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-gray-100 border border-[rgba(0,0,0,0.06)] flex items-center justify-center text-gray-400">
                                 {item.icon && <item.icon className="w-3.5 h-3.5" />}
                               </div>
                               <div className="flex-1 min-w-0">
                                 <div className="flex items-center gap-1.5 mb-0.5">
-                                  <span className="text-sm font-medium text-white">{item.label}</span>
-                                  <span className="px-1.5 py-0.5 rounded border border-[rgba(255,255,255,0.1)] bg-[rgba(255,255,255,0.05)] text-[9px] font-bold tracking-wider uppercase text-[#6a6a6a]">
+                                  <span className="text-sm font-medium text-black">{item.label}</span>
+                                  <span className="px-1.5 py-0.5 rounded border border-[rgba(0,0,0,0.1)] bg-[rgba(0,0,0,0.05)] text-[9px] font-bold tracking-wider uppercase text-[#6a6a6a]">
                                     Coming Soon
                                   </span>
                                 </div>
-                                <p className="text-xs text-[#4a4a4a] leading-snug font-normal">{item.description}</p>
+                                <p className="text-xs text-gray-400 leading-snug font-normal">{item.description}</p>
                               </div>
                             </div>
                           ) : (
@@ -293,25 +293,25 @@ export default function Navbar() {
                             href={item.href}
                             target={item.external ? "_blank" : undefined}
                             rel={item.external ? "noopener noreferrer" : undefined}
-                            className="group/item flex items-start gap-3 p-2.5 rounded-lg hover:bg-[rgba(255,255,255,0.04)] transition-all duration-150"
+                            className="group/item flex items-start gap-3 p-2.5 rounded-lg hover:bg-[rgba(0,0,0,0.04)] transition-all duration-150"
                             onClick={() => setActiveDropdown(null)}
                           >
-                            <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-[#161616] border border-[rgba(255,255,255,0.06)] flex items-center justify-center text-[#4a4a4a] group-hover/item:border-[rgba(0,229,153,0.2)] group-hover/item:text-[#00E599] transition-all duration-150">
+                            <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-gray-100 border border-[rgba(0,0,0,0.06)] flex items-center justify-center text-gray-400 group-hover/item:border-[rgba(196,237,95,0.2)] group-hover/item:text-[#C4ED5F] transition-all duration-150">
                               {item.icon && <item.icon className="w-3.5 h-3.5" />}
                             </div>
                             <div className="flex-1 min-w-0">
                               <div className="flex items-center gap-1.5 mb-0.5">
-                                <span className="text-sm font-medium text-white">{item.label}</span>
+                                <span className="text-sm font-medium text-black">{item.label}</span>
                                 {item.badge && (
-                                  <span className="px-1.5 py-0.5 rounded border border-[rgba(0,229,153,0.3)] bg-[rgba(0,229,153,0.1)] text-[9px] font-bold tracking-wider uppercase text-[#00E599]">
+                                  <span className="px-1.5 py-0.5 rounded border border-[rgba(196,237,95,0.3)] bg-[rgba(196,237,95,0.1)] text-[9px] font-bold tracking-wider uppercase text-[#C4ED5F]">
                                     {item.badge}
                                   </span>
                                 )}
                                 {item.external && (
-                                  <ArrowUpRight className="w-3 h-3 text-[#4a4a4a] group-hover/item:text-[#8a8a8a] transition-colors" />
+                                  <ArrowUpRight className="w-3 h-3 text-gray-400 group-hover/item:text-gray-600 transition-colors" />
                                 )}
                               </div>
-                              <p className="text-xs text-[#4a4a4a] leading-snug font-normal">
+                              <p className="text-xs text-gray-400 leading-snug font-normal">
                                 {item.description}
                               </p>
                             </div>
@@ -329,7 +329,7 @@ export default function Navbar() {
               href="https://quantalabs.cc"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-3 py-1.5 text-sm font-medium text-[#8a8a8a] hover:text-white transition-colors duration-150 rounded-lg hover:bg-[rgba(255,255,255,0.04)]"
+              className="px-3 py-1.5 text-sm font-medium text-gray-600 hover:text-black transition-colors duration-150 rounded-lg hover:bg-[rgba(0,0,0,0.04)]"
             >
               Company
             </a>
@@ -341,17 +341,17 @@ export default function Navbar() {
               href="https://github.com/quantachain/quanta"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:flex items-center justify-center w-8 h-8 text-[#4a4a4a] hover:text-white transition-colors duration-150 rounded-lg hover:bg-[rgba(255,255,255,0.04)]"
+              className="hidden md:flex items-center justify-center w-8 h-8 text-gray-400 hover:text-black transition-colors duration-150 rounded-lg hover:bg-[rgba(0,0,0,0.04)]"
               aria-label="GitHub"
             >
               <GithubIcon className="w-4 h-4" />
             </a>
 
             <Link
-              href="https://quantachain.gitbook.io/quantachain-docs"
+              href="https://github.com/quantachain/quanta/releases/tag/v2.0.0-alpha"
               target="_blank"
               rel="noopener noreferrer"
-              className="hidden md:inline-flex items-center gap-1.5 px-4 py-1.5 text-sm font-semibold text-[#00E599] border border-[rgba(0,229,153,0.4)] rounded-lg hover:bg-[#00E599] hover:text-black transition-all duration-150 hover:shadow-[0_0_20px_rgba(0,229,153,0.2)]"
+              className="hidden md:inline-flex items-center gap-1.5 px-4 py-1.5 text-sm font-semibold bg-[#C4ED5F] text-black border border-[#C4ED5F] rounded-lg transition-all duration-150 shadow-[0_0_20px_rgba(196,237,95,0.2)] hover:-translate-y-[1px]"
             >
               Run a Node
             </Link>
@@ -359,7 +359,7 @@ export default function Navbar() {
             {/* Mobile hamburger */}
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="lg:hidden w-8 h-8 flex items-center justify-center text-[#8a8a8a] hover:text-white transition-colors rounded-lg hover:bg-[rgba(255,255,255,0.04)]"
+              className="lg:hidden w-8 h-8 flex items-center justify-center text-gray-600 hover:text-black transition-colors rounded-lg hover:bg-[rgba(0,0,0,0.04)]"
               aria-label="Toggle menu"
             >
               {isOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
@@ -370,7 +370,7 @@ export default function Navbar() {
 
       {/* Mobile Menu Overlay */}
       {isOpen && (
-        <div className="lg:hidden fixed inset-0 z-40 bg-[#080808] pt-24 overflow-y-auto">
+        <div className="lg:hidden fixed inset-0 z-40 bg-white pt-24 overflow-y-auto">
           <div className="px-6 pb-10 flex flex-col gap-2">
             {navGroups.map((group) => (
               <div key={group.name}>
@@ -378,45 +378,45 @@ export default function Navbar() {
                   onClick={() =>
                     setMobileExpanded(mobileExpanded === group.name ? null : group.name)
                   }
-                  className="w-full flex items-center justify-between px-4 py-3 rounded-xl border border-[rgba(255,255,255,0.06)] text-left mb-1 hover:bg-[rgba(255,255,255,0.03)] transition-colors"
+                  className="w-full flex items-center justify-between px-4 py-3 rounded-xl border border-[rgba(0,0,0,0.06)] text-left mb-1 hover:bg-[rgba(0,0,0,0.03)] transition-colors"
                 >
                   <span
-                    className="text-sm font-semibold text-white uppercase tracking-wider"
+                    className="text-sm font-semibold text-black uppercase tracking-wider"
                     style={{ fontFamily: "var(--font-syne)" }}
                   >
                     {group.name}
                   </span>
                   <ChevronDown
-                    className={`w-4 h-4 text-[#4a4a4a] transition-transform ${
+                    className={`w-4 h-4 text-gray-400 transition-transform ${
                       mobileExpanded === group.name ? "rotate-180" : ""
                     }`}
                   />
                 </button>
 
                 {mobileExpanded === group.name && (
-                  <div className="border border-[rgba(255,255,255,0.04)] rounded-xl bg-[#0f0f0f] px-3 py-2 mb-2">
+                  <div className="border border-[rgba(0,0,0,0.04)] rounded-xl bg-gray-50 px-3 py-2 mb-2">
                     {group.items.map((item) => (
                       <Link
                         key={item.label}
                         href={item.href}
                         target={item.external ? "_blank" : undefined}
                         rel={item.external ? "noopener noreferrer" : undefined}
-                        className="flex items-center gap-3 px-2 py-2.5 rounded-lg hover:bg-[rgba(255,255,255,0.04)] transition-colors"
+                        className="flex items-center gap-3 px-2 py-2.5 rounded-lg hover:bg-[rgba(0,0,0,0.04)] transition-colors"
                         onClick={() => setIsOpen(false)}
                       >
-                        <div className="w-7 h-7 rounded-lg bg-[#161616] border border-[rgba(255,255,255,0.06)] flex items-center justify-center text-[#4a4a4a]">
+                        <div className="w-7 h-7 rounded-lg bg-gray-100 border border-[rgba(0,0,0,0.06)] flex items-center justify-center text-gray-400">
                           {item.icon && <item.icon className="w-3.5 h-3.5" />}
                         </div>
                         <div>
                           <div className="flex items-center gap-1.5">
-                            <span className="text-sm font-medium text-white">{item.label}</span>
+                            <span className="text-sm font-medium text-black">{item.label}</span>
                             {item.badge && (
-                              <span className="px-1.5 py-0.5 rounded border border-[rgba(0,229,153,0.3)] bg-[rgba(0,229,153,0.1)] text-[9px] font-bold tracking-wider uppercase text-[#00E599]">
+                              <span className="px-1.5 py-0.5 rounded border border-[rgba(196,237,95,0.3)] bg-[rgba(196,237,95,0.1)] text-[9px] font-bold tracking-wider uppercase text-[#C4ED5F]">
                                 {item.badge}
                               </span>
                             )}
                             {item.external && (
-                              <ArrowUpRight className="inline-block w-3 h-3 text-[#4a4a4a] ml-1" />
+                              <ArrowUpRight className="inline-block w-3 h-3 text-gray-400 ml-1" />
                             )}
                           </div>
                         </div>
@@ -432,25 +432,25 @@ export default function Navbar() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={() => setIsOpen(false)}
-              className="flex items-center px-4 py-3 rounded-xl border border-[rgba(255,255,255,0.06)] text-sm font-semibold text-[#8a8a8a] hover:text-white transition-colors"
+              className="flex items-center px-4 py-3 rounded-xl border border-[rgba(0,0,0,0.06)] text-sm font-semibold text-gray-600 hover:text-black transition-colors"
             >
               Company
             </a>
 
             <div className="flex flex-col gap-3 mt-4">
               <Link
-                href="https://quantachain.gitbook.io/quantachain-docs"
+                href="https://github.com/quantachain/quanta/releases/tag/v2.0.0-alpha"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}
-                className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-bold text-[#00E599] border border-[rgba(0,229,153,0.4)] hover:bg-[#00E599] hover:text-black transition-all"
+                className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-bold bg-[#C4ED5F] text-black border border-[#C4ED5F] transition-all shadow-[0_0_20px_rgba(196,237,95,0.2)]"
               >
                 Run a Node
               </Link>
               <Link
                 href="/faucet"
                 onClick={() => setIsOpen(false)}
-                className="flex items-center justify-center px-6 py-3 rounded-xl text-sm font-medium text-[#8a8a8a] border border-[rgba(255,255,255,0.06)] hover:text-white transition-colors"
+                className="flex items-center justify-center px-6 py-3 rounded-xl text-sm font-medium text-gray-600 border border-[rgba(0,0,0,0.06)] hover:text-black transition-colors"
               >
                 Testnet Faucet
               </Link>

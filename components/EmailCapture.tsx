@@ -49,18 +49,18 @@ export default function EmailCapture({
             placeholder="your@email.com"
             required
             disabled={status === "loading" || status === "success"}
-            className="flex-1 px-4 py-3 rounded-lg bg-[#161616] border border-[rgba(255,255,255,0.08)] text-white placeholder:text-[#4a4a4a] focus:border-[rgba(0,229,153,0.4)] focus:outline-none disabled:opacity-50 text-sm"
+            className="flex-1 px-4 py-3 rounded-lg bg-gray-100 border border-[rgba(0,0,0,0.08)] text-black placeholder:text-gray-400 focus:border-[rgba(196,237,95,0.4)] focus:outline-none disabled:opacity-50 text-sm"
           />
           <button
             type="submit"
             disabled={status === "loading" || status === "success"}
-            className="px-6 py-3 bg-[#00E599] text-black font-bold rounded-lg hover:bg-[#00c282] transition-all disabled:opacity-50 whitespace-nowrap text-sm"
+            className="px-6 py-3 bg-[#C4ED5F] text-black font-bold rounded-lg hover:bg-[#C4ED5F] transition-all disabled:opacity-50 whitespace-nowrap text-sm"
           >
             {status === "loading" ? "..." : status === "success" ? "✓" : "Notify Me"}
           </button>
         </div>
         {message && (
-          <p className={`mt-2 text-xs ${status === "success" ? "text-[#00E599]" : "text-red-400"}`}>
+          <p className={`mt-2 text-xs ${status === "success" ? "text-[#C4ED5F]" : "text-red-400"}`}>
             {message}
           </p>
         )}
@@ -70,22 +70,22 @@ export default function EmailCapture({
 
   /* ── DEFAULT VARIANT ── */
   return (
-    <section className="py-16 sm:py-28 bg-transparent relative overflow-hidden">
-      {/* Subtle bottom glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[280px] bg-[#00E599]/[0.04] rounded-full blur-[100px] pointer-events-none" />
+    <section className="py-24 sm:py-32 bg-transparent relative overflow-hidden">
+      {/* Subtle ambient glow behind the section */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-[#C4ED5F]/[0.05] rounded-full blur-[120px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-2xl border border-[rgba(0,229,153,0.18)] bg-[#0f0f0f] overflow-hidden p-10 sm:p-16 text-center">
+      <div className="max-w-5xl mx-auto px-6 sm:px-8">
+        <div className="relative rounded-[2.5rem] border border-white/10 bg-[#050505] shadow-2xl overflow-hidden p-10 sm:p-20 text-center ring-1 ring-[#C4ED5F]/10">
 
           {/* Corner accent decorations */}
-          <div className="absolute top-0 left-0 w-24 h-24 border-t-2 border-l-2 border-[rgba(0,229,153,0.15)] rounded-tl-2xl pointer-events-none" />
-          <div className="absolute bottom-0 right-0 w-24 h-24 border-b-2 border-r-2 border-[rgba(0,229,153,0.15)] rounded-br-2xl pointer-events-none" />
+          <div className="absolute top-0 left-0 w-32 h-32 border-t border-l border-[#C4ED5F]/20 rounded-tl-[2.5rem] pointer-events-none" />
+          <div className="absolute bottom-0 right-0 w-32 h-32 border-b border-r border-[#C4ED5F]/20 rounded-br-[2.5rem] pointer-events-none" />
 
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[rgba(0,229,153,0.2)] bg-[rgba(0,229,153,0.06)] mb-8">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#00E599] animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#C4ED5F]/30 bg-[#C4ED5F]/10 mb-10 shadow-[0_0_20px_rgba(196,237,95,0.15)]">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#C4ED5F] animate-pulse" />
             <span
-              className="text-[10px] font-bold tracking-widest text-[#00E599] uppercase"
+              className="text-[10px] font-black tracking-widest text-[#C4ED5F] uppercase"
               style={{ fontFamily: "var(--font-mono)" }}
             >
               Validator Program — Limited Seats
@@ -94,15 +94,15 @@ export default function EmailCapture({
 
           {/* Heading */}
           <h2
-            className="text-5xl sm:text-7xl font-bold text-white mb-5 tracking-tight leading-[0.95]"
+            className="text-5xl sm:text-7xl font-bold text-white mb-6 tracking-tight leading-[1.0]"
             style={{ fontFamily: "var(--font-syne)" }}
           >
             Signup for{" "}
-            <span className="text-[#00E599]">Validators</span>
+            <span className="text-[#C4ED5F]">Validators</span>
           </h2>
 
           {/* Description */}
-          <p className="text-[#8a8a8a] text-lg sm:text-xl mb-10 leading-relaxed font-light max-w-2xl mx-auto">
+          <p className="text-gray-400 text-lg sm:text-xl mb-12 leading-relaxed font-light max-w-2xl mx-auto">
             Help secure the AlephBFT consensus network.{" "}
             <span className="text-white font-medium">Limited seats available</span> — signup now to
             be notified when validator slots open for the Testnet.
@@ -110,7 +110,7 @@ export default function EmailCapture({
 
           {/* Form */}
           <form onSubmit={handleSubmit} className="max-w-xl mx-auto">
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col sm:flex-row gap-4">
               <input
                 type="email"
                 value={email}
@@ -118,23 +118,23 @@ export default function EmailCapture({
                 placeholder="Enter your email address"
                 required
                 disabled={status === "loading" || status === "success"}
-                className="flex-1 px-6 py-4 rounded-xl bg-[#161616] border border-[rgba(255,255,255,0.08)] text-white placeholder:text-[#4a4a4a] focus:border-[rgba(0,229,153,0.4)] focus:outline-none text-base disabled:opacity-50 transition-all"
+                className="flex-1 px-6 py-4 rounded-xl bg-white/5 border border-white/10 text-white placeholder:text-gray-500 focus:border-[#C4ED5F]/50 focus:bg-white/10 focus:outline-none text-base disabled:opacity-50 transition-all"
               />
               <button
                 type="submit"
                 disabled={status === "loading" || status === "success"}
-                className="px-8 py-4 bg-[#00E599] text-black font-bold rounded-xl hover:bg-[#00c282] transition-all hover:scale-[1.02] active:scale-95 disabled:opacity-50 whitespace-nowrap text-base shadow-[0_0_30px_rgba(0,229,153,0.2)] flex items-center gap-2 justify-center"
+                className="px-8 py-4 bg-[#C4ED5F] text-black font-bold rounded-xl hover:bg-[#b0d94f] transition-all hover:-translate-y-1 active:scale-95 disabled:opacity-50 whitespace-nowrap text-base shadow-[0_0_30px_rgba(196,237,95,0.3)] flex items-center gap-2 justify-center"
               >
                 {status === "loading"
                   ? "Signing up..."
                   : status === "success"
                   ? "✓ You're on the list!"
-                  : <><span>Signup for Validators</span><ArrowUpRight className="w-4 h-4" /></>}
+                  : <><span>Signup for Validators</span><ArrowUpRight className="w-5 h-5" /></>}
               </button>
             </div>
 
             {message && (
-              <p className={`mt-3 text-sm text-center ${status === "success" ? "text-[#00E599]" : "text-red-400"}`}>
+              <p className={`mt-4 text-sm text-center ${status === "success" ? "text-[#C4ED5F]" : "text-red-400"}`}>
                 {message}
               </p>
             )}
@@ -142,7 +142,7 @@ export default function EmailCapture({
 
           {/* Privacy note */}
           <p
-            className="text-xs text-[#4a4a4a] mt-6"
+            className="text-[10px] text-gray-500 mt-8 tracking-widest uppercase"
             style={{ fontFamily: "var(--font-mono)" }}
           >
             Limited seats only. No spam, ever. Unsubscribe anytime.

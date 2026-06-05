@@ -75,7 +75,7 @@ export default function Documentation() {
         className="absolute top-3 right-3 sm:top-4 sm:right-4 p-1.5 sm:p-2 bg-gray-800 hover:bg-gray-700 rounded-lg transition-all opacity-0 group-hover:opacity-100"
       >
         {copiedCode === id ? (
-          <Check className="w-4 h-4 text-[#00E599]" />
+          <Check className="w-4 h-4 text-[#C4ED5F]" />
         ) : (
           <Copy className="w-4 h-4 text-gray-400" />
         )}
@@ -102,7 +102,7 @@ export default function Documentation() {
                         key={section.id}
                         href={`#${section.id}`}
                         className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg text-left transition-all ${activeSection === section.id
-                            ? 'bg-[#00E599] text-black font-semibold'
+                            ? 'bg-[#C4ED5F] text-black font-semibold'
                             : 'text-gray-600 hover:bg-gray-50 hover:text-black'
                           }`}
                       >
@@ -117,15 +117,15 @@ export default function Documentation() {
                 <div className="mt-8 pt-8 border-t border-gray-100">
                   <h3 className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-3">Quick Links</h3>
                   <div className="space-y-2">
-                    <a href="https://github.com/quantachain/quanta" target="_blank" className="flex items-center gap-2 text-sm text-gray-600 hover:text-[#00E599] transition-colors">
+                    <a href="https://github.com/quantachain/quanta" target="_blank" className="flex items-center gap-2 text-sm text-gray-600 hover:text-[#C4ED5F] transition-colors">
                       <span>GitHub Repository</span>
                       <span className="text-xs">↗</span>
                     </a>
-                    <a href="https://discord.gg/7KmMBrrJEz" target="_blank" className="flex items-center gap-2 text-sm text-gray-600 hover:text-[#00E599] transition-colors">
+                    <a href="https://discord.gg/7KmMBrrJEz" target="_blank" className="flex items-center gap-2 text-sm text-gray-600 hover:text-[#C4ED5F] transition-colors">
                       <span>Discord Community</span>
                       <span className="text-xs">↗</span>
                     </a>
-                    <Link href="/roadmap" className="flex items-center gap-2 text-sm text-gray-600 hover:text-[#00E599] transition-colors">
+                    <Link href="/roadmap" className="flex items-center gap-2 text-sm text-gray-600 hover:text-[#C4ED5F] transition-colors">
                       <span>Roadmap</span>
                     </Link>
                   </div>
@@ -143,7 +143,7 @@ export default function Documentation() {
                   </span>
                 </div>
                 <h1 className="text-5xl sm:text-7xl font-bold mb-6 tracking-tight leading-[0.95]">
-                  Docs<span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00E599] to-emerald-600">.</span>
+                  Docs<span className="text-transparent bg-clip-text bg-gradient-to-r from-[#C4ED5F] to-emerald-600">.</span>
                 </h1>
                 <p className="text-xl sm:text-2xl text-gray-600 leading-relaxed font-light max-w-2xl">
                   Complete guide to QUANTA - quantum-resistant blockchain with <span className="text-black font-medium">NIST-standardized post-quantum cryptography and adaptive tokenomics.</span>
@@ -157,8 +157,8 @@ export default function Documentation() {
                 {/* Installation */}
                 <section id="installation" className="pt-12">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 bg-[#00E599]/10 rounded-lg flex items-center justify-center">
-                      <Rocket className="w-6 h-6 text-[#00E599]" />
+                    <div className="w-10 h-10 bg-[#C4ED5F]/10 rounded-lg flex items-center justify-center">
+                      <Rocket className="w-6 h-6 text-[#C4ED5F]" />
                     </div>
                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Installation</h2>
                   </div>
@@ -190,8 +190,8 @@ cargo test`} />
                 {/* Quick Start */}
                 <section id="quickstart" className="pt-12">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 bg-[#00E599]/10 rounded-lg flex items-center justify-center">
-                      <Terminal className="w-6 h-6 text-[#00E599]" />
+                    <div className="w-10 h-10 bg-[#C4ED5F]/10 rounded-lg flex items-center justify-center">
+                      <Terminal className="w-6 h-6 text-[#C4ED5F]" />
                     </div>
                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Quick Start</h2>
                   </div>
@@ -229,8 +229,8 @@ cargo test`} />
                 {/* Wallet Operations */}
                 <section id="wallet-ops" className="pt-12">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 bg-[#00E599]/10 rounded-lg flex items-center justify-center">
-                      <Shield className="w-6 h-6 text-[#00E599]" />
+                    <div className="w-10 h-10 bg-[#C4ED5F]/10 rounded-lg flex items-center justify-center">
+                      <Shield className="w-6 h-6 text-[#C4ED5F]" />
                     </div>
                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Wallet Operations</h2>
                   </div>
@@ -271,8 +271,8 @@ curl -X POST http://localhost:3000/api/balance \\
                 {/* API Reference */}
                 <section id="api" className="pt-12">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 bg-[#00E599]/10 rounded-lg flex items-center justify-center">
-                      <Code2 className="w-6 h-6 text-[#00E599]" />
+                    <div className="w-10 h-10 bg-[#C4ED5F]/10 rounded-lg flex items-center justify-center">
+                      <Code2 className="w-6 h-6 text-[#C4ED5F]" />
                     </div>
                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">API Reference</h2>
                   </div>
@@ -353,8 +353,8 @@ curl -X POST http://localhost:3000/api/balance \\
                 {/* JSON-RPC Daemon Control */}
                 <section id="rpc" className="pt-12">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 bg-[#00E599]/10 rounded-lg flex items-center justify-center">
-                      <Terminal className="w-6 h-6 text-[#00E599]" />
+                    <div className="w-10 h-10 bg-[#C4ED5F]/10 rounded-lg flex items-center justify-center">
+                      <Terminal className="w-6 h-6 text-[#C4ED5F]" />
                     </div>
                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">JSON-RPC Daemon Control</h2>
                   </div>
@@ -363,39 +363,39 @@ curl -X POST http://localhost:3000/api/balance \\
                       The RPC server (default port 7782) provides daemon control via JSON-RPC 2.0. All CLI commands communicate with the daemon through this interface.
                     </p>
 
-                    <div className="bg-[#00E599]/10 border-2 border-[#00E599] p-8 rounded-2xl">
+                    <div className="bg-[#C4ED5F]/10 border-2 border-[#C4ED5F] p-8 rounded-2xl">
                       <h3 className="font-bold text-xl mb-4">Available RPC Methods</h3>
                       <div className="grid md:grid-cols-2 gap-4 text-sm">
                         <div>
-                          <code className="bg-black text-[#00E599] px-2 py-1 rounded">node_status</code>
+                          <code className="bg-black text-[#C4ED5F] px-2 py-1 rounded">node_status</code>
                           <p className="text-gray-700 mt-1">Get node status and uptime</p>
                         </div>
                         <div>
-                          <code className="bg-black text-[#00E599] px-2 py-1 rounded">mining_status</code>
+                          <code className="bg-black text-[#C4ED5F] px-2 py-1 rounded">mining_status</code>
                           <p className="text-gray-700 mt-1">Get mining state and statistics</p>
                         </div>
                         <div>
-                          <code className="bg-black text-[#00E599] px-2 py-1 rounded">start_mining</code>
+                          <code className="bg-black text-[#C4ED5F] px-2 py-1 rounded">start_mining</code>
                           <p className="text-gray-700 mt-1">Start mining to address</p>
                         </div>
                         <div>
-                          <code className="bg-black text-[#00E599] px-2 py-1 rounded">stop_mining</code>
+                          <code className="bg-black text-[#C4ED5F] px-2 py-1 rounded">stop_mining</code>
                           <p className="text-gray-700 mt-1">Stop mining</p>
                         </div>
                         <div>
-                          <code className="bg-black text-[#00E599] px-2 py-1 rounded">get_block</code>
+                          <code className="bg-black text-[#C4ED5F] px-2 py-1 rounded">get_block</code>
                           <p className="text-gray-700 mt-1">Get block by height</p>
                         </div>
                         <div>
-                          <code className="bg-black text-[#00E599] px-2 py-1 rounded">get_balance</code>
+                          <code className="bg-black text-[#C4ED5F] px-2 py-1 rounded">get_balance</code>
                           <p className="text-gray-700 mt-1">Get address balance</p>
                         </div>
                         <div>
-                          <code className="bg-black text-[#00E599] px-2 py-1 rounded">get_peers</code>
+                          <code className="bg-black text-[#C4ED5F] px-2 py-1 rounded">get_peers</code>
                           <p className="text-gray-700 mt-1">List connected peers</p>
                         </div>
                         <div>
-                          <code className="bg-black text-[#00E599] px-2 py-1 rounded">shutdown</code>
+                          <code className="bg-black text-[#C4ED5F] px-2 py-1 rounded">shutdown</code>
                           <p className="text-gray-700 mt-1">Gracefully stop daemon</p>
                         </div>
                       </div>
@@ -421,8 +421,8 @@ curl -X POST http://localhost:3000/api/balance \\
                 {/* Configuration */}
                 <section id="config" className="pt-12">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 bg-[#00E599]/10 rounded-lg flex items-center justify-center">
-                      <Zap className="w-6 h-6 text-[#00E599]" />
+                    <div className="w-10 h-10 bg-[#C4ED5F]/10 rounded-lg flex items-center justify-center">
+                      <Zap className="w-6 h-6 text-[#C4ED5F]" />
                     </div>
                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Configuration</h2>
                   </div>
@@ -481,8 +481,8 @@ port = 9090`} />
                 {/* P2P Networking */}
                 <section id="p2p" className="pt-12">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 bg-[#00E599]/10 rounded-lg flex items-center justify-center">
-                      <Terminal className="w-6 h-6 text-[#00E599]" />
+                    <div className="w-10 h-10 bg-[#C4ED5F]/10 rounded-lg flex items-center justify-center">
+                      <Terminal className="w-6 h-6 text-[#C4ED5F]" />
                     </div>
                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">P2P Networking</h2>
                   </div>
@@ -521,14 +521,14 @@ port = 9090`} />
                 {/* Technical Specs */}
                 <section id="specs" className="pt-12">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 bg-[#00E599]/10 rounded-lg flex items-center justify-center">
-                      <Book className="w-6 h-6 text-[#00E599]" />
+                    <div className="w-10 h-10 bg-[#C4ED5F]/10 rounded-lg flex items-center justify-center">
+                      <Book className="w-6 h-6 text-[#C4ED5F]" />
                     </div>
                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Technical Specifications</h2>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pl-0 sm:pl-13">
                     <div className="border-2 border-gray-100 p-8 rounded-2xl">
-                      <h3 className="font-bold text-xl mb-4 text-[#00E599]">Cryptography</h3>
+                      <h3 className="font-bold text-xl mb-4 text-[#C4ED5F]">Cryptography</h3>
                       <ul className="space-y-2 text-gray-600">
                         <li><strong>Signatures:</strong> Falcon-512 (NIST Level 1, 897-byte pubkey)</li>
                         <li><strong>Encryption:</strong> Kyber-1024 (NIST Level 5, 256-bit quantum security)</li>
@@ -538,7 +538,7 @@ port = 9090`} />
                     </div>
 
                     <div className="border-2 border-gray-100 p-8 rounded-2xl">
-                      <h3 className="font-bold text-xl mb-4 text-[#00E599]">Consensus</h3>
+                      <h3 className="font-bold text-xl mb-4 text-[#C4ED5F]">Consensus</h3>
                       <ul className="space-y-2 text-gray-600">
                         <li><strong>Algorithm:</strong> Adaptive Proof of Work</li>
                         <li><strong>Block Time:</strong> 10 seconds</li>
@@ -549,7 +549,7 @@ port = 9090`} />
                     </div>
 
                     <div className="border-2 border-gray-100 p-8 rounded-2xl">
-                      <h3 className="font-bold text-xl mb-4 text-[#00E599]">Block Limits</h3>
+                      <h3 className="font-bold text-xl mb-4 text-[#C4ED5F]">Block Limits</h3>
                       <ul className="space-y-2 text-gray-600">
                         <li><strong>Max Size:</strong> 1 MB (1,048,576 bytes)</li>
                         <li><strong>Max Transactions:</strong> 2,000 per block</li>
@@ -559,7 +559,7 @@ port = 9090`} />
                     </div>
 
                     <div className="border-2 border-gray-100 p-8 rounded-2xl">
-                      <h3 className="font-bold text-xl mb-4 text-[#00E599]">Database</h3>
+                      <h3 className="font-bold text-xl mb-4 text-[#C4ED5F]">Database</h3>
                       <ul className="space-y-2 text-gray-600">
                         <li><strong>Storage:</strong> Sled (embedded)</li>
                         <li><strong>Model:</strong> Account-based (not UTXO)</li>
@@ -573,8 +573,8 @@ port = 9090`} />
                 {/* Quantum Resistance */}
                 <section id="quantum" className="pt-12">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 bg-[#00E599]/10 rounded-lg flex items-center justify-center">
-                      <Shield className="w-6 h-6 text-[#00E599]" />
+                    <div className="w-10 h-10 bg-[#C4ED5F]/10 rounded-lg flex items-center justify-center">
+                      <Shield className="w-6 h-6 text-[#C4ED5F]" />
                     </div>
                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Quantum Resistance</h2>
                   </div>
@@ -596,8 +596,8 @@ port = 9090`} />
                           </ul>
                         </div>
 
-                        <div className="bg-[#00E599]/10 p-6 rounded-xl border-2 border-[#00E599]">
-                          <h4 className="font-bold text-xl mb-4 text-[#00E599]">QUANTA (Falcon-512)</h4>
+                        <div className="bg-[#C4ED5F]/10 p-6 rounded-xl border-2 border-[#C4ED5F]">
+                          <h4 className="font-bold text-xl mb-4 text-[#C4ED5F]">QUANTA (Falcon-512)</h4>
                           <ul className="space-y-2 text-gray-900">
                             <li>Public Key: 897 bytes</li>
                             <li>Signature: ~666 bytes (variable)</li>
@@ -623,14 +623,14 @@ port = 9090`} />
                 {/* Security Best Practices */}
                 <section id="security" className="pt-12">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 bg-[#00E599]/10 rounded-lg flex items-center justify-center">
-                      <Shield className="w-6 h-6 text-[#00E599]" />
+                    <div className="w-10 h-10 bg-[#C4ED5F]/10 rounded-lg flex items-center justify-center">
+                      <Shield className="w-6 h-6 text-[#C4ED5F]" />
                     </div>
                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Security Best Practices</h2>
                   </div>
                   <div className="space-y-6 pl-0 sm:pl-13">
-                    <div className="bg-[#00E599]/10 border-2 border-[#00E599] p-8 rounded-2xl">
-                      <h3 className="font-bold text-xl mb-4 text-[#00E599]">Important Notice</h3>
+                    <div className="bg-[#C4ED5F]/10 border-2 border-[#C4ED5F] p-8 rounded-2xl">
+                      <h3 className="font-bold text-xl mb-4 text-[#C4ED5F]">Important Notice</h3>
                       <ul className="space-y-2 text-gray-900">
                         <li>QUANTA is currently in testnet phase (Q1 2026)</li>
                         <li>Security audits scheduled before mainnet launch</li>
@@ -666,13 +666,13 @@ port = 9090`} />
                 {/* Contributing */}
                 <section id="contributing" className="pt-12">
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-10 h-10 bg-[#00E599]/10 rounded-lg flex items-center justify-center">
-                      <Book className="w-6 h-6 text-[#00E599]" />
+                    <div className="w-10 h-10 bg-[#C4ED5F]/10 rounded-lg flex items-center justify-center">
+                      <Book className="w-6 h-6 text-[#C4ED5F]" />
                     </div>
                     <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold">Contributing</h2>
                   </div>
                   <div className="pl-0 sm:pl-13">
-                    <div className="bg-[#00E599]/10 border-2 border-[#00E599] rounded-2xl p-6 sm:p-8 md:p-12 text-center">
+                    <div className="bg-[#C4ED5F]/10 border-2 border-[#C4ED5F] rounded-2xl p-6 sm:p-8 md:p-12 text-center">
                       <h3 className="text-3xl font-bold text-black mb-6">
                         Help Build the Future
                       </h3>

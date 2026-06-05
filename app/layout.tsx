@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Syne, Inter } from "next/font/google";
-import "./globals.css";
+import "./theme.css";
 
 const syne = Syne({
   variable: "--font-syne",
@@ -18,11 +18,11 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Quanta — AI Agent Execution Layer | Post-Quantum Blockchain",
-    template: "%s | Quanta",
+    default: "Quantachain — AI Agent Execution Layer | Post-Quantum Blockchain",
+    template: "%s | Quantachain",
   },
   description:
-    "Quanta is the quantum-safe gas layer for autonomous AI agents. BFT + DPoS consensus, Falcon-512 post-quantum signatures, 6-second finality, sub-cent execution fees. Built in Rust.",
+    "Quantachain is the quantum-safe gas layer for autonomous AI agents. BFT + DPoS consensus, Falcon-512 post-quantum signatures, 6-second finality, sub-cent execution fees. Built in Rust.",
   keywords: [
     "post-quantum blockchain",
     "AI agent blockchain",
@@ -106,7 +106,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${syne.variable} ${inter.variable} antialiased bg-[#080808] text-white font-sans`}
+        className={`${syne.variable} ${inter.variable} antialiased bg-white text-black font-sans`}
+        style={{ backgroundColor: '#ffffff' }}
       >
         <script
           type="application/ld+json"

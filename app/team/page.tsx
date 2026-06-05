@@ -24,7 +24,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <main className="min-h-screen bg-transparent text-black selection:bg-[#00E599] selection:text-black">
+    <main className="min-h-screen bg-transparent text-black selection:bg-[#C4ED5F] selection:text-black">
       <Navbar />
 
       <div className="pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 md:pb-24">
@@ -39,7 +39,7 @@ export default function AboutPage() {
             </div>
             <h1 className="text-5xl sm:text-7xl font-bold mb-6 tracking-tight leading-[0.95]">
               Protocol <br />
-              <span className="text-[#00E599]">Maintainers</span>
+              <span className="text-[#C4ED5F]">Maintainers</span>
             </h1>
             <p className="text-xl sm:text-2xl text-gray-600 leading-relaxed font-light max-w-2xl">
               Building production-ready quantum-resistant blockchain infrastructure with{" "}
@@ -49,7 +49,7 @@ export default function AboutPage() {
 
           {/* Core Maintainers */}
           <div className="mb-20 sm:mb-24 max-w-4xl mx-auto">
-            <div className="bg-white shadow-xl -translate-y-1 rounded-2xl p-8 sm:p-12 border border-[#00E599]/30 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
+            <div className="bg-white shadow-xl -translate-y-1 rounded-2xl p-8 sm:p-12 border border-[#C4ED5F]/30 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300">
               <h2 className="text-3xl font-bold mb-6 text-gray-900 tracking-tight">
                 Quantalabs
               </h2>
@@ -60,7 +60,7 @@ export default function AboutPage() {
                 <a
                   href="https://quantalabs.cc"
                   target="_blank"
-                  className="bg-black text-white px-6 py-3 rounded-full font-bold hover:bg-[#00E599] hover:text-black transition-colors flex items-center gap-2"
+                  className="bg-black text-black px-6 py-3 rounded-full font-bold hover:bg-[#C4ED5F] hover:text-black transition-colors flex items-center gap-2"
                 >
                   Visit Quantalabs.cc
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
@@ -69,8 +69,8 @@ export default function AboutPage() {
             </div>
 
             <div className="mt-8">
-              <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#00E599]/10 border border-[#00E599]/20 rounded-full">
-                <div className="w-2 h-2 bg-[#00E599] rounded-full" />
+              <div className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#C4ED5F]/10 border border-[#C4ED5F]/20 rounded-full">
+                <div className="w-2 h-2 bg-[#C4ED5F] rounded-full" />
                 <p className="text-gray-700 font-semibold text-sm">
                   Supported by a global ecosystem of independent contributors
                 </p>
@@ -86,7 +86,7 @@ export default function AboutPage() {
               </span>
             </div>
             <h2 className="text-4xl sm:text-5xl font-bold mb-8 tracking-tight">
-              Why Quantum Resistance <span className="text-[#00E599]">Matters</span>
+              Why Quantum Resistance <span className="text-[#C4ED5F]">Matters</span>
             </h2>
             <div className="space-y-5 text-lg text-gray-600 leading-relaxed">
               <p>
@@ -109,13 +109,13 @@ export default function AboutPage() {
               </span>
             </div>
             <h2 className="text-4xl sm:text-5xl font-bold mb-10 tracking-tight">
-              Project <span className="text-[#00E599]">Transparency</span>
+              Project <span className="text-[#C4ED5F]">Transparency</span>
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
               {transparency.map((item, i) => (
                 <div
                   key={i}
-                  className="bg-white shadow-xl -translate-y-1 rounded-2xl p-6 sm:p-8 border border-[#00E599]/30 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300"
+                  className="bg-white shadow-xl -translate-y-1 rounded-2xl p-6 sm:p-8 border border-[#C4ED5F]/30 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300"
                 >
                   <div className="w-8 h-8 rounded-full border border-teal-600/30 flex items-center justify-center mb-5 text-sm font-mono text-teal-700 font-medium">
                     {i + 1}
@@ -135,13 +135,13 @@ export default function AboutPage() {
               </span>
             </div>
             <h2 className="text-4xl sm:text-5xl font-bold mb-10 tracking-tight">
-              Technology <span className="text-[#00E599]">Stack</span>
+              Technology <span className="text-[#C4ED5F]">Stack</span>
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
               {techStack.map((item, i) => (
                 <div
                   key={i}
-                  className="bg-white shadow-xl -translate-y-1 rounded-2xl p-6 border border-[#00E599]/30 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300"
+                  className="bg-white shadow-xl -translate-y-1 rounded-2xl p-6 border border-[#C4ED5F]/30 hover:-translate-y-2 hover:shadow-2xl transition-all duration-300"
                 >
                   <div className="w-8 h-8 rounded-full border border-teal-600/30 flex items-center justify-center mb-4 text-sm font-mono text-teal-700 font-medium">
                     {i + 1}
@@ -155,7 +155,7 @@ export default function AboutPage() {
 
           {/* Call for Builders */}
           <div className="max-w-4xl mx-auto">
-            <div className="bg-white shadow-xl rounded-2xl p-8 sm:p-12 border border-[#00E599]/30 text-center">
+            <div className="bg-white shadow-xl rounded-2xl p-8 sm:p-12 border border-[#C4ED5F]/30 text-center">
               <div className="w-8 h-8 rounded-full border border-teal-600/30 flex items-center justify-center mb-6 text-sm font-mono text-teal-700 font-medium mx-auto">
                 ✦
               </div>
@@ -167,15 +167,15 @@ export default function AboutPage() {
                 <a
                   href="https://github.com/quantachain/quanta/issues"
                   target="_blank"
-                  className="inline-flex items-center gap-2 px-8 py-4 bg-black text-white font-bold rounded-full hover:bg-[#00E599] hover:text-black transition-all hover:scale-105 active:scale-95"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-black text-black font-bold rounded-full hover:bg-[#C4ED5F] hover:text-black transition-all hover:scale-105 active:scale-95"
                 >
                   <Github className="w-5 h-5" />
                   View Open Issues
                 </a>
                 <div className="flex flex-col sm:flex-row gap-4 items-center justify-center text-sm text-gray-500">
-                  <a href="mailto:contact@quantachain.org" className="text-[#00E599] hover:underline font-semibold">contact@quantachain.org</a>
+                  <a href="mailto:contact@quantachain.org" className="text-[#C4ED5F] hover:underline font-semibold">contact@quantachain.org</a>
                   <span className="hidden sm:inline text-gray-300">|</span>
-                  <a href="https://www.linkedin.com/company/quantachain" target="_blank" className="text-[#00E599] hover:underline font-semibold">LinkedIn →</a>
+                  <a href="https://www.linkedin.com/company/quantachain" target="_blank" className="text-[#C4ED5F] hover:underline font-semibold">LinkedIn →</a>
                 </div>
               </div>
             </div>

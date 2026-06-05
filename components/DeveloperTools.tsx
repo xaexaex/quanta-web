@@ -13,16 +13,32 @@ import {
   Pickaxe,
   Briefcase,
   MessageSquare,
+  LucideIcon,
 } from "lucide-react";
 
-const PRODUCTS = [
+type ProductItem = {
+  name: string;
+  description: string;
+  href: string;
+  external: boolean;
+  icon: LucideIcon;
+  status: "live" | "building";
+  meta?: string;
+};
+
+type ProductGroup = {
+  category: string;
+  items: ProductItem[];
+};
+
+const PRODUCTS: ProductGroup[] = [
   {
     category: "Infrastructure",
     items: [
       {
         name: "Block Explorer",
         description: "Real-time blocks, transactions, addresses, and network analytics — powered by quantascan.",
-        href: "https://scan.quantachain.org",
+        href: "https://quascan.xyz",
         external: true,
         icon: Search,
         status: "live" as const,
@@ -141,18 +157,18 @@ const STATS = [
 
 const STATUS_CONFIG = {
   live: {
-    dot: "bg-[#00E599] animate-pulse-dot",
-    badge: "bg-[rgba(0,229,153,0.08)] text-[#00E599] border-[rgba(0,229,153,0.2)]",
+    dot: "bg-[#000000] animate-pulse-dot",
+    badge: "bg-[#C4ED5F] text-[#000000] border-[#C4ED5F]",
     label: "Live",
   },
   building: {
     dot: "bg-[#4a4a4a] animate-pulse",
-    badge: "bg-[rgba(255,255,255,0.04)] text-[#8a8a8a] border-[rgba(255,255,255,0.08)]",
+    badge: "bg-[rgba(0,0,0,0.04)] text-gray-600 border-[rgba(0,0,0,0.08)]",
     label: "Building",
   },
   soon: {
     dot: "bg-[#4a4a4a]",
-    badge: "bg-[rgba(255,255,255,0.04)] text-[#4a4a4a] border-[rgba(255,255,255,0.06)]",
+    badge: "bg-[rgba(0,0,0,0.04)] text-gray-400 border-[rgba(0,0,0,0.06)]",
     label: "Soon",
   },
 };
@@ -166,7 +182,7 @@ export default function DeveloperTools() {
         className="absolute inset-0 -z-10 opacity-[0.015]"
         style={{
           backgroundImage:
-            "linear-gradient(to right,#00E599 1px,transparent 1px),linear-gradient(to bottom,#00E599 1px,transparent 1px)",
+            "linear-gradient(to right,#C4ED5F 1px,transparent 1px),linear-gradient(to bottom,#C4ED5F 1px,transparent 1px)",
           backgroundSize: "48px 48px",
         }}
       />
@@ -178,14 +194,14 @@ export default function DeveloperTools() {
           <div className="max-w-2xl">
             <span className="section-label">Ecosystem</span>
             <h2
-              className="text-5xl sm:text-7xl font-bold tracking-tight leading-[0.93] mb-6 text-white"
+              className="text-5xl sm:text-7xl font-bold tracking-tight leading-[0.93] mb-6 text-black"
               style={{ fontFamily: "var(--font-syne)" }}
             >
               Everything
               <br />
-              <span className="text-[#00E599]">Built &amp; Live.</span>
+              <span className="text-[#C4ED5F]">Built &amp; Live.</span>
             </h2>
-            <p className="text-[#8a8a8a] text-xl font-light leading-relaxed max-w-lg">
+            <p className="text-gray-600 text-xl font-light leading-relaxed max-w-lg">
               From protocol to wallets, explorer to SDK — the entire quantum-resistant stack is
               production-ready and growing fast.
             </p>
@@ -199,13 +215,13 @@ export default function DeveloperTools() {
                 className="card-dark px-5 py-4 text-center min-w-[110px] rounded-2xl"
               >
                 <div
-                  className="text-3xl font-extrabold text-white tracking-tight"
+                  className="text-3xl font-extrabold text-black tracking-tight"
                   style={{ fontFamily: "var(--font-syne)" }}
                 >
                   {s.value}
                 </div>
                 <div
-                  className="text-[10px] text-[#4a4a4a] font-semibold mt-1 leading-tight uppercase tracking-widest"
+                  className="text-[10px] text-gray-400 font-semibold mt-1 leading-tight uppercase tracking-widest"
                   style={{ fontFamily: "var(--font-mono)" }}
                 >
                   {s.label}
@@ -216,93 +232,88 @@ export default function DeveloperTools() {
         </div>
 
         {/* ── PRODUCT GRID ─────────────────────────────────────────── */}
-        <div className="space-y-12">
-          {PRODUCTS.map((group) => (
-            <div key={group.category}>
-              {/* Category label */}
-              <div className="flex items-center gap-4 mb-6">
-                <span
-                  className="text-[9px] font-black uppercase tracking-widest text-[#4a4a4a]"
-                  style={{ fontFamily: "var(--font-mono)" }}
-                >
-                  {group.category}
-                </span>
-                <div className="flex-1 h-px bg-[rgba(255,255,255,0.05)]" />
-              </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-t border-l border-[rgba(0,0,0,0.06)] mb-20 bg-white">
+          {PRODUCTS.flatMap(group => group.items).map((item) => {
+            const Icon = item.icon;
+            const statusConf = STATUS_CONFIG[item.status];
 
-              {/* Cards */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                {group.items.map((item) => {
-                  const Icon = item.icon;
-                  const statusConf = STATUS_CONFIG[item.status];
+            return (
+              <Link
+                key={item.name}
+                href={item.href}
+                target={item.external ? "_blank" : undefined}
+                rel={item.external ? "noopener noreferrer" : undefined}
+                className="group relative flex flex-col border-r border-b border-[rgba(0,0,0,0.06)] aspect-square overflow-hidden hover:z-10 transition-all duration-500 bg-white"
+              >
+                {/* Default State (Centered Icon & Title) */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-6 transition-all duration-500 group-hover:-translate-y-8 group-hover:opacity-0 group-hover:blur-sm z-10 bg-white">
+                  <div className="w-16 h-16 rounded-2xl bg-[rgba(196,237,95,0.1)] border border-[rgba(196,237,95,0.2)] flex items-center justify-center mb-6 transition-transform duration-500 group-hover:scale-110">
+                    <Icon className="w-8 h-8 text-black" />
+                  </div>
+                  <h3
+                    className="text-xl font-bold text-black text-center transition-colors"
+                    style={{ fontFamily: "var(--font-syne)" }}
+                  >
+                    {item.name}
+                  </h3>
+                  <div className="mt-4 text-[9px] font-mono text-gray-400 uppercase tracking-widest">
+                    {item.status === 'live' ? 'Hover to Explore' : 'Building'}
+                  </div>
+                </div>
 
-                  return (
-                    <Link
-                      key={item.name}
-                      href={item.href}
-                      target={item.external ? "_blank" : undefined}
-                      rel={item.external ? "noopener noreferrer" : undefined}
-                      className="group relative flex flex-col card-dark rounded-2xl p-6 hover:border-[rgba(0,229,153,0.25)] hover:shadow-[0_0_40px_rgba(0,229,153,0.04)] transition-all duration-300 overflow-hidden"
+                {/* Hover Reveal State (Dark futuristic overlay) */}
+                <div className="absolute inset-0 bg-[#0a0a0a] text-white p-8 flex flex-col justify-between translate-y-full group-hover:translate-y-0 transition-transform duration-500 ease-out z-20">
+                  {/* Top Bar with Badges */}
+                  <div className="flex items-start justify-between">
+                    <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-[9px] font-black uppercase tracking-wider ${
+                      item.status === 'live' 
+                        ? 'bg-[#C4ED5F] text-black border-[#C4ED5F]' 
+                        : 'bg-white/10 text-white border-white/20'
+                    }`}>
+                      <span className={`w-1.5 h-1.5 rounded-full ${item.status === 'live' ? 'bg-black animate-pulse-dot' : 'bg-gray-400'}`} />
+                      {statusConf.label}
+                    </div>
+                    {item.meta && (
+                      <span className="text-[9px] font-mono font-semibold text-gray-400 bg-white/5 border border-white/10 px-1.5 py-0.5 rounded">
+                        {item.meta}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Body Content */}
+                  <div>
+                    <h3
+                      className="text-2xl font-bold text-[#C4ED5F] mb-3"
+                      style={{ fontFamily: "var(--font-syne)" }}
                     >
-                      {/* Hover glow overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#00E599]/0 to-[#00E599]/0 group-hover:from-[#00E599]/[0.03] group-hover:to-transparent transition-all duration-500 rounded-2xl pointer-events-none" />
+                      {item.name}
+                    </h3>
+                    <p className="text-sm text-gray-400 font-light leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
 
-                      {/* Top row */}
-                      <div className="flex items-start justify-between mb-5">
-                        <div className="w-10 h-10 rounded-xl bg-[#161616] border border-[rgba(255,255,255,0.06)] flex items-center justify-center group-hover:border-[rgba(0,229,153,0.2)] group-hover:bg-[rgba(0,229,153,0.06)] transition-all duration-300">
-                          <Icon className="w-4.5 h-4.5 w-[18px] h-[18px] text-[#4a4a4a] group-hover:text-[#00E599] transition-colors duration-300" />
-                        </div>
-                        <div className={`flex items-center gap-1.5 px-2.5 py-1 rounded-full border text-[9px] font-black uppercase tracking-wider ${statusConf.badge}`}>
-                          <span className={`w-1.5 h-1.5 rounded-full ${statusConf.dot}`} />
-                          {statusConf.label}
-                        </div>
-                      </div>
-
-                      {/* Content */}
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 mb-2">
-                          <h3
-                            className="text-base font-bold text-white group-hover:text-[#00E599] transition-colors"
-                            style={{ fontFamily: "var(--font-syne)" }}
-                          >
-                            {item.name}
-                          </h3>
-                          {item.meta && (
-                            <span
-                              className="text-[9px] font-mono font-semibold text-[#4a4a4a] bg-[#161616] border border-[rgba(255,255,255,0.06)] px-1.5 py-0.5 rounded"
-                            >
-                              {item.meta}
-                            </span>
-                          )}
-                        </div>
-                        <p className="text-sm text-[#8a8a8a] leading-relaxed font-light">
-                          {item.description}
-                        </p>
-                      </div>
-
-                      {/* Bottom link indicator */}
-                      <div className="mt-5 flex items-center gap-1.5 text-xs font-semibold text-[#4a4a4a] group-hover:text-[#00E599] transition-colors">
-                        {item.external ? "Open" : "Explore"}
-                        <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                      </div>
-                    </Link>
-                  );
-                })}
-              </div>
-            </div>
-          ))}
+                  {/* Bottom Link */}
+                  <div className="flex items-center gap-2 text-xs font-semibold text-[#C4ED5F] uppercase tracking-wider">
+                    {item.external ? "Open" : "Explore"}
+                    <ArrowUpRight className="w-4 h-4" />
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
         </div>
 
         {/* ── BOTTOM CTA ─────────────────────────────────────────── */}
-        <div className="mt-20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-t border-[rgba(255,255,255,0.06)] pt-10">
+        <div className="mt-20 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 border-t border-[rgba(0,0,0,0.06)] pt-10">
           <div>
             <p
-              className="text-base font-bold text-white"
+              className="text-base font-bold text-black"
               style={{ fontFamily: "var(--font-syne)" }}
             >
               Want to build on Quanta?
             </p>
-            <p className="text-sm text-[#8a8a8a] font-light mt-1">
+            <p className="text-sm text-gray-600 font-light mt-1">
               Docs, SDK, and WASM are ready. Start in minutes.
             </p>
           </div>
@@ -311,7 +322,7 @@ export default function DeveloperTools() {
               href="https://quantachain.gitbook.io/quantachain-docs"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-[#00E599] text-black text-sm font-bold rounded-xl hover:bg-[#00c282] transition-all"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-[#C4ED5F] text-black text-sm font-bold rounded-xl hover:bg-[#C4ED5F] transition-all"
             >
               Read the Docs <ArrowUpRight className="w-4 h-4" />
             </Link>
@@ -319,7 +330,7 @@ export default function DeveloperTools() {
               href="https://github.com/quantachain"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 border border-[rgba(255,255,255,0.1)] text-white text-sm font-bold rounded-xl hover:border-[rgba(255,255,255,0.25)] transition-all"
+              className="inline-flex items-center gap-2 px-6 py-3 border border-[rgba(0,0,0,0.1)] text-black text-sm font-bold rounded-xl hover:border-[rgba(0,0,0,0.25)] transition-all"
             >
               GitHub <ArrowUpRight className="w-4 h-4" />
             </Link>

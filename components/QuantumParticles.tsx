@@ -147,7 +147,7 @@ const QuantumParticles = () => {
                 }
 
                 // Draw particle
-                ctx.fillStyle = `rgba(0, 229, 153, ${p1.alpha})`;
+                ctx.fillStyle = `rgba(196,237,95, ${p1.alpha})`;
                 ctx.beginPath();
                 ctx.arc(p1.x, p1.y, p1.size, 0, Math.PI * 2);
                 ctx.fill();
@@ -161,7 +161,7 @@ const QuantumParticles = () => {
 
                     if (dist < 120) {
                         ctx.beginPath();
-                        ctx.strokeStyle = `rgba(0, 229, 153, ${0.15 * (1 - dist / 120)})`;
+                        ctx.strokeStyle = `rgba(196,237,95, ${0.15 * (1 - dist / 120)})`;
                         ctx.moveTo(p1.x, p1.y);
                         ctx.lineTo(p2.x, p2.y);
                         ctx.stroke();
@@ -220,7 +220,7 @@ const QuantumParticles = () => {
             {/* Header Bar - Floating freely now */}
             <div className="absolute top-4 left-0 right-0 z-30 flex items-center justify-between px-4 opacity-70 group-hover:opacity-100 transition-opacity">
                 <div className="flex items-center gap-2">
-                    <div className={`w-2 h-2 rounded-full ${isStable ? 'bg-[#00E599] shadow-[0_0_10px_#00E599]' : 'bg-red-500 shadow-[0_0_10px_red]'} animate-pulse`}></div>
+                    <div className={`w-2 h-2 rounded-full ${isStable ? 'bg-[#C4ED5F] shadow-[0_0_10px_#C4ED5F]' : 'bg-red-500 shadow-[0_0_10px_red]'} animate-pulse`}></div>
                     <span className="text-[10px] font-mono font-semibold tracking-widest text-gray-400 uppercase">Quantum Field</span>
                 </div>
                 <div className="flex items-center gap-1.5">
@@ -244,7 +244,7 @@ const QuantumParticles = () => {
                     <div className="text-xl font-mono text-gray-900 font-bold tracking-tighter transition-all duration-100">{entanglementRate.toFixed(2)}%</div>
                 </div>
                 <div className={`w-28 h-9 rounded border border-gray-200/50 flex items-center justify-center bg-white/40 backdrop-blur-sm transition-colors duration-300 ${isStable ? '' : 'bg-red-500/10 border-red-500/30'}`}>
-                    <span className={`text-[10px] font-mono font-bold animate-pulse ${isStable ? 'text-[#00E599]' : 'text-red-500'}`}>{isStable ? 'STABLE' : 'FLUX'}</span>
+                    <span className={`text-[10px] font-mono font-bold animate-pulse ${isStable ? 'text-[#C4ED5F]' : 'text-red-500'}`}>{isStable ? 'STABLE' : 'FLUX'}</span>
                 </div>
             </div>
         </div>

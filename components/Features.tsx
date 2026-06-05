@@ -15,7 +15,7 @@ export default function Features() {
           <circle cx="100" cy="40" r="3" className="fill-teal-500/20" />
 
           {/* Animated Dot traversing the lattice */}
-          <circle r="4" className="fill-[#00E599]">
+          <circle r="4" className="fill-[#C4ED5F]">
             <animateMotion
               path="M20,80 L60,40 L100,80 L140,40 L180,80 L140,40 L100,80 L60,40 L20,80"
               dur="8s"
@@ -39,7 +39,7 @@ export default function Features() {
           {/* Orbiting Dot */}
           <g>
             <animateTransform attributeName="transform" type="rotate" from="0 100 50" to="360 100 50" dur="10s" repeatCount="indefinite" />
-            <circle cx="100" cy="20" r="3" className="fill-[#00E599]" />
+            <circle cx="100" cy="20" r="3" className="fill-[#C4ED5F]" />
           </g>
           {/* Key Icon */}
           <rect x="140" y="35" width="25" height="30" rx="4" />
@@ -60,7 +60,7 @@ export default function Features() {
           <rect x="120" y="30" width="20" height="50" rx="2" />
           <path d="M30,50 L150,20" strokeDasharray="4 4" />
           {/* Bouncing Coin */}
-          <circle cx="150" cy="20" r="4" className="fill-[#00E599]">
+          <circle cx="150" cy="20" r="4" className="fill-[#C4ED5F]">
             <animate attributeName="cy" values="20; 15; 20" dur="2s" repeatCount="indefinite" />
           </circle>
         </svg>
@@ -74,10 +74,10 @@ export default function Features() {
           {/* Hourglass / Lock Hybrid */}
           <path d="M80,20 L120,20 L100,50 L80,20 Z M80,80 L120,80 L100,50 L80,80 Z" />
           {/* Sand dropping */}
-          <circle cx="100" cy="50" r="1.5" className="fill-[#00E599]">
+          <circle cx="100" cy="50" r="1.5" className="fill-[#C4ED5F]">
             <animate attributeName="cy" from="50" to="75" dur="1.5s" repeatCount="indefinite" />
           </circle>
-          <circle cx="100" cy="50" r="1.5" className="fill-[#00E599]" opacity="0.5">
+          <circle cx="100" cy="50" r="1.5" className="fill-[#C4ED5F]" opacity="0.5">
             <animate attributeName="cy" from="45" to="70" dur="1.5s" begin="0.5s" repeatCount="indefinite" />
           </circle>
           <path d="M60,35 L60,45 A40,40 0 0,0 140,45 L140,35" strokeDasharray="4 4" />
@@ -92,7 +92,7 @@ export default function Features() {
           {/* Linked nodes */}
           <circle cx="70" cy="40" r="8" />
           <circle cx="130" cy="40" r="8" />
-          <circle cx="100" cy="70" r="8" className="fill-[#00E599]/20 stroke-[#00E599]" />
+          <circle cx="100" cy="70" r="8" className="fill-[#C4ED5F]/20 stroke-[#C4ED5F]" />
           <path d="M75,45 L95,65 M125,45 L105,65" strokeDasharray="3 3">
             <animate attributeName="stroke-dashoffset" from="10" to="0" dur="1s" repeatCount="indefinite" />
           </path>
@@ -112,7 +112,7 @@ export default function Features() {
           <path d="M80,50 V70" />
           <path d="M100,50 V70" />
           {/* Sliding Piece Indicator */}
-          <rect x="85" y="55" width="30" height="10" rx="5" className="fill-[#00E599]" opacity="0.5">
+          <rect x="85" y="55" width="30" height="10" rx="5" className="fill-[#C4ED5F]" opacity="0.5">
             <animate attributeName="x" values="85; 45; 85" dur="4s" repeatCount="indefinite" />
           </rect>
         </svg>
@@ -132,7 +132,7 @@ export default function Features() {
           </div>
           <h2 className="text-5xl sm:text-7xl font-bold mb-6 tracking-tight leading-[0.95]">
             Engineered for <br />
-            <span className="text-[#00E599]">Autonomous Markets</span>
+            <span className="text-[#C4ED5F]">Autonomous Markets</span>
           </h2>
           <p className="text-xl sm:text-2xl text-gray-600 max-w-2xl leading-relaxed font-light">
             QUANTA abandons heavy virtual machines for native Rust templates, delivering an institutional settlement layer <span className="text-black font-medium">ready for DePIN and AI integration.</span>
@@ -143,7 +143,7 @@ export default function Features() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-white shadow-xl -translate-y-1 rounded-2xl p-6 sm:p-8 flex flex-col justify-between min-h-[320px] group transition-all duration-300 border border-[#00E599]/30 hover:-translate-y-2 hover:shadow-2xl"
+              className="bg-white shadow-xl -translate-y-1 rounded-2xl p-6 sm:p-8 flex flex-col justify-between min-h-[320px] group transition-all duration-300 border border-[#C4ED5F]/30 hover:-translate-y-2 hover:shadow-2xl"
             >
               <div>
                 {/* Circled Number */}

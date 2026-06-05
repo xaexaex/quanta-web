@@ -75,7 +75,7 @@ export default function NetworkStats() {
           </div>
           <h2 className="text-5xl sm:text-7xl font-bold mb-6 tracking-tight leading-[0.95]">
             Real-Time <br />
-            <span className="text-[#00E599]">Chain Stats</span>
+            <span className="text-[#C4ED5F]">Chain Stats</span>
           </h2>
           <p className="text-xl sm:text-2xl text-gray-600 max-w-2xl leading-relaxed font-light">
             Live data pulled directly from the Quanta node every{" "}
@@ -84,13 +84,13 @@ export default function NetworkStats() {
 
           <div className="mt-6">
             <Link
-              href="https://scan.quantachain.org/"
+              href="https://quascan.xyz/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gray-200 text-sm font-medium text-gray-600 hover:border-[#00E599] hover:text-black hover:bg-[#00E599]/5 transition-all duration-200 group"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-gray-200 text-sm font-medium text-gray-600 hover:border-[#C4ED5F] hover:text-black hover:bg-[#C4ED5F]/5 transition-all duration-200 group"
             >
               View in QuaScan
-              <ArrowUpRight className="w-4 h-4 text-gray-400 group-hover:text-[#00E599] transition-colors" />
+              <ArrowUpRight className="w-4 h-4 text-gray-400 group-hover:text-[#C4ED5F] transition-colors" />
             </Link>
           </div>
         </div>
@@ -99,7 +99,7 @@ export default function NetworkStats() {
           {statCards.map((card) => (
             <div
               key={card.index}
-              className={`bg-white shadow-xl -translate-y-1 rounded-2xl p-6 sm:p-8 flex flex-col justify-between min-h-[200px] group transition-all duration-300 border border-[#00E599]/30 hover:-translate-y-2 hover:shadow-2xl ${loading ? "animate-pulse" : ""}`}
+              className={`bg-white shadow-xl -translate-y-1 rounded-2xl p-6 sm:p-8 flex flex-col justify-between min-h-[200px] group transition-all duration-300 border border-[#C4ED5F]/30 hover:-translate-y-2 hover:shadow-2xl ${loading ? "animate-pulse" : ""}`}
             >
               <div>
                 {/* Circled Number */}

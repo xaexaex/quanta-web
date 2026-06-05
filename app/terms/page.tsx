@@ -21,7 +21,7 @@ export default function TermsOfService() {
             </div>
             <h1 className="text-5xl sm:text-7xl font-bold mb-6 tracking-tight leading-[0.95]">
               Terms of <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00E599] to-emerald-600">Service</span>
+              <span className="text-[#C4ED5F]">Service</span>
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed">
               Last updated: December 31, 2025
@@ -35,20 +35,20 @@ export default function TermsOfService() {
             <section className="mb-8 md:mb-12">
               <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-black">1. Acceptance of Terms</h2>
               <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-4">
-                By accessing and using the Quanta Chain website (quantachain.org) and related services (collectively, the "Services"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use our Services.
+                By accessing and using the Quantachain website (quantachain.org) and related services (collectively, the "Services"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use our Services.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                These Terms constitute a legally binding agreement between you and Quanta Chain regarding your use of the Services.
+                These Terms constitute a legally binding agreement between you and Quantachain regarding your use of the Services.
               </p>
             </section>
 
             <section className="mb-12">
               <h2 className="text-3xl font-bold mb-6 text-black">2. Description of Services</h2>
               <p className="text-gray-600 leading-relaxed mb-4">
-                Quanta Chain is an open-source blockchain project focused on quantum-resistant cryptography. Our Services include:
+                Quantachain is an open-source blockchain project focused on quantum-resistant cryptography. Our Services include:
               </p>
               <ul className="list-disc pl-6 text-gray-600 space-y-2">
-                <li>Informational website about the Quanta blockchain</li>
+                <li>Informational website about the Quantachain blockchain</li>
                 <li>Access to open-source code repositories</li>
                 <li>Documentation and technical resources</li>
                 <li>Community forums and communication channels</li>
@@ -58,17 +58,17 @@ export default function TermsOfService() {
             <section className="mb-12">
               <h2 className="text-3xl font-bold mb-6 text-black">3. Development Stage Disclaimer</h2>
               <p className="text-gray-600 leading-relaxed mb-4">
-                <strong>IMPORTANT:</strong> Quanta Chain is currently in active development. The blockchain, software, and all related tools are provided "AS IS" without any warranties or guarantees.
+                <strong>IMPORTANT:</strong> Quantachain is currently in active development. The blockchain, software, and all related tools are provided "AS IS" without any warranties or guarantees.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                By using or contributing to Quanta Chain, you acknowledge that the project is experimental and may contain bugs, errors, or security vulnerabilities. Use at your own risk.
+                By using or contributing to Quantachain, you acknowledge that the project is experimental and may contain bugs, errors, or security vulnerabilities. Use at your own risk.
               </p>
             </section>
 
             <section className="mb-12">
               <h2 className="text-3xl font-bold mb-6 text-black">4. Open Source License</h2>
               <p className="text-gray-600 leading-relaxed">
-                Quanta Chain is open-source software. The code is available on GitHub and is subject to the license terms specified in the repository. Please review the license file in the repository for specific terms governing the use, modification, and distribution of the code.
+                Quantachain is open-source software. The code is available on GitHub and is subject to the license terms specified in the repository. Please review the license file in the repository for specific terms governing the use, modification, and distribution of the code.
               </p>
             </section>
 
@@ -100,7 +100,7 @@ export default function TermsOfService() {
             <section className="mb-12">
               <h2 className="text-3xl font-bold mb-6 text-black">7. Blockchain Transactions</h2>
               <p className="text-gray-600 leading-relaxed mb-4">
-                All transactions made on the Quanta blockchain are:
+                All transactions made on the Quantachain blockchain are:
               </p>
               <ul className="list-disc pl-6 text-gray-600 space-y-2 mb-4">
                 <li>Publicly recorded and visible on the blockchain</li>
@@ -115,10 +115,10 @@ export default function TermsOfService() {
             <section className="mb-12">
               <h2 className="text-3xl font-bold mb-6 text-black">8. Intellectual Property</h2>
               <p className="text-gray-600 leading-relaxed mb-4">
-                Except for the open-source code, the content on this website, including text, graphics, logos, and design, is the property of Quanta Chain and is protected by copyright and other intellectual property laws.
+                Except for the open-source code, the content on this website, including text, graphics, logos, and design, is the property of Quantachain and is protected by copyright and other intellectual property laws.
               </p>
               <p className="text-gray-600 leading-relaxed">
-                The "Quanta" name and logo are trademarks of Quanta Chain. You may not use these trademarks without our prior written permission.
+                The "Quantachain" name and logo are trademarks of Quantachain. You may not use these trademarks without our prior written permission.
               </p>
             </section>
 
@@ -153,7 +153,7 @@ export default function TermsOfService() {
             <section className="mb-12">
               <h2 className="text-3xl font-bold mb-6 text-black">11. Indemnification</h2>
               <p className="text-gray-600 leading-relaxed">
-                You agree to indemnify and hold harmless Quanta Chain, its contributors, and affiliates from any claims, damages, losses, liabilities, and expenses (including legal fees) arising from your use of the Services or violation of these Terms.
+                You agree to indemnify and hold harmless Quantachain, its contributors, and affiliates from any claims, damages, losses, liabilities, and expenses (including legal fees) arising from your use of the Services or violation of these Terms.
               </p>
             </section>
 
@@ -198,7 +198,7 @@ export default function TermsOfService() {
                 If you have any questions about these Terms, please contact us:
               </p>
               <ul className="list-none text-gray-600 space-y-2">
-                <li>• Via GitHub: <a href="https://github.com/quantachain/quanta" target="_blank" className="text-[#00E599] hover:underline">github.com/quantachain/quanta</a></li>
+                <li>• Via GitHub: <a href="https://github.com/quantachain/quanta" target="_blank" className="text-[#C4ED5F] hover:underline">github.com/quantachain/quanta</a></li>
                 <li>• Via our community channels listed on our website</li>
               </ul>
             </section>

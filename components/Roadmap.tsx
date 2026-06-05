@@ -1,3 +1,7 @@
+"use client";
+
+import { useState } from "react";
+
 const milestones = [
   {
     quarter: "Q1 2026",
@@ -16,7 +20,7 @@ const milestones = [
     title: "Public Testnet & Ecosystem",
     items: [
       "91,000+ blocks, external validators live",
-      "Block explorer — scan.quantachain.org",
+      "Block explorer — quascan.xyz",
       "Chrome wallet extension (Live)",
       "quanta-sdk (NPM) + quanta-wasm (Crates.io)",
       "Mining Pool Server (Stratum-Q)",
@@ -64,152 +68,114 @@ const milestones = [
   },
 ];
 
-
 export default function Roadmap() {
+  // Defaulting to index 1 which is the current "active" phase (Q2 2026)
+  const [activeIndex, setActiveIndex] = useState(1);
+
   return (
     <section className="py-32 px-6 md:px-12 max-w-7xl mx-auto">
+      
       {/* Header */}
-      <div className="mb-16 max-w-2xl">
-        <span className="section-label">Roadmap</span>
+      <div className="mb-24 text-center max-w-3xl mx-auto">
+        <span className="section-label inline-block mb-4">Roadmap</span>
         <h2
-          className="text-5xl sm:text-6xl font-bold leading-[1.0] tracking-tight text-white mt-2"
+          className="text-5xl sm:text-6xl font-bold leading-[1.1] tracking-tight text-black"
           style={{ fontFamily: "var(--font-syne)" }}
         >
           Building Toward
-          <br />
-          <span className="text-[#00E599]">Mainnet 2027.</span>
+          <br className="hidden sm:block" />
+          <span className="inline-block mt-3 text-[#C4ED5F] bg-black px-6 py-2 shadow-2xl rounded-xl -rotate-2">
+            Mainnet 2027.
+          </span>
         </h2>
       </div>
 
-      {/* Desktop: horizontal timeline */}
-      <div className="hidden lg:block overflow-x-auto pb-4">
-        <div className="flex gap-0 min-w-max">
+      {/* Interactive Progress Bar */}
+      <div className="relative mb-12 overflow-x-auto pt-6 pb-8 custom-scrollbar">
+        <div className="flex justify-between items-center min-w-[750px] relative px-4">
+          
+          {/* Background Track Line */}
+          <div className="absolute top-6 left-4 right-4 h-1 -translate-y-1/2 bg-[rgba(0,0,0,0.06)] z-0 rounded-full" />
+          
+          {/* Active Fill Line (Progress) */}
+          <div
+            className="absolute top-6 left-4 h-1 -translate-y-1/2 bg-[#C4ED5F] z-0 rounded-full transition-all duration-700 ease-in-out"
+            style={{ width: `calc(${(activeIndex / (milestones.length - 1)) * 100}% - 32px)` }}
+          />
+
           {milestones.map((m, i) => (
-            <div key={m.quarter} className="flex flex-col items-start" style={{ width: 240 }}>
-              {/* Connector line + dot */}
-              <div className="flex items-center w-full mb-6">
-                <div
-                  className={`w-3 h-3 rounded-full flex-shrink-0 z-10 ${m.status === "done"
-                      ? "bg-[#00E599]"
-                      : m.status === "active"
-                        ? "bg-[#00E599] animate-pulse-dot ring-4 ring-[rgba(0,229,153,0.15)]"
-                        : "bg-[#2a2a2a] border border-[rgba(255,255,255,0.15)]"
-                    }`}
-                />
-                {i < milestones.length - 1 && (
-                  <div
-                    className="flex-1 h-px"
-                    style={{
-                      background:
-                        m.status === "done"
-                          ? "rgba(0,229,153,0.4)"
-                          : "rgba(255,255,255,0.08)",
-                    }}
-                  />
-                )}
+            <button
+              key={m.quarter}
+              onClick={() => setActiveIndex(i)}
+              className="relative z-10 flex flex-col items-center gap-4 group focus:outline-none"
+            >
+              {/* Node Dot */}
+              <div
+                className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-500 shadow-sm ${
+                  i <= activeIndex
+                    ? "bg-[#C4ED5F] ring-4 ring-white"
+                    : "bg-white border-2 border-[rgba(0,0,0,0.1)] group-hover:border-[rgba(196,237,95,0.8)]"
+                } ${i === activeIndex ? "scale-110 shadow-[0_0_20px_rgba(196,237,95,0.4)]" : "hover:scale-105"}`}
+              >
+                {/* Inner marker */}
+                {i < activeIndex && <div className="w-3 h-3 rounded-full bg-black opacity-80" />}
+                {i === activeIndex && <div className="w-4 h-4 rounded-full bg-black animate-pulse" />}
               </div>
 
-              {/* Content */}
-              <div className="pr-8">
-                <span
-                  className="text-[9px] text-[#4a4a4a] uppercase tracking-widest block mb-1"
-                  style={{ fontFamily: "var(--font-mono)" }}
-                >
-                  {m.quarter}
-                </span>
-                <h3
-                  className={`text-base font-bold mb-3 ${m.status === "done" || m.status === "active"
-                      ? "text-white"
-                      : "text-[#4a4a4a]"
-                    }`}
-                  style={{ fontFamily: "var(--font-syne)" }}
-                >
-                  {m.title}
-                  {m.status === "active" && (
-                    <span
-                      className="ml-2 text-[9px] font-mono text-[#00E599] uppercase tracking-wider"
-                    >
-                      Active
-                    </span>
-                  )}
-                </h3>
-                <ul className="space-y-1.5">
-                  {m.items.map((item) => (
-                    <li key={item} className="flex items-start gap-2">
-                      <span
-                        className={`mt-1 w-1 h-1 rounded-full flex-shrink-0 ${m.status === "done"
-                            ? "bg-[#00E599]"
-                            : m.status === "active"
-                              ? "bg-[rgba(0,229,153,0.5)]"
-                              : "bg-[#2a2a2a]"
-                          }`}
-                      />
-                      <span
-                        className={`text-xs leading-relaxed ${m.status === "done" || m.status === "active"
-                            ? "text-[#8a8a8a]"
-                            : "text-[#3a3a3a]"
-                          }`}
-                      >
-                        {item}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+              {/* Label */}
+              <div
+                className={`text-center transition-colors duration-300 mt-2 ${
+                  i === activeIndex ? "text-black font-bold" : "text-gray-400 font-medium group-hover:text-black"
+                }`}
+              >
+                <div className="text-[12px] font-mono uppercase tracking-widest">{m.quarter}</div>
               </div>
-            </div>
+            </button>
           ))}
         </div>
       </div>
 
-      {/* Mobile: vertical timeline */}
-      <div className="lg:hidden space-y-6">
-        {milestones.map((m) => (
-          <div key={m.quarter} className="flex gap-4">
-            <div className="flex flex-col items-center">
-              <div
-                className={`w-2.5 h-2.5 rounded-full flex-shrink-0 mt-1 ${m.status === "done"
-                    ? "bg-[#00E599]"
-                    : m.status === "active"
-                      ? "bg-[#00E599] animate-pulse-dot"
-                      : "bg-[#2a2a2a] border border-[rgba(255,255,255,0.1)]"
-                  }`}
-              />
-              <div className="flex-1 w-px bg-[rgba(255,255,255,0.06)] mt-2" />
-            </div>
-            <div className="pb-6">
-              <span
-                className="text-[9px] text-[#4a4a4a] uppercase tracking-widest block mb-0.5"
-                style={{ fontFamily: "var(--font-mono)" }}
-              >
-                {m.quarter}
-              </span>
-              <h3
-                className={`text-base font-bold mb-2 ${m.status !== "upcoming" ? "text-white" : "text-[#4a4a4a]"
-                  }`}
-                style={{ fontFamily: "var(--font-syne)" }}
-              >
-                {m.title}
-              </h3>
-              <ul className="space-y-1">
-                {m.items.map((item) => (
-                  <li key={item} className="flex items-start gap-2">
-                    <span
-                      className={`mt-1.5 w-1 h-1 rounded-full flex-shrink-0 ${m.status !== "upcoming" ? "bg-[rgba(0,229,153,0.4)]" : "bg-[#2a2a2a]"
-                        }`}
-                    />
-                    <span
-                      className={`text-xs ${m.status !== "upcoming" ? "text-[#8a8a8a]" : "text-[#3a3a3a]"
-                        }`}
-                    >
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
+      {/* Dynamic Display Box */}
+      <div className="bg-[#050505] text-white rounded-[2rem] p-8 sm:p-14 shadow-2xl relative overflow-hidden ring-1 ring-white/10 min-h-[380px] flex flex-col justify-center">
+        {/* Subtle Cyber Glow inside box */}
+        <div className="absolute top-[-20%] right-[-10%] w-[600px] h-[600px] bg-[#C4ED5F]/[0.04] blur-[120px] pointer-events-none rounded-full" />
+        <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-[#C4ED5F]/50 to-transparent opacity-50" />
+
+        <div className="relative z-10 max-w-4xl">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6 mb-10">
+            <h3
+              className="text-4xl sm:text-5xl font-bold transition-all"
+              style={{ fontFamily: "var(--font-syne)" }}
+            >
+              {milestones[activeIndex].title}
+            </h3>
+            <span
+              className={`inline-flex items-center gap-2 px-3 py-1.5 text-[10px] uppercase font-mono font-black tracking-widest rounded-full w-max ${
+                milestones[activeIndex].status === "done"
+                  ? "bg-[#C4ED5F]/20 text-[#C4ED5F] border border-[#C4ED5F]/30"
+                  : milestones[activeIndex].status === "active"
+                  ? "bg-[#C4ED5F] text-black shadow-[0_0_15px_rgba(196,237,95,0.4)]"
+                  : "bg-white/10 text-white/40 border border-white/10"
+              }`}
+            >
+              {milestones[activeIndex].status === "active" && <span className="w-1.5 h-1.5 bg-black rounded-full animate-pulse-dot" />}
+              {milestones[activeIndex].status}
+            </span>
           </div>
-        ))}
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+            {milestones[activeIndex].items.map((item, idx) => (
+              <div key={idx} className="flex items-start gap-4 animate-in fade-in slide-in-from-bottom-4 duration-500 fill-mode-both" style={{ animationDelay: `${idx * 100}ms` }}>
+                <div className="mt-2 w-2 h-2 rounded-full bg-[#C4ED5F] shadow-[0_0_10px_rgba(196,237,95,0.6)] flex-shrink-0" />
+                <p className="text-gray-300 leading-relaxed font-light text-lg">
+                  {item}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
+
     </section>
   );
 }

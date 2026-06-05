@@ -90,7 +90,7 @@ export default function FaucetPage() {
   };
 
   return (
-    <main className="min-h-screen bg-transparent text-white selection:bg-[#00E599]/30 selection:text-white flex flex-col">
+    <main className="min-h-screen bg-transparent text-black selection:bg-[#C4ED5F]/30 selection:text-black flex flex-col">
       <Navbar />
 
       <section className="flex-grow pt-32 pb-24">
@@ -98,15 +98,15 @@ export default function FaucetPage() {
           
           <div className="text-center max-w-2xl mx-auto mb-16">
             <div className="inline-block mb-4">
-              <span className="text-xs font-mono font-bold tracking-widest text-[#00E599] uppercase px-4 py-2 bg-[#00E599]/10 rounded-full border border-[#00E599]/20">
+              <span className="text-xs font-mono font-bold tracking-widest bg-[#C4ED5F] text-[#000000] uppercase px-4 py-2 rounded-full border border-[#C4ED5F]">
                 Quanta Testnet
               </span>
             </div>
             <h1 className="text-5xl sm:text-7xl font-bold mb-6 tracking-tight leading-[0.95]">
               Developer <br />
-              <span className="text-[#00E599]">Faucet</span>
+              <span className="text-[#C4ED5F]">Faucet</span>
             </h1>
-            <p className="text-xl text-[#8a8a8a] leading-relaxed font-light">
+            <p className="text-xl text-gray-600 leading-relaxed font-light">
               Get Testnet QUA to build and test your post-quantum applications. Base reward is 5 QUA per day.
             </p>
           </div>
@@ -114,15 +114,15 @@ export default function FaucetPage() {
           <div className="grid md:grid-cols-5 gap-8 items-start">
             
             {/* Left Column: Faucet Form (takes 3 cols) */}
-            <div className="md:col-span-3 bg-[#111] p-8 sm:p-10 rounded-[2rem] shadow-[0_8px_30px_rgba(0,0,0,0.4)] border border-[rgba(255,255,255,0.06)]">
+            <div className="md:col-span-3 bg-[#111] text-white p-8 sm:p-10 rounded-[2rem] shadow-[0_8px_30px_rgba(0,0,0,0.4)] border border-white/10">
               <h2 className="text-2xl font-bold mb-8 flex items-center gap-2">
-                <Droplet className="w-6 h-6 text-[#00E599]" />
+                <Droplet className="w-6 h-6 text-[#C4ED5F]" />
                 Request Funds
               </h2>
 
               <div className="flex flex-col gap-5">
                 <div>
-                  <label htmlFor="address" className="text-sm font-semibold text-[#8a8a8a] ml-1 mb-2 block">
+                  <label htmlFor="address" className="text-sm font-semibold text-gray-400 ml-1 mb-2 block">
                     Wallet Address
                   </label>
                   <input
@@ -131,7 +131,7 @@ export default function FaucetPage() {
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
                     placeholder="Enter your Quanta wallet address"
-                    className="w-full p-4 rounded-xl bg-[#1a1a1a] border border-[rgba(255,255,255,0.1)] focus:outline-none focus:border-[#00E599] focus:ring-2 focus:ring-[#00E599]/20 transition-all text-white font-mono text-sm"
+                    className="w-full p-4 rounded-xl bg-[#1a1a1a] border border-white/10 focus:outline-none focus:border-[#C4ED5F] focus:ring-2 focus:ring-[#C4ED5F]/20 transition-all text-white font-mono text-sm"
                   />
                 </div>
 
@@ -146,7 +146,7 @@ export default function FaucetPage() {
                 <button
                   onClick={requestCoins}
                   disabled={loading}
-                  className="w-full mt-4 py-4 text-lg font-bold text-black bg-[#00E599] rounded-full hover:bg-[#00c483] shadow-[0_0_15px_rgba(0,0,0,0.1)] hover:shadow-[0_0_25px_rgba(0,229,153,0.3)] transition-all hover:-translate-y-1 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:scale-100 disabled:shadow-none flex items-center justify-center gap-2"
+                  className="w-full mt-4 py-4 text-lg font-bold text-black bg-[#C4ED5F] rounded-full hover:bg-[#00c483] shadow-[0_0_15px_rgba(0,0,0,0.1)] hover:shadow-[0_0_25px_rgba(196,237,95,0.3)] transition-all hover:-translate-y-1 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:scale-100 disabled:shadow-none flex items-center justify-center gap-2"
                 >
                   {loading ? (
                     <>
@@ -160,10 +160,10 @@ export default function FaucetPage() {
               </div>
 
               {result && (
-                <div className={`mt-6 p-4 rounded-2xl border flex items-start gap-3 text-left ${result.success ? "bg-[rgba(0,229,153,0.1)] border-[rgba(0,229,153,0.2)] text-[#00E599]" : "bg-red-500/10 border-red-500/20 text-red-400"
+                <div className={`mt-6 p-4 rounded-2xl border flex items-start gap-3 text-left ${result.success ? "bg-[#C4ED5F] border-[#C4ED5F] text-[#000000]" : "bg-red-500/10 border-red-500/20 text-red-400"
                   }`}>
                   {result.success ? (
-                    <CheckCircle2 className="w-5 h-5 mt-0.5 text-[#00E599] shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 mt-0.5 text-[#C4ED5F] shrink-0" />
                   ) : (
                     <XCircle className="w-5 h-5 mt-0.5 text-red-400 shrink-0" />
                   )}
@@ -180,33 +180,33 @@ export default function FaucetPage() {
             </div>
 
             {/* Right Column: Developer Bonuses (takes 2 cols) */}
-            <div className="md:col-span-2 flex flex-col gap-4">
-              <div className="bg-[#111] rounded-[2rem] p-8 border border-[rgba(255,255,255,0.06)] h-full">
+            <div className="md:col-span-2 flex flex-col gap-4 text-white">
+              <div className="bg-[#111] rounded-[2rem] p-8 border border-white/10 h-full">
                 <h3 className="text-lg font-bold mb-2">Developer Bonuses</h3>
-                <p className="text-[#8a8a8a] text-sm mb-8">Boost your daily allowance by linking your developer profiles.</p>
+                <p className="text-gray-400 text-sm mb-8">Boost your daily allowance by linking your developer profiles.</p>
                 
                 <div className="space-y-4">
                   {/* GitHub Bonus */}
-                  <div className={`p-4 rounded-2xl border transition-all ${githubConnected ? 'bg-[rgba(0,229,153,0.05)] border-[rgba(0,229,153,0.2)]' : 'bg-[#1a1a1a] border-[rgba(255,255,255,0.06)]'}`}>
+                  <div className={`p-4 rounded-2xl border transition-all ${githubConnected ? 'bg-[rgba(196,237,95,0.05)] border-[rgba(196,237,95,0.2)]' : 'bg-[#1a1a1a] border-[rgba(0,0,0,0.06)]'}`}>
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center gap-2 font-semibold">
                         <Github className="w-5 h-5" />
                         Connect GitHub
                       </div>
-                      <div className={`text-xs font-bold px-2 py-1 rounded-md ${githubConnected ? 'bg-[rgba(0,229,153,0.2)] text-[#00E599]' : 'bg-[#222] text-[#8a8a8a]'}`}>
+                      <div className={`text-xs font-bold px-2 py-1 rounded-md ${githubConnected ? 'bg-[rgba(196,237,95,0.2)] text-[#C4ED5F]' : 'bg-[#222] text-gray-600'}`}>
                         +5 QUA
                       </div>
                     </div>
                     {githubConnected ? (
-                      <div className="text-sm font-medium text-[#00E599] flex items-center justify-between gap-1">
+                      <div className="text-sm font-medium text-[#C4ED5F] flex items-center justify-between gap-1">
                         <span className="flex items-center gap-1"><CheckCircle2 className="w-4 h-4" /> Connected</span>
-                        <span className="text-xs text-[#8a8a8a] font-normal">@{githubUsername}</span>
+                        <span className="text-xs text-gray-600 font-normal">@{githubUsername}</span>
                       </div>
                     ) : (
                       <button 
                         onClick={handleGithubConnect}
                         disabled={isConnecting}
-                        className="w-full py-2 text-sm font-semibold bg-[#222] border border-[rgba(255,255,255,0.06)] rounded-xl hover:bg-[#333] text-white transition-colors flex items-center justify-center gap-2"
+                        className="w-full py-2 text-sm font-semibold bg-[#222] border border-white/10 rounded-xl hover:bg-[#333] text-white transition-colors flex items-center justify-center gap-2"
                       >
                         {isConnecting ? <Loader2 className="w-4 h-4 animate-spin" /> : "Link Account"}
                       </button>
@@ -214,35 +214,35 @@ export default function FaucetPage() {
                   </div>
 
                   {/* Star Repo Bonus */}
-                  <div className={`p-4 rounded-2xl border transition-all ${repoStarred ? 'bg-[rgba(0,229,153,0.05)] border-[rgba(0,229,153,0.2)]' : 'bg-[#1a1a1a] border-[rgba(255,255,255,0.06)]'}`}>
+                  <div className={`p-4 rounded-2xl border transition-all ${repoStarred ? 'bg-[rgba(196,237,95,0.05)] border-[rgba(196,237,95,0.2)]' : 'bg-[#1a1a1a] border-[rgba(0,0,0,0.06)]'}`}>
                     <div className="flex items-center justify-between mb-3">
                       <div className="flex items-center gap-2 font-semibold">
                         <Star className="w-5 h-5" />
                         Star our Repository
                       </div>
-                      <div className={`text-xs font-bold px-2 py-1 rounded-md ${repoStarred ? 'bg-[rgba(0,229,153,0.2)] text-[#00E599]' : 'bg-[#222] text-[#8a8a8a]'}`}>
+                      <div className={`text-xs font-bold px-2 py-1 rounded-md ${repoStarred ? 'bg-[rgba(196,237,95,0.2)] text-[#C4ED5F]' : 'bg-[#222] text-gray-600'}`}>
                         +5 QUA
                       </div>
                     </div>
                     {repoStarred ? (
-                      <div className="text-sm font-medium text-[#00E599] flex items-center gap-1">
+                      <div className="text-sm font-medium text-[#C4ED5F] flex items-center gap-1">
                         <CheckCircle2 className="w-4 h-4" /> Star Verified
                       </div>
                     ) : (
                       <button 
                         onClick={handleStarRepo}
                         disabled={!githubConnected}
-                        className="w-full py-2 text-sm font-semibold bg-[#222] border border-[rgba(255,255,255,0.06)] rounded-xl hover:bg-[#333] text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="w-full py-2 text-sm font-semibold bg-[#222] border border-white/10 rounded-xl hover:bg-[#333] text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                       >
                         {!githubConnected ? "Connect GitHub First" : "Star on GitHub"}
                       </button>
                     )}
                   </div>
 
-                  <div className="mt-8 pt-6 border-t border-[rgba(255,255,255,0.06)]">
+                  <div className="mt-8 pt-6 border-t border-white/10">
                     <div className="flex justify-between items-end">
-                      <div className="text-sm text-[#8a8a8a] font-medium">Your Daily Limit</div>
-                      <div className="text-2xl font-black text-[#00E599]">{rewardAmount} QUA</div>
+                      <div className="text-sm text-gray-400 font-medium">Your Daily Limit</div>
+                      <div className="text-2xl font-black text-[#C4ED5F]">{rewardAmount} QUA</div>
                     </div>
                   </div>
                 </div>

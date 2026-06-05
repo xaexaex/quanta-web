@@ -21,7 +21,7 @@ export default function PrivacyPolicy() {
             </div>
             <h1 className="text-5xl sm:text-7xl font-bold mb-6 tracking-tight leading-[0.95]">
               Privacy <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00E599] to-emerald-600">Policy</span>
+              <span className="text-[#C4ED5F]">Policy</span>
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed">
               Last updated: December 31, 2025
@@ -35,7 +35,7 @@ export default function PrivacyPolicy() {
             <section className="mb-8 md:mb-12">
               <h2 className="text-2xl sm:text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-black">1. Introduction</h2>
               <p className="text-sm sm:text-base text-gray-600 leading-relaxed mb-4">
-                Welcome to Quanta Chain ("we," "our," or "us"). We are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard information when you visit our website quantachain.org (the "Site").
+                Welcome to Quantachain ("we," "our," or "us"). We are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard information when you visit our website quantachain.org (the "Site").
               </p>
               <p className="text-gray-600 leading-relaxed">
                 As an open-source blockchain project in development, we collect minimal personal information. This policy describes what data we may collect and how we use it.
@@ -59,7 +59,7 @@ export default function PrivacyPolicy() {
 
               <h3 className="text-2xl font-bold mb-4 text-black">2.2 Blockchain Data</h3>
               <p className="text-gray-600 leading-relaxed">
-                If you interact with the Quanta blockchain, all transaction data is publicly recorded on the blockchain. This is inherent to blockchain technology and is not controlled by this privacy policy. Blockchain data includes wallet addresses, transaction amounts, and transaction history.
+                If you interact with the Quantachain blockchain, all transaction data is publicly recorded on the blockchain. This is inherent to blockchain technology and is not controlled by this privacy policy. Blockchain data includes wallet addresses, transaction amounts, and transaction history.
               </p>
             </section>
 
@@ -143,7 +143,7 @@ export default function PrivacyPolicy() {
                 If you have any questions about this Privacy Policy, please contact us:
               </p>
               <ul className="list-none text-gray-600 space-y-2">
-                <li>• Via GitHub: <a href="https://github.com/quantachain/quanta" target="_blank" className="text-[#00E599] hover:underline">github.com/quantachain/quanta</a></li>
+                <li>• Via GitHub: <a href="https://github.com/quantachain/quanta" target="_blank" className="text-[#C4ED5F] hover:underline">github.com/quantachain/quanta</a></li>
                 <li>• Via our community channels listed on our website</li>
               </ul>
             </section>

@@ -91,26 +91,26 @@ function LiveChainTerminal() {
   }, [lines]);
 
   const colorFor = (kind: LogLine["kind"], accent?: boolean) => {
-    if (accent && kind === "block") return "#00E599";
-    if (accent && kind === "finalized") return "#00E599";
-    if (kind === "sig") return "#4a6a5a";
+    if (accent && kind === "block") return "#C4ED5F";
+    if (accent && kind === "finalized") return "#C4ED5F";
+    if (kind === "sig") return "#6a8a7a";
     if (kind === "tx") return "#8a8a8a";
-    if (kind === "peer") return "#4a4a4a";
+    if (kind === "peer") return "#5a5a5a";
     return "#8a8a8a";
   };
 
   return (
     <div
-      className="relative w-full rounded-2xl border border-[rgba(255,255,255,0.08)] overflow-hidden"
+      className="relative w-full rounded-2xl border border-white/10 overflow-hidden"
       style={{
-        background: "linear-gradient(135deg, #0a0a0a 0%, #0d0d0d 100%)",
-        boxShadow: "0 0 80px rgba(0,229,153,0.06), 0 40px 80px rgba(0,0,0,0.6)",
+        background: "#050505",
+        boxShadow: "0 0 80px rgba(196,237,95,0.06), 0 40px 80px rgba(0,0,0,0.6)",
       }}
     >
       {/* Top bar */}
       <div
-        className="flex items-center justify-between px-4 py-3 border-b border-[rgba(255,255,255,0.05)]"
-        style={{ background: "#111111" }}
+        className="flex items-center justify-between px-4 py-3 border-b border-white/10"
+        style={{ background: "#0a0a0a" }}
       >
         <div className="flex items-center gap-2">
           <div className="w-2.5 h-2.5 rounded-full" style={{ background: "#ff5f56" }} />
@@ -123,17 +123,17 @@ function LiveChainTerminal() {
         >
           <span
             className="w-1.5 h-1.5 rounded-full"
-            style={{ background: "#00E599", boxShadow: "0 0 6px #00E599", animation: "pulse-glow 2s ease-in-out infinite" }}
+            style={{ background: "#C4ED5F", boxShadow: "0 0 6px #C4ED5F", animation: "pulse-glow 2s ease-in-out infinite" }}
           />
-          quanta-node — block #{blockHeight.toLocaleString()}
+          quantachain-node — block #{blockHeight.toLocaleString()}
         </div>
         <div style={{ width: 44 }} />
       </div>
 
       {/* Live stats row */}
       <div
-        className="grid grid-cols-4 border-b border-[rgba(255,255,255,0.05)]"
-        style={{ background: "#0d0d0d" }}
+        className="grid grid-cols-4 border-b border-white/10"
+        style={{ background: "transparent" }}
       >
         {[
           { label: "HEIGHT", value: currentBlock.toLocaleString() },
@@ -143,7 +143,7 @@ function LiveChainTerminal() {
         ].map((stat) => (
           <div
             key={stat.label}
-            className="flex flex-col items-center py-2.5 border-r border-[rgba(255,255,255,0.04)] last:border-0"
+            className="flex flex-col items-center py-2.5 border-r border-[rgba(0,0,0,0.04)] last:border-0"
           >
             <span
               className="text-[8px] tracking-widest mb-0.5"
@@ -153,7 +153,7 @@ function LiveChainTerminal() {
             </span>
             <span
               className="text-[11px] font-bold"
-              style={{ fontFamily: "var(--font-mono)", color: "#00E599" }}
+              style={{ fontFamily: "var(--font-mono)", color: "#C4ED5F" }}
             >
               {stat.value}
             </span>
@@ -186,7 +186,7 @@ function LiveChainTerminal() {
         <div
           className="inline-block w-2 h-3.5 ml-0.5"
           style={{
-            background: "#00E599",
+            background: "#C4ED5F",
             animation: "pulse-glow 1s step-end infinite",
             verticalAlign: "middle",
             opacity: 0.8,
@@ -198,7 +198,7 @@ function LiveChainTerminal() {
       <div
         className="absolute bottom-0 left-0 right-0 h-12 pointer-events-none"
         style={{
-          background: "linear-gradient(to top, #0a0a0a, transparent)",
+          background: "linear-gradient(to top, #050505, transparent)",
         }}
       />
 
@@ -206,7 +206,7 @@ function LiveChainTerminal() {
       <div
         className="absolute -bottom-8 -right-8 w-32 h-32 rounded-full pointer-events-none"
         style={{
-          background: "radial-gradient(circle, rgba(0,229,153,0.08) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(196,237,95,0.08) 0%, transparent 70%)",
         }}
       />
     </div>
@@ -230,14 +230,14 @@ export default function Hero() {
       <div
         className="absolute top-0 left-0 w-[600px] h-[600px] pointer-events-none"
         style={{
-          background: "radial-gradient(circle at 0% 0%, rgba(0,229,153,0.05) 0%, transparent 60%)",
+          background: "radial-gradient(circle at 0% 0%, rgba(196,237,95,0.05) 0%, transparent 60%)",
         }}
       />
 
       {/* Bottom gradient */}
       <div
         className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none"
-        style={{ background: "linear-gradient(to top, #080808, transparent)" }}
+        style={{ background: "linear-gradient(to top, #ffffff, transparent)" }}
       />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 pt-28 pb-12">
@@ -249,17 +249,17 @@ export default function Hero() {
 
             {/* Headline */}
             <h1
-              className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-white mb-6"
+              className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.1] tracking-tight text-black mb-6"
               style={{ fontFamily: "var(--font-syne)" }}
             >
               Post-Quantum <br className="hidden sm:block" />
               AI Blockchain <br />
-              <span className="text-[#00E599]">for Autonomous Agents.</span>
+              <span className="text-[#C4ED5F]">for Autonomous Agents.</span>
             </h1>
 
             {/* Description */}
-            <p className="text-base md:text-lg text-[#8a8a8a] leading-relaxed max-w-md mb-8 font-light">
-              Quanta is a post-quantum Layer 1 AI blockchain built for AI agents, 
+            <p className="text-base md:text-lg text-gray-600 leading-relaxed max-w-md mb-8 font-light">
+              Quantachain is a post-quantum Layer 1 AI blockchain built for AI agents, 
               DePIN infrastructure, and compliant machine-to-machine execution. 
               Powered by Falcon-512 cryptography and fast BFT consensus for secure decentralized intelligence.
             </p>
@@ -267,7 +267,7 @@ export default function Hero() {
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row items-start gap-3 mb-10">
               <a
-                href="https://quantachain.gitbook.io/quantachain-docs"
+                href="https://github.com/quantachain/quanta/releases/tag/v2.0.0-alpha"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary"
@@ -299,7 +299,7 @@ export default function Hero() {
         </div>
 
         {/* Scrolling Use Cases ticker */}
-        <div className="mt-20 overflow-hidden border-t border-[rgba(255,255,255,0.05)] pt-6">
+        <div className="mt-20 overflow-hidden border-t border-[rgba(0,0,0,0.05)] pt-6">
           <div className="flex gap-12 animate-marquee whitespace-nowrap" style={{ animationDuration: "40s" }}>
             {[
               "AI Agents",
