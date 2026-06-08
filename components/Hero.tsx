@@ -246,6 +246,17 @@ export default function Hero() {
           {/* ── Left: Content ── */}
           <div className="lg:col-span-6 flex flex-col">
 
+            {/* Announcement Pill */}
+            <a 
+              href="https://quascan.xyz" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[rgba(196,237,95,0.4)] bg-[rgba(196,237,95,0.1)] text-[#659110] text-xs sm:text-sm font-medium mb-6 hover:bg-[rgba(196,237,95,0.2)] transition-colors w-fit shadow-[0_0_15px_rgba(196,237,95,0.15)]"
+            >
+              <span className="flex h-2 w-2 rounded-full bg-[#C4ED5F]" style={{ animation: "pulse-glow 2s ease-in-out infinite" }}></span>
+              Checkout the new block explorer, QuaScan (quascan.xyz)
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </a>
 
             {/* Headline */}
             <h1
