@@ -2,7 +2,7 @@ import { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Testnet Faucet",
-  description: "Request free testnet QUA to fund your development workflow instantly on the Quantachain post-quantum blockchain.",
+  description: "Get testnet QUA tokens for the premier Post Quantum & AI blockchain. Build autonomous AI agents with Post-Quantum Cryptography.",
 };
 
 export default function FaucetLayout({
