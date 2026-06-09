@@ -17,6 +17,15 @@ import {
   FileText,
   Globe,
   MessageSquare,
+  Server,
+  Layers,
+  Bot,
+  Building2,
+  Microscope,
+  Briefcase,
+  Newspaper,
+  Mail,
+  Cog,
 } from "lucide-react";
 
 const GithubIcon = ({ className }: { className?: string }) => (
@@ -65,36 +74,18 @@ const navGroups: NavGroup[] = [
         icon: Droplet,
       },
       {
-        label: "Chrome Wallet",
-        href: "https://chrome.google.com/webstore/detail/glofbcgdmodmaohealombcgoapdbdaff",
-        external: true,
-        description: "Falcon-512 browser extension wallet",
-        icon: Wallet,
+        label: "Validators",
+        href: "/validators",
+        description: "Live network node leaderboard",
+        icon: Server,
         badge: "Live",
       },
       {
-        label: "Mining Pool",
-        href: "https://github.com/quantachain/quanta-pool",
-        external: true,
-        description: "High-performance Stratum-Q mining pool server",
-        icon: Globe,
-        badge: "Live",
-      },
-      {
-        label: "Data Indexer",
-        href: "https://github.com/quantachain/quanta-indexer",
-        external: true,
-        description: "High-throughput blockchain data indexer",
-        icon: Code2,
-        badge: "Live",
-      },
-      {
-        label: "Mobile Wallet",
-        href: "https://github.com/quantachain/quanta-mobile-wallet",
-        external: true,
-        description: "Android native wallet — Rust JNI Falcon-512",
-        icon: Wallet,
-        badge: "Building",
+        label: "Ecosystem",
+        href: "/ecosystem",
+        description: "Explore wallets, agents, and dApps",
+        icon: Layers,
+        badge: "New",
       },
     ],
   },
@@ -116,20 +107,11 @@ const navGroups: NavGroup[] = [
         icon: BookOpen,
       },
       {
-        label: "NPM SDK",
-        href: "https://www.npmjs.com/package/quanta-sdk",
-        external: true,
-        description: "Official JS/TS client library",
-        icon: Package,
-        badge: "Live",
-      },
-      {
-        label: "WASM Engine",
-        href: "https://crates.io/crates/quanta-wasm",
-        external: true,
-        description: "Falcon-512 PQC compiled to WebAssembly",
-        icon: Code2,
-        badge: "Live",
+        label: "AI Integration",
+        href: "/ai-integration",
+        description: "How AI agents use the execution layer",
+        icon: Bot,
+        badge: "New",
       },
       {
         label: "Whitepaper",
@@ -173,6 +155,46 @@ const navGroups: NavGroup[] = [
       },
     ],
   },
+  {
+    name: "Company",
+    items: [
+      {
+        label: "About Us",
+        href: "https://quantalabs.cc/company",
+        external: true,
+        description: "Details about Quanta Labs",
+        icon: Building2,
+      },
+      {
+        label: "Services",
+        href: "https://quantalabs.cc/services",
+        external: true,
+        description: "Enterprise nodes and consulting",
+        icon: Cog,
+      },
+      {
+        label: "Blog",
+        href: "https://quantalabs.cc/blog",
+        external: true,
+        description: "Company updates and tutorials",
+        icon: Newspaper,
+      },
+      {
+        label: "Careers",
+        href: "https://quantalabs.cc/careers",
+        external: true,
+        description: "Open roles for building the network",
+        icon: Briefcase,
+      },
+      {
+        label: "Contact",
+        href: "https://quantalabs.cc/contact",
+        external: true,
+        description: "Get in touch for partnerships",
+        icon: Mail,
+      },
+    ],
+  },
 ];
 
 export default function Navbar() {
@@ -208,15 +230,15 @@ export default function Navbar() {
 
   return (
     <>
-      {/* Floating Pill Navbar */}
-      <header className="fixed top-0 left-0 right-0 z-50 flex justify-center pt-5 px-4">
-        <nav
-          className={`w-full max-w-5xl flex items-center justify-between h-14 px-4 rounded-2xl transition-all duration-300 ${
-            scrolled
-              ? "bg-gray-50/95 backdrop-blur-xl border border-[rgba(0,0,0,0.08)] shadow-[0_0_40px_rgba(196,237,95,0.05)]"
-              : "bg-gray-50/80 backdrop-blur-md border border-[rgba(0,0,0,0.06)]"
-          }`}
-        >
+      {/* Full-width Navbar */}
+      <header 
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-white/95 backdrop-blur-xl border-b border-[rgba(0,0,0,0.06)] shadow-sm"
+            : "bg-white/80 backdrop-blur-md border-b border-transparent"
+        }`}
+      >
+        <nav className="w-full max-w-7xl mx-auto flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5 flex-shrink-0 group">
             <Image
@@ -236,7 +258,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden lg:flex items-center gap-6">
             {navGroups.map((group) => (
               <div
                 key={group.name}
@@ -245,7 +267,7 @@ export default function Navbar() {
                 onMouseLeave={handleMouseLeave}
               >
                 <button
-                  className={`inline-flex items-center gap-1 px-3 py-1.5 text-sm font-medium rounded-lg transition-all duration-150 ${
+                  className={`inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold rounded-xl transition-all duration-150 ${
                     activeDropdown === group.name
                       ? "text-[#C4ED5F] bg-[#050505] shadow-[0_4px_20px_rgba(196,237,95,0.15)]"
                       : "text-gray-600 hover:text-[#C4ED5F] hover:bg-[#050505] hover:shadow-[0_4px_20px_rgba(196,237,95,0.15)]"
@@ -293,25 +315,25 @@ export default function Navbar() {
                             href={item.href}
                             target={item.external ? "_blank" : undefined}
                             rel={item.external ? "noopener noreferrer" : undefined}
-                            className="group/item flex items-start gap-3 p-2.5 rounded-lg hover:bg-[rgba(0,0,0,0.04)] transition-all duration-150"
+                            className="group/item flex items-start gap-3.5 p-3 rounded-xl hover:bg-[#050505] transition-all duration-150"
                             onClick={() => setActiveDropdown(null)}
                           >
-                            <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-gray-100 border border-[rgba(0,0,0,0.06)] flex items-center justify-center text-gray-400 group-hover/item:border-[rgba(196,237,95,0.2)] group-hover/item:text-[#C4ED5F] transition-all duration-150">
+                            <div className="flex-shrink-0 w-9 h-9 rounded-xl bg-gray-100 border border-[rgba(0,0,0,0.06)] flex items-center justify-center text-gray-400 group-hover/item:bg-[rgba(255,255,255,0.05)] group-hover/item:border-[#C4ED5F]/20 group-hover/item:text-[#C4ED5F] transition-all duration-150">
                               {item.icon && <item.icon className="w-3.5 h-3.5" />}
                             </div>
                             <div className="flex-1 min-w-0">
                               <div className="flex items-center gap-1.5 mb-0.5">
-                                <span className="text-sm font-medium text-black">{item.label}</span>
+                                <span className="text-sm font-medium text-black group-hover/item:text-[#C4ED5F] transition-colors">{item.label}</span>
                                 {item.badge && (
-                                  <span className="px-1.5 py-0.5 rounded border border-[rgba(196,237,95,0.3)] bg-[rgba(196,237,95,0.1)] text-[9px] font-bold tracking-wider uppercase text-[#C4ED5F]">
+                                  <span className="px-1.5 py-0.5 rounded border border-[#C4ED5F] bg-[#C4ED5F]/10 text-[9px] font-bold tracking-wider uppercase text-[#7bb800]">
                                     {item.badge}
                                   </span>
                                 )}
                                 {item.external && (
-                                  <ArrowUpRight className="w-3 h-3 text-gray-400 group-hover/item:text-gray-600 transition-colors" />
+                                  <ArrowUpRight className="w-3 h-3 text-gray-400 group-hover/item:text-[#C4ED5F]/70 transition-colors" />
                                 )}
                               </div>
-                              <p className="text-xs text-gray-400 leading-snug font-normal">
+                              <p className="text-xs text-gray-400 leading-snug font-normal group-hover/item:text-gray-300 transition-colors">
                                 {item.description}
                               </p>
                             </div>
@@ -324,15 +346,6 @@ export default function Navbar() {
                 )}
               </div>
             ))}
-
-            <a
-              href="https://quantalabs.cc"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-3 py-1.5 text-sm font-medium text-gray-600 hover:text-black transition-colors duration-150 rounded-lg hover:bg-[rgba(0,0,0,0.04)]"
-            >
-              Company
-            </a>
           </div>
 
           {/* Right Side */}
@@ -347,6 +360,12 @@ export default function Navbar() {
               <GithubIcon className="w-4 h-4" />
             </a>
 
+            <Link
+              href="/tge"
+              className="hidden md:inline-flex items-center gap-1.5 px-4 py-1.5 text-sm font-semibold bg-[#C4ED5F] text-black border border-[#C4ED5F] rounded-lg transition-all duration-150 shadow-[0_0_20px_rgba(196,237,95,0.2)] hover:-translate-y-[1px]"
+            >
+              TGE Sign-Up
+            </Link>
             <Link
               href="https://github.com/quantachain/quanta/releases/tag/v2.0.0-alpha"
               target="_blank"
@@ -411,7 +430,7 @@ export default function Navbar() {
                           <div className="flex items-center gap-1.5">
                             <span className="text-sm font-medium text-black">{item.label}</span>
                             {item.badge && (
-                              <span className="px-1.5 py-0.5 rounded border border-[rgba(196,237,95,0.3)] bg-[rgba(196,237,95,0.1)] text-[9px] font-bold tracking-wider uppercase text-[#C4ED5F]">
+                              <span className="px-1.5 py-0.5 rounded border border-[#C4ED5F] bg-[#C4ED5F]/10 text-[9px] font-bold tracking-wider uppercase text-[#7bb800]">
                                 {item.badge}
                               </span>
                             )}
@@ -427,17 +446,14 @@ export default function Navbar() {
               </div>
             ))}
 
-            <a
-              href="https://quantalabs.cc"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => setIsOpen(false)}
-              className="flex items-center px-4 py-3 rounded-xl border border-[rgba(0,0,0,0.06)] text-sm font-semibold text-gray-600 hover:text-black transition-colors"
-            >
-              Company
-            </a>
-
             <div className="flex flex-col gap-3 mt-4">
+              <Link
+                href="/tge"
+                onClick={() => setIsOpen(false)}
+                className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-bold bg-[#C4ED5F] text-black border border-[#C4ED5F] transition-all shadow-[0_0_20px_rgba(196,237,95,0.2)]"
+              >
+                TGE Sign-Up
+              </Link>
               <Link
                 href="https://github.com/quantachain/quanta/releases/tag/v2.0.0-alpha"
                 target="_blank"

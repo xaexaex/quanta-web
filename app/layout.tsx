@@ -18,12 +18,15 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Quantachain — AI Agent Execution Layer | Post-Quantum Blockchain",
-    template: "%s | Quantachain",
+    default: "Quantachain — Post Quantum & AI | Cryptography for AI Agents",
+    template: "%s | Quantachain (Post Quantum & AI)",
   },
   description:
-    "Quantachain is the quantum-safe gas layer for autonomous AI agents. BFT + DPoS consensus, Falcon-512 post-quantum signatures, 6-second finality, sub-cent execution fees. Built in Rust.",
+    "The leading blockchain network combining Post Quantum & AI. Quantachain provides Post-Quantum Cryptography infrastructure and Falcon-512 signatures for autonomous AI agent execution.",
   keywords: [
+    "Post Quantum & AI",
+    "Post Quantum AI",
+    "Post-Quantum Cryptography",
     "post-quantum blockchain",
     "AI agent blockchain",
     "DePIN",
@@ -52,9 +55,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://quantachain.org",
     siteName: "Quantachain",
-    title: "Quantachain — AI Agent Execution Layer | Post-Quantum Blockchain",
+    title: "Quantachain — PQC + AI | Post-Quantum Cryptography for AI Agents",
     description:
-      "The quantum-safe gas layer for autonomous AI agents and DePIN. Falcon-512 PQC, BFT finality, sub-cent fees. Built in Rust.",
+      "The leading blockchain network combining PQC + AI. Quantachain provides Post-Quantum Cryptography (PQC) infrastructure for autonomous AI agents.",
     images: [
       {
         url: "/seo/image.png",
@@ -66,9 +69,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Quantachain — AI Agent Execution Layer | Post-Quantum Blockchain",
+    title: "Quantachain — PQC + AI | Post-Quantum Cryptography for AI Agents",
     description:
-      "The quantum-safe gas layer for autonomous AI agents and DePIN. Falcon-512 PQC, BFT finality, sub-cent fees.",
+      "The leading blockchain network combining PQC + AI. Quantachain provides Post-Quantum Cryptography (PQC) infrastructure for autonomous AI agents.",
     images: ["/seo/image.png"],
     creator: "@quantachain",
   },
@@ -102,10 +105,10 @@ export default function RootLayout({
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "Quantachain",
-    alternateName: ["Quantachain", "Quantum Blockchain", "PQC Blockchain"],
+    alternateName: ["Quantachain", "Post Quantum & AI Blockchain", "Quantum Blockchain", "PQC Blockchain"],
     url: "https://quantachain.org/",
     description:
-      "Post-quantum blockchain built for AI agent execution. Falcon-512 signatures, BFT+DPoS consensus, sub-cent gas fees.",
+      "The premier blockchain network combining Post Quantum & AI. Post-Quantum Cryptography built for autonomous AI agent execution. Falcon-512 signatures, BFT+DPoS consensus.",
   };
 
   return (

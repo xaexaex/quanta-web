@@ -5,6 +5,12 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { Loader2, CheckCircle2, XCircle, Github, Star, Droplet } from "lucide-react";
 import { Turnstile } from '@marsidev/react-turnstile';
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Testnet Faucet",
+  description: "Get testnet QUA tokens for the premier Post Quantum & AI blockchain. Build autonomous AI agents with Post-Quantum Cryptography.",
+};
 
 export default function FaucetPage() {
   const [address, setAddress] = useState("");
