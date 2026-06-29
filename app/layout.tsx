@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Syne, Inter } from "next/font/google";
+import CookieBanner from "@/components/CookieBanner";
+import Analytics from "@/components/Analytics";
 import "./theme.css";
-
 const syne = Syne({
   variable: "--font-syne",
   subsets: ["latin"],
@@ -122,6 +123,8 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
         {children}
+        <CookieBanner />
+        <Analytics />
       </body>
     </html>
   );
