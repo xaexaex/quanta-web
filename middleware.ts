@@ -26,8 +26,11 @@ export function middleware(req: NextRequest) {
   // If the hostname is katenet.quantachain.org (or katenet.localhost for testing)
   if (hostname === 'katenet.quantachain.org' || hostname === 'katenet.localhost') {
     // Rewrite all requests on this subdomain to the /katenet route
-    url.pathname = `/katenet${url.pathname === '/' ? '' : url.pathname}`;
-    return NextResponse.rewrite(url);
+    // Skip rewriting if the request is for a static file (e.g. .svg, .png)
+    if (!url.pathname.split('/').pop()?.includes('.')) {
+      url.pathname = `/katenet${url.pathname === '/' ? '' : url.pathname}`;
+      return NextResponse.rewrite(url);
+    }
   }
 
   return NextResponse.next();
