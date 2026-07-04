@@ -23,15 +23,11 @@ export function middleware(req: NextRequest) {
   // Remove port for local development mapping (e.g. localhost:3000 -> localhost)
   hostname = hostname.split(':')[0];
 
-  // If the hostname is kate.quantachain.org (or kate.localhost for testing)
-  if (hostname === 'kate.quantachain.org' || hostname === 'kate.localhost') {
-    // If they are requesting the root of the subdomain, rewrite to /kate
-    if (url.pathname === '/') {
-      url.pathname = '/kate';
-      return NextResponse.rewrite(url);
-    }
-    // If they are requesting other paths, you could also rewrite them to /kate/path
-    // But for a single page site, rewriting root is usually enough.
+  // If the hostname is katenet.quantachain.org (or katenet.localhost for testing)
+  if (hostname === 'katenet.quantachain.org' || hostname === 'katenet.localhost') {
+    // Rewrite all requests on this subdomain to the /katenet route
+    url.pathname = `/katenet${url.pathname === '/' ? '' : url.pathname}`;
+    return NextResponse.rewrite(url);
   }
 
   return NextResponse.next();
