@@ -26,6 +26,7 @@ import {
   Newspaper,
   Mail,
   Cog,
+  Zap,
 } from "lucide-react";
 
 const GithubIcon = ({ className }: { className?: string }) => (
@@ -59,6 +60,14 @@ const navGroups: NavGroup[] = [
   {
     name: "Network",
     items: [
+      {
+        label: "Katenet",
+        href: "https://katenet.quantachain.org",
+        external: true,
+        description: "The V3 Testnet Environment",
+        icon: Zap,
+        badge: "Testnet",
+      },
       {
         label: "Block Explorer",
         href: "https://quascan.xyz",

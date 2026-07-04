@@ -33,6 +33,7 @@ const LinkedInIcon = () => (
 
 const footerLinks = {
   Network: [
+    { label: "Katenet V3", href: "https://katenet.quantachain.org", external: true },
     { label: "Block Explorer", href: "https://quascan.xyz", external: true },
     { label: "Faucet", href: "/faucet" },
     { label: "Chrome Wallet", href: "https://chrome.google.com/webstore/detail/glofbcgdmodmaohealombcgoapdbdaff", external: true },
