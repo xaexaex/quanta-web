@@ -278,7 +278,7 @@ export default function Hero() {
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row items-start gap-3 mb-10">
               <a
-                href="https://github.com/quantachain/quanta/releases/tag/v2.0.0-alpha"
+                href="https://github.com/quantachain/quanta/releases/tag/v3.0.0-alpha"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary"

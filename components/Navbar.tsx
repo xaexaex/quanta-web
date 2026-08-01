@@ -124,7 +124,8 @@ const navGroups: NavGroup[] = [
       },
       {
         label: "Whitepaper",
-        href: "/docs/WHITEPAPER.docx",
+        href: "https://quantachain.gitbook.io/quantachain-docs",
+        external: true,
         description: "Protocol architecture and technical specs",
         icon: FileText,
       },
@@ -376,7 +377,7 @@ export default function Navbar() {
               TGE Sign-Up
             </Link>
             <Link
-              href="https://github.com/quantachain/quanta/releases/tag/v2.0.0-alpha"
+              href="https://github.com/quantachain/quanta/releases/tag/v3.0.0-alpha"
               target="_blank"
               rel="noopener noreferrer"
               className="hidden md:inline-flex items-center gap-1.5 px-4 py-1.5 text-sm font-semibold bg-[#C4ED5F] text-black border border-[#C4ED5F] rounded-lg transition-all duration-150 shadow-[0_0_20px_rgba(196,237,95,0.2)] hover:-translate-y-[1px]"
@@ -464,7 +465,7 @@ export default function Navbar() {
                 TGE Sign-Up
               </Link>
               <Link
-                href="https://github.com/quantachain/quanta/releases/tag/v2.0.0-alpha"
+                href="https://github.com/quantachain/quanta/releases/tag/v3.0.0-alpha"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsOpen(false)}

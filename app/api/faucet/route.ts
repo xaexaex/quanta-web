@@ -1,84 +1,22 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
 import clientPromise from '@/lib/mongodb';
+import { initQuanta, QuantaWallet, TransactionBuilder } from 'quanta-sdk';
 import path from 'path';
 import fs from 'fs';
 
 // ─────────────────────────────────────────────────────────────────────────────
-// WASM loader — server-only, synchronous init via Node.js fs + initSync
+// SDK loader — server-only, init via Node.js fs
 // ─────────────────────────────────────────────────────────────────────────────
 
-// Cached wasm exports across hot-reloads (development)
-const g = global as typeof globalThis & { __quantaWasm?: QuantaWasm };
+const g = global as typeof globalThis & { __quantaSdkLoaded?: Promise<void> };
 
-interface QuantaWasm {
-    sign_transaction(txDataHex: string, secretKeyHex: string): string;
-    import_wallet(mnemonic: string, passphrase: string, index: number): {
-        address: string;
-        public_key: string;
-        secret_key: string;
-    };
-    initSync(opts: { module: Buffer }): void;
-}
-
-function getWasm(): QuantaWasm {
-    if (g.__quantaWasm) return g.__quantaWasm;
-
+function ensureSdkLoaded(): Promise<void> {
+    if (g.__quantaSdkLoaded) return g.__quantaSdkLoaded;
     const wasmPath = path.join(process.cwd(), 'lib', 'wasm', 'quanta_wasm_bg.wasm');
     const wasmBytes = fs.readFileSync(wasmPath);
-
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const mod = require('../../../lib/wasm/quanta_wasm') as QuantaWasm;
-    mod.initSync({ module: wasmBytes });
-
-    g.__quantaWasm = mod;
-    return mod;
-}
-
-// ─────────────────────────────────────────────────────────────────────────────
-// Build the raw signing-bytes matching Transaction::get_signing_bytes() in Rust
-//
-// Layout (all integers LITTLE-ENDIAN):
-//   sender (UTF-8) | recipient (UTF-8) | amount (u64) | timestamp (i64)
-//   fee (u64)      | nonce (u64)       | lock_time (u64) | public_key (bytes)
-//   sig_scheme (u8 = 0)  | tx_type (u8 = 0 for Transfer)
-// ─────────────────────────────────────────────────────────────────────────────
-
-function u64LE(n: bigint): Buffer {
-    const buf = Buffer.allocUnsafe(8);
-    buf.writeBigUInt64LE(BigInt.asUintN(64, n));
-    return buf;
-}
-
-function buildSigningBytesHex(opts: {
-    sender: string;
-    recipient: string;
-    amount: bigint;
-    timestamp: bigint;
-    fee: bigint;
-    nonce: bigint;
-    lockTime: bigint;
-    pubKeyHex: string;
-    networkId?: number; // 0 = testnet
-}): string {
-    const enc = new TextEncoder();
-    const networkId = opts.networkId ?? 0;
-    const networkIdBuf = Buffer.allocUnsafe(4);
-    networkIdBuf.writeUInt32LE(networkId, 0);
-    const parts: Buffer[] = [
-        Buffer.from(enc.encode(opts.sender)),
-        Buffer.from(enc.encode(opts.recipient)),
-        u64LE(opts.amount),
-        u64LE(opts.timestamp),    // i64 stored as u64 LE — same bit pattern
-        u64LE(opts.fee),
-        u64LE(opts.nonce),
-        u64LE(opts.lockTime),
-        Buffer.from(opts.pubKeyHex, 'hex'),
-        Buffer.from([0x00]),      // sig_scheme = Falcon512
-        networkIdBuf,             // network_id (u32 LE) — 0 = testnet
-        Buffer.from([0x00]),      // tx_type    = Transfer
-    ];
-    return Buffer.concat(parts).toString('hex');
+    g.__quantaSdkLoaded = initQuanta(wasmBytes);
+    return g.__quantaSdkLoaded;
 }
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -164,7 +102,7 @@ export async function POST(request: NextRequest) {
             if (!turnstileData.success) {
                 return NextResponse.json({ success: false, error: 'CAPTCHA verification failed. Please try again.' }, { status: 400 });
             }
-        } catch (e) {
+        } catch {
             return NextResponse.json({ success: false, error: 'CAPTCHA verification error.' }, { status: 500 });
         }
 
@@ -200,7 +138,7 @@ export async function POST(request: NextRequest) {
         const claims   = db.collection('faucet_claims');
         const cutoff   = new Date(Date.now() - 24 * 60 * 60 * 1000);
 
-        const rateLimitQuery: any[] = [{ ip }, { address }];
+        const rateLimitQuery: Record<string, unknown>[] = [{ ip }, { address }];
         if (githubId) {
             rateLimitQuery.push({ github_id: githubId });
         }
@@ -221,26 +159,29 @@ export async function POST(request: NextRequest) {
         }
 
         // ── 3. Env config ──────────────────────────────────────────────────
-        const faucetMnemonic  = process.env.FAUCET_MNEMONIC;
-        const faucetPassphrase = process.env.FAUCET_PASSPHRASE ?? '';
-        const nodeUrl          = (process.env.NODE_API_URL ?? 'http://127.0.0.1:8080').replace(/\/$/, '');
+        // Changed: 2026-08-01 — faucet now loaded from raw Falcon-512 keypair
+        // (account is from the old system, not derivable from the new mnemonic)
+        const faucetSecretKey = process.env.FAUCET_SECRET_KEY_HEX;
+        const faucetPublicKey = process.env.FAUCET_PUBLIC_KEY_HEX;
+        const faucetAddr      = process.env.FAUCET_ADDRESS;
+        const nodeUrl         = (process.env.NODE_API_URL ?? 'http://127.0.0.1:8080').replace(/\/$/, '');
 
-        if (!faucetMnemonic) {
-            console.error('[faucet] FAUCET_MNEMONIC env var is not set');
+        if (!faucetSecretKey || !faucetPublicKey || !faucetAddr) {
+            console.error('[faucet] FAUCET_SECRET_KEY_HEX / FAUCET_PUBLIC_KEY_HEX / FAUCET_ADDRESS env vars are not set');
             return NextResponse.json({ success: false, error: 'Faucet is not configured.' }, { status: 500 });
         }
 
         // ── 4. Load WASM & derive faucet keypair ───────────────────────────
-        let wasm: QuantaWasm;
         try {
-            wasm = getWasm();
+            await ensureSdkLoaded();
         } catch (e) {
-            console.error('[faucet] WASM load failed:', e);
+            console.error('[faucet] SDK WASM load failed:', e);
             return NextResponse.json({ success: false, error: 'Crypto engine failed to initialise.' }, { status: 500 });
         }
 
-        const { address: faucetAddress, public_key: pubKeyHex, secret_key: secretKeyHex } =
-            wasm.import_wallet(faucetMnemonic, faucetPassphrase, 0);
+        // Load wallet directly from raw Falcon-512 keypair (bypasses HD derivation)
+        const wallet = new QuantaWallet(faucetSecretKey, faucetPublicKey, faucetAddr);
+        const faucetAddress = wallet.address;
 
         // ── 5. Fetch faucet nonce — serialised to prevent duplicate nonces ───
         const lock = acquireFaucetLock();
@@ -271,39 +212,17 @@ export async function POST(request: NextRequest) {
 
         const timestamp = BigInt(Math.floor(Date.now() / 1000));
 
-        // ── 6. Build signing bytes & sign with Falcon-512 ──────────────────
-        const signingBytesHex = buildSigningBytesHex({
-            sender:    faucetAddress,
-            recipient: address,
-            amount:    amountMicrounits,
-            timestamp,
-            fee:       FEE_MICROUNITS,
-            nonce,
-            lockTime:  0n,
-            pubKeyHex,
-        });
+        // ── 6. Build & Sign Transaction with SDK ───────────────────────────
+        const unsignedTx = TransactionBuilder.createTransfer(
+            faucetAddress,
+            address,
+            Number(amountMicrounits),
+            Number(nonce),
+            Number(FEE_MICROUNITS)
+        );
+        unsignedTx.timestamp = Number(timestamp); // Ensure same timestamp is used
 
-        // sign_transaction returns hex of the Falcon-512 signed-message blob (sig ‖ message)
-        const signedBlobHex = wasm.sign_transaction(signingBytesHex, secretKeyHex);
-
-        // The node deserialises `signature` and `public_key` as Vec<u8> (JSON arrays of numbers)
-        const signatureArr = Array.from(Buffer.from(signedBlobHex, 'hex'));
-        const pubKeyArr    = Array.from(Buffer.from(pubKeyHex, 'hex'));
-
-        const txPayload = {
-            sender:     faucetAddress,
-            recipient:  address,
-            amount:     Number(amountMicrounits),
-            timestamp:  Number(timestamp),
-            signature:  signatureArr,
-            public_key: pubKeyArr,
-            fee:        Number(FEE_MICROUNITS),
-            nonce:      Number(nonce),
-            lock_time:  0,
-            network_id: 0,           // 0 = testnet
-            tx_type:    'Transfer',
-            sig_scheme: 'Falcon512',
-        };
+        const txPayload = TransactionBuilder.sign(unsignedTx, wallet);
 
         // ── 7. Submit pre-signed transaction to the node ───────────────────
         let submitData: { success: boolean; tx_hash?: string; error?: string };

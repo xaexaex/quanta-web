@@ -47,7 +47,7 @@ const footerLinks = {
     { label: "Documentation", href: "https://quantachain.gitbook.io/quantachain-docs", external: true },
     { label: "NPM SDK", href: "https://www.npmjs.com/package/quanta-sdk", external: true },
     { label: "WASM Engine", href: "https://crates.io/crates/quanta-wasm", external: true },
-    { label: "Whitepaper", href: "/docs/WHITEPAPER.docx" },
+    { label: "Whitepaper", href: "https://quantachain.gitbook.io/quantachain-docs", external: true },
   ],
   Legal: [
     { label: "Privacy Policy", href: "/privacy" },
