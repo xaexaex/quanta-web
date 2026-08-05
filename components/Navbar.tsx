@@ -69,7 +69,7 @@ const navGroups: NavGroup[] = [
         badge: "Testnet",
       },
       {
-        label: "Block Explorer",
+        label: "QuaScan",
         href: "https://quascan.xyz",
         external: true,
         description: "Real-time blocks, transactions, validators",
@@ -90,10 +90,11 @@ const navGroups: NavGroup[] = [
         badge: "Live",
       },
       {
-        label: "Ecosystem",
-        href: "/ecosystem",
-        description: "Explore wallets, agents, and dApps",
-        icon: Layers,
+        label: "Quanta Wallet",
+        href: "https://chromewebstore.google.com/detail/quanta-wallet/glofbcgdmodmaohealombcgoapdbdaff",
+        external: true,
+        description: "Official Chrome extension wallet",
+        icon: Wallet,
         badge: "New",
       },
     ],
@@ -242,11 +243,13 @@ export default function Navbar() {
     <>
       {/* Full-width Navbar */}
       <header 
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        id="main-navbar"
+        className={`fixed left-0 right-0 z-50 transition-all duration-300 ${
           scrolled
             ? "bg-white/95 backdrop-blur-xl border-b border-[rgba(0,0,0,0.06)] shadow-sm"
             : "bg-white/80 backdrop-blur-md border-b border-transparent"
         }`}
+        style={{ top: "var(--banner-offset, 40px)" }}
       >
         <nav className="w-full max-w-7xl mx-auto flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
           {/* Logo */}
@@ -277,15 +280,15 @@ export default function Navbar() {
                 onMouseLeave={handleMouseLeave}
               >
                 <button
-                  className={`inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold rounded-xl transition-all duration-150 ${
+                  className={`inline-flex items-center gap-1.5 px-4 py-2 text-sm font-semibold rounded-xl transition-all duration-200 ${
                     activeDropdown === group.name
-                      ? "text-[#C4ED5F] bg-[#050505] shadow-[0_4px_20px_rgba(196,237,95,0.15)]"
-                      : "text-gray-600 hover:text-[#C4ED5F] hover:bg-[#050505] hover:shadow-[0_4px_20px_rgba(196,237,95,0.15)]"
+                      ? "text-[#C4ED5F] bg-[#0a0a0a]"
+                      : "text-gray-600 hover:text-black hover:bg-gray-100/80"
                   }`}
                 >
                   {group.name}
                   <ChevronDown
-                    className={`w-3 h-3 transition-transform duration-200 ${
+                    className={`w-3.5 h-3.5 transition-transform duration-300 ${
                       activeDropdown === group.name ? "rotate-180 text-[#C4ED5F]" : ""
                     }`}
                   />
@@ -293,30 +296,29 @@ export default function Navbar() {
 
                 {activeDropdown === group.name && (
                   <div
-                    className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50"
-                    style={{ minWidth: "20rem" }}
+                    className="absolute top-full left-1/2 -translate-x-1/2 pt-3 z-50 animate-in fade-in slide-in-from-top-2 duration-200"
+                    style={{ minWidth: "22rem" }}
                     onMouseEnter={() => handleMouseEnter(group.name)}
                     onMouseLeave={handleMouseLeave}
                   >
-                    <div className="bg-gray-50 rounded-xl border border-[rgba(0,0,0,0.08)] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.8)]">
-                      <div className="p-2">
+                    <div className="bg-[#0a0a0a]/95 backdrop-blur-2xl rounded-2xl border border-[rgba(255,255,255,0.08)] overflow-hidden shadow-[0_30px_60px_-10px_rgba(0,0,0,0.6),0_0_0_1px_rgba(255,255,255,0.05)] p-2">
                         {group.items.map((item) => (
                           item.disabled ? (
                             <div
                               key={item.label}
-                              className="flex items-start gap-3 p-2.5 rounded-lg opacity-40 cursor-not-allowed"
+                              className="flex items-start gap-3.5 p-3 rounded-xl opacity-40 cursor-not-allowed"
                             >
-                              <div className="flex-shrink-0 w-8 h-8 rounded-lg bg-gray-100 border border-[rgba(0,0,0,0.06)] flex items-center justify-center text-gray-400">
-                                {item.icon && <item.icon className="w-3.5 h-3.5" />}
+                              <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-400">
+                                {item.icon && <item.icon className="w-4 h-4" />}
                               </div>
-                              <div className="flex-1 min-w-0">
-                                <div className="flex items-center gap-1.5 mb-0.5">
-                                  <span className="text-sm font-medium text-black">{item.label}</span>
-                                  <span className="px-1.5 py-0.5 rounded border border-[rgba(0,0,0,0.1)] bg-[rgba(0,0,0,0.05)] text-[9px] font-bold tracking-wider uppercase text-[#6a6a6a]">
+                              <div className="flex-1 min-w-0 pt-0.5">
+                                <div className="flex items-center gap-1.5 mb-1">
+                                  <span className="text-sm font-semibold text-gray-300">{item.label}</span>
+                                  <span className="px-1.5 py-0.5 rounded border border-white/10 bg-white/5 text-[9px] font-bold tracking-wider uppercase text-gray-400">
                                     Coming Soon
                                   </span>
                                 </div>
-                                <p className="text-xs text-gray-400 leading-snug font-normal">{item.description}</p>
+                                <p className="text-[13px] text-gray-500 leading-snug font-normal">{item.description}</p>
                               </div>
                             </div>
                           ) : (
@@ -325,32 +327,31 @@ export default function Navbar() {
                             href={item.href}
                             target={item.external ? "_blank" : undefined}
                             rel={item.external ? "noopener noreferrer" : undefined}
-                            className="group/item flex items-start gap-3.5 p-3 rounded-xl hover:bg-[#050505] transition-all duration-150"
+                            className="group/item flex items-start gap-3.5 p-3 rounded-xl hover:bg-white/[0.06] transition-all duration-200"
                             onClick={() => setActiveDropdown(null)}
                           >
-                            <div className="flex-shrink-0 w-9 h-9 rounded-xl bg-gray-100 border border-[rgba(0,0,0,0.06)] flex items-center justify-center text-gray-400 group-hover/item:bg-[rgba(255,255,255,0.05)] group-hover/item:border-[#C4ED5F]/20 group-hover/item:text-[#C4ED5F] transition-all duration-150">
-                              {item.icon && <item.icon className="w-3.5 h-3.5" />}
+                            <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 group-hover/item:bg-[#C4ED5F]/10 group-hover/item:border-[#C4ED5F]/30 group-hover/item:text-[#C4ED5F] transition-all duration-200 shadow-inner">
+                              {item.icon && <item.icon className="w-4 h-4" />}
                             </div>
-                            <div className="flex-1 min-w-0">
-                              <div className="flex items-center gap-1.5 mb-0.5">
-                                <span className="text-sm font-medium text-black group-hover/item:text-[#C4ED5F] transition-colors">{item.label}</span>
+                            <div className="flex-1 min-w-0 pt-0.5">
+                              <div className="flex items-center gap-2 mb-1">
+                                <span className="text-sm font-semibold text-gray-200 group-hover/item:text-white transition-colors">{item.label}</span>
                                 {item.badge && (
-                                  <span className="px-1.5 py-0.5 rounded border border-[#C4ED5F] bg-[#C4ED5F]/10 text-[9px] font-bold tracking-wider uppercase text-[#7bb800]">
+                                  <span className="px-1.5 py-0.5 rounded border border-[#C4ED5F]/30 bg-[#C4ED5F]/10 text-[9px] font-bold tracking-wider uppercase text-[#C4ED5F]">
                                     {item.badge}
                                   </span>
                                 )}
                                 {item.external && (
-                                  <ArrowUpRight className="w-3 h-3 text-gray-400 group-hover/item:text-[#C4ED5F]/70 transition-colors" />
+                                  <ArrowUpRight className="w-3.5 h-3.5 text-gray-500 group-hover/item:text-[#C4ED5F]/80 transition-colors" />
                                 )}
                               </div>
-                              <p className="text-xs text-gray-400 leading-snug font-normal group-hover/item:text-gray-300 transition-colors">
+                              <p className="text-[13px] text-gray-400 leading-snug font-normal group-hover/item:text-gray-300 transition-colors">
                                 {item.description}
                               </p>
                             </div>
                           </Link>
                           )
                         ))}
-                      </div>
                     </div>
                   </div>
                 )}
@@ -370,12 +371,7 @@ export default function Navbar() {
               <GithubIcon className="w-4 h-4" />
             </a>
 
-            <Link
-              href="/tge"
-              className="hidden md:inline-flex items-center gap-1.5 px-4 py-1.5 text-sm font-semibold bg-[#C4ED5F] text-black border border-[#C4ED5F] rounded-lg transition-all duration-150 shadow-[0_0_20px_rgba(196,237,95,0.2)] hover:-translate-y-[1px]"
-            >
-              TGE Sign-Up
-            </Link>
+
             <Link
               href="https://github.com/quantachain/quanta/releases/tag/v3.0.0-alpha"
               target="_blank"
@@ -457,13 +453,7 @@ export default function Navbar() {
             ))}
 
             <div className="flex flex-col gap-3 mt-4">
-              <Link
-                href="/tge"
-                onClick={() => setIsOpen(false)}
-                className="flex items-center justify-center gap-2 px-6 py-3 rounded-xl text-sm font-bold bg-[#C4ED5F] text-black border border-[#C4ED5F] transition-all shadow-[0_0_20px_rgba(196,237,95,0.2)]"
-              >
-                TGE Sign-Up
-              </Link>
+
               <Link
                 href="https://github.com/quantachain/quanta/releases/tag/v3.0.0-alpha"
                 target="_blank"

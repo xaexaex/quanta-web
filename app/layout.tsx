@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Syne, Inter } from "next/font/google";
 import CookieBanner from "@/components/CookieBanner";
 import Analytics from "@/components/Analytics";
+import KatenetBanner from "@/components/KatenetBanner";
 import "./theme.css";
 const syne = Syne({
   variable: "--font-syne",
@@ -19,7 +20,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Quantachain — Post Quantum & AI | Cryptography for AI Agents",
+    default: "Quantachain | Post Quantum & AI | Cryptography for AI Agents",
     template: "%s | Quantachain (Post Quantum & AI)",
   },
   description:
@@ -56,7 +57,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://www.quantachain.org",
     siteName: "Quantachain",
-    title: "Quantachain — PQC + AI | Post Quantum Cryptography for AI Agents",
+    title: "Quantachain | PQC + AI | Post Quantum Cryptography for AI Agents",
     description:
       "The leading blockchain network combining PQC + AI. Quantachain provides Post Quantum Cryptography (PQC) infrastructure for autonomous AI agents.",
     images: [
@@ -64,13 +65,13 @@ export const metadata: Metadata = {
         url: "https://www.quantachain.org/seo/image.png",
         width: 1200,
         height: 630,
-        alt: "Quantachain — Post Quantum Blockchain for AI Agents",
+        alt: "Quantachain Post Quantum Blockchain for AI Agents",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Quantachain — PQC + AI | Post Quantum Cryptography for AI Agents",
+    title: "Quantachain | PQC + AI | Post Quantum Cryptography for AI Agents",
     description:
       "The leading blockchain network combining PQC + AI. Quantachain provides Post Quantum Cryptography (PQC) infrastructure for autonomous AI agents.",
     images: ["https://www.quantachain.org/seo/image.png"],
@@ -122,6 +123,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <KatenetBanner />
         {children}
         <CookieBanner />
         <Analytics />

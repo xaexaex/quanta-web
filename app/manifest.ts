@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: 'Quantachain — Post-Quantum Blockchain',
+    name: 'Quantachain | Post-Quantum Blockchain',
     short_name: 'Quantachain',
     description: 'The quantum-safe gas layer for autonomous AI agents and DePIN. Falcon-512 PQC, BFT finality.',
     start_url: '/',

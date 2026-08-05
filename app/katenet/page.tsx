@@ -5,14 +5,14 @@ import { ArrowUpRight, ChevronDown, Zap, ShieldCheck, Cpu, Users, Globe, Coins, 
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Katenet (V3 Testnet) | Quantachain",
-  description: "The upcoming V3 Testnet for Quanta. Experience the future of Post Quantum AI execution, DPoS, and On Chain Governance.",
+  title: "Katenet (V3 Live) | Quantachain",
+  description: "Katenet v3.0.0-alpha is now live. The V3 Testnet for Quanta featuring DPoS, Falcon-512 BFT consensus, on-chain governance, and AI agent payment channels.",
   alternates: {
     canonical: "https://katenet.quantachain.org",
   },
   openGraph: {
-    title: "Katenet (V3 Testnet) | Quantachain",
-    description: "The upcoming V3 Testnet for Quanta. Experience the future of Post Quantum AI execution, DPoS, and On Chain Governance.",
+    title: "Katenet (V3 Live) | Quantachain",
+    description: "Katenet v3.0.0-alpha is now live. The V3 Testnet for Quanta featuring DPoS, Falcon-512 BFT consensus, on-chain governance, and AI agent payment channels.",
     url: "https://katenet.quantachain.org",
     siteName: "Quantachain",
     images: [
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
         url: "https://www.quantachain.org/seo/image2.png",
         width: 1200,
         height: 630,
-        alt: "Quantachain Katenet V3 Testnet",
+        alt: "Quantachain Katenet V3 Live",
       },
     ],
     locale: "en_US",
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Katenet (V3 Testnet) | Quantachain",
-    description: "The upcoming V3 Testnet for Quanta. Experience the future of Post Quantum AI execution, DPoS, and On Chain Governance.",
+    title: "Katenet (V3 Live) | Quantachain",
+    description: "Katenet v3.0.0-alpha is now live. The V3 Testnet for Quanta featuring DPoS, Falcon-512 BFT consensus, on-chain governance, and AI agent payment channels.",
     images: ["https://www.quantachain.org/seo/image2.png"],
   },
 };
@@ -43,12 +43,19 @@ export default function KateTestnet() {
         {/* --- HERO SECTION --- */}
         <section className="pt-32 pb-16 px-6 md:px-12 max-w-7xl mx-auto bg-transparent text-center">
           <div className="max-w-6xl mx-auto">
-            <span className="section-label inline-block mb-4 text-xs font-bold uppercase tracking-widest text-[#a8d343]">The Release</span>
+
+            {/* Live badge */}
+            <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full border border-[#a8d343]/40 bg-[#a8d343]/10">
+              <span className="w-2 h-2 rounded-full bg-[#a8d343] animate-pulse" />
+              <span className="text-[11px] font-bold uppercase tracking-widest text-[#a8d343]">Live Now</span>
+              <span className="text-[11px] font-mono text-gray-400">v3.0.0-alpha</span>
+            </div>
+
             <h1
               className="text-4xl sm:text-5xl md:text-7xl lg:text-[5.5rem] font-bold leading-[1.05] tracking-tighter text-black mb-8"
               style={{ fontFamily: "var(--font-syne)" }}
             >
-              <span className="block md:inline-block md:whitespace-nowrap">Launching Testnet V3</span>
+              <span className="block md:inline-block md:whitespace-nowrap">Testnet V3 is Live</span>
               <br className="hidden md:block" />
               <span className="inline-block mt-3 sm:mt-4 text-[#C4ED5F] bg-black px-6 sm:px-8 py-1 sm:py-2 shadow-2xl rounded-2xl -rotate-2">
                 Katenet
@@ -56,18 +63,27 @@ export default function KateTestnet() {
             </h1>
 
             <p className="text-gray-600 text-lg sm:text-xl leading-relaxed mb-6 font-light max-w-2xl mx-auto">
-              Welcome to <strong>Testnet Kate</strong> — the foundational V3 test environment for the Quanta network. It is engineered to rigorously stress-test the new Aleph-BFT consensus implementation, optimistic agent settlement layers, and decentralized network architecture prior to Mainnet deployment.
+              <strong>Katenet v3.0.0-alpha</strong> is now live. DPoS consensus is active, Falcon-512 BFT is running, and the network is open for validators. Join now to help stress-test the network before mainnet.
             </p>
 
-
-
-            <div className="mt-12">
+            <div className="mt-12 flex flex-wrap items-center justify-center gap-4">
               <a
-                href="#naming-story"
+                href="https://quascan.xyz"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#C4ED5F] text-black text-[13px] font-bold uppercase tracking-widest rounded-xl hover:bg-[#d5f57a] transition-all"
               >
-                Read the Naming Story
-                <ChevronDown size={16} className="group-hover:translate-y-1 transition-transform" />
+                View Explorer
+                <ArrowUpRight size={16} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+              </a>
+              <a
+                href="https://github.com/quantachain/quanta/releases/tag/v3.0.0-alpha"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center justify-center gap-2 px-8 py-4 bg-transparent text-black text-[13px] font-bold uppercase tracking-widest rounded-xl border border-black hover:bg-black hover:text-white transition-all"
+              >
+                Release Notes
+                <ArrowUpRight size={16} />
               </a>
             </div>
 
@@ -78,15 +94,15 @@ export default function KateTestnet() {
         {/* --- WHAT IS V3 / FEATURES --- */}
         <section className="py-20 px-6 md:px-12 max-w-7xl mx-auto bg-transparent">
           <div className="text-center max-w-4xl mx-auto mb-20">
-            <span className="section-label inline-block mb-4 text-xs font-bold uppercase tracking-widest text-gray-400">The Roadmap</span>
+            <span className="section-label inline-block mb-4 text-xs font-bold uppercase tracking-widest text-gray-400">What&apos;s Live in V3</span>
             <h2
               className="text-4xl sm:text-5xl font-bold leading-[1.1] tracking-tight text-black mb-6"
               style={{ fontFamily: "var(--font-syne)" }}
             >
-              What&apos;s coming in V3?
+              What&apos;s in V3?
             </h2>
             <p className="text-gray-600 text-lg leading-relaxed font-light max-w-2xl mx-auto">
-              Katenet serves as the ultimate proving ground for our most ambitious protocol upgrades yet. Here is what you can expect to test.
+              Katenet is the proving ground for our most ambitious protocol upgrades. All of the following are live and running on Katenet today.
             </p>
           </div>
 
